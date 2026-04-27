@@ -1,0 +1,7 @@
+requests>=2.31.0
+pandas>=2.0.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+yfinance>=0.2.40
+anthropic>=0.25.0
+nsepython>=2.0.0
