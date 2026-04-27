@@ -2,17 +2,13 @@ name: Daily Nifty 500 Screener
 
 on:
   schedule:
-    # 4:00 PM IST = 10:30 AM UTC  (IST = UTC + 5:30)
-    # Runs Monday–Friday after NSE market close
     - cron: '30 10 * * 1-5'
-
-  # Lets you trigger a manual run from the GitHub Actions UI anytime
   workflow_dispatch:
 
 jobs:
   screen:
     runs-on: ubuntu-latest
-    timeout-minutes: 150        # full Nifty 500 scan can take ~90 mins
+    timeout-minutes: 150
 
     steps:
       - name: Checkout repository
@@ -30,7 +26,15 @@ jobs:
 
       - name: Run screener
         env:
-          WHATSAPP_PHONE:    ${{ secrets.WHATSAPP_PHONE }}
-          CALLMEBOT_API_KEY: ${{ secrets.CALLMEBOT_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
         run: python screener.py
+
+      - name: Commit updated data files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add alerts_log.json watchlist_log.json near_miss_log.csv performance_log.json
+          git diff --staged --quiet || git commit -m "Data: $(date +%Y-%m-%d)"
+          git push
