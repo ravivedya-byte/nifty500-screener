@@ -11,7 +11,7 @@ import os
 # ─── Credentials ─────────────────────────────────────────────────────────────
 
 # Telegram Bot (get from @BotFather)
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8268343253:AAFYBiEAigz6tbf_XGs8ZUY1W3uDZXlRhDI")
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8268343253:AAFpX-pYWOJca1UjQ5wUUjKwwH0bHEvZH6k")
 
 # Your Telegram Chat ID (see README for how to find this)
 TELEGRAM_CHAT_ID   = os.getenv("TELEGRAM_CHAT_ID", "1276631405")
