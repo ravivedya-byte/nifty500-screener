@@ -35,6 +35,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add alerts_log.json watchlist_log.json near_miss_log.csv performance_log.json
+          git add --ignore-unmatch alerts_log.json watchlist_log.json near_miss_log.csv performance_log.json
           git diff --staged --quiet || git commit -m "Data: $(date +%Y-%m-%d)"
           git push
