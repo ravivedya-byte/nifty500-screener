@@ -1,0 +1,21 @@
+{
+  "sip_entries": [
+    {
+      "month": "2026-05",
+      "date": "2026-05-01",
+      "type": "gold_fallback",
+      "reason": "No stocks qualified in the prior 30 days",
+      "allocations": [
+        {
+          "symbol": "GOLDBEES",
+          "name": "Nippon India Gold ETF (GOLDBEES)",
+          "price_entry": 123.43,
+          "shares": 810.1758
+        }
+      ],
+      "amount_per_stock": 100000,
+      "total_deployed": 100000,
+      "benchmark_price_entry": 23997.55
+    }
+  ]
+}

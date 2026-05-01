@@ -523,3 +523,132 @@ date,symbol,name,failed_count,criterion,detail
 2026-04-30,ZYDUSLIFE,Zydus Lifesciences Ltd,2,ROE,N/A
 2026-04-30,ZYDUSLIFE,Zydus Lifesciences Ltd,2,FCF / PAT,0.34
 2026-04-30,ECLERX,eClerx Services Ltd,1,ROE,N/A
+2026-05-01,ABB,ABB India Ltd,2,ROE,N/A
+2026-05-01,ABB,ABB India Ltd,2,FCF / PAT,-0.66
+2026-05-01,ACE,Action Construction Equipment Ltd,1,ROE,N/A
+2026-05-01,ADANIPOWER,Adani Power Ltd,1,ROE,N/A
+2026-05-01,CPPLUS,Aditya Infotech Ltd,2,ROE,N/A
+2026-05-01,CPPLUS,Aditya Infotech Ltd,2,PEG Ratio,N/A
+2026-05-01,ABDL,Allied Blenders & Distillers Ltd,1,ROE,N/A
+2026-05-01,ANANTRAJ,Anant Raj Ltd,2,ROE,N/A
+2026-05-01,ANANTRAJ,Anant Raj Ltd,2,Avg ROCE (3Y),"10.4%  (hist: [1.9, 5.0, 7.8, 10.6, 12.7])"
+2026-05-01,BLS,BLS International Services Ltd,2,ROE,N/A
+2026-05-01,BLS,BLS International Services Ltd,2,FCF / PAT,0.11
+2026-05-01,BATAINDIA,Bata India Ltd,2,ROE,N/A
+2026-05-01,BATAINDIA,Bata India Ltd,2,PEG Ratio,N/A
+2026-05-01,BPCL,Bharat Petroleum Corporation Ltd,2,ROE,N/A
+2026-05-01,BPCL,Bharat Petroleum Corporation Ltd,2,FCF / PAT,0.62
+2026-05-01,BLUEDART,Blue Dart Express Ltd,2,ROE,N/A
+2026-05-01,BLUEDART,Blue Dart Express Ltd,2,PEG Ratio,2.23
+2026-05-01,CEMPRO,Cemindia Projects Ltd,1,ROE,N/A
+2026-05-01,CHAMBLFERT,Chambal Fertilisers & Chemicals Ltd,2,ROE,N/A
+2026-05-01,CHAMBLFERT,Chambal Fertilisers & Chemicals Ltd,2,PEG Ratio,2.45
+2026-05-01,CHENNPETRO,Chennai Petroleum Corporation Ltd,1,ROE,N/A
+2026-05-01,COALINDIA,Coal India Ltd,1,ROE,N/A
+2026-05-01,COLPAL,Colgate-Palmolive (India) Ltd,2,ROE,N/A
+2026-05-01,COLPAL,Colgate-Palmolive (India) Ltd,2,PEG Ratio,4.04
+2026-05-01,COROMANDEL,Coromandel International Ltd,2,ROE,N/A
+2026-05-01,COROMANDEL,Coromandel International Ltd,2,PEG Ratio,2.23
+2026-05-01,EIDPARRY,EID Parry (India) Ltd,2,ROE,N/A
+2026-05-01,EIDPARRY,EID Parry (India) Ltd,2,Promoter Holding,41.5%
+2026-05-01,EIHOTEL,EIH Ltd,2,ROE,N/A
+2026-05-01,EIHOTEL,EIH Ltd,2,Promoter Holding,32.9%
+2026-05-01,ELECON,Elecon Engineering Company Ltd,1,ROE,N/A
+2026-05-01,EMCURE,Emcure Pharmaceuticals Ltd,2,ROE,N/A
+2026-05-01,EMCURE,Emcure Pharmaceuticals Ltd,2,PEG Ratio,2.40
+2026-05-01,ENGINERSIN,Engineers India Ltd,2,ROE,N/A
+2026-05-01,ENGINERSIN,Engineers India Ltd,2,Revenue CAGR 5Y,5.0%
+2026-05-01,FSL,Firstsource Solutions Ltd,2,ROE,N/A
+2026-05-01,FSL,Firstsource Solutions Ltd,2,PEG Ratio,1.89
+2026-05-01,FORCEMOT,Force Motors Ltd,2,ROE,N/A
+2026-05-01,FORCEMOT,Force Motors Ltd,2,FCF / PAT,0.68
+2026-05-01,GODFRYPHLP,Godfrey Phillips India Ltd,2,ROE,N/A
+2026-05-01,GODFRYPHLP,Godfrey Phillips India Ltd,2,FCF / PAT,0.54
+2026-05-01,HEG,HEG Ltd,2,ROE,N/A
+2026-05-01,HEG,HEG Ltd,2,Avg ROCE (3Y),"6.6%  (hist: [11.6, 12.3, 7.6, 5.1, 7.2])"
+2026-05-01,HBLENGINE,HBL Engineering Ltd,1,ROE,N/A
+2026-05-01,HCLTECH,HCL Technologies Ltd,2,ROE,N/A
+2026-05-01,HCLTECH,HCL Technologies Ltd,2,PEG Ratio,2.24
+2026-05-01,HEXT,Hexaware Technologies Ltd,2,ROE,N/A
+2026-05-01,HEXT,Hexaware Technologies Ltd,2,PEG Ratio,11.68
+2026-05-01,HSCL,Himadri Speciality Chemical Ltd,2,ROE,N/A
+2026-05-01,HSCL,Himadri Speciality Chemical Ltd,2,FCF / PAT,0.71
+2026-05-01,HINDPETRO,Hindustan Petroleum Corporation Ltd,2,Debt / Equity,1.11
+2026-05-01,HINDPETRO,Hindustan Petroleum Corporation Ltd,2,ROE,N/A
+2026-05-01,HINDZINC,Hindustan Zinc Ltd,2,ROE,N/A
+2026-05-01,HINDZINC,Hindustan Zinc Ltd,2,PEG Ratio,1.57
+2026-05-01,HYUNDAI,Hyundai Motor India Ltd,2,ROE,N/A
+2026-05-01,HYUNDAI,Hyundai Motor India Ltd,2,PEG Ratio,9.57
+2026-05-01,IOC,Indian Oil Corporation Ltd,1,ROE,N/A
+2026-05-01,INDUSTOWER,Indus Towers Ltd,2,ROE,N/A
+2026-05-01,INDUSTOWER,Indus Towers Ltd,2,PEG Ratio,1.07
+2026-05-01,JKTYRE,JK Tyre & Industries Ltd,2,ROE,N/A
+2026-05-01,JKTYRE,JK Tyre & Industries Ltd,2,PEG Ratio,1.14
+2026-05-01,JSWDULUX,JSW Dulux Ltd,2,ROE,N/A
+2026-05-01,JSWDULUX,JSW Dulux Ltd,2,Revenue CAGR 5Y,9.2%
+2026-05-01,JINDALSAW,Jindal Saw Ltd,1,ROE,N/A
+2026-05-01,JSL,Jindal Stainless Ltd,1,ROE,N/A
+2026-05-01,JYOTICNC,Jyoti CNC Automation Ltd,2,ROE,N/A
+2026-05-01,JYOTICNC,Jyoti CNC Automation Ltd,2,PEG Ratio,1.36
+2026-05-01,KPITTECH,KPIT Technologies Ltd,2,ROE,N/A
+2026-05-01,KPITTECH,KPIT Technologies Ltd,2,Promoter Holding,39.4%
+2026-05-01,KALYANKJIL,Kalyan Jewellers India Ltd,2,ROE,N/A
+2026-05-01,KALYANKJIL,Kalyan Jewellers India Ltd,2,Avg ROCE (3Y),"17.3%  (hist: [11.9, 14.7, 15.4, 16.2, 20.2])"
+2026-05-01,LINDEINDIA,Linde India Ltd,2,ROE,N/A
+2026-05-01,LINDEINDIA,Linde India Ltd,2,PEG Ratio,3.39
+2026-05-01,LLOYDSME,Lloyds Metals & Energy Ltd,2,Debt / Equity,1.06
+2026-05-01,LLOYDSME,Lloyds Metals & Energy Ltd,2,ROE,N/A
+2026-05-01,LODHA,Lodha Developers Ltd,2,ROE,N/A
+2026-05-01,LODHA,Lodha Developers Ltd,2,Avg ROCE (3Y),"13.3%  (hist: [9.2, 9.5, 10.6, 14.6, 14.8])"
+2026-05-01,LUPIN,Lupin Ltd,2,ROE,N/A
+2026-05-01,LUPIN,Lupin Ltd,2,FCF / PAT,0.72
+2026-05-01,MRPL,Mangalore Refinery And Petrochemicals Ltd,2,Debt / Equity,1.08
+2026-05-01,MRPL,Mangalore Refinery And Petrochemicals Ltd,2,ROE,N/A
+2026-05-01,MARICO,Marico Ltd,2,ROE,N/A
+2026-05-01,MARICO,Marico Ltd,2,PEG Ratio,7.52
+2026-05-01,NATCOPHARM,Natco Pharma Ltd,2,ROE,N/A
+2026-05-01,NATCOPHARM,Natco Pharma Ltd,2,FCF / PAT,0.09
+2026-05-01,NBCC,NBCC (India) Ltd,2,ROE,N/A
+2026-05-01,NBCC,NBCC (India) Ltd,2,PEG Ratio,1.58
+2026-05-01,NCC,NCC Ltd,2,ROE,N/A
+2026-05-01,NCC,NCC Ltd,2,Promoter Holding,22.8%
+2026-05-01,NMDC,NMDC Ltd,2,ROE,N/A
+2026-05-01,NMDC,NMDC Ltd,2,PEG Ratio,6.01
+2026-05-01,NH,Narayana Hrudayalaya Ltd,2,ROE,N/A
+2026-05-01,NH,Narayana Hrudayalaya Ltd,2,FCF / PAT,-0.29
+2026-05-01,NATIONALUM,National Aluminium Company Ltd,1,ROE,N/A
+2026-05-01,ONGC,Oil & Natural Gas Corpn Ltd,2,ROE,N/A
+2026-05-01,ONGC,Oil & Natural Gas Corpn Ltd,2,FCF / PAT,0.49
+2026-05-01,OLECTRA,Olectra Greentech Ltd,2,ROE,N/A
+2026-05-01,OLECTRA,Olectra Greentech Ltd,2,FCF / PAT,-1.33
+2026-05-01,PETRONET,Petronet LNG Ltd,2,ROE,N/A
+2026-05-01,PETRONET,Petronet LNG Ltd,2,PEG Ratio,2.61
+2026-05-01,PREMIERENE,Premier Energies Ltd,2,ROE,N/A
+2026-05-01,PREMIERENE,Premier Energies Ltd,2,FCF / PAT,-2.46
+2026-05-01,RAILTEL,Railtel Corporation of India Ltd,2,ROE,N/A
+2026-05-01,RAILTEL,Railtel Corporation of India Ltd,2,PEG Ratio,5.74
+2026-05-01,REDINGTON,Redington Ltd,2,ROE,N/A
+2026-05-01,REDINGTON,Redington Ltd,2,Promoter Holding,0.0%
+2026-05-01,SAGILITY,Sagility Ltd,2,ROE,N/A
+2026-05-01,SAGILITY,Sagility Ltd,2,Avg ROCE (3Y),"13.9%  (hist: [2.2, 11.4, 12.1, 13.4, 16.2])"
+2026-05-01,SARDAEN,Sarda Energy & Minerals Ltd,2,ROE,N/A
+2026-05-01,SARDAEN,Sarda Energy & Minerals Ltd,2,Avg ROCE (3Y),"15.5%  (hist: [29.6, 22.0, 15.2, 13.5, 17.7])"
+2026-05-01,SUNPHARMA,Sun Pharmaceutical Industries Ltd,2,ROE,N/A
+2026-05-01,SUNPHARMA,Sun Pharmaceutical Industries Ltd,2,PEG Ratio,1.18
+2026-05-01,SPLPETRO,Supreme Petrochem Ltd,1,ROE,N/A
+2026-05-01,TCS,Tata Consultancy Services Ltd,2,ROE,N/A
+2026-05-01,TCS,Tata Consultancy Services Ltd,2,PEG Ratio,1.86
+2026-05-01,TATATECH,Tata Technologies Ltd,2,ROE,N/A
+2026-05-01,TATATECH,Tata Technologies Ltd,2,PEG Ratio,N/A
+2026-05-01,TORNTPOWER,Torrent Power Ltd,2,ROE,N/A
+2026-05-01,TORNTPOWER,Torrent Power Ltd,2,PEG Ratio,1.50
+2026-05-01,TARIL,Transformers & Rectifiers India Ltd,1,ROE,N/A
+2026-05-01,WAAREEENER,Waaree Energies Ltd,2,ROE,N/A
+2026-05-01,WAAREEENER,Waaree Energies Ltd,2,FCF / PAT,-0.90
+2026-05-01,WELCORP,Welspun Corp Ltd,2,ROE,N/A
+2026-05-01,WELCORP,Welspun Corp Ltd,2,PEG Ratio,1.07
+2026-05-01,ZENTEC,Zen Technologies Ltd,2,ROE,N/A
+2026-05-01,ZENTEC,Zen Technologies Ltd,2,FCF / PAT,-2.59
+2026-05-01,ZYDUSLIFE,Zydus Lifesciences Ltd,2,ROE,N/A
+2026-05-01,ZYDUSLIFE,Zydus Lifesciences Ltd,2,FCF / PAT,0.34
+2026-05-01,ECLERX,eClerx Services Ltd,1,ROE,N/A
