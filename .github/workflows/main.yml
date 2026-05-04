@@ -2,21 +2,20 @@ name: NSE Investment Screener
 
 on:
   schedule:
-    # Daily: 5:30 PM IST = 12:00 PM UTC  Mon-Fri
-    # Alert arrives ~6:00 PM IST
+    # Weekday screener: 5:30 PM IST = 12:00 PM UTC  Mon-Fri
     - cron: '0 12 * * 1-5'
-    # Saturday: 9:00 AM IST = 3:30 AM UTC
-    - cron: '30 3 * * 6'
+    # Saturday weekly report: 10:00 AM IST = 4:30 AM UTC
+    - cron: '30 4 * * 6'
 
   workflow_dispatch:
     inputs:
       mode:
-        description: 'Run mode: daily or saturday'
+        description: 'Run mode: screener or weekly_report'
         required: false
-        default: 'daily'
+        default: 'screener'
 
 jobs:
-  screen:
+  run:
     runs-on: ubuntu-latest
     timeout-minutes: 150
 
@@ -36,17 +35,17 @@ jobs:
 
       - name: Determine run mode
         run: |
-          DAY=$(date +%u)
+          DAY=$(date +%u)   # 1=Mon … 5=Fri … 6=Sat
           if [ "$DAY" = "6" ]; then
-            echo "SCREENER_MODE=saturday" >> $GITHUB_ENV
+            echo "SCREENER_MODE=weekly_report" >> $GITHUB_ENV
           else
-            echo "SCREENER_MODE=daily" >> $GITHUB_ENV
+            echo "SCREENER_MODE=screener" >> $GITHUB_ENV
           fi
           if [ "${{ github.event.inputs.mode }}" != "" ]; then
             echo "SCREENER_MODE=${{ github.event.inputs.mode }}" >> $GITHUB_ENV
           fi
 
-      - name: Run screener
+      - name: Run
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -60,7 +59,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          for f in alerts_log.json watchlist_log.json near_miss_log.csv performance_log.json week_stats.json; do
+          for f in alerts_log.json watchlist_log.json near_miss_log.csv performance_log.json ai_assessments_log.json; do
             [ -f "$f" ] && git add "$f" || true
           done
           git diff --staged --quiet || git commit -m "Data: $(date +%Y-%m-%d) [${SCREENER_MODE}]"
