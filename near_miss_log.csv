@@ -652,3 +652,694 @@ date,symbol,name,failed_count,criterion,detail
 2026-05-01,ZYDUSLIFE,Zydus Lifesciences Ltd,2,ROE,N/A
 2026-05-01,ZYDUSLIFE,Zydus Lifesciences Ltd,2,FCF / PAT,0.34
 2026-05-01,ECLERX,eClerx Services Ltd,1,ROE,N/A
+2026-05-04,63MOONS,63 Moons Technologies Ltd,2,Revenue CAGR 5Y,-10.7%
+2026-05-04,63MOONS,63 Moons Technologies Ltd,2,Avg ROCE (3Y),"-4.0% hist:[-3.8, -0.9, 2.5, -7.0, -7.6]"
+2026-05-04,ABB,ABB India Ltd,1,FCF / PAT,-0.66
+2026-05-04,ABFRL,Aditya Birla Fashion & Retail Ltd,2,Revenue CAGR 5Y,8.5%
+2026-05-04,ABFRL,Aditya Birla Fashion & Retail Ltd,2,Avg ROCE (3Y),"4.8% hist:[16.6, 15.7, 3.0, 5.9, 5.6]"
+2026-05-04,ABINFRA,A B Infrabuild Ltd,1,Promoter Holding,30.9%
+2026-05-04,ABLBL,Aditya Birla Lifestyle Brands Ltd,2,Debt / Equity,2.67
+2026-05-04,ABLBL,Aditya Birla Lifestyle Brands Ltd,2,Revenue CAGR 5Y,4.3%
+2026-05-04,ACI,Archean Chemical Industries Ltd,1,FCF / PAT,0.36
+2026-05-04,ADFFOODS,ADF Foods Ltd,2,Promoter Holding,36.1%
+2026-05-04,ADFFOODS,ADF Foods Ltd,2,PEG Ratio,4.20
+2026-05-04,ADOR,Ador Welding Ltd,2,FCF / PAT,0.26
+2026-05-04,ADOR,Ador Welding Ltd,2,PEG Ratio,1.04
+2026-05-04,ADSL,Allied Digital Services Ltd,2,Avg ROCE (3Y),"9.9% hist:[12.2, 15.0, 12.7, 9.0, 7.9]"
+2026-05-04,ADSL,Allied Digital Services Ltd,2,PEG Ratio,1.63
+2026-05-04,ADVAIT,Advait Energy Transitions Limited,1,FCF / PAT,-0.75
+2026-05-04,ADVANCE,Advance Agrolife Ltd,1,FCF / PAT,-0.86
+2026-05-04,ADVENTHTL,Advent Hotels International Ltd,1,Avg ROCE (3Y),"5.7% hist:[2.5, 8.8]"
+2026-05-04,AEGISVOPAK,Aegis Vopak Terminals Ltd,2,Avg ROCE (3Y),"8.2% hist:[-1.0, 6.9, 9.3, 7.7, 7.7]"
+2026-05-04,AEGISVOPAK,Aegis Vopak Terminals Ltd,2,FCF / PAT,-2.59
+2026-05-04,AEROENTER,Aeroflex Enterprises Ltd,2,Avg ROCE (3Y),"13.0% hist:[20.1, 15.0, 10.4, 14.1, 14.6]"
+2026-05-04,AEROENTER,Aeroflex Enterprises Ltd,2,FCF / PAT,-0.17
+2026-05-04,AEROFLEX,Aeroflex Industries Ltd,2,FCF / PAT,0.52
+2026-05-04,AEROFLEX,Aeroflex Industries Ltd,2,PEG Ratio,10.67
+2026-05-04,AFCONS,Afcons Infrastructure Ltd,1,Revenue CAGR 5Y,6.0%
+2026-05-04,AGARIND,Agarwal Industrial Corporation Ltd,2,Avg ROCE (3Y),"17.2% hist:[22.8, 24.2, 19.8, 19.0, 12.8]"
+2026-05-04,AGARIND,Agarwal Industrial Corporation Ltd,2,FCF / PAT,-0.51
+2026-05-04,AGI,AGI Greenpac Ltd,2,Revenue CAGR 5Y,6.1%
+2026-05-04,AGI,AGI Greenpac Ltd,2,FCF / PAT,-0.30
+2026-05-04,AGIIL,AGI Infra Ltd,2,FCF / PAT,-0.23
+2026-05-04,AGIIL,AGI Infra Ltd,2,PEG Ratio,1.60
+2026-05-04,AJANTPHARM,Ajanta Pharma Ltd,2,FCF / PAT,0.47
+2026-05-04,AJANTPHARM,Ajanta Pharma Ltd,2,PEG Ratio,3.56
+2026-05-04,AJMERA,Ajmera Realty & Infra India Ltd,2,Avg ROCE (3Y),"12.2% hist:[7.4, 7.7, 12.0, 12.3, 12.2]"
+2026-05-04,AJMERA,Ajmera Realty & Infra India Ltd,2,FCF / PAT,-0.18
+2026-05-04,AKUMS,Akums Drugs & Pharmaceuticals Ltd,2,Revenue CAGR 5Y,9.3%
+2026-05-04,AKUMS,Akums Drugs & Pharmaceuticals Ltd,2,Avg ROCE (3Y),"12.9% hist:[-8.8, 22.0, 9.6, 14.8, 14.3]"
+2026-05-04,ALEMBICLTD,Alembic Ltd,2,Avg ROCE (3Y),"3.5% hist:[0.6, 1.9, 2.6, 4.0, 3.8]"
+2026-05-04,ALEMBICLTD,Alembic Ltd,2,FCF / PAT,0.38
+2026-05-04,ALICON,Alicon Castalloy Ltd,2,FCF / PAT,-0.15
+2026-05-04,ALICON,Alicon Castalloy Ltd,2,PEG Ratio,2.52
+2026-05-04,ALKEM,Alkem Laboratories Ltd,2,FCF / PAT,0.50
+2026-05-04,ALKEM,Alkem Laboratories Ltd,2,PEG Ratio,3.17
+2026-05-04,ALKYLAMINE,Alkyl Amines Chemicals Ltd,2,FCF / PAT,0.61
+2026-05-04,ALKYLAMINE,Alkyl Amines Chemicals Ltd,2,PEG Ratio,1.22
+2026-05-04,ALLDIGI,Alldigi Tech Ltd,1,PEG Ratio,1.06
+2026-05-04,ALOKINDS,Alok Industries Ltd,2,Revenue CAGR 5Y,-0.7%
+2026-05-04,ALOKINDS,Alok Industries Ltd,2,Avg ROCE (3Y),"-0.1% hist:[8.8, -1.5, 0.8, -1.7, 0.6]"
+2026-05-04,AMAGI,Amagi Media Labs Ltd,2,Avg ROCE (3Y),"-41.1% hist:[50.5, -328.1, -53.8, -52.7, -16.7]"
+2026-05-04,AMAGI,Amagi Media Labs Ltd,2,Promoter Holding,14.9%
+2026-05-04,AMNPLST,Amines & Plasticizers Ltd,2,Revenue CAGR 5Y,7.3%
+2026-05-04,AMNPLST,Amines & Plasticizers Ltd,2,PEG Ratio,11.87
+2026-05-04,AMRUTANJAN,Amrutanjan Health Care Ltd,1,FCF / PAT,0.64
+2026-05-04,ANANTRAJ,Anant Raj Ltd,1,Avg ROCE (3Y),"10.4% hist:[1.9, 5.0, 7.8, 10.6, 12.7]"
+2026-05-04,ANTHEM,Anthem Biosciences Ltd,1,FCF / PAT,0.24
+2026-05-04,APARINDS,Apar Industries Ltd,2,FCF / PAT,0.57
+2026-05-04,APARINDS,Apar Industries Ltd,2,PEG Ratio,1.20
+2026-05-04,APCOTEXIND,Apcotex Industries Ltd,2,Revenue CAGR 5Y,1.3%
+2026-05-04,APCOTEXIND,Apcotex Industries Ltd,2,PEG Ratio,2.35
+2026-05-04,APOLLOHOSP,Apollo Hospitals Enterprise Ltd,2,FCF / PAT,0.27
+2026-05-04,APOLLOHOSP,Apollo Hospitals Enterprise Ltd,2,Promoter Holding,28.0%
+2026-05-04,APOLLOPIPE,Apollo Pipes Ltd,2,Avg ROCE (3Y),"11.3% hist:[38.1, 56.1, 15.1, 10.9, 8.0]"
+2026-05-04,APOLLOPIPE,Apollo Pipes Ltd,2,FCF / PAT,-1.39
+2026-05-04,APTECHT,Aptech Ltd,2,Avg ROCE (3Y),"13.7% hist:[19.5, 28.9, 15.7, 11.2, 14.3]"
+2026-05-04,APTECHT,Aptech Ltd,2,PEG Ratio,1.29
+2026-05-04,ARIHANT,Arihant Foundations & Housing Ltd,2,Avg ROCE (3Y),"11.8% hist:[-0.7, 3.7, 7.5, 13.9, 14.0]"
+2026-05-04,ARIHANT,Arihant Foundations & Housing Ltd,2,Promoter Holding,37.3%
+2026-05-04,ARIHANTSUP,Arihant Superstructures Ltd,2,Debt / Equity,2.38
+2026-05-04,ARIHANTSUP,Arihant Superstructures Ltd,2,Avg ROCE (3Y),"11.6% hist:[14.7, 14.4, 15.1, 9.9, 9.9]"
+2026-05-04,ARKADE,Arkade Developers Ltd,1,FCF / PAT,-0.47
+2026-05-04,ARROWGREEN,Arrow Greentech Ltd,1,FCF / PAT,0.26
+2026-05-04,ARVIND,Arvind Ltd,2,Avg ROCE (3Y),"17.3% hist:[17.2, 17.0, 17.6, 16.7, 17.5]"
+2026-05-04,ARVIND,Arvind Ltd,2,Promoter Holding,39.5%
+2026-05-04,ARVSMART,Arvind SmartSpaces Ltd,1,FCF / PAT,0.56
+2026-05-04,ASALCBR,Associated Alcohols & Breweries Ltd,1,FCF / PAT,-1.17
+2026-05-04,ASHAPURMIN,Ashapura Minechem Ltd,2,Avg ROCE (3Y),"16.1% hist:[8.8, 12.5, 13.2, 15.7, 19.3]"
+2026-05-04,ASHAPURMIN,Ashapura Minechem Ltd,2,FCF / PAT,-0.41
+2026-05-04,ASHIANA,Ashiana Housing Ltd,1,Avg ROCE (3Y),"7.8% hist:[-1.0, 3.2, 10.6, 1.7, 11.1]"
+2026-05-04,ASHOKA,Ashoka Buildcon Ltd,1,FCF / PAT,-0.08
+2026-05-04,ASKAUTOLTD,ASK Automotive Ltd,2,FCF / PAT,0.39
+2026-05-04,ASKAUTOLTD,ASK Automotive Ltd,2,PEG Ratio,1.43
+2026-05-04,ASTRAL,Astral Ltd,2,FCF / PAT,0.05
+2026-05-04,ASTRAL,Astral Ltd,2,PEG Ratio,18.51
+2026-05-04,ATGL,Adani Total Gas Ltd,2,FCF / PAT,-0.08
+2026-05-04,ATGL,Adani Total Gas Ltd,2,PEG Ratio,15.00
+2026-05-04,ATHERENERG,Ather Energy Ltd,1,Promoter Holding,40.8%
+2026-05-04,ATLANTAELE,Atlanta Electricals Ltd,2,FCF / PAT,0.51
+2026-05-04,ATLANTAELE,Atlanta Electricals Ltd,2,PEG Ratio,2.77
+2026-05-04,AURUM,Aurum Proptech Ltd,2,Avg ROCE (3Y),"6.9% hist:[-10.8, -5.0, 0.6, 8.6, 11.5]"
+2026-05-04,AURUM,Aurum Proptech Ltd,2,FCF / PAT,-13.03
+2026-05-04,AVANTEL,Avantel Ltd,2,FCF / PAT,-0.48
+2026-05-04,AVANTEL,Avantel Ltd,2,Promoter Holding,37.0%
+2026-05-04,AWFIS,AWFIS Space Solutions Ltd,2,Debt / Equity,2.91
+2026-05-04,AWFIS,AWFIS Space Solutions Ltd,2,Promoter Holding,17.0%
+2026-05-04,AWL,AWL Agri Business Ltd,1,Avg ROCE (3Y),"16.9% hist:[16.8, 9.1, 10.4, 21.9, 18.5]"
+2026-05-04,AXISCADES,AXISCADES Technologies Ltd,2,Avg ROCE (3Y),"16.4% hist:[17.9, 21.3, 14.3, 15.9, 19.0]"
+2026-05-04,AXISCADES,AXISCADES Technologies Ltd,2,PEG Ratio,1.76
+2026-05-04,AYMSYNTEX,AYM Syntex Ltd,1,Avg ROCE (3Y),"13.2% hist:[5.9, 13.8, 13.5, 15.4, 10.6]"
+2026-05-04,AZAD,Azad Engineering Ltd,2,Avg ROCE (3Y),"12.8% hist:[19.6, 14.3, 17.1, 9.7, 11.7]"
+2026-05-04,AZAD,Azad Engineering Ltd,2,FCF / PAT,-6.11
+2026-05-04,BAJAJ-AUTO,Bajaj Auto Ltd,2,FCF / PAT,0.52
+2026-05-04,BAJAJ-AUTO,Bajaj Auto Ltd,2,PEG Ratio,2.32
+2026-05-04,BAJAJCON,Bajaj Consumer Care Ltd,2,Revenue CAGR 5Y,4.8%
+2026-05-04,BAJAJCON,Bajaj Consumer Care Ltd,2,Promoter Holding,43.0%
+2026-05-04,BAJAJELEC,Bajaj Electricals Ltd,2,Revenue CAGR 5Y,-0.4%
+2026-05-04,BAJAJELEC,Bajaj Electricals Ltd,2,Avg ROCE (3Y),"13.7% hist:[13.7, 18.7, 15.7, 15.6, 9.9]"
+2026-05-04,BAJEL,Bajel Projects Ltd,2,Avg ROCE (3Y),"6.6% hist:[1.7, 8.2, 10.0]"
+2026-05-04,BAJEL,Bajel Projects Ltd,2,PEG Ratio,2.22
+2026-05-04,BALMLAWRIE,Balmer Lawrie & Company Ltd,1,Avg ROCE (3Y),"15.4% hist:[9.9, 11.2, 15.8, 15.1, 15.2]"
+2026-05-04,BALUFORGE,Balu Forge Industries Ltd,1,FCF / PAT,-0.69
+2026-05-04,BANSALWIRE,Bansal Wire Industries Ltd,2,Avg ROCE (3Y),"14.3% hist:[16.7, 14.9, 13.0, 14.3, 15.6]"
+2026-05-04,BANSALWIRE,Bansal Wire Industries Ltd,2,FCF / PAT,-3.50
+2026-05-04,BASF,BASF India Ltd,2,Avg ROCE (3Y),"16.7% hist:[27.0, 20.2, 8.3, 23.3, 18.6]"
+2026-05-04,BASF,BASF India Ltd,2,PEG Ratio,1.13
+2026-05-04,BBL,Bharat Bijlee Ltd,1,Promoter Holding,33.6%
+2026-05-04,BBTC,The Bombay Burmah Trading Corporation Ltd,2,Revenue CAGR 5Y,7.5%
+2026-05-04,BBTC,The Bombay Burmah Trading Corporation Ltd,2,FCF / PAT,0.46
+2026-05-04,BCLIND,BCL Industries Ltd,2,Avg ROCE (3Y),"15.9% hist:[22.0, 13.5, 16.9, 15.3, 15.6]"
+2026-05-04,BCLIND,BCL Industries Ltd,2,FCF / PAT,-0.69
+2026-05-04,BECTORFOOD,Mrs Bectors Food Specialities Ltd,2,FCF / PAT,0.15
+2026-05-04,BECTORFOOD,Mrs Bectors Food Specialities Ltd,2,PEG Ratio,3.32
+2026-05-04,BEL,Bharat Electronics Ltd,2,FCF / PAT,0.53
+2026-05-04,BEL,Bharat Electronics Ltd,2,PEG Ratio,2.28
+2026-05-04,BELRISE,Belrise Industries Ltd,2,FCF / PAT,0.39
+2026-05-04,BELRISE,Belrise Industries Ltd,2,PEG Ratio,4.08
+2026-05-04,BEPL,Bhansali Engineering Polymers Ltd,1,Revenue CAGR 5Y,-0.2%
+2026-05-04,BERGEPAINT,Berger Paints India Ltd,2,FCF / PAT,0.52
+2026-05-04,BERGEPAINT,Berger Paints India Ltd,2,PEG Ratio,6.15
+2026-05-04,BETA,Beta Drugs Ltd,1,FCF / PAT,-0.07
+2026-05-04,BFUTILITIE,BF Utilities Ltd,2,Debt / Equity,4.61
+2026-05-04,BFUTILITIE,BF Utilities Ltd,2,Revenue CAGR 5Y,9.4%
+2026-05-04,BGRENERGY,BGR Energy Systems Ltd,2,Revenue CAGR 5Y,-19.7%
+2026-05-04,BGRENERGY,BGR Energy Systems Ltd,2,Avg ROCE (3Y),"-29.9% hist:[5.3, -14.4, -27.7, -30.4, -31.6]"
+2026-05-04,BHAGERIA,Bhageria Industries Ltd,2,Avg ROCE (3Y),"11.4% hist:[21.4, 9.9, 7.7, 13.4, 13.0]"
+2026-05-04,BHAGERIA,Bhageria Industries Ltd,2,FCF / PAT,-0.05
+2026-05-04,BHARTIARTL,Bharti Airtel Ltd,2,Debt / Equity,1.77
+2026-05-04,BHARTIARTL,Bharti Airtel Ltd,2,FCF / PAT,0.70
+2026-05-04,BIKAJI,Bikaji Foods International Ltd,1,FCF / PAT,-0.24
+2026-05-04,BIRLACORPN,Birla Corporation Ltd,2,Revenue CAGR 5Y,7.3%
+2026-05-04,BIRLACORPN,Birla Corporation Ltd,2,Avg ROCE (3Y),"13.2% hist:[10.7, 7.5, 13.6, 11.6, 14.3]"
+2026-05-04,BLKASHYAP,B.L.Kashyap & Sons Ltd,1,Avg ROCE (3Y),"10.4% hist:[11.2, 12.8, 13.6, 7.7, 9.9]"
+2026-05-04,BLS,BLS International Services Ltd,1,FCF / PAT,0.11
+2026-05-04,BLSE,BLS E-Services Ltd,2,Avg ROCE (3Y),"12.1% hist:[23.3, 29.5, 9.6, 12.2, 14.5]"
+2026-05-04,BLSE,BLS E-Services Ltd,2,FCF / PAT,-1.07
+2026-05-04,BLUEDART,Blue Dart Express Ltd,1,PEG Ratio,2.27
+2026-05-04,BLUEJET,Blue Jet Healthcare Ltd,2,Revenue CAGR 5Y,-7.2%
+2026-05-04,BLUEJET,Blue Jet Healthcare Ltd,2,FCF / PAT,0.56
+2026-05-04,BLUESTARCO,Blue Star Ltd,2,Promoter Holding,36.5%
+2026-05-04,BLUESTARCO,Blue Star Ltd,2,PEG Ratio,1.93
+2026-05-04,BLUSPRING,Bluspring Enterprises Ltd,2,Revenue CAGR 5Y,7.4%
+2026-05-04,BLUSPRING,Bluspring Enterprises Ltd,2,Avg ROCE (3Y),"8.3% hist:[10.7, 8.9, 9.9, 6.2]"
+2026-05-04,BOROLTD,Borosil Ltd,2,FCF / PAT,-0.07
+2026-05-04,BOROLTD,Borosil Ltd,2,PEG Ratio,3.37
+2026-05-04,BORORENEW,Borosil Renewables Ltd,2,Avg ROCE (3Y),"12.6% hist:[11.3, 10.7, 4.0, 4.6, 29.2]"
+2026-05-04,BORORENEW,Borosil Renewables Ltd,2,PEG Ratio,14.52
+2026-05-04,BPCL,Bharat Petroleum Corporation Ltd,1,FCF / PAT,0.62
+2026-05-04,BRIGHOTEL,Brigade Hotel Ventures Ltd,2,Avg ROCE (3Y),"17.1% hist:[13.1, 18.2, 19.5, 13.7]"
+2026-05-04,BRIGHOTEL,Brigade Hotel Ventures Ltd,2,FCF / PAT,0.58
+2026-05-04,BUILDPRO,Shankara Buildpro Ltd,2,FCF / PAT,0.27
+2026-05-04,BUILDPRO,Shankara Buildpro Ltd,2,Promoter Holding,40.2%
+2026-05-04,CAMPUS,Campus Activewear Ltd,1,FCF / PAT,-1.66
+2026-05-04,CAMS,Computer Age Management Services Ltd,2,Promoter Holding,0.0%
+2026-05-04,CAMS,Computer Age Management Services Ltd,2,PEG Ratio,2.25
+2026-05-04,CAPACITE,Capacite Infraprojects Ltd,2,FCF / PAT,-4.02
+2026-05-04,CAPACITE,Capacite Infraprojects Ltd,2,Promoter Holding,31.7%
+2026-05-04,CAPILLARY,Capillary Technologies India Ltd,1,Avg ROCE (3Y),"-4.2% hist:[-40.6, -25.6, -20.3, -1.9, 9.7]"
+2026-05-04,CAPLIPOINT,Caplin Point Laboratories Ltd,2,FCF / PAT,0.28
+2026-05-04,CAPLIPOINT,Caplin Point Laboratories Ltd,2,PEG Ratio,1.06
+2026-05-04,CARBORUNIV,Carborundum Universal Ltd,2,FCF / PAT,0.56
+2026-05-04,CARBORUNIV,Carborundum Universal Ltd,2,Promoter Holding,38.9%
+2026-05-04,CARRARO,Carraro India Ltd,2,Revenue CAGR 5Y,8.7%
+2026-05-04,CARRARO,Carraro India Ltd,2,FCF / PAT,0.68
+2026-05-04,CARTRADE,Cartrade Tech Ltd,2,Avg ROCE (3Y),"6.5% hist:[-6.5, 1.6, 3.7, 6.5, 9.4]"
+2026-05-04,CARTRADE,Cartrade Tech Ltd,2,FCF / PAT,0.06
+2026-05-04,CEATLTD,CEAT Ltd,2,FCF / PAT,0.03
+2026-05-04,CEATLTD,CEAT Ltd,2,PEG Ratio,1.77
+2026-05-04,CEIGALL,Ceigall India Ltd,1,FCF / PAT,-1.19
+2026-05-04,CELLO,Cello World Ltd,1,FCF / PAT,-0.30
+2026-05-04,CENTUM,Centum Electronics Ltd,1,Revenue CAGR 5Y,8.9%
+2026-05-04,CEWATER,Concord Enviro Systems Ltd,2,Revenue CAGR 5Y,9.9%
+2026-05-04,CEWATER,Concord Enviro Systems Ltd,2,Avg ROCE (3Y),"16.0% hist:[12.5, 9.8, 24.5, 13.9, 9.5]"
+2026-05-04,CGPOWER,CG Power & Industrial Solutions Ltd,1,FCF / PAT,-1.20
+2026-05-04,CHAMBLFERT,Chambal Fertilisers & Chemicals Ltd,1,PEG Ratio,2.47
+2026-05-04,CHEMFAB,Chemfab Alkalis Ltd,2,Avg ROCE (3Y),"9.9% hist:[18.6, 30.6, 13.5, 9.5, 6.6]"
+2026-05-04,CHEMFAB,Chemfab Alkalis Ltd,2,FCF / PAT,-0.33
+2026-05-04,CHEMPLASTS,Chemplast Sanmar Ltd,2,Revenue CAGR 5Y,1.6%
+2026-05-04,CHEMPLASTS,Chemplast Sanmar Ltd,2,Avg ROCE (3Y),"2.4% hist:[46.3, 16.3, 0.6, 5.6, 1.0]"
+2026-05-04,CHEVIOT,Cheviot Company Ltd,1,Avg ROCE (3Y),11.6% hist:[11.6]
+2026-05-04,CIEINDIA,CIE Automotive India Ltd,1,Revenue CAGR 5Y,7.6%
+2026-05-04,CLEAN,Clean Science & Technology Ltd,2,FCF / PAT,0.20
+2026-05-04,CLEAN,Clean Science & Technology Ltd,2,PEG Ratio,8.25
+2026-05-04,CNL,Creative Newtech Ltd,2,Avg ROCE (3Y),"16.1% hist:[21.9, 17.4, 16.9, 14.8, 16.5]"
+2026-05-04,CNL,Creative Newtech Ltd,2,FCF / PAT,-0.68
+2026-05-04,COCHINSHIP,Cochin Shipyard Ltd,2,Avg ROCE (3Y),"13.9% hist:[12.7, 5.2, 16.0, 14.6, 11.2]"
+2026-05-04,COCHINSHIP,Cochin Shipyard Ltd,2,PEG Ratio,17.09
+2026-05-04,COHANCE,Cohance Lifesciences Ltd,2,Avg ROCE (3Y),"17.1% hist:[35.8, 31.8, 19.2, 19.0, 13.2]"
+2026-05-04,COHANCE,Cohance Lifesciences Ltd,2,FCF / PAT,0.18
+2026-05-04,COLPAL,Colgate-Palmolive (India) Ltd,1,PEG Ratio,4.19
+2026-05-04,CONCORDBIO,Concord Biotech Ltd,2,FCF / PAT,0.27
+2026-05-04,CONCORDBIO,Concord Biotech Ltd,2,Promoter Holding,44.1%
+2026-05-04,CONTROLPR,Control Print Ltd,1,FCF / PAT,0.37
+2026-05-04,COROMANDEL,Coromandel International Ltd,1,PEG Ratio,2.24
+2026-05-04,CRIZAC,Crizac Ltd,1,FCF / PAT,0.28
+2026-05-04,CROMPTON,Crompton Greaves Consumer Electricals Ltd,2,FCF / PAT,0.64
+2026-05-04,CROMPTON,Crompton Greaves Consumer Electricals Ltd,2,Promoter Holding,0.0%
+2026-05-04,CUMMINSIND,Cummins India Ltd,2,FCF / PAT,0.62
+2026-05-04,CUMMINSIND,Cummins India Ltd,2,PEG Ratio,2.19
+2026-05-04,DALBHARAT,Dalmia Bharat Ltd,2,Revenue CAGR 5Y,7.9%
+2026-05-04,DALBHARAT,Dalmia Bharat Ltd,2,Avg ROCE (3Y),"11.6% hist:[12.6, 11.9, 12.4, 10.4, 12.1]"
+2026-05-04,DALMIASUG,Dalmia Bharat Sugar & Industries Ltd,2,Avg ROCE (3Y),"12.4% hist:[15.5, 14.0, 13.8, 9.4, 14.0]"
+2026-05-04,DALMIASUG,Dalmia Bharat Sugar & Industries Ltd,2,FCF / PAT,-2.19
+2026-05-04,DATAMATICS,Datamatics Global Services Ltd,2,FCF / PAT,0.25
+2026-05-04,DATAMATICS,Datamatics Global Services Ltd,2,PEG Ratio,1.02
+2026-05-04,DATAPATTNS,Data Patterns (India) Ltd,1,Promoter Holding,42.4%
+2026-05-04,DAVANGERE,Davangere Sugar Company Ltd,1,Promoter Holding,41.8%
+2026-05-04,DBCORP,D B Corp Ltd,1,Revenue CAGR 5Y,9.1%
+2026-05-04,DCAL,Dishman Carbogen Amcis Ltd,2,Revenue CAGR 5Y,7.9%
+2026-05-04,DCAL,Dishman Carbogen Amcis Ltd,2,Avg ROCE (3Y),"5.2% hist:[4.5, 4.1, 3.6, 5.7, 6.2]"
+2026-05-04,DCXINDIA,DCX Systems Ltd,2,Avg ROCE (3Y),"1.8% hist:[10.8, 7.8, 5.6, 0.4, -0.5]"
+2026-05-04,DCXINDIA,DCX Systems Ltd,2,FCF / PAT,0.31
+2026-05-04,DEEDEV,DEE Development Engineers Ltd,2,Avg ROCE (3Y),"12.0% hist:[9.7, 9.4, 12.0, 10.5, 13.4]"
+2026-05-04,DEEDEV,DEE Development Engineers Ltd,2,PEG Ratio,6.88
+2026-05-04,DEEPAKNTR,Deepak Nitrite Ltd,2,Avg ROCE (3Y),"17.4% hist:[44.0, 31.0, 22.2, 16.5, 13.6]"
+2026-05-04,DEEPAKNTR,Deepak Nitrite Ltd,2,FCF / PAT,-0.61
+2026-05-04,DEEPINDS,Deep Industries Ltd,1,Avg ROCE (3Y),"12.6% hist:[10.0, 9.2, 10.4, 11.9, 15.4]"
+2026-05-04,DELHIVERY,Delhivery Ltd,1,Avg ROCE (3Y),"3.2% hist:[-6.7, -4.5, 1.2, 3.5, 4.8]"
+2026-05-04,DEN,Den Networks Ltd,2,Revenue CAGR 5Y,-5.7%
+2026-05-04,DEN,Den Networks Ltd,2,Avg ROCE (3Y),"3.1% hist:[6.8, 4.7, 4.5, 3.1, 1.8]"
+2026-05-04,DENTA,Denta Water & Infra Solutions Ltd,2,FCF / PAT,0.38
+2026-05-04,DENTA,Denta Water & Infra Solutions Ltd,2,PEG Ratio,9.67
+2026-05-04,DHAMPURSUG,Dhampur Sugar Mills Ltd,2,Revenue CAGR 5Y,-0.6%
+2026-05-04,DHAMPURSUG,Dhampur Sugar Mills Ltd,2,Avg ROCE (3Y),"10.9% hist:[16.5, 17.2, 12.8, 8.1, 11.7]"
+2026-05-04,DHANUKA,Dhanuka Agritech Ltd,1,FCF / PAT,0.47
+2026-05-04,DIACABS,Diamond Power Infrastructure Ltd,2,Revenue CAGR 5Y,-11.0%
+2026-05-04,DIACABS,Diamond Power Infrastructure Ltd,2,FCF / PAT,-1.11
+2026-05-04,DIAMONDYD,Prataap Snacks Ltd,2,Avg ROCE (3Y),"8.7% hist:[14.3, 13.8, 9.3, 8.2, 8.5]"
+2026-05-04,DIAMONDYD,Prataap Snacks Ltd,2,FCF / PAT,-0.95
+2026-05-04,DIFFNKG,Diffusion Engineers Ltd,2,Avg ROCE (3Y),"13.8% hist:[15.1, 15.3, 17.3, 11.5, 12.5]"
+2026-05-04,DIFFNKG,Diffusion Engineers Ltd,2,FCF / PAT,-0.01
+2026-05-04,DIGITIDE,Digitide Solutions Ltd,1,Revenue CAGR 5Y,-7.8%
+2026-05-04,DISHTV,Dish TV India Ltd,2,Revenue CAGR 5Y,-17.2%
+2026-05-04,DISHTV,Dish TV India Ltd,2,Promoter Holding,4.1%
+2026-05-04,DIXON,Dixon Technologies (India) Ltd,2,FCF / PAT,0.23
+2026-05-04,DIXON,Dixon Technologies (India) Ltd,2,Promoter Holding,28.7%
+2026-05-04,DLF,DLF Ltd,2,Avg ROCE (3Y),"4.6% hist:[4.3, 4.2, 4.8, 4.5, 4.5]"
+2026-05-04,DLF,DLF Ltd,2,PEG Ratio,1.08
+2026-05-04,DLINKINDIA,D-Link India Ltd,1,FCF / PAT,0.40
+2026-05-04,DMART,Avenue Supermarts Ltd,2,FCF / PAT,-0.58
+2026-05-04,DMART,Avenue Supermarts Ltd,2,PEG Ratio,4.40
+2026-05-04,DMCC,DMCC Speciality Chemicals Ltd,2,Avg ROCE (3Y),"17.8% hist:[14.3, 12.0, 12.1, 19.0, 22.3]"
+2026-05-04,DMCC,DMCC Speciality Chemicals Ltd,2,FCF / PAT,0.56
+2026-05-04,DODLA,Dodla Dairy Ltd,2,FCF / PAT,0.29
+2026-05-04,DODLA,Dodla Dairy Ltd,2,PEG Ratio,1.60
+2026-05-04,DOMS,DOMS Industries Ltd,1,FCF / PAT,-0.13
+2026-05-04,DPSCLTD,India Power Corporation Ltd,2,Revenue CAGR 5Y,4.5%
+2026-05-04,DPSCLTD,India Power Corporation Ltd,2,Avg ROCE (3Y),"-4.1% hist:[0.6, -0.5, 3.5, -6.9, -8.8]"
+2026-05-04,DRREDDY,Dr Reddys Laboratories Ltd,2,FCF / PAT,0.41
+2026-05-04,DRREDDY,Dr Reddys Laboratories Ltd,2,Promoter Holding,26.6%
+2026-05-04,DSSL,Dynacons Systems & Solutions Ltd,1,FCF / PAT,-0.13
+2026-05-04,DWARKESH,Dwarikesh Sugar Industries Ltd,1,Promoter Holding,42.1%
+2026-05-04,E2E,E2E Networks Ltd,1,Promoter Holding,39.5%
+2026-05-04,EASEMYTRIP,Easy Trip Planners Ltd,2,FCF / PAT,0.06
+2026-05-04,EASEMYTRIP,Easy Trip Planners Ltd,2,PEG Ratio,3.97
+2026-05-04,EBGNG,GNG Electronics Ltd,2,Avg ROCE (3Y),"17.1% hist:[17.3, 17.3, 16.0, 17.2, 18.2]"
+2026-05-04,EBGNG,GNG Electronics Ltd,2,FCF / PAT,-3.82
+2026-05-04,EFCIL,EFC (I) Ltd,2,Debt / Equity,1.77
+2026-05-04,EFCIL,EFC (I) Ltd,2,FCF / PAT,-8.39
+2026-05-04,EICHERMOT,Eicher Motors Ltd,2,FCF / PAT,0.14
+2026-05-04,EICHERMOT,Eicher Motors Ltd,2,PEG Ratio,1.17
+2026-05-04,EIDPARRY,EID Parry (India) Ltd,1,Promoter Holding,41.5%
+2026-05-04,EIEL,Enviro Infra Engineers Ltd,1,FCF / PAT,-0.73
+2026-05-04,EIHOTEL,EIH Ltd,1,Promoter Holding,32.9%
+2026-05-04,EKC,Everest Kanto Cylinder Ltd,2,Avg ROCE (3Y),"13.7% hist:[39.3, 14.6, 14.3, 13.3, 13.5]"
+2026-05-04,EKC,Everest Kanto Cylinder Ltd,2,PEG Ratio,2.36
+2026-05-04,ELECTCAST,Electrosteel Castings Ltd,2,Avg ROCE (3Y),"11.7% hist:[9.9, 10.6, 16.2, 13.3, 5.6]"
+2026-05-04,ELECTCAST,Electrosteel Castings Ltd,2,PEG Ratio,2.43
+2026-05-04,ELPROINTL,Elpro International Ltd,2,Avg ROCE (3Y),"3.9% hist:[2.1, 3.2, 4.1, 2.7, 4.8]"
+2026-05-04,ELPROINTL,Elpro International Ltd,2,FCF / PAT,-1.15
+2026-05-04,EMCURE,Emcure Pharmaceuticals Ltd,1,PEG Ratio,2.56
+2026-05-04,EMMVEE,Emmvee Photovoltaic Power Ltd,2,FCF / PAT,-0.94
+2026-05-04,EMMVEE,Emmvee Photovoltaic Power Ltd,2,PEG Ratio,1.36
+2026-05-04,EMSLIMITED,EMS Ltd,1,FCF / PAT,-0.07
+2026-05-04,ENDURANCE,Endurance Technologies Ltd,2,FCF / PAT,0.53
+2026-05-04,ENDURANCE,Endurance Technologies Ltd,2,PEG Ratio,2.97
+2026-05-04,ENGINERSIN,Engineers India Ltd,1,Revenue CAGR 5Y,5.0%
+2026-05-04,ENIL,Entertainment Network (India) Ltd,1,Avg ROCE (3Y),"8.7% hist:[4.5, -10.8, 11.0, 8.3, 6.9]"
+2026-05-04,ENTERO,Entero Healthcare Solutions Ltd,2,Avg ROCE (3Y),"8.1% hist:[2.6, 6.2, 5.7, 8.2, 10.4]"
+2026-05-04,ENTERO,Entero Healthcare Solutions Ltd,2,FCF / PAT,-85.69
+2026-05-04,EPACKPEB,EPack Prefab Technologies Ltd,1,FCF / PAT,-0.60
+2026-05-04,EPIGRAL,Epigral Ltd,1,FCF / PAT,0.15
+2026-05-04,ESABINDIA,Esab India Ltd,2,FCF / PAT,0.51
+2026-05-04,ESABINDIA,Esab India Ltd,2,PEG Ratio,12.55
+2026-05-04,ESSARSHPNG,Essar Shipping Ltd,2,Revenue CAGR 5Y,-62.5%
+2026-05-04,ESSARSHPNG,Essar Shipping Ltd,2,FCF / PAT,0.44
+2026-05-04,ESTER,Ester Industries Ltd,2,Revenue CAGR 5Y,6.4%
+2026-05-04,ESTER,Ester Industries Ltd,2,Avg ROCE (3Y),"4.8% hist:[13.6, 6.0, -1.5, 10.3, 5.7]"
+2026-05-04,ETERNAL,Eternal Ltd,2,Avg ROCE (3Y),"1.9% hist:[-11.2, -6.1, 0.2, 2.0, 3.4]"
+2026-05-04,ETERNAL,Eternal Ltd,2,FCF / PAT,-3.51
+2026-05-04,ETHOSLTD,Ethos Ltd,2,Avg ROCE (3Y),"14.1% hist:[18.3, 16.0, 15.4, 15.5, 11.4]"
+2026-05-04,ETHOSLTD,Ethos Ltd,2,FCF / PAT,0.41
+2026-05-04,EUREKAFORB,Eureka Forbes Ltd,1,Avg ROCE (3Y),"5.8% hist:[0.4, 3.4, 4.7, 6.0, 6.6]"
+2026-05-04,EUROPRATIK,Euro Pratik Sales Ltd,1,FCF / PAT,0.41
+2026-05-04,EVERESTIND,Everest Industries Ltd,2,Revenue CAGR 5Y,4.8%
+2026-05-04,EVERESTIND,Everest Industries Ltd,2,Avg ROCE (3Y),"3.1% hist:[12.2, 9.8, 6.1, 3.5, -0.2]"
+2026-05-04,EXCELSOFT,Excelsoft Technologies Ltd,1,Avg ROCE (3Y),"16.5% hist:[17.0, 16.0, 17.0, 14.6, 18.0]"
+2026-05-04,EXICOM,Exicom Tele-Systems Ltd,2,Avg ROCE (3Y),"0.9% hist:[19.2, 14.5, 14.7, -2.8, -9.1]"
+2026-05-04,EXICOM,Exicom Tele-Systems Ltd,2,FCF / PAT,-1.11
+2026-05-04,EXPLEOSOL,Expleo Solutions Ltd,1,PEG Ratio,1.59
+2026-05-04,FABTECH,Fabtech Technologies Ltd,2,Avg ROCE (3Y),"15.5% hist:[36.0, 20.2, 24.1, 15.2, 7.2]"
+2026-05-04,FABTECH,Fabtech Technologies Ltd,2,FCF / PAT,-0.25
+2026-05-04,FCL,Fineotex Chemical Ltd,2,FCF / PAT,0.18
+2026-05-04,FCL,Fineotex Chemical Ltd,2,PEG Ratio,1.58
+2026-05-04,FIEMIND,Fiem Industries Ltd,1,FCF / PAT,0.56
+2026-05-04,FILATEX,Filatex India Ltd,1,FCF / PAT,0.15
+2026-05-04,FINEORG,Fine Organic Industries Ltd,2,FCF / PAT,0.25
+2026-05-04,FINEORG,Fine Organic Industries Ltd,2,PEG Ratio,1.34
+2026-05-04,FIRSTCRY,Brainbees Solutions Ltd,2,Avg ROCE (3Y),"2.8% hist:[-0.5, -7.3, 1.5, 3.6, 3.2]"
+2026-05-04,FIRSTCRY,Brainbees Solutions Ltd,2,FCF / PAT,-2.37
+2026-05-04,FISCHER,Fischer Medical Ventures Ltd,2,Avg ROCE (3Y),"4.8% hist:[0.0, 2.4, 0.7, 11.3]"
+2026-05-04,FISCHER,Fischer Medical Ventures Ltd,2,FCF / PAT,-115.00
+2026-05-04,FOCUS,Focus Lighting & Fixtures Ltd,2,FCF / PAT,-0.16
+2026-05-04,FOCUS,Focus Lighting & Fixtures Ltd,2,PEG Ratio,39.58
+2026-05-04,FORCEMOT,Force Motors Ltd,1,FCF / PAT,0.68
+2026-05-04,FORTIS,Fortis Healthcare Ltd,2,Avg ROCE (3Y),"14.7% hist:[14.4, 13.5, 14.4, 13.9, 15.7]"
+2026-05-04,FORTIS,Fortis Healthcare Ltd,2,Promoter Holding,31.2%
+2026-05-04,FOSECOIND,Foseco India Ltd,1,FCF / PAT,-0.63
+2026-05-04,FSL,Firstsource Solutions Ltd,1,PEG Ratio,1.91
+2026-05-04,GABRIEL,Gabriel India Ltd,2,FCF / PAT,0.25
+2026-05-04,GABRIEL,Gabriel India Ltd,2,PEG Ratio,3.10
+2026-05-04,GALAPREC,Gala Precision Engineering Ltd,2,FCF / PAT,0.36
+2026-05-04,GALAPREC,Gala Precision Engineering Ltd,2,PEG Ratio,1.28
+2026-05-04,GALAXYSURF,Galaxy Surfactants Ltd,1,FCF / PAT,0.56
+2026-05-04,GALLANTT,Gallantt Ispat Ltd.,2,FCF / PAT,-0.03
+2026-05-04,GALLANTT,Gallantt Ispat Ltd.,2,PEG Ratio,2.99
+2026-05-04,GANDHAR,Gandhar Oil Refinery (India) Ltd,1,Avg ROCE (3Y),"14.5% hist:[33.7, 32.9, 19.4, 11.4, 12.6]"
+2026-05-04,GARUDA,Garuda Construction and Engineering Ltd,1,FCF / PAT,-3.22
+2026-05-04,GATEWAY,Gateway Distriparks Ltd,2,Avg ROCE (3Y),"14.8% hist:[16.4, 16.0, 15.6, 13.2, 15.7]"
+2026-05-04,GATEWAY,Gateway Distriparks Ltd,2,Promoter Holding,33.9%
+2026-05-04,GAUDIUMIVF,Gaudium IVF and Women Health Ltd,1,FCF / PAT,-0.04
+2026-05-04,GHCLTEXTIL,GHCL Textiles Ltd,1,Promoter Holding,19.2%
+2026-05-04,GKENERGY,GK Energy Ltd,1,FCF / PAT,-0.78
+2026-05-04,GKSL,Gujarat Kidney & Super Speciality Ltd,1,FCF / PAT,0.18
+2026-05-04,GLAND,Gland Pharma Ltd,2,Avg ROCE (3Y),"14.3% hist:[21.1, 12.9, 14.7, 13.4, 14.8]"
+2026-05-04,GLAND,Gland Pharma Ltd,2,FCF / PAT,0.61
+2026-05-04,GLAXO,Glaxosmithkline Pharmaceuticals Ltd,2,Revenue CAGR 5Y,5.4%
+2026-05-04,GLAXO,Glaxosmithkline Pharmaceuticals Ltd,2,PEG Ratio,1.70
+2026-05-04,GLOBAL,Global Education Ltd,1,FCF / PAT,0.15
+2026-05-04,GLOSTERLTD,Gloster Ltd,2,Avg ROCE (3Y),"4.8% hist:[8.9, 7.3, 5.0, 2.8, 6.6]"
+2026-05-04,GLOSTERLTD,Gloster Ltd,2,FCF / PAT,0.03
+2026-05-04,GMBREW,G M Breweries Ltd,2,Avg ROCE (3Y),"14.7% hist:[12.6, 16.8]"
+2026-05-04,GMBREW,G M Breweries Ltd,2,FCF / PAT,0.11
+2026-05-04,GMDCLTD,Gujarat Mineral Development Corporation Ltd,2,Avg ROCE (3Y),"9.1% hist:[14.9, 23.1, 10.0, 9.7, 7.6]"
+2026-05-04,GMDCLTD,Gujarat Mineral Development Corporation Ltd,2,FCF / PAT,0.31
+2026-05-04,GMMPFAUDLR,GMM Pfaudler Ltd,1,Promoter Holding,25.2%
+2026-05-04,GMRAIRPORT,GMR Airports Ltd,2,Avg ROCE (3Y),"11.0% hist:[8.9, 5.5, 8.8, 10.6, 13.7]"
+2026-05-04,GMRAIRPORT,GMR Airports Ltd,2,FCF / PAT,-27.06
+2026-05-04,GMRP&UI,GMR Power & Urban Infra Ltd,2,Debt / Equity,8.23
+2026-05-04,GMRP&UI,GMR Power & Urban Infra Ltd,2,Avg ROCE (3Y),"11.1% hist:[6.0, 7.6, 8.3, 14.1, 10.8]"
+2026-05-04,GNA,GNA Axles Ltd,2,FCF / PAT,-0.15
+2026-05-04,GNA,GNA Axles Ltd,2,PEG Ratio,1.69
+2026-05-04,GOCLCORP,GOCL Corporation Ltd,2,Revenue CAGR 5Y,-52.6%
+2026-05-04,GOCLCORP,GOCL Corporation Ltd,2,Avg ROCE (3Y),"-0.9% hist:[0.1, -0.7, -0.8, -1.0, -0.9]"
+2026-05-04,GOCOLORS,Go Fashion (India) Ltd,2,Avg ROCE (3Y),"10.4% hist:[-3.1, 16.9, 17.3]"
+2026-05-04,GOCOLORS,Go Fashion (India) Ltd,2,FCF / PAT,-3.51
+2026-05-04,GODAVARIB,Godavari Biorefineries Ltd,2,Revenue CAGR 5Y,5.4%
+2026-05-04,GODAVARIB,Godavari Biorefineries Ltd,2,Avg ROCE (3Y),"10.8% hist:[12.1, 12.0, 11.6, 8.2, 12.6]"
+2026-05-04,GODFRYPHLP,Godfrey Phillips India Ltd,1,FCF / PAT,0.54
+2026-05-04,GODREJAGRO,Godrej Agrovet Ltd,1,PEG Ratio,2.69
+2026-05-04,GODREJPROP,Godrej Properties Ltd,2,Avg ROCE (3Y),"-0.7% hist:[-0.4, 1.3, -0.6, -0.2, -1.3]"
+2026-05-04,GODREJPROP,Godrej Properties Ltd,2,FCF / PAT,-1.84
+2026-05-04,GOLDIAM,Goldiam International Ltd,1,PEG Ratio,1.38
+2026-05-04,GOODLUCK,Goodluck India Ltd,2,Avg ROCE (3Y),"15.3% hist:[17.3, 16.7, 16.3, 14.2, 15.3]"
+2026-05-04,GOODLUCK,Goodluck India Ltd,2,FCF / PAT,-0.05
+2026-05-04,GPIL,Godawari Power & Ispat Ltd,2,Revenue CAGR 5Y,5.8%
+2026-05-04,GPIL,Godawari Power & Ispat Ltd,2,PEG Ratio,6.71
+2026-05-04,GPPL,Gujarat Pipavav Port Ltd,2,Revenue CAGR 5Y,8.3%
+2026-05-04,GPPL,Gujarat Pipavav Port Ltd,2,Promoter Holding,44.0%
+2026-05-04,GPTHEALTH,GPT Healthcare Ltd,1,FCF / PAT,0.52
+2026-05-04,GRAPHITE,Graphite India Ltd,2,Revenue CAGR 5Y,6.7%
+2026-05-04,GRAPHITE,Graphite India Ltd,2,Avg ROCE (3Y),"1.5% hist:[8.5, 5.8, -2.5, 4.2, 2.7]"
+2026-05-04,GRAUWEIL,Grauer & Weil (India) Ltd,2,FCF / PAT,0.65
+2026-05-04,GRAUWEIL,Grauer & Weil (India) Ltd,2,PEG Ratio,1.48
+2026-05-04,GRAVITA,Gravita India Ltd,2,Avg ROCE (3Y),"16.6% hist:[27.9, 22.1, 20.7, 13.9, 15.3]"
+2026-05-04,GRAVITA,Gravita India Ltd,2,FCF / PAT,0.19
+2026-05-04,GREAVESCOT,Greaves Cotton Ltd,2,Avg ROCE (3Y),"9.7% hist:[2.5, 7.9, 6.0, 9.2, 13.9]"
+2026-05-04,GREAVESCOT,Greaves Cotton Ltd,2,FCF / PAT,-0.67
+2026-05-04,GRINDWELL,Grindwell Norton Ltd,2,FCF / PAT,0.52
+2026-05-04,GRINDWELL,Grindwell Norton Ltd,2,PEG Ratio,4.44
+2026-05-04,GRPLTD,GRP Ltd,2,Debt / Equity,1.13
+2026-05-04,GRPLTD,GRP Ltd,2,Promoter Holding,40.1%
+2026-05-04,GRWRHITECH,Garware Hi Tech Films Ltd,2,Avg ROCE (3Y),"16.1% hist:[12.6, 11.4, 13.8, 18.6, 16.0]"
+2026-05-04,GRWRHITECH,Garware Hi Tech Films Ltd,2,PEG Ratio,1.66
+2026-05-04,GSPCROP,GSP Crop Science Ltd,2,Revenue CAGR 5Y,7.3%
+2026-05-04,GSPCROP,GSP Crop Science Ltd,2,Avg ROCE (3Y),"17.4% hist:[24.2, 16.7, 11.5, 20.5, 20.1]"
+2026-05-04,GTPL,GTPL Hathway Ltd,2,Revenue CAGR 5Y,8.6%
+2026-05-04,GTPL,GTPL Hathway Ltd,2,FCF / PAT,-1.18
+2026-05-04,GUJALKALI,Gujarat Alkalies & Chemicals Ltd,2,Avg ROCE (3Y),"3.6% hist:[15.2, 14.1, 0.5, 4.5, 5.9]"
+2026-05-04,GUJALKALI,Gujarat Alkalies & Chemicals Ltd,2,FCF / PAT,0.14
+2026-05-04,GUJGASLTD,Gujarat Gas Ltd,1,Revenue CAGR 5Y,9.3%
+2026-05-04,GULPOLY,Gulshan Polyols Ltd,2,Avg ROCE (3Y),"9.4% hist:[23.0, 10.7, 6.2, 9.7, 12.3]"
+2026-05-04,GULPOLY,Gulshan Polyols Ltd,2,FCF / PAT,-2.91
+2026-05-04,GVKPIL,GVK Power & Infrastructure Ltd,1,Revenue CAGR 5Y,-16.6%
+2026-05-04,GVT&D,GE Vernova T&D India Ltd,1,FCF / PAT,-0.03
+2026-05-04,HAPPYFORGE,Happy Forgings Ltd,1,FCF / PAT,-0.34
+2026-05-04,HATHWAY,Hathway Cable & Datacom Ltd,2,Revenue CAGR 5Y,4.4%
+2026-05-04,HATHWAY,Hathway Cable & Datacom Ltd,2,Avg ROCE (3Y),"7.6% hist:[9.8, 7.6, 7.7, 7.8, 7.2]"
+2026-05-04,HAVELLS,Havells India Ltd,2,FCF / PAT,0.57
+2026-05-04,HAVELLS,Havells India Ltd,2,PEG Ratio,4.54
+2026-05-04,HCLTECH,HCL Technologies Ltd,1,PEG Ratio,2.25
+2026-05-04,HEALTHX,Health X Platform Ltd,2,Avg ROCE (3Y),"-4.5% hist:[134.4, -14.0, -3.1, -2.8, -7.6]"
+2026-05-04,HEALTHX,Health X Platform Ltd,2,FCF / PAT,0.17
+2026-05-04,HEG,HEG Ltd,1,Avg ROCE (3Y),"6.6% hist:[11.6, 12.3, 7.6, 5.1, 7.2]"
+2026-05-04,HEXT,Hexaware Technologies Ltd,1,PEG Ratio,11.99
+2026-05-04,HGS,Hinduja Global Solutions Ltd,1,Avg ROCE (3Y),"2.9% hist:[2.9, 2.6, 3.8, 2.7, 2.2]"
+2026-05-04,HINDALCO,Hindalco Industries Ltd,2,Avg ROCE (3Y),"15.9% hist:[19.9, 14.6, 14.7, 17.0, 16.1]"
+2026-05-04,HINDALCO,Hindalco Industries Ltd,2,Promoter Holding,34.6%
+2026-05-04,HINDCOPPER,Hindustan Copper Ltd,2,Revenue CAGR 5Y,8.2%
+2026-05-04,HINDCOPPER,Hindustan Copper Ltd,2,PEG Ratio,1.87
+2026-05-04,HINDPETRO,Hindustan Petroleum Corporation Ltd,1,Debt / Equity,1.11
+2026-05-04,HINDUNILVR,Hindustan Unilever Ltd,2,Revenue CAGR 5Y,6.5%
+2026-05-04,HINDUNILVR,Hindustan Unilever Ltd,2,PEG Ratio,3.69
+2026-05-04,HINDZINC,Hindustan Zinc Ltd,1,PEG Ratio,1.59
+2026-05-04,HITECHGEAR,The Hi-Tech Gears Ltd,2,Revenue CAGR 5Y,3.7%
+2026-05-04,HITECHGEAR,The Hi-Tech Gears Ltd,2,PEG Ratio,2.26
+2026-05-04,HLEGLAS,HLE Glascoat Ltd,2,Avg ROCE (3Y),"15.7% hist:[23.6, 23.8, 14.1, 16.2, 16.8]"
+2026-05-04,HLEGLAS,HLE Glascoat Ltd,2,FCF / PAT,0.30
+2026-05-04,HMAAGRO,HMA Agro Industries Ltd,2,Avg ROCE (3Y),"10.2% hist:[17.6, 19.3, 11.3, 8.0, 11.4]"
+2026-05-04,HMAAGRO,HMA Agro Industries Ltd,2,FCF / PAT,-0.45
+2026-05-04,HMT,HMT Ltd,2,Revenue CAGR 5Y,-11.5%
+2026-05-04,HMT,HMT Ltd,2,FCF / PAT,0.19
+2026-05-04,HPL,HPL Electric & Power Ltd,1,Avg ROCE (3Y),"15.4% hist:[9.2, 11.3, 13.3, 16.4, 16.4]"
+2026-05-04,HSCL,Himadri Speciality Chemical Ltd,1,FCF / PAT,0.71
+2026-05-04,HTMEDIA,H T Media Ltd,1,Avg ROCE (3Y),"-1.3% hist:[0.9, -5.1, -2.7, -1.4, 0.3]"
+2026-05-04,HUHTAMAKI,Huhtamaki India Ltd,2,FCF / PAT,-0.30
+2026-05-04,HUHTAMAKI,Huhtamaki India Ltd,2,PEG Ratio,1.25
+2026-05-04,HYUNDAI,Hyundai Motor India Ltd,1,PEG Ratio,9.72
+2026-05-04,ICIL,Indo Count Industries Ltd,2,Avg ROCE (3Y),"14.6% hist:[15.1, 17.0, 18.5, 14.4, 10.9]"
+2026-05-04,ICIL,Indo Count Industries Ltd,2,FCF / PAT,0.42
+2026-05-04,IFBAGRO,IFB Agro Industries Ltd,2,Avg ROCE (3Y),"5.3% hist:[14.3, 12.9, -1.8, 6.0, 11.6]"
+2026-05-04,IFBAGRO,IFB Agro Industries Ltd,2,PEG Ratio,1.22
+2026-05-04,IFBIND,IFB Industries Ltd,2,FCF / PAT,0.74
+2026-05-04,IFBIND,IFB Industries Ltd,2,PEG Ratio,1.11
+2026-05-04,IFGLEXPOR,IFGL Refractories Ltd,2,Avg ROCE (3Y),"10.6% hist:[13.8, 13.1, 12.4, 9.8, 9.6]"
+2026-05-04,IFGLEXPOR,IFGL Refractories Ltd,2,FCF / PAT,0.63
+2026-05-04,IGARASHI,Igarashi Motors India Ltd,2,Avg ROCE (3Y),0.0% hist:[-0.0]
+2026-05-04,IGARASHI,Igarashi Motors India Ltd,2,FCF / PAT,-51.00
+2026-05-04,IGIL,International Gemmological Institute (India) Ltd,2,FCF / PAT,-0.31
+2026-05-04,IGIL,International Gemmological Institute (India) Ltd,2,PEG Ratio,1.16
+2026-05-04,IGL,Indraprastha Gas Ltd,2,FCF / PAT,0.35
+2026-05-04,IGL,Indraprastha Gas Ltd,2,PEG Ratio,1.94
+2026-05-04,IKIO,IKIO Technologies Ltd,2,Avg ROCE (3Y),"12.1% hist:[34.2, 29.4, 14.9, 9.8, 11.6]"
+2026-05-04,IKIO,IKIO Technologies Ltd,2,FCF / PAT,-0.38
+2026-05-04,IKS,Inventurus Knowledge Solutions Ltd,1,FCF / PAT,0.06
+2026-05-04,IMAGICAA,Imagicaaworld Entertainment Ltd,2,Avg ROCE (3Y),"10.3% hist:[14.7, 8.2, 9.8, 12.3, 8.7]"
+2026-05-04,IMAGICAA,Imagicaaworld Entertainment Ltd,2,FCF / PAT,-1.27
+2026-05-04,IMFA,Indian Metals & Ferro Alloys Ltd,2,Revenue CAGR 5Y,7.4%
+2026-05-04,IMFA,Indian Metals & Ferro Alloys Ltd,2,PEG Ratio,1.22
+2026-05-04,INDGN,Indegene Ltd,1,FCF / PAT,0.32
+2026-05-04,INDIACEM,India Cements Ltd,2,Revenue CAGR 5Y,-0.1%
+2026-05-04,INDIACEM,India Cements Ltd,2,Avg ROCE (3Y),"0.4% hist:[5.4, -1.6, 1.0, -3.2, 3.5]"
+2026-05-04,INDIAGLYCO,India Glycols Ltd,2,Avg ROCE (3Y),"13.0% hist:[9.5, 10.1, 12.2, 12.6, 14.1]"
+2026-05-04,INDIAGLYCO,India Glycols Ltd,2,PEG Ratio,1.71
+2026-05-04,INDIAMART,Indiamart Intermesh Ltd,2,FCF / PAT,-0.04
+2026-05-04,INDIAMART,Indiamart Intermesh Ltd,2,PEG Ratio,2.32
+2026-05-04,INDNIPPON,India Nippon Electricals Ltd,2,Avg ROCE (3Y),"12.5% hist:[9.8, 9.4, 10.5, 13.2, 13.9]"
+2026-05-04,INDNIPPON,India Nippon Electricals Ltd,2,FCF / PAT,0.39
+2026-05-04,INDOAMIN,Indo Amines Ltd,2,Avg ROCE (3Y),"16.8% hist:[13.2, 19.0, 16.6, 16.8, 16.9]"
+2026-05-04,INDOAMIN,Indo Amines Ltd,2,FCF / PAT,-0.02
+2026-05-04,INDOFARM,Indo Farm Equipment Ltd,2,Avg ROCE (3Y),"8.9% hist:[9.8, 10.3, 10.5, 8.2, 8.0]"
+2026-05-04,INDOFARM,Indo Farm Equipment Ltd,2,FCF / PAT,0.68
+2026-05-04,INDORAMA,Indo Rama Synthetics (India) Ltd,2,Debt / Equity,2.44
+2026-05-04,INDORAMA,Indo Rama Synthetics (India) Ltd,2,Avg ROCE (3Y),"9.6% hist:[31.9, 3.0, -2.2, 11.9, 19.1]"
+2026-05-04,INDUSTOWER,Indus Towers Ltd,1,PEG Ratio,1.05
+2026-05-04,INFY,Infosys Ltd,2,Promoter Holding,14.4%
+2026-05-04,INFY,Infosys Ltd,2,PEG Ratio,1.61
+2026-05-04,INNOVACAP,Innova Captab Ltd,2,Avg ROCE (3Y),"15.0% hist:[23.5, 22.2, 14.3, 14.3, 16.3]"
+2026-05-04,INNOVACAP,Innova Captab Ltd,2,FCF / PAT,-0.68
+2026-05-04,INNOVANA,Innovana Thinklabs Ltd,1,FCF / PAT,-0.28
+2026-05-04,INNOVISION,Innovision Ltd,2,Debt / Equity,1.11
+2026-05-04,INNOVISION,Innovision Ltd,2,FCF / PAT,-0.64
+2026-05-04,INTLCONV,International Conveyors Ltd,2,Revenue CAGR 5Y,0.2%
+2026-05-04,INTLCONV,International Conveyors Ltd,2,Avg ROCE (3Y),"5.4% hist:[8.4, 10.4, 5.3, 4.7, 6.3]"
+2026-05-04,IPCALAB,Ipca Laboratories Ltd,2,FCF / PAT,0.66
+2026-05-04,IPCALAB,Ipca Laboratories Ltd,2,Promoter Holding,44.7%
+2026-05-04,IRCTC,Indian Railway Catering & Tourism Corporation Ltd,2,FCF / PAT,0.52
+2026-05-04,IRCTC,Indian Railway Catering & Tourism Corporation Ltd,2,PEG Ratio,2.60
+2026-05-04,IRMENERGY,IRM Energy Ltd,2,Avg ROCE (3Y),"10.4% hist:[41.2, 16.8, 12.8, 9.0, 9.5]"
+2026-05-04,IRMENERGY,IRM Energy Ltd,2,FCF / PAT,-1.81
+2026-05-04,ITC,ITC Ltd,1,FCF / PAT,0.68
+2026-05-04,ITDC,India Tourism Development Corporation Ltd,1,PEG Ratio,2.00
+2026-05-04,IXIGO,Le Travenues Technology Ltd,2,Avg ROCE (3Y),"9.1% hist:[-3.4, 7.6, 7.7, 10.7, 8.9]"
+2026-05-04,IXIGO,Le Travenues Technology Ltd,2,FCF / PAT,-0.55
+2026-05-04,JAGRAN,Jagran Prakashan Ltd,2,Revenue CAGR 5Y,7.9%
+2026-05-04,JAGRAN,Jagran Prakashan Ltd,2,Avg ROCE (3Y),"8.8% hist:[14.5, 11.6, 12.5, 7.5, 6.4]"
+2026-05-04,JAICORPLTD,Jai Corp Ltd,2,Revenue CAGR 5Y,2.3%
+2026-05-04,JAICORPLTD,Jai Corp Ltd,2,Avg ROCE (3Y),"3.5% hist:[3.8, 3.1, 3.2, 3.8, 3.4]"
+2026-05-04,JAINREC,Jain Resource Recycling Ltd,1,FCF / PAT,-0.15
+2026-05-04,JAMNAAUTO,Jamna Auto Industries Ltd,1,PEG Ratio,1.15
+2026-05-04,JARO,Jaro Institute of Technol. Mgt. and Research Ltd,2,FCF / PAT,0.17
+2026-05-04,JARO,Jaro Institute of Technol. Mgt. and Research Ltd,2,PEG Ratio,3.27
+2026-05-04,JAYAGROGN,Jayant Agro Organics Ltd,2,Revenue CAGR 5Y,7.9%
+2026-05-04,JAYAGROGN,Jayant Agro Organics Ltd,2,Avg ROCE (3Y),"13.9% hist:[24.7, 16.1, 13.8, 15.9, 11.9]"
+2026-05-04,JAYKAY,Jaykay Enterprises Ltd,2,Avg ROCE (3Y),"1.9% hist:[-0.8, 1.2, 1.2, -0.0, 4.6]"
+2026-05-04,JAYKAY,Jaykay Enterprises Ltd,2,FCF / PAT,-3.13
+2026-05-04,JBCHEPHARM,J B Chemicals & Pharmaceuticals Ltd,2,FCF / PAT,0.28
+2026-05-04,JBCHEPHARM,J B Chemicals & Pharmaceuticals Ltd,2,PEG Ratio,4.12
+2026-05-04,JGCHEM,J.G.Chemicals Ltd,2,Avg ROCE (3Y),"15.3% hist:[23.2, 27.3, 11.2, 18.7, 16.1]"
+2026-05-04,JGCHEM,J.G.Chemicals Ltd,2,FCF / PAT,0.07
+2026-05-04,JINDRILL,Jindal Drilling & Industries Ltd,2,Avg ROCE (3Y),"13.6% hist:[7.8, 10.8, 8.4, 13.8, 18.7]"
+2026-05-04,JINDRILL,Jindal Drilling & Industries Ltd,2,FCF / PAT,0.01
+2026-05-04,JISLDVREQS,Jain Irrigation Systems Ltd-DVR,1,Promoter Holding,30.4%
+2026-05-04,JITFINFRA,JITF Infra Logistics Ltd,2,Avg ROCE (3Y),"13.9% hist:[7.0, 10.9, 12.3, 13.6, 15.8]"
+2026-05-04,JITFINFRA,JITF Infra Logistics Ltd,2,FCF / PAT,0.10
+2026-05-04,JKCEMENT,J K Cements Ltd,2,FCF / PAT,-1.03
+2026-05-04,JKCEMENT,J K Cements Ltd,2,PEG Ratio,5.25
+2026-05-04,JKIL,J Kumar Infraprojects Ltd,1,FCF / PAT,-0.07
+2026-05-04,JKPAPER,JK Paper Ltd,2,Avg ROCE (3Y),"15.4% hist:[16.3, 29.4, 22.2, 12.7, 11.4]"
+2026-05-04,JKPAPER,JK Paper Ltd,2,PEG Ratio,15.62
+2026-05-04,JKTYRE,JK Tyre & Industries Ltd,1,PEG Ratio,1.14
+2026-05-04,JNKINDIA,JNK India Ltd,1,FCF / PAT,-0.54
+2026-05-04,JSLL,Jeena Sikho Lifecare Ltd,1,FCF / PAT,-0.36
+2026-05-04,JSWCEMENT,JSW Cement Ltd,2,Avg ROCE (3Y),"9.1% hist:[11.2, 8.4, 9.8, 6.9, 10.5]"
+2026-05-04,JSWCEMENT,JSW Cement Ltd,2,FCF / PAT,-2.29
+2026-05-04,JSWDULUX,JSW Dulux Ltd,1,Revenue CAGR 5Y,9.2%
+2026-05-04,JSWINFRA,JSW Infrastructure Ltd,2,Avg ROCE (3Y),"15.5% hist:[13.8, 19.0, 15.4, 15.3, 15.9]"
+2026-05-04,JSWINFRA,JSW Infrastructure Ltd,2,FCF / PAT,-0.68
+2026-05-04,JTEKTINDIA,JTEKT India Ltd,2,Revenue CAGR 5Y,3.3%
+2026-05-04,JTEKTINDIA,JTEKT India Ltd,2,PEG Ratio,17.67
+2026-05-04,JUBLPHARMA,Jubilant Pharmova Ltd,2,Revenue CAGR 5Y,5.4%
+2026-05-04,JUBLPHARMA,Jubilant Pharmova Ltd,2,Avg ROCE (3Y),"12.1% hist:[13.5, 8.6, 9.9, 13.1, 13.4]"
+2026-05-04,JUNIPER,Juniper Hotels Ltd,1,Avg ROCE (3Y),"8.6% hist:[2.3, 9.7, 7.8, 8.1, 9.8]"
+2026-05-04,JWL,Jupiter Wagons Ltd,1,FCF / PAT,-0.57
+2026-05-04,JYOTHYLAB,Jyothy Labs Ltd,1,PEG Ratio,1.60
+2026-05-04,JYOTICNC,Jyoti CNC Automation Ltd,1,PEG Ratio,1.37
+2026-05-04,KABRAEXTRU,Kabra Extrusion Technik Ltd,2,Avg ROCE (3Y),"7.3% hist:[14.2, 16.2, 11.4, 8.5, 2.0]"
+2026-05-04,KABRAEXTRU,Kabra Extrusion Technik Ltd,2,FCF / PAT,-0.30
+2026-05-04,KAJARIACER,Kajaria Ceramics Ltd,2,FCF / PAT,0.41
+2026-05-04,KAJARIACER,Kajaria Ceramics Ltd,2,PEG Ratio,3.55
+2026-05-04,KALAMANDIR,Sai Silks (Kalamandir) Ltd,2,Revenue CAGR 5Y,-1.7%
+2026-05-04,KALAMANDIR,Sai Silks (Kalamandir) Ltd,2,PEG Ratio,2.94
+2026-05-04,KALPATARU,Kalpataru Ltd,2,Debt / Equity,2.24
+2026-05-04,KALPATARU,Kalpataru Ltd,2,Avg ROCE (3Y),"-0.5% hist:[-0.4, -0.7, -1.1, 0.5, -0.9]"
+2026-05-04,KALYANKJIL,Kalyan Jewellers India Ltd,1,Avg ROCE (3Y),"17.3% hist:[11.9, 14.7, 15.4, 16.2, 20.2]"
+2026-05-04,KDDL,KDDL Ltd,1,FCF / PAT,0.63
+2026-05-04,KECL,Kirloskar Electric Company Ltd,1,Avg ROCE (3Y),"12.6% hist:[-7.3, 16.1, 17.8, 7.0, 13.1]"
+2026-05-04,KEI,KEI Industries Ltd,2,Promoter Holding,35.0%
+2026-05-04,KEI,KEI Industries Ltd,2,PEG Ratio,2.28
+2026-05-04,KFINTECH,KFin Technologies Ltd,2,FCF / PAT,-6.07
+2026-05-04,KFINTECH,KFin Technologies Ltd,2,Promoter Holding,22.9%
+2026-05-04,KILITCH,Kilitch Drugs (India) Ltd,2,Avg ROCE (3Y),"10.8% hist:[6.2, 10.3, 11.5, 12.7, 8.3]"
+2026-05-04,KILITCH,Kilitch Drugs (India) Ltd,2,FCF / PAT,-1.07
+2026-05-04,KIRLFER,Kirloskar Ferrous Industries Ltd,2,Avg ROCE (3Y),"17.5% hist:[21.6, 21.0, 19.4, 16.2, 16.8]"
+2026-05-04,KIRLFER,Kirloskar Ferrous Industries Ltd,2,FCF / PAT,0.54
+2026-05-04,KIRLOSBROS,Kirloskar Brothers Ltd,1,PEG Ratio,1.65
+2026-05-04,KIRLOSIND,Kirloskar Industries Ltd,2,Avg ROCE (3Y),"12.1% hist:[19.3, 20.9, 15.5, 10.4, 10.3]"
+2026-05-04,KIRLOSIND,Kirloskar Industries Ltd,2,FCF / PAT,0.41
+2026-05-04,KMEW,Knowledge Marine & Engineering Works Ltd,2,FCF / PAT,-1.29
+2026-05-04,KMEW,Knowledge Marine & Engineering Works Ltd,2,PEG Ratio,1.43
+2026-05-04,KOLTEPATIL,Kolte Patil Developers Ltd,1,Avg ROCE (3Y),"4.0% hist:[12.4, 13.2, 1.0, 8.9, 2.2]"
+2026-05-04,KOTHARIPET,Kothari Petrochemicals Ltd,2,Revenue CAGR 5Y,-3.6%
+2026-05-04,KOTHARIPET,Kothari Petrochemicals Ltd,2,PEG Ratio,3.71
+2026-05-04,KOVAI,Kovai Medical Center & Hospital Ltd,2,FCF / PAT,-0.77
+2026-05-04,KOVAI,Kovai Medical Center & Hospital Ltd,2,PEG Ratio,4.57
+2026-05-04,KPEL,K.P. Energy Ltd,1,FCF / PAT,-7.58
+2026-05-04,KPIGREEN,KPI Green Energy Ltd,2,Avg ROCE (3Y),"16.2% hist:[18.2, 22.3, 18.0, 14.5, 16.0]"
+2026-05-04,KPIGREEN,KPI Green Energy Ltd,2,FCF / PAT,-4.45
+2026-05-04,KPITTECH,KPIT Technologies Ltd,1,Promoter Holding,39.4%
+2026-05-04,KPRMILL,K P R Mill Ltd,2,FCF / PAT,0.61
+2026-05-04,KPRMILL,K P R Mill Ltd,2,PEG Ratio,3.68
+2026-05-04,KRISHNADEF,Krishna Defence & Allied Industries Ltd,2,Avg ROCE (3Y),"17.1% hist:[15.3, 13.8, 22.1]"
+2026-05-04,KRISHNADEF,Krishna Defence & Allied Industries Ltd,2,FCF / PAT,-1.82
+2026-05-04,KRN,KRN Heat Exchanger and Refrigeration Ltd,2,FCF / PAT,-3.04
+2026-05-04,KRN,KRN Heat Exchanger and Refrigeration Ltd,2,PEG Ratio,8.50
+2026-05-04,KSB,KSB Ltd,2,FCF / PAT,0.40
+2026-05-04,KSB,KSB Ltd,2,PEG Ratio,4.89
+2026-05-04,KSL,Kalyani Steels Ltd,2,Revenue CAGR 5Y,9.7%
+2026-05-04,KSL,Kalyani Steels Ltd,2,Avg ROCE (3Y),"16.0% hist:[19.8, 19.8, 16.3, 16.0, 15.7]"
+2026-05-04,KSOLVES,Ksolves India Ltd,1,FCF / PAT,0.66
+2026-05-04,LALPATHLAB,Dr Lal Pathlabs Ltd,2,FCF / PAT,0.49
+2026-05-04,LALPATHLAB,Dr Lal Pathlabs Ltd,2,PEG Ratio,4.34
+2026-05-04,LATENTVIEW,Latent View Analytics Ltd,2,Avg ROCE (3Y),"12.0% hist:[11.6, 11.8, 9.7, 12.8, 13.6]"
+2026-05-04,LATENTVIEW,Latent View Analytics Ltd,2,FCF / PAT,-0.35
+2026-05-04,LAXMIDENTL,Laxmi Dental Ltd,2,FCF / PAT,0.17
+2026-05-04,LAXMIDENTL,Laxmi Dental Ltd,2,Promoter Holding,41.8%
+2026-05-04,LEMERITE,Le Merite Exports Ltd,2,Avg ROCE (3Y),"3.4% hist:[12.7, 21.4, 3.4, 3.2, 3.7]"
+2026-05-04,LEMERITE,Le Merite Exports Ltd,2,FCF / PAT,-1.30
+2026-05-04,LGBBROSLTD,L G Balakrishnan & Bros Ltd,2,FCF / PAT,0.32
+2026-05-04,LGBBROSLTD,L G Balakrishnan & Bros Ltd,2,Promoter Holding,34.8%
+2026-05-04,LIKHITHA,Likhitha Infrastructure Ltd,2,FCF / PAT,-0.01
+2026-05-04,LIKHITHA,Likhitha Infrastructure Ltd,2,PEG Ratio,1.25
+2026-05-04,LINDEINDIA,Linde India Ltd,1,PEG Ratio,3.45
+2026-05-04,LLOYDSENT,Lloyds Enterprises Ltd,2,Avg ROCE (3Y),"3.9% hist:[0.5, 4.7, 5.3, 3.9, 2.4]"
+2026-05-04,LLOYDSENT,Lloyds Enterprises Ltd,2,FCF / PAT,-4.41
+2026-05-04,LLOYDSME,Lloyds Metals & Energy Ltd,1,Debt / Equity,1.06
+2026-05-04,LODHA,Lodha Developers Ltd,1,Avg ROCE (3Y),"13.3% hist:[9.2, 9.5, 10.6, 14.6, 14.8]"
+2026-05-04,LOTUSDEV,Sri Lotus Developers & Realty Ltd,1,FCF / PAT,-1.73
+2026-05-04,LTFOODS,L T Foods Ltd,2,FCF / PAT,0.70
+2026-05-04,LTFOODS,L T Foods Ltd,2,PEG Ratio,1.36
+2026-05-04,LTM,LTM Ltd,2,FCF / PAT,0.53
+2026-05-04,LTM,LTM Ltd,2,PEG Ratio,2.61
+2026-05-04,LTTS,L&T Technology Services Ltd,2,FCF / PAT,0.47
+2026-05-04,LTTS,L&T Technology Services Ltd,2,PEG Ratio,2.22
+2026-05-04,LUPIN,Lupin Ltd,1,FCF / PAT,0.72
+2026-05-04,MAANALU,Maan Aluminium Ltd,1,Avg ROCE (3Y),9.5% hist:[9.5]
+2026-05-04,MAHASTEEL,Mahamaya Steel Industries Ltd,2,Avg ROCE (3Y),"9.9% hist:[8.7, 7.9, 8.8, 9.7, 11.2]"
+2026-05-04,MAHASTEEL,Mahamaya Steel Industries Ltd,2,PEG Ratio,2.14
+2026-05-04,MAHLOG,Mahindra Logistics Ltd,1,FCF / PAT,-0.67
+2026-05-04,MAHSEAMLES,Maharashtra Seamless Ltd,2,Avg ROCE (3Y),"15.4% hist:[12.4, 20.1, 20.9, 14.3, 10.9]"
+2026-05-04,MAHSEAMLES,Maharashtra Seamless Ltd,2,FCF / PAT,-0.00
+2026-05-04,MANAKCOAT,Manaksia Coated Metals & Industries Ltd,2,Avg ROCE (3Y),"16.2% hist:[12.2, 10.6, 15.5, 14.5, 18.5]"
+2026-05-04,MANAKCOAT,Manaksia Coated Metals & Industries Ltd,2,FCF / PAT,-2.04
+2026-05-04,MANGLMCEM,Mangalam Cement Ltd,1,Promoter Holding,40.0%
+2026-05-04,MANINFRA,Man Infraconstruction Ltd,2,Avg ROCE (3Y),"15.6% hist:[17.5, 32.0, 20.5, 16.7, 9.7]"
+2026-05-04,MANINFRA,Man Infraconstruction Ltd,2,FCF / PAT,-0.35
+2026-05-04,MANORAMA,Manorama Industries Ltd,1,FCF / PAT,-0.83
+2026-05-04,MANYAVAR,Vedant Fashions Ltd,2,Revenue CAGR 5Y,8.0%
+2026-05-04,MANYAVAR,Vedant Fashions Ltd,2,FCF / PAT,0.45
+2026-05-04,MAPMYINDIA,C.E. Info Systems Ltd,1,FCF / PAT,0.35
+2026-05-04,MARATHON,Marathon Nextgen Realty Ltd,2,Avg ROCE (3Y),"9.8% hist:[4.3, 14.9, 13.2, 9.9, 6.2]"
+2026-05-04,MARATHON,Marathon Nextgen Realty Ltd,2,FCF / PAT,-1.91
+2026-05-04,MARICO,Marico Ltd,1,PEG Ratio,7.63
+2026-05-04,MARSONS,Marsons Ltd,2,Avg ROCE (3Y),"15.8% hist:[-127.0, -126.7, 4.3, 20.0, 23.1]"
+2026-05-04,MARSONS,Marsons Ltd,2,FCF / PAT,-1.52
+2026-05-04,MARUTI,Maruti Suzuki India Ltd,2,FCF / PAT,0.33
+2026-05-04,MARUTI,Maruti Suzuki India Ltd,2,PEG Ratio,1.11
+2026-05-04,MATRIMONY,Matrimony.com Ltd,2,Revenue CAGR 5Y,3.6%
+2026-05-04,MATRIMONY,Matrimony.com Ltd,2,FCF / PAT,0.69
+2026-05-04,MAXESTATES,Max Estates Ltd,2,Avg ROCE (3Y),"0.9% hist:[3.4, 1.5, 0.8, 1.1, 0.8]"
+2026-05-04,MAXESTATES,Max Estates Ltd,2,FCF / PAT,-37.41
+2026-05-04,MAYURUNIQ,Mayur Uniquoters Ltd,1,FCF / PAT,0.42
+2026-05-04,MAZDOCK,Mazagon Dock Shipbuilders Ltd,2,FCF / PAT,0.70
+2026-05-04,MAZDOCK,Mazagon Dock Shipbuilders Ltd,2,PEG Ratio,1.07
+2026-05-04,MCLOUD,Magellanic Cloud Ltd,1,FCF / PAT,-1.85
+2026-05-04,MEDIASSIST,Medi Assist Healthcare Services Ltd,2,FCF / PAT,0.49
+2026-05-04,MEDIASSIST,Medi Assist Healthcare Services Ltd,2,Promoter Holding,4.6%
+2026-05-04,MEESHO,Meesho Ltd,2,Avg ROCE (3Y),"-47.5% hist:[-82.6, -21.5, -38.4]"
+2026-05-04,MEESHO,Meesho Ltd,2,Promoter Holding,16.6%
+2026-05-04,MENONBE,Menon Bearings Ltd,1,FCF / PAT,-1.38
+2026-05-04,METROBRAND,Metro Brands Ltd,1,PEG Ratio,1.73
+2026-05-04,METROPOLIS,Metropolis Healthcare Ltd,1,Revenue CAGR 5Y,9.4%
+2026-05-04,MICEL,MIC Electronics Ltd,2,Avg ROCE (3Y),"8.4% hist:[10.0, 2.5, 9.0, 6.7, 9.6]"
+2026-05-04,MICEL,MIC Electronics Ltd,2,FCF / PAT,-11.08
+2026-05-04,MIDWESTLTD,Midwest Ltd,1,FCF / PAT,-0.08
+2026-05-04,MODISONLTD,Modison Ltd,2,Avg ROCE (3Y),"16.3% hist:[15.5, 13.0, 13.6, 15.6, 19.6]"
+2026-05-04,MODISONLTD,Modison Ltd,2,FCF / PAT,0.44
+2026-05-04,MOTHERSON,Samvardhana Motherson International Ltd,2,FCF / PAT,0.72
+2026-05-04,MOTHERSON,Samvardhana Motherson International Ltd,2,PEG Ratio,2.09
+2026-05-04,MPHASIS,Mphasis Ltd,2,Promoter Holding,30.6%
+2026-05-04,MPHASIS,Mphasis Ltd,2,PEG Ratio,2.72
+2026-05-04,MPSLTD,MPS Ltd,1,FCF / PAT,0.72
+2026-05-04,MRPL,Mangalore Refinery And Petrochemicals Ltd,1,Debt / Equity,1.08
+2026-05-04,MSPL,MSP Steel & Power Ltd,2,Avg ROCE (3Y),"10.7% hist:[10.7, 4.7, 9.2, 10.8, 12.1]"
+2026-05-04,MSPL,MSP Steel & Power Ltd,2,Promoter Holding,40.2%
+2026-05-04,MSTCLTD,MSTC Ltd,2,Revenue CAGR 5Y,-15.3%
+2026-05-04,MSTCLTD,MSTC Ltd,2,Avg ROCE (3Y),"16.9% hist:[1.1, 20.7, 10.4, 20.2, 20.1]"
+2026-05-04,MUKANDLTD,Mukand Ltd,2,Debt / Equity,1.89
+2026-05-04,MUKANDLTD,Mukand Ltd,2,Avg ROCE (3Y),"10.9% hist:[8.8, -7.3, 12.2, 11.4, 9.2]"
+2026-05-04,MWL,Mangalam Worldwide Ltd,2,Avg ROCE (3Y),"14.2% hist:[13.0, 8.6, 13.4, 12.3, 17.0]"
+2026-05-04,MWL,Mangalam Worldwide Ltd,2,FCF / PAT,-2.29
+2026-05-04,NAHARPOLY,Nahar Polyfilms Ltd,2,Avg ROCE (3Y),"7.1% hist:[11.0, 8.7, 2.3, 8.5, 10.4]"
+2026-05-04,NAHARPOLY,Nahar Polyfilms Ltd,2,PEG Ratio,2.86
+2026-05-04,NATCOPHARM,Natco Pharma Ltd,1,FCF / PAT,0.09
+2026-05-04,NAVA,Nava Ltd,2,FCF / PAT,-0.23
+2026-05-04,NAVA,Nava Ltd,2,PEG Ratio,1.16
+2026-05-04,NAVNETEDUL,Navneet Education Ltd,2,Avg ROCE (3Y),"16.5% hist:[8.7, 20.2, 19.1, 15.7, 14.6]"
+2026-05-04,NAVNETEDUL,Navneet Education Ltd,2,FCF / PAT,0.72
+2026-05-04,NBCC,NBCC (India) Ltd,1,PEG Ratio,1.60
+2026-05-04,NCC,NCC Ltd,1,Promoter Holding,22.8%
+2026-05-04,NDRAUTO,NDR Auto Components Ltd,1,FCF / PAT,0.08
+2026-05-04,NELCAST,Nelcast Ltd,1,Avg ROCE (3Y),"11.3% hist:[8.2, 10.4, 10.8, 10.5, 12.6]"
+2026-05-04,NELCO,NELCO Ltd,1,Revenue CAGR 5Y,6.3%
+2026-05-04,NEPHROPLUS,Nephrocare Health Services Ltd,2,Avg ROCE (3Y),"14.3% hist:[9.6, 3.1, 8.4, 14.8, 19.8]"
+2026-05-04,NEPHROPLUS,Nephrocare Health Services Ltd,2,FCF / PAT,-9.76
+2026-05-04,NESTLEIND,Nestle India Ltd,2,Revenue CAGR 5Y,6.6%
+2026-05-04,NESTLEIND,Nestle India Ltd,2,PEG Ratio,15.60
+2026-05-04,NEWGEN,Newgen Software Technologies Ltd,2,FCF / PAT,0.27
+2026-05-04,NEWGEN,Newgen Software Technologies Ltd,2,PEG Ratio,1.15
+2026-05-04,NFL,National Fertilizer Ltd,2,Debt / Equity,1.77
+2026-05-04,NFL,National Fertilizer Ltd,2,Avg ROCE (3Y),"10.8% hist:[7.4, 16.5, 9.3, 13.0, 10.1]"
+2026-05-04,NGLFINE,NGL Fine Chem Ltd,2,Avg ROCE (3Y),"14.2% hist:[29.2, 13.8, 18.2, 9.7, 14.7]"
+2026-05-04,NGLFINE,NGL Fine Chem Ltd,2,FCF / PAT,0.04
+2026-05-04,NH,Narayana Hrudayalaya Ltd,1,FCF / PAT,-0.29
+2026-05-04,NIBE,NIBE Ltd,2,Avg ROCE (3Y),"12.9% hist:[9.7, 15.4, 19.4, 4.0]"
+2026-05-04,NIBE,NIBE Ltd,2,FCF / PAT,-16.79
+2026-05-04,NILASPACES,Nila Spaces Ltd,1,Avg ROCE (3Y),"16.3% hist:[-2.5, -7.0, 8.6, 20.1, 20.1]"
+2026-05-04,NILKAMAL,Nilkamal Ltd,1,Avg ROCE (3Y),"15.3% hist:[14.4, 18.7, 16.2, 14.2, 15.5]"
+2026-05-04,NINSYS,NINtec Systems Ltd,1,FCF / PAT,0.22
+2026-05-04,NMDC,NMDC Ltd,1,PEG Ratio,5.96
+2026-05-04,NPST,Network People Services Technologies Ltd,1,FCF / PAT,-0.62
+2026-05-04,NRBBEARING,NRB Bearings Ltd,1,PEG Ratio,1.48
+2026-05-04,NUCLEUS,Nucleus Software Exports Ltd,1,PEG Ratio,1.98
