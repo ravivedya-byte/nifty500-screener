@@ -141,7 +141,7 @@ def _soup_with_retry(sym, retries=3, backoff=4.0):
 
 def _num(text):
     if not text: return None
-    t = re.sub(r"[Rs,%\s]", "", str(text)).replace(",","")
+    t = re.sub(r"[₹Rs,%\s]", "", str(text)).replace(",","")
     t = re.sub(r"Cr\.?", "", t).strip()
     if "/" in t: t = t.split("/")[0].strip()
     try: return float(t)
@@ -156,6 +156,10 @@ def _parse_ratios(soup):
         if n and v:
             key = n.text.strip().rstrip("+").strip().lower()
             out[key] = v.text.strip()
+    for alias in ["return on equity", "roe", "return on equity %"]:
+        if alias in out:
+            out["return on equity"] = out[alias]
+            break
     return out
 
 def _parse_table(soup, section_id):
@@ -782,14 +786,35 @@ def format_weekly_report(today, wl_log, perf_results, weekly_nms, week_stats):
 
 # ── Telegram ──────────────────────────────────────────────────────────────────
 
-def send_whatsapp(text):
+def send_whatsapp(text: str) -> bool:
+    """Send via Telegram. Auto-splits messages longer than 4000 chars."""
     url = f"https://api.telegram.org/bot{cfg.TELEGRAM_BOT_TOKEN}/sendMessage"
-    try:
-        r = requests.post(url, json={"chat_id":cfg.TELEGRAM_CHAT_ID,"text":text,"parse_mode":"Markdown"}, timeout=15)
-        if r.status_code==200: log.info("Telegram sent ✅"); return True
-        log.error(f"Telegram {r.status_code}: {r.text[:200]}")
-    except Exception as e: log.error(f"Telegram failed: {e}")
-    return False
+    chunks = []
+    while len(text) > 4000:
+        split_at = text.rfind("\n", 0, 4000)
+        if split_at == -1:
+            split_at = 4000
+        chunks.append(text[:split_at])
+        text = text[split_at:].lstrip("\n")
+    chunks.append(text)
+    all_sent = True
+    for chunk in chunks:
+        try:
+            r = requests.post(url, json={
+                "chat_id":    cfg.TELEGRAM_CHAT_ID,
+                "text":       chunk,
+                "parse_mode": "Markdown",
+            }, timeout=15)
+            if r.status_code == 200:
+                log.info("Telegram sent ✅")
+            else:
+                log.error(f"Telegram error {r.status_code}: {r.text[:200]}")
+                all_sent = False
+            time.sleep(1)
+        except Exception as e:
+            log.error(f"Telegram failed: {e}")
+            all_sent = False
+    return all_sent
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
