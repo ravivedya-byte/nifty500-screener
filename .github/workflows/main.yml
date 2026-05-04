@@ -1,9 +1,19 @@
-name: Daily Nifty 500 Screener
+name: NSE Investment Screener
 
 on:
   schedule:
-    - cron: '30 10 * * 1-5'
+    # Daily: 5:30 PM IST = 12:00 PM UTC  Mon-Fri
+    # Alert arrives ~6:00 PM IST
+    - cron: '0 12 * * 1-5'
+    # Saturday: 9:00 AM IST = 3:30 AM UTC
+    - cron: '30 3 * * 6'
+
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Run mode: daily or saturday'
+        required: false
+        default: 'daily'
 
 jobs:
   screen:
@@ -24,19 +34,34 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Determine run mode
+        run: |
+          DAY=$(date +%u)
+          if [ "$DAY" = "6" ]; then
+            echo "SCREENER_MODE=saturday" >> $GITHUB_ENV
+          else
+            echo "SCREENER_MODE=daily" >> $GITHUB_ENV
+          fi
+          if [ "${{ github.event.inputs.mode }}" != "" ]; then
+            echo "SCREENER_MODE=${{ github.event.inputs.mode }}" >> $GITHUB_ENV
+          fi
+
       - name: Run screener
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
           ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          SEBI_RA_NUMBER:     ${{ secrets.SEBI_RA_NUMBER }}
+          SUBSTACK_BASE_URL:  ${{ secrets.SUBSTACK_BASE_URL }}
+          SCREENER_MODE:      ${{ env.SCREENER_MODE }}
         run: python screener.py
 
       - name: Commit updated data files
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          for f in alerts_log.json watchlist_log.json near_miss_log.csv performance_log.json; do
+          for f in alerts_log.json watchlist_log.json near_miss_log.csv performance_log.json week_stats.json; do
             [ -f "$f" ] && git add "$f" || true
           done
-          git diff --staged --quiet || git commit -m "Data: $(date +%Y-%m-%d)"
+          git diff --staged --quiet || git commit -m "Data: $(date +%Y-%m-%d) [${SCREENER_MODE}]"
           git push
