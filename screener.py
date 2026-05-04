@@ -750,8 +750,14 @@ def format_weekly_report(today, wl_log, perf_results, weekly_nms, week_stats):
     else:
         batches=[]; td=tc=0.0
         for res in sorted(perf_results, key=lambda x:x["month"],reverse=True):
-            al="\n".join(f"    {sym_link(a['symbol']):<30} Rs{a.get('price_entry','—')} → Rs{a.get('price_current','—')}  {f\"{a['pct_change']:+.1f}%\" if a.get('pct_change') is not None else 'pending'}"
-                         for a in res.get("allocations",[]))
+            al_lines = []
+            for a in res.get("allocations", []):
+                chg = a.get("pct_change")
+                chg_s = f"{chg:+.1f}%" if chg is not None else "pending"
+                ep = a.get("price_entry", "—")
+                cp = a.get("price_current", "—")
+                al_lines.append(f"    {sym_link(a['symbol']):<30} Rs{ep} -> Rs{cp}  {chg_s}")
+            al = "\n".join(al_lines)
             r=res.get("return_pct"); b=res.get("bench_pct"); al2=res.get("alpha")
             rs=f"{r:+.1f}%" if r is not None else "pending"
             vs=(f"vs Nifty50: {b:+.1f}%  |  Alpha: {al2:+.1f}%" if b is not None and al2 is not None else "pending")
