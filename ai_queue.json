@@ -1,0 +1,3768 @@
+{
+  "pending": [
+    {
+      "sym": "ABDL",
+      "name": "Allied Blenders & Distillers Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Allied Blenders & Distillers Ltd",
+        "about": "",
+        "roe": 20.0,
+        "de_ratio": 0.68,
+        "pe_ratio": 56.2,
+        "peg_ratio": 0.39,
+        "eps_growth_5y": 144.0,
+        "revenue_growth_5y": 10.3,
+        "roce_3y_avg": 18.9,
+        "roce_history": [
+          14.4,
+          15.5,
+          15.5,
+          19.6,
+          17.6,
+          19.5
+        ],
+        "fcf_to_pat": 84.01,
+        "promoter_holding": 80.91,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          2686.0,
+          3147.0,
+          3328.0,
+          3520.0,
+          3837.0
+        ],
+        "_eps": [
+          0.06,
+          0.07,
+          0.07,
+          6.97,
+          9.51
+        ],
+        "_roce": [
+          15.5,
+          15.5,
+          19.6,
+          17.6,
+          19.5
+        ],
+        "_opm": [
+          7.3,
+          12.2,
+          13.3
+        ]
+      },
+      "basic": {
+        "symbol": "ABDL",
+        "name": "ABDL",
+        "sector": "Consumer Defensive",
+        "industry": "Beverages - Wineries & Distilleries",
+        "market_cap_cr": 15077.8,
+        "pe_yf": 56.39
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 15077.8,
+          "pass": true,
+          "label": "Rs15,078Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.68,
+          "pass": true,
+          "label": "0.68"
+        },
+        "ROE": {
+          "value": 20.0,
+          "pass": true,
+          "label": "20.0%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 10.3,
+          "pass": true,
+          "label": "10.3%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 18.9,
+          "pass": true,
+          "label": "18.9%  hist:[15.5, 15.5, 19.6, 17.6, 19.5]"
+        },
+        "FCF / PAT": {
+          "value": 84.01,
+          "pass": true,
+          "label": "84.01"
+        },
+        "Promoter Holding": {
+          "value": 80.91,
+          "pass": true,
+          "label": "80.9%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.39,
+          "pass": true,
+          "label": "0.39"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "ACCELYA",
+      "name": "Accelya Solutions India Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Accelya Solutions India Ltd",
+        "about": "",
+        "roe": 45.5,
+        "de_ratio": 0.33,
+        "pe_ratio": 16.5,
+        "peg_ratio": 0.89,
+        "eps_growth_5y": 18.6,
+        "revenue_growth_5y": 13.1,
+        "roce_3y_avg": 56.4,
+        "roce_history": [
+          30.9,
+          46.5,
+          65.3,
+          61.1,
+          57.1,
+          51.1
+        ],
+        "fcf_to_pat": 1.01,
+        "promoter_holding": 74.66,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": true,
+        "_sales_cr": [
+          368.0,
+          469.0,
+          511.0,
+          529.0,
+          537.0
+        ],
+        "_eps": [
+          51.04,
+          84.9,
+          62.88,
+          86.44,
+          66.25
+        ],
+        "_roce": [
+          46.5,
+          65.3,
+          61.1,
+          57.1,
+          51.1
+        ],
+        "_opm": [
+          37.8,
+          36.7,
+          33.3
+        ]
+      },
+      "basic": {
+        "symbol": "ACCELYA",
+        "name": "Accelya Solutions India Limited",
+        "sector": "Technology",
+        "industry": "Information Technology Services",
+        "market_cap_cr": 1718.0,
+        "pe_yf": 15.94
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 1718.0,
+          "pass": true,
+          "label": "Rs1,718Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.33,
+          "pass": true,
+          "label": "0.33"
+        },
+        "ROE": {
+          "value": 45.5,
+          "pass": true,
+          "label": "45.5%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 13.1,
+          "pass": true,
+          "label": "13.1%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 56.4,
+          "pass": true,
+          "label": "56.4%  hist:[46.5, 65.3, 61.1, 57.1, 51.1]"
+        },
+        "FCF / PAT": {
+          "value": 1.01,
+          "pass": true,
+          "label": "1.01"
+        },
+        "Promoter Holding": {
+          "value": 74.66,
+          "pass": true,
+          "label": "74.7%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.89,
+          "pass": true,
+          "label": "0.89"
+        }
+      },
+      "soft_flags": [
+        "Operating margin contracting [37.8, 36.7, 33.3]"
+      ]
+    },
+    {
+      "sym": "ACE",
+      "name": "Action Construction Equipment Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Action Construction Equipment Ltd",
+        "about": "",
+        "roe": 28.6,
+        "de_ratio": 0.08,
+        "pe_ratio": 24.9,
+        "peg_ratio": 0.65,
+        "eps_growth_5y": 38.3,
+        "revenue_growth_5y": 21.2,
+        "roce_3y_avg": 29.8,
+        "roce_history": [
+          20.6,
+          19.2,
+          23.9,
+          32.7,
+          31.0,
+          25.7
+        ],
+        "fcf_to_pat": 1.8,
+        "promoter_holding": 65.42,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          1630.0,
+          2160.0,
+          2914.0,
+          3327.0,
+          3212.0
+        ],
+        "_eps": [
+          8.82,
+          14.41,
+          27.56,
+          34.36,
+          35.51
+        ],
+        "_roce": [
+          19.2,
+          23.9,
+          32.7,
+          31.0,
+          25.7
+        ],
+        "_opm": [
+          13.9,
+          15.2,
+          15.4
+        ]
+      },
+      "basic": {
+        "symbol": "ACE",
+        "name": "Action Construction Equipment Limited",
+        "sector": "Industrials",
+        "industry": "Farm & Heavy Construction Machinery",
+        "market_cap_cr": 10498.2,
+        "pe_yf": 24.85
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 10498.2,
+          "pass": true,
+          "label": "Rs10,498Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.08,
+          "pass": true,
+          "label": "0.08"
+        },
+        "ROE": {
+          "value": 28.6,
+          "pass": true,
+          "label": "28.6%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 21.2,
+          "pass": true,
+          "label": "21.2%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 29.8,
+          "pass": true,
+          "label": "29.8%  hist:[19.2, 23.9, 32.7, 31.0, 25.7]"
+        },
+        "FCF / PAT": {
+          "value": 1.8,
+          "pass": true,
+          "label": "1.80"
+        },
+        "Promoter Holding": {
+          "value": 65.42,
+          "pass": true,
+          "label": "65.4%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.65,
+          "pass": true,
+          "label": "0.65"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "ADANIPOWER",
+      "name": "Adani Power Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Adani Power Ltd",
+        "about": "",
+        "roe": 21.2,
+        "de_ratio": 0.84,
+        "pe_ratio": 34.5,
+        "peg_ratio": 0.59,
+        "eps_growth_5y": 58.8,
+        "revenue_growth_5y": 15.6,
+        "roce_3y_avg": 20.8,
+        "roce_history": [
+          13.3,
+          14.6,
+          14.0,
+          23.4,
+          22.3,
+          16.6
+        ],
+        "fcf_to_pat": 1.77,
+        "promoter_holding": 74.96,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          27711.0,
+          38773.0,
+          50351.0,
+          56203.0,
+          54241.0
+        ],
+        "_eps": [
+          2.55,
+          5.56,
+          10.8,
+          6.71,
+          6.66
+        ],
+        "_roce": [
+          14.6,
+          14.0,
+          23.4,
+          22.3,
+          16.6
+        ],
+        "_opm": [
+          36.2,
+          38.1,
+          36.5
+        ]
+      },
+      "basic": {
+        "symbol": "ADANIPOWER",
+        "name": "Adani Power Limited",
+        "sector": "Utilities",
+        "industry": "Utilities - Independent Power Producers",
+        "market_cap_cr": 443470.8,
+        "pe_yf": 34.79
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 443470.8,
+          "pass": true,
+          "label": "Rs443,471Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.84,
+          "pass": true,
+          "label": "0.84"
+        },
+        "ROE": {
+          "value": 21.2,
+          "pass": true,
+          "label": "21.2%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 15.6,
+          "pass": true,
+          "label": "15.6%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 20.8,
+          "pass": true,
+          "label": "20.8%  hist:[14.6, 14.0, 23.4, 22.3, 16.6]"
+        },
+        "FCF / PAT": {
+          "value": 1.77,
+          "pass": true,
+          "label": "1.77"
+        },
+        "Promoter Holding": {
+          "value": 74.96,
+          "pass": true,
+          "label": "75.0%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.59,
+          "pass": true,
+          "label": "0.59"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "BANCOINDIA",
+      "name": "Banco Products (India) Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Banco Products (India) Ltd",
+        "about": "",
+        "roe": 32.2,
+        "de_ratio": 0.45,
+        "pe_ratio": 18.6,
+        "peg_ratio": 0.55,
+        "eps_growth_5y": 33.8,
+        "revenue_growth_5y": 19.1,
+        "roce_3y_avg": 30.0,
+        "roce_history": [
+          21.1,
+          24.8,
+          25.8,
+          29.0,
+          32.6,
+          28.3
+        ],
+        "fcf_to_pat": 0.75,
+        "promoter_holding": 67.88,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          1958.0,
+          2332.0,
+          2768.0,
+          3213.0,
+          3672.0
+        ],
+        "_eps": [
+          10.66,
+          16.47,
+          18.98,
+          27.39,
+          34.1
+        ],
+        "_roce": [
+          24.8,
+          25.8,
+          29.0,
+          32.6,
+          28.3
+        ],
+        "_opm": [
+          15.5,
+          19.0,
+          18.2
+        ]
+      },
+      "basic": {
+        "symbol": "BANCOINDIA",
+        "name": "Banco Products (India) Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Parts",
+        "market_cap_cr": 8884.0,
+        "pe_yf": 18.2
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 8884.0,
+          "pass": true,
+          "label": "Rs8,884Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.45,
+          "pass": true,
+          "label": "0.45"
+        },
+        "ROE": {
+          "value": 32.2,
+          "pass": true,
+          "label": "32.2%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 19.1,
+          "pass": true,
+          "label": "19.1%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 30.0,
+          "pass": true,
+          "label": "30.0%  hist:[24.8, 25.8, 29.0, 32.6, 28.3]"
+        },
+        "FCF / PAT": {
+          "value": 0.75,
+          "pass": true,
+          "label": "0.75"
+        },
+        "Promoter Holding": {
+          "value": 67.88,
+          "pass": true,
+          "label": "67.9%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.55,
+          "pass": true,
+          "label": "0.55"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "CEINSYS",
+      "name": "Ceinsys Tech Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Ceinsys Tech Ltd",
+        "about": "",
+        "roe": 19.5,
+        "de_ratio": 0.16,
+        "pe_ratio": 17.9,
+        "peg_ratio": 0.17,
+        "eps_growth_5y": 106.3,
+        "revenue_growth_5y": 27.9,
+        "roce_3y_avg": 20.0,
+        "roce_history": [
+          10.2,
+          10.7,
+          12.9,
+          18.1,
+          17.4,
+          24.5
+        ],
+        "fcf_to_pat": 1.22,
+        "promoter_holding": 50.88,
+        "promoter_pledge": null,
+        "promoter_trend": "decreasing",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          203.0,
+          220.0,
+          253.0,
+          418.0,
+          632.0
+        ],
+        "_eps": [
+          5.96,
+          20.02,
+          21.42,
+          36.26,
+          66.9
+        ],
+        "_roce": [
+          10.7,
+          12.9,
+          18.1,
+          17.4,
+          24.5
+        ],
+        "_opm": [
+          17.4,
+          19.1,
+          21.0
+        ]
+      },
+      "basic": {
+        "symbol": "CEINSYS",
+        "name": "Ceinsys Tech Limited",
+        "sector": "Industrials",
+        "industry": "Engineering & Construction",
+        "market_cap_cr": 2134.4,
+        "pe_yf": 17.1
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 2134.4,
+          "pass": true,
+          "label": "Rs2,134Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.16,
+          "pass": true,
+          "label": "0.16"
+        },
+        "ROE": {
+          "value": 19.5,
+          "pass": true,
+          "label": "19.5%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 27.9,
+          "pass": true,
+          "label": "27.9%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 20.0,
+          "pass": true,
+          "label": "20.0%  hist:[10.7, 12.9, 18.1, 17.4, 24.5]"
+        },
+        "FCF / PAT": {
+          "value": 1.22,
+          "pass": true,
+          "label": "1.22"
+        },
+        "Promoter Holding": {
+          "value": 50.88,
+          "pass": true,
+          "label": "50.9%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.17,
+          "pass": true,
+          "label": "0.17"
+        }
+      },
+      "soft_flags": [
+        "Promoter holding declining QoQ (50.9%)"
+      ]
+    },
+    {
+      "sym": "CEMPRO",
+      "name": "Cemindia Projects Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Cemindia Projects Ltd",
+        "about": "",
+        "roe": 28.2,
+        "de_ratio": 0.38,
+        "pe_ratio": 26.3,
+        "peg_ratio": 0.25,
+        "eps_growth_5y": 106.8,
+        "revenue_growth_5y": 29.8,
+        "roce_3y_avg": 31.1,
+        "roce_history": [
+          14.0,
+          17.3,
+          20.0,
+          31.3,
+          31.1,
+          30.9
+        ],
+        "fcf_to_pat": 2.29,
+        "promoter_holding": 67.46,
+        "promoter_pledge": null,
+        "promoter_trend": "increasing",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          3809.0,
+          5091.0,
+          7718.0,
+          9097.0,
+          10061.0
+        ],
+        "_eps": [
+          4.01,
+          7.23,
+          15.93,
+          21.7,
+          34.79
+        ],
+        "_roce": [
+          17.3,
+          20.0,
+          31.3,
+          31.1,
+          30.9
+        ],
+        "_opm": [
+          9.7,
+          9.5,
+          10.2
+        ]
+      },
+      "basic": {
+        "symbol": "CEMPRO",
+        "name": "Cemindia Projects Limited",
+        "sector": "Industrials",
+        "industry": "Engineering & Construction",
+        "market_cap_cr": 15679.9,
+        "pe_yf": 33.48
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 15679.9,
+          "pass": true,
+          "label": "Rs15,680Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.38,
+          "pass": true,
+          "label": "0.38"
+        },
+        "ROE": {
+          "value": 28.2,
+          "pass": true,
+          "label": "28.2%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 29.8,
+          "pass": true,
+          "label": "29.8%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 31.1,
+          "pass": true,
+          "label": "31.1%  hist:[17.3, 20.0, 31.3, 31.1, 30.9]"
+        },
+        "FCF / PAT": {
+          "value": 2.29,
+          "pass": true,
+          "label": "2.29"
+        },
+        "Promoter Holding": {
+          "value": 67.46,
+          "pass": true,
+          "label": "67.5%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.25,
+          "pass": true,
+          "label": "0.25"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "CHENNPETRO",
+      "name": "Chennai Petroleum Corporation Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Chennai Petroleum Corporation Ltd",
+        "about": "",
+        "roe": 32.1,
+        "de_ratio": 0.18,
+        "pe_ratio": 5.19,
+        "peg_ratio": 0.08,
+        "eps_growth_5y": 64.5,
+        "revenue_growth_5y": 23.4,
+        "roce_3y_avg": 28.0,
+        "roce_history": [
+          18.7,
+          22.3,
+          53.1,
+          38.6,
+          9.0,
+          36.4
+        ],
+        "fcf_to_pat": 1.0,
+        "promoter_holding": 67.29,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          43068.0,
+          76271.0,
+          66024.0,
+          58983.0,
+          63640.0
+        ],
+        "_eps": [
+          90.79,
+          237.16,
+          184.34,
+          14.38,
+          208.36
+        ],
+        "_roce": [
+          22.3,
+          53.1,
+          38.6,
+          9.0,
+          36.4
+        ],
+        "_opm": [
+          6.8,
+          1.7,
+          7.5
+        ]
+      },
+      "basic": {
+        "symbol": "CHENNPETRO",
+        "name": "Chennai Petroleum Corporation Limited",
+        "sector": "Energy",
+        "industry": "Oil & Gas Refining & Marketing",
+        "market_cap_cr": 16121.1,
+        "pe_yf": 5.2
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 16121.1,
+          "pass": true,
+          "label": "Rs16,121Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.18,
+          "pass": true,
+          "label": "0.18"
+        },
+        "ROE": {
+          "value": 32.1,
+          "pass": true,
+          "label": "32.1%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 23.4,
+          "pass": true,
+          "label": "23.4%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 28.0,
+          "pass": true,
+          "label": "28.0%  hist:[22.3, 53.1, 38.6, 9.0, 36.4]"
+        },
+        "FCF / PAT": {
+          "value": 1.0,
+          "pass": true,
+          "label": "1.00"
+        },
+        "Promoter Holding": {
+          "value": 67.29,
+          "pass": true,
+          "label": "67.3%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.08,
+          "pass": true,
+          "label": "0.08"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "COALINDIA",
+      "name": "Coal India Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Coal India Ltd",
+        "about": "",
+        "roe": 28.5,
+        "de_ratio": 0.12,
+        "pe_ratio": 9.37,
+        "peg_ratio": 0.48,
+        "eps_growth_5y": 19.6,
+        "revenue_growth_5y": 13.3,
+        "roce_3y_avg": 42.7,
+        "roce_history": [
+          43.9,
+          53.0,
+          67.9,
+          53.7,
+          43.5,
+          31.0
+        ],
+        "fcf_to_pat": 0.87,
+        "promoter_holding": 63.13,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": true,
+        "_sales_cr": [
+          109715.0,
+          138252.0,
+          144762.0,
+          143369.0,
+          168400.0
+        ],
+        "_eps": [
+          28.17,
+          51.54,
+          60.69,
+          57.37,
+          50.46
+        ],
+        "_roce": [
+          53.0,
+          67.9,
+          53.7,
+          43.5,
+          31.0
+        ],
+        "_opm": [
+          33.1,
+          32.8,
+          24.5
+        ]
+      },
+      "basic": {
+        "symbol": "COALINDIA",
+        "name": "Coal India Limited",
+        "sector": "Energy",
+        "industry": "Thermal Coal",
+        "market_cap_cr": 291250.6,
+        "pe_yf": 9.37
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 291250.6,
+          "pass": true,
+          "label": "Rs291,251Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.12,
+          "pass": true,
+          "label": "0.12"
+        },
+        "ROE": {
+          "value": 28.5,
+          "pass": true,
+          "label": "28.5%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 13.3,
+          "pass": true,
+          "label": "13.3%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 42.7,
+          "pass": true,
+          "label": "42.7%  hist:[53.0, 67.9, 53.7, 43.5, 31.0]"
+        },
+        "FCF / PAT": {
+          "value": 0.87,
+          "pass": true,
+          "label": "0.87"
+        },
+        "Promoter Holding": {
+          "value": 63.13,
+          "pass": true,
+          "label": "63.1%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.48,
+          "pass": true,
+          "label": "0.48"
+        }
+      },
+      "soft_flags": [
+        "Operating margin contracting [33.1, 32.8, 24.5]"
+      ]
+    },
+    {
+      "sym": "ECLERX",
+      "name": "eClerx Services Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "eClerx Services Ltd",
+        "about": "",
+        "roe": 22.8,
+        "de_ratio": 0.15,
+        "pe_ratio": 20.4,
+        "peg_ratio": 0.96,
+        "eps_growth_5y": 21.2,
+        "revenue_growth_5y": 20.1,
+        "roce_3y_avg": 31.3,
+        "roce_history": [
+          26.8,
+          38.3,
+          37.9,
+          30.9,
+          30.4,
+          32.7
+        ],
+        "fcf_to_pat": 0.82,
+        "promoter_holding": 54.53,
+        "promoter_pledge": null,
+        "promoter_trend": "increasing",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          2160.0,
+          2648.0,
+          2926.0,
+          3366.0,
+          3908.0
+        ],
+        "_eps": [
+          41.08,
+          49.83,
+          52.14,
+          56.78,
+          70.46
+        ],
+        "_roce": [
+          38.3,
+          37.9,
+          30.9,
+          30.4,
+          32.7
+        ],
+        "_opm": [
+          26.5,
+          24.0,
+          25.2
+        ]
+      },
+      "basic": {
+        "symbol": "ECLERX",
+        "name": "eClerx Services Limited",
+        "sector": "Technology",
+        "industry": "Information Technology Services",
+        "market_cap_cr": 13501.4,
+        "pe_yf": 20.83
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 13501.4,
+          "pass": true,
+          "label": "Rs13,501Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.15,
+          "pass": true,
+          "label": "0.15"
+        },
+        "ROE": {
+          "value": 22.8,
+          "pass": true,
+          "label": "22.8%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 20.1,
+          "pass": true,
+          "label": "20.1%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 31.3,
+          "pass": true,
+          "label": "31.3%  hist:[38.3, 37.9, 30.9, 30.4, 32.7]"
+        },
+        "FCF / PAT": {
+          "value": 0.82,
+          "pass": true,
+          "label": "0.82"
+        },
+        "Promoter Holding": {
+          "value": 54.53,
+          "pass": true,
+          "label": "54.5%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.96,
+          "pass": true,
+          "label": "0.96"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "ELECON",
+      "name": "Elecon Engineering Company Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Elecon Engineering Company Ltd",
+        "about": "",
+        "roe": 16.6,
+        "de_ratio": 0.12,
+        "pe_ratio": 33.3,
+        "peg_ratio": 0.78,
+        "eps_growth_5y": 42.7,
+        "revenue_growth_5y": 17.8,
+        "roce_3y_avg": 24.5,
+        "roce_history": [
+          14.8,
+          21.0,
+          25.6,
+          28.4,
+          24.9,
+          20.3
+        ],
+        "fcf_to_pat": 3.43,
+        "promoter_holding": 59.28,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": true,
+        "_sales_cr": [
+          1212.0,
+          1530.0,
+          1937.0,
+          2227.0,
+          2366.0
+        ],
+        "_eps": [
+          6.26,
+          10.58,
+          15.85,
+          18.5,
+          15.2
+        ],
+        "_roce": [
+          21.0,
+          25.6,
+          28.4,
+          24.9,
+          20.3
+        ],
+        "_opm": [
+          24.5,
+          24.4,
+          22.1
+        ]
+      },
+      "basic": {
+        "symbol": "ELECON",
+        "name": "Elecon Engineering Company Limited",
+        "sector": "Industrials",
+        "industry": "Specialty Industrial Machinery",
+        "market_cap_cr": 11875.2,
+        "pe_yf": 34.84
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 11875.2,
+          "pass": true,
+          "label": "Rs11,875Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.12,
+          "pass": true,
+          "label": "0.12"
+        },
+        "ROE": {
+          "value": 16.6,
+          "pass": true,
+          "label": "16.6%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 17.8,
+          "pass": true,
+          "label": "17.8%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 24.5,
+          "pass": true,
+          "label": "24.5%  hist:[21.0, 25.6, 28.4, 24.9, 20.3]"
+        },
+        "FCF / PAT": {
+          "value": 3.43,
+          "pass": true,
+          "label": "3.43"
+        },
+        "Promoter Holding": {
+          "value": 59.28,
+          "pass": true,
+          "label": "59.3%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.78,
+          "pass": true,
+          "label": "0.78"
+        }
+      },
+      "soft_flags": [
+        "Operating margin contracting [24.5, 24.4, 22.1]"
+      ]
+    },
+    {
+      "sym": "GANESHHOU",
+      "name": "Ganesh Housing Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Ganesh Housing Ltd",
+        "about": "",
+        "roe": 37.8,
+        "de_ratio": 0.03,
+        "pe_ratio": 13.0,
+        "peg_ratio": 0.23,
+        "eps_growth_5y": 56.3,
+        "revenue_growth_5y": 31.8,
+        "roce_3y_avg": 33.9,
+        "roce_history": [
+          -5.3,
+          14.4,
+          22.3,
+          39.6,
+          37.4,
+          24.8
+        ],
+        "fcf_to_pat": 1.25,
+        "promoter_holding": 73.06,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          383.0,
+          616.0,
+          891.0,
+          959.0,
+          668.0
+        ],
+        "_eps": [
+          8.47,
+          12.25,
+          55.25,
+          71.72,
+          50.34
+        ],
+        "_roce": [
+          14.4,
+          22.3,
+          39.6,
+          37.4,
+          24.8
+        ],
+        "_opm": [
+          70.0,
+          81.2,
+          85.0
+        ]
+      },
+      "basic": {
+        "symbol": "GANESHHOU",
+        "name": "Ganesh Housing Limited",
+        "sector": "Real Estate",
+        "industry": "Real Estate - Development",
+        "market_cap_cr": 5473.9,
+        "pe_yf": 13.03
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 5473.9,
+          "pass": true,
+          "label": "Rs5,474Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.03,
+          "pass": true,
+          "label": "0.03"
+        },
+        "ROE": {
+          "value": 37.8,
+          "pass": true,
+          "label": "37.8%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 31.8,
+          "pass": true,
+          "label": "31.8%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 33.9,
+          "pass": true,
+          "label": "33.9%  hist:[14.4, 22.3, 39.6, 37.4, 24.8]"
+        },
+        "FCF / PAT": {
+          "value": 1.25,
+          "pass": true,
+          "label": "1.25"
+        },
+        "Promoter Holding": {
+          "value": 73.06,
+          "pass": true,
+          "label": "73.1%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.23,
+          "pass": true,
+          "label": "0.23"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "GOKULAGRO",
+      "name": "Gokul Agro Resources Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Gokul Agro Resources Ltd",
+        "about": "",
+        "roe": 27.0,
+        "de_ratio": 0.48,
+        "pe_ratio": 23.0,
+        "peg_ratio": 0.52,
+        "eps_growth_5y": 44.0,
+        "revenue_growth_5y": 22.8,
+        "roce_3y_avg": 29.4,
+        "roce_history": [
+          25.8,
+          29.0,
+          23.3,
+          21.2,
+          33.4,
+          33.5
+        ],
+        "fcf_to_pat": 2.16,
+        "promoter_holding": 74.24,
+        "promoter_pledge": null,
+        "promoter_trend": "increasing",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          10384.0,
+          10740.0,
+          13854.0,
+          19551.0,
+          23339.0
+        ],
+        "_eps": [
+          4.17,
+          4.49,
+          4.6,
+          8.32,
+          10.14
+        ],
+        "_roce": [
+          29.0,
+          23.3,
+          21.2,
+          33.4,
+          33.5
+        ],
+        "_opm": [
+          2.1,
+          2.7,
+          2.6
+        ]
+      },
+      "basic": {
+        "symbol": "GOKULAGRO",
+        "name": "Gokul Agro Resources Limited",
+        "sector": "Consumer Defensive",
+        "industry": "Packaged Foods",
+        "market_cap_cr": 6898.8,
+        "pe_yf": 23.03
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 6898.8,
+          "pass": true,
+          "label": "Rs6,899Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.48,
+          "pass": true,
+          "label": "0.48"
+        },
+        "ROE": {
+          "value": 27.0,
+          "pass": true,
+          "label": "27.0%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 22.8,
+          "pass": true,
+          "label": "22.8%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 29.4,
+          "pass": true,
+          "label": "29.4%  hist:[29.0, 23.3, 21.2, 33.4, 33.5]"
+        },
+        "FCF / PAT": {
+          "value": 2.16,
+          "pass": true,
+          "label": "2.16"
+        },
+        "Promoter Holding": {
+          "value": 74.24,
+          "pass": true,
+          "label": "74.2%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.52,
+          "pass": true,
+          "label": "0.52"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "GPTINFRA",
+      "name": "GPT Infraprojects Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "GPT Infraprojects Ltd",
+        "about": "",
+        "roe": 19.6,
+        "de_ratio": 0.33,
+        "pe_ratio": 17.0,
+        "peg_ratio": 0.52,
+        "eps_growth_5y": 32.5,
+        "revenue_growth_5y": 15.6,
+        "roce_3y_avg": 22.1,
+        "roce_history": [
+          16.9,
+          16.2,
+          16.4,
+          24.2,
+          20.9,
+          21.2
+        ],
+        "fcf_to_pat": 3.11,
+        "promoter_holding": 69.37,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          675.0,
+          809.0,
+          1018.0,
+          1188.0,
+          1256.0
+        ],
+        "_eps": [
+          2.09,
+          2.7,
+          4.97,
+          6.34,
+          7.1
+        ],
+        "_roce": [
+          16.2,
+          16.4,
+          24.2,
+          20.9,
+          21.2
+        ],
+        "_opm": [
+          11.8,
+          11.4,
+          12.3
+        ]
+      },
+      "basic": {
+        "symbol": "GPTINFRA",
+        "name": "GPT Infraprojects Limited",
+        "sector": "Industrials",
+        "industry": "Engineering & Construction",
+        "market_cap_cr": 1531.7,
+        "pe_yf": 17.05
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 1531.7,
+          "pass": true,
+          "label": "Rs1,532Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.33,
+          "pass": true,
+          "label": "0.33"
+        },
+        "ROE": {
+          "value": 19.6,
+          "pass": true,
+          "label": "19.6%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 15.6,
+          "pass": true,
+          "label": "15.6%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 22.1,
+          "pass": true,
+          "label": "22.1%  hist:[16.2, 16.4, 24.2, 20.9, 21.2]"
+        },
+        "FCF / PAT": {
+          "value": 3.11,
+          "pass": true,
+          "label": "3.11"
+        },
+        "Promoter Holding": {
+          "value": 69.37,
+          "pass": true,
+          "label": "69.4%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.52,
+          "pass": true,
+          "label": "0.52"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "GULFOILLUB",
+      "name": "Gulf Oil Lubricants India Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Gulf Oil Lubricants India Ltd",
+        "about": "",
+        "roe": 25.3,
+        "de_ratio": 0.31,
+        "pe_ratio": 13.0,
+        "peg_ratio": 0.92,
+        "eps_growth_5y": 14.1,
+        "revenue_growth_5y": 15.9,
+        "roce_3y_avg": 24.5,
+        "roce_history": [
+          19.9,
+          22.1,
+          25.4,
+          24.5,
+          23.5
+        ],
+        "fcf_to_pat": 0.84,
+        "promoter_holding": 67.01,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          2192.0,
+          2999.0,
+          3301.0,
+          3631.0,
+          3954.0
+        ],
+        "_eps": [
+          41.85,
+          47.39,
+          62.63,
+          72.99,
+          71.0
+        ],
+        "_roce": [
+          19.9,
+          22.1,
+          25.4,
+          24.5,
+          23.5
+        ],
+        "_opm": [
+          12.8,
+          13.0,
+          12.8
+        ]
+      },
+      "basic": {
+        "symbol": "GULFOILLUB",
+        "name": "Gulf Oil Lubricants India Limited",
+        "sector": "Basic Materials",
+        "industry": "Specialty Chemicals",
+        "market_cap_cr": 4747.1,
+        "pe_yf": 13.65
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 4747.1,
+          "pass": true,
+          "label": "Rs4,747Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.31,
+          "pass": true,
+          "label": "0.31"
+        },
+        "ROE": {
+          "value": 25.3,
+          "pass": true,
+          "label": "25.3%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 15.9,
+          "pass": true,
+          "label": "15.9%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 24.5,
+          "pass": true,
+          "label": "24.5%  hist:[19.9, 22.1, 25.4, 24.5, 23.5]"
+        },
+        "FCF / PAT": {
+          "value": 0.84,
+          "pass": true,
+          "label": "0.84"
+        },
+        "Promoter Holding": {
+          "value": 67.01,
+          "pass": true,
+          "label": "67.0%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.92,
+          "pass": true,
+          "label": "0.92"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "HBLENGINE",
+      "name": "HBL Engineering Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "HBL Engineering Ltd",
+        "about": "",
+        "roe": 20.6,
+        "de_ratio": 0.04,
+        "pe_ratio": 27.1,
+        "peg_ratio": 0.22,
+        "eps_growth_5y": 124.8,
+        "revenue_growth_5y": 28.3,
+        "roce_3y_avg": 37.3,
+        "roce_history": [
+          7.9,
+          15.0,
+          14.5,
+          32.8,
+          25.2,
+          54.0
+        ],
+        "fcf_to_pat": 3.7,
+        "promoter_holding": 59.11,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          1236.0,
+          1369.0,
+          2233.0,
+          1967.0,
+          3174.0
+        ],
+        "_eps": [
+          3.39,
+          3.56,
+          10.13,
+          9.99,
+          28.72
+        ],
+        "_roce": [
+          15.0,
+          14.5,
+          32.8,
+          25.2,
+          54.0
+        ],
+        "_opm": [
+          18.9,
+          20.0,
+          35.2
+        ]
+      },
+      "basic": {
+        "symbol": "HBLENGINE",
+        "name": "HBLENGINE",
+        "sector": "Industrials",
+        "industry": "Electrical Equipment & Parts",
+        "market_cap_cr": 22186.7,
+        "pe_yf": 27.84
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 22186.7,
+          "pass": true,
+          "label": "Rs22,187Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.04,
+          "pass": true,
+          "label": "0.04"
+        },
+        "ROE": {
+          "value": 20.6,
+          "pass": true,
+          "label": "20.6%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 28.3,
+          "pass": true,
+          "label": "28.3%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 37.3,
+          "pass": true,
+          "label": "37.3%  hist:[15.0, 14.5, 32.8, 25.2, 54.0]"
+        },
+        "FCF / PAT": {
+          "value": 3.7,
+          "pass": true,
+          "label": "3.70"
+        },
+        "Promoter Holding": {
+          "value": 59.11,
+          "pass": true,
+          "label": "59.1%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.22,
+          "pass": true,
+          "label": "0.22"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "JAIBALAJI",
+      "name": "Jai Balaji Industries Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Jai Balaji Industries Ltd",
+        "about": "",
+        "roe": 30.7,
+        "de_ratio": 0.21,
+        "pe_ratio": 25.6,
+        "peg_ratio": 0.66,
+        "eps_growth_5y": 38.6,
+        "revenue_growth_5y": 15.7,
+        "roce_3y_avg": 32.9,
+        "roce_history": [
+          5.6,
+          13.9,
+          23.3,
+          47.0,
+          32.3,
+          19.5
+        ],
+        "fcf_to_pat": 2.74,
+        "promoter_holding": 64.84,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": true,
+        "_sales_cr": [
+          4644.0,
+          6125.0,
+          6414.0,
+          6351.0,
+          5786.0
+        ],
+        "_eps": [
+          0.87,
+          0.79,
+          10.75,
+          6.12,
+          3.21
+        ],
+        "_roce": [
+          13.9,
+          23.3,
+          47.0,
+          32.3,
+          19.5
+        ],
+        "_opm": [
+          14.5,
+          13.7,
+          9.0
+        ]
+      },
+      "basic": {
+        "symbol": "JAIBALAJI",
+        "name": "Jai Balaji Industries Limited",
+        "sector": "Basic Materials",
+        "industry": "Steel",
+        "market_cap_cr": 7496.9,
+        "pe_yf": 40.68
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 7496.9,
+          "pass": true,
+          "label": "Rs7,497Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.21,
+          "pass": true,
+          "label": "0.21"
+        },
+        "ROE": {
+          "value": 30.7,
+          "pass": true,
+          "label": "30.7%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 15.7,
+          "pass": true,
+          "label": "15.7%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 32.9,
+          "pass": true,
+          "label": "32.9%  hist:[13.9, 23.3, 47.0, 32.3, 19.5]"
+        },
+        "FCF / PAT": {
+          "value": 2.74,
+          "pass": true,
+          "label": "2.74"
+        },
+        "Promoter Holding": {
+          "value": 64.84,
+          "pass": true,
+          "label": "64.8%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.66,
+          "pass": true,
+          "label": "0.66"
+        }
+      },
+      "soft_flags": [
+        "Operating margin contracting [14.5, 13.7, 9.0]"
+      ]
+    },
+    {
+      "sym": "JSL",
+      "name": "Jindal Stainless Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Jindal Stainless Ltd",
+        "about": "",
+        "roe": 17.8,
+        "de_ratio": 0.38,
+        "pe_ratio": 19.8,
+        "peg_ratio": 0.56,
+        "eps_growth_5y": 35.1,
+        "revenue_growth_5y": 28.7,
+        "roce_3y_avg": 20.6,
+        "roce_history": [
+          22.1,
+          36.8,
+          22.6,
+          22.1,
+          19.4,
+          20.4
+        ],
+        "fcf_to_pat": 8.48,
+        "promoter_holding": 62.04,
+        "promoter_pledge": null,
+        "promoter_trend": "increasing",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          32733.0,
+          35697.0,
+          38562.0,
+          39312.0,
+          42955.0
+        ],
+        "_eps": [
+          58.59,
+          25.68,
+          32.95,
+          30.41,
+          38.74
+        ],
+        "_roce": [
+          36.8,
+          22.6,
+          22.1,
+          19.4,
+          20.4
+        ],
+        "_opm": [
+          11.7,
+          11.4,
+          12.9
+        ]
+      },
+      "basic": {
+        "symbol": "JSL",
+        "name": "Jindal Stainless Limited",
+        "sector": "Basic Materials",
+        "industry": "Steel",
+        "market_cap_cr": 64218.7,
+        "pe_yf": 20.14
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 64218.7,
+          "pass": true,
+          "label": "Rs64,219Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.38,
+          "pass": true,
+          "label": "0.38"
+        },
+        "ROE": {
+          "value": 17.8,
+          "pass": true,
+          "label": "17.8%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 28.7,
+          "pass": true,
+          "label": "28.7%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 20.6,
+          "pass": true,
+          "label": "20.6%  hist:[36.8, 22.6, 22.1, 19.4, 20.4]"
+        },
+        "FCF / PAT": {
+          "value": 8.48,
+          "pass": true,
+          "label": "8.48"
+        },
+        "Promoter Holding": {
+          "value": 62.04,
+          "pass": true,
+          "label": "62.0%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.56,
+          "pass": true,
+          "label": "0.56"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "JUBLCPL",
+      "name": "Jubilant Agri & Consumer Products Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Jubilant Agri & Consumer Products Ltd",
+        "about": "",
+        "roe": 31.5,
+        "de_ratio": 0.1,
+        "pe_ratio": 20.2,
+        "peg_ratio": 0.49,
+        "eps_growth_5y": 41.1,
+        "revenue_growth_5y": 20.4,
+        "roce_3y_avg": 35.5,
+        "roce_history": [
+          27.4,
+          36.7,
+          42.5
+        ],
+        "fcf_to_pat": 1.48,
+        "promoter_holding": 74.36,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          1244.0,
+          1541.0,
+          1804.0
+        ],
+        "_eps": [
+          null,
+          58.25,
+          82.19
+        ],
+        "_roce": [
+          27.4,
+          36.7,
+          42.5
+        ],
+        "_opm": [
+          8.8,
+          9.6,
+          10.8
+        ]
+      },
+      "basic": {
+        "symbol": "JUBLCPL",
+        "name": "Jubilant Agri and Consumer Products Limited",
+        "sector": "Basic Materials",
+        "industry": "Specialty Chemicals",
+        "market_cap_cr": 2562.4,
+        "pe_yf": 21.14
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 2562.4,
+          "pass": true,
+          "label": "Rs2,562Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.1,
+          "pass": true,
+          "label": "0.10"
+        },
+        "ROE": {
+          "value": 31.5,
+          "pass": true,
+          "label": "31.5%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 20.4,
+          "pass": true,
+          "label": "20.4%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 35.5,
+          "pass": true,
+          "label": "35.5%  hist:[27.4, 36.7, 42.5]"
+        },
+        "FCF / PAT": {
+          "value": 1.48,
+          "pass": true,
+          "label": "1.48"
+        },
+        "Promoter Holding": {
+          "value": 74.36,
+          "pass": true,
+          "label": "74.4%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.49,
+          "pass": true,
+          "label": "0.49"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "KKCL",
+      "name": "Kewal Kiran Clothing Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Kewal Kiran Clothing Ltd",
+        "about": "",
+        "roe": 15.5,
+        "de_ratio": 0.2,
+        "pe_ratio": 20.8,
+        "peg_ratio": 0.44,
+        "eps_growth_5y": 47.8,
+        "revenue_growth_5y": 31.2,
+        "roce_3y_avg": 22.1,
+        "roce_history": [
+          3.9,
+          17.9,
+          24.8,
+          25.4,
+          19.4,
+          21.5
+        ],
+        "fcf_to_pat": 1.02,
+        "promoter_holding": 74.29,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          608.0,
+          779.0,
+          860.0,
+          1003.0,
+          1177.0
+        ],
+        "_eps": [
+          13.25,
+          19.31,
+          25.0,
+          23.44,
+          22.63
+        ],
+        "_roce": [
+          17.9,
+          24.8,
+          25.4,
+          19.4,
+          21.5
+        ],
+        "_opm": [
+          20.6,
+          19.0,
+          19.4
+        ]
+      },
+      "basic": {
+        "symbol": "KKCL",
+        "name": "Kewal Kiran Clothing Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Apparel Manufacturing",
+        "market_cap_cr": 2881.6,
+        "pe_yf": 20.68
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 2881.6,
+          "pass": true,
+          "label": "Rs2,882Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.2,
+          "pass": true,
+          "label": "0.20"
+        },
+        "ROE": {
+          "value": 15.5,
+          "pass": true,
+          "label": "15.5%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 31.2,
+          "pass": true,
+          "label": "31.2%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 22.1,
+          "pass": true,
+          "label": "22.1%  hist:[17.9, 24.8, 25.4, 19.4, 21.5]"
+        },
+        "FCF / PAT": {
+          "value": 1.02,
+          "pass": true,
+          "label": "1.02"
+        },
+        "Promoter Holding": {
+          "value": 74.29,
+          "pass": true,
+          "label": "74.3%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.44,
+          "pass": true,
+          "label": "0.44"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "MBEL",
+      "name": "M & B Engineering Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "M & B Engineering Ltd",
+        "about": "",
+        "roe": 28.5,
+        "de_ratio": 0.19,
+        "pe_ratio": 20.1,
+        "peg_ratio": 0.47,
+        "eps_growth_5y": 43.0,
+        "revenue_growth_5y": 23.9,
+        "roce_3y_avg": 21.4,
+        "roce_history": [
+          11.3,
+          18.4,
+          20.3,
+          18.3,
+          25.5,
+          20.5
+        ],
+        "fcf_to_pat": 0.81,
+        "promoter_holding": 70.54,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          688.0,
+          880.0,
+          795.0,
+          989.0,
+          1210.0
+        ],
+        "_eps": [
+          9.69,
+          16.48,
+          9.17,
+          15.41,
+          17.63
+        ],
+        "_roce": [
+          18.4,
+          20.3,
+          18.3,
+          25.5,
+          20.5
+        ],
+        "_opm": [
+          10.1,
+          12.8,
+          12.0
+        ]
+      },
+      "basic": {
+        "symbol": "MBEL",
+        "name": "MBEL",
+        "sector": "Industrials",
+        "industry": "Engineering & Construction",
+        "market_cap_cr": 1901.9,
+        "pe_yf": 20.18
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 1901.9,
+          "pass": true,
+          "label": "Rs1,902Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.19,
+          "pass": true,
+          "label": "0.19"
+        },
+        "ROE": {
+          "value": 28.5,
+          "pass": true,
+          "label": "28.5%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 23.9,
+          "pass": true,
+          "label": "23.9%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 21.4,
+          "pass": true,
+          "label": "21.4%  hist:[18.4, 20.3, 18.3, 25.5, 20.5]"
+        },
+        "FCF / PAT": {
+          "value": 0.81,
+          "pass": true,
+          "label": "0.81"
+        },
+        "Promoter Holding": {
+          "value": 70.54,
+          "pass": true,
+          "label": "70.5%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.47,
+          "pass": true,
+          "label": "0.47"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "NATIONALUM",
+      "name": "National Aluminium Company Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "National Aluminium Company Ltd",
+        "about": "",
+        "roe": 29.4,
+        "de_ratio": 0.0,
+        "pe_ratio": 13.1,
+        "peg_ratio": 0.38,
+        "eps_growth_5y": 34.9,
+        "revenue_growth_5y": 14.8,
+        "roce_3y_avg": 32.5,
+        "roce_history": [
+          16.5,
+          35.8,
+          17.7,
+          19.3,
+          41.7,
+          36.6
+        ],
+        "fcf_to_pat": 1.26,
+        "promoter_holding": 51.28,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          14181.0,
+          14257.0,
+          13149.0,
+          16788.0,
+          17843.0
+        ],
+        "_eps": [
+          16.07,
+          7.81,
+          10.83,
+          28.68,
+          31.56
+        ],
+        "_roce": [
+          35.8,
+          17.7,
+          19.3,
+          41.7,
+          36.6
+        ],
+        "_opm": [
+          21.3,
+          44.7,
+          44.4
+        ]
+      },
+      "basic": {
+        "symbol": "NATIONALUM",
+        "name": "National Aluminium Company Limited",
+        "sector": "Basic Materials",
+        "industry": "Aluminum",
+        "market_cap_cr": 75963.1,
+        "pe_yf": 12.37
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 75963.1,
+          "pass": true,
+          "label": "Rs75,963Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.0,
+          "pass": true,
+          "label": "0.00"
+        },
+        "ROE": {
+          "value": 29.4,
+          "pass": true,
+          "label": "29.4%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 14.8,
+          "pass": true,
+          "label": "14.8%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 32.5,
+          "pass": true,
+          "label": "32.5%  hist:[35.8, 17.7, 19.3, 41.7, 36.6]"
+        },
+        "FCF / PAT": {
+          "value": 1.26,
+          "pass": true,
+          "label": "1.26"
+        },
+        "Promoter Holding": {
+          "value": 51.28,
+          "pass": true,
+          "label": "51.3%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.38,
+          "pass": true,
+          "label": "0.38"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "PICCADIL",
+      "name": "Piccadily Agro Industries Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Piccadily Agro Industries Ltd",
+        "about": "",
+        "roe": 17.4,
+        "de_ratio": 0.59,
+        "pe_ratio": 43.6,
+        "peg_ratio": 0.89,
+        "eps_growth_5y": 49.0,
+        "revenue_growth_5y": 16.3,
+        "roce_3y_avg": 21.4,
+        "roce_history": [
+          16.7,
+          20.2,
+          16.1,
+          29.4,
+          18.5,
+          16.3
+        ],
+        "fcf_to_pat": 1.15,
+        "promoter_holding": 68.56,
+        "promoter_pledge": null,
+        "promoter_trend": "decreasing",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          572.0,
+          598.0,
+          742.0,
+          797.0,
+          1038.0
+        ],
+        "_eps": [
+          3.1,
+          2.37,
+          11.63,
+          10.85,
+          13.95
+        ],
+        "_roce": [
+          20.2,
+          16.1,
+          29.4,
+          18.5,
+          16.3
+        ],
+        "_opm": [
+          20.2,
+          23.0,
+          22.4
+        ]
+      },
+      "basic": {
+        "symbol": "PICCADIL",
+        "name": "Piccadily Agro Industries Limited",
+        "sector": "Consumer Defensive",
+        "industry": "Beverages - Wineries & Distilleries",
+        "market_cap_cr": 5987.6,
+        "pe_yf": 42.69
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 5987.6,
+          "pass": true,
+          "label": "Rs5,988Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.59,
+          "pass": true,
+          "label": "0.59"
+        },
+        "ROE": {
+          "value": 17.4,
+          "pass": true,
+          "label": "17.4%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 16.3,
+          "pass": true,
+          "label": "16.3%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 21.4,
+          "pass": true,
+          "label": "21.4%  hist:[20.2, 16.1, 29.4, 18.5, 16.3]"
+        },
+        "FCF / PAT": {
+          "value": 1.15,
+          "pass": true,
+          "label": "1.15"
+        },
+        "Promoter Holding": {
+          "value": 68.56,
+          "pass": true,
+          "label": "68.6%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.89,
+          "pass": true,
+          "label": "0.89"
+        }
+      },
+      "soft_flags": [
+        "Promoter holding declining QoQ (68.6%)"
+      ]
+    },
+    {
+      "sym": "POWERICA",
+      "name": "Powerica Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Powerica Ltd",
+        "about": "",
+        "roe": 15.7,
+        "de_ratio": 0.48,
+        "pe_ratio": 27.5,
+        "peg_ratio": 0.23,
+        "eps_growth_5y": 120.4,
+        "revenue_growth_5y": 31.4,
+        "roce_3y_avg": 29.4,
+        "roce_history": [
+          11.2,
+          17.3,
+          31.0,
+          33.1,
+          24.1
+        ],
+        "fcf_to_pat": 2.24,
+        "promoter_holding": 77.18,
+        "promoter_pledge": null,
+        "promoter_trend": null,
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          890.0,
+          1488.0,
+          2378.0,
+          2210.0,
+          2653.0
+        ],
+        "_eps": [
+          -4.56,
+          5.73,
+          30.86,
+          83.17,
+          61.32
+        ],
+        "_roce": [
+          11.2,
+          17.3,
+          31.0,
+          33.1,
+          24.1
+        ],
+        "_opm": [
+          14.0,
+          16.4,
+          12.7
+        ]
+      },
+      "basic": {
+        "symbol": "POWERICA",
+        "name": "POWERICA",
+        "sector": "Industrials",
+        "industry": "Specialty Industrial Machinery",
+        "market_cap_cr": 6173.2,
+        "pe_yf": 37.04
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 6173.2,
+          "pass": true,
+          "label": "Rs6,173Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.48,
+          "pass": true,
+          "label": "0.48"
+        },
+        "ROE": {
+          "value": 15.7,
+          "pass": true,
+          "label": "15.7%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 31.4,
+          "pass": true,
+          "label": "31.4%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 29.4,
+          "pass": true,
+          "label": "29.4%  hist:[11.2, 17.3, 31.0, 33.1, 24.1]"
+        },
+        "FCF / PAT": {
+          "value": 2.24,
+          "pass": true,
+          "label": "2.24"
+        },
+        "Promoter Holding": {
+          "value": 77.18,
+          "pass": true,
+          "label": "77.2%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.23,
+          "pass": true,
+          "label": "0.23"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "SHAKTIPUMP",
+      "name": "Shakti Pumps (India) Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Shakti Pumps (India) Ltd",
+        "about": "",
+        "roe": 42.6,
+        "de_ratio": 0.38,
+        "pe_ratio": 20.5,
+        "peg_ratio": 0.65,
+        "eps_growth_5y": 31.7,
+        "revenue_growth_5y": 21.9,
+        "roce_3y_avg": 31.5,
+        "roce_history": [
+          33.9,
+          22.0,
+          13.6,
+          26.8,
+          45.3,
+          22.4
+        ],
+        "fcf_to_pat": 1.52,
+        "promoter_holding": 50.36,
+        "promoter_pledge": null,
+        "promoter_trend": "decreasing",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          1179.0,
+          968.0,
+          1371.0,
+          2516.0,
+          2505.0
+        ],
+        "_eps": [
+          5.88,
+          2.19,
+          11.79,
+          33.97,
+          27.15
+        ],
+        "_roce": [
+          22.0,
+          13.6,
+          26.8,
+          45.3,
+          22.4
+        ],
+        "_opm": [
+          16.4,
+          24.0,
+          20.0
+        ]
+      },
+      "basic": {
+        "symbol": "SHAKTIPUMP",
+        "name": "Shakti Pumps (India) Limited",
+        "sector": "Industrials",
+        "industry": "Specialty Industrial Machinery",
+        "market_cap_cr": 6761.0,
+        "pe_yf": 20.21
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 6761.0,
+          "pass": true,
+          "label": "Rs6,761Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.38,
+          "pass": true,
+          "label": "0.38"
+        },
+        "ROE": {
+          "value": 42.6,
+          "pass": true,
+          "label": "42.6%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 21.9,
+          "pass": true,
+          "label": "21.9%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 31.5,
+          "pass": true,
+          "label": "31.5%  hist:[22.0, 13.6, 26.8, 45.3, 22.4]"
+        },
+        "FCF / PAT": {
+          "value": 1.52,
+          "pass": true,
+          "label": "1.52"
+        },
+        "Promoter Holding": {
+          "value": 50.36,
+          "pass": true,
+          "label": "50.4%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.65,
+          "pass": true,
+          "label": "0.65"
+        }
+      },
+      "soft_flags": [
+        "Promoter holding declining QoQ (50.4%)"
+      ]
+    },
+    {
+      "sym": "SILVERTUC",
+      "name": "Silver Touch Technologies Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Silver Touch Technologies Ltd",
+        "about": "",
+        "roe": 23.6,
+        "de_ratio": 0.2,
+        "pe_ratio": 56.9,
+        "peg_ratio": 0.55,
+        "eps_growth_5y": 103.9,
+        "revenue_growth_5y": 17.9,
+        "roce_3y_avg": 24.5,
+        "roce_history": [
+          4.8,
+          14.0,
+          16.0,
+          20.2,
+          21.5,
+          31.7
+        ],
+        "fcf_to_pat": 0.76,
+        "promoter_holding": 74.62,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          140.0,
+          164.0,
+          224.0,
+          288.0,
+          346.0
+        ],
+        "_eps": [
+          0.51,
+          0.76,
+          1.26,
+          1.75,
+          2.82
+        ],
+        "_roce": [
+          14.0,
+          16.0,
+          20.2,
+          21.5,
+          31.7
+        ],
+        "_opm": [
+          11.2,
+          13.2,
+          18.5
+        ]
+      },
+      "basic": {
+        "symbol": "SILVERTUC",
+        "name": "Silver Touch Technologies Limited",
+        "sector": "Technology",
+        "industry": "Information Technology Services",
+        "market_cap_cr": 2033.9,
+        "pe_yf": 63.9
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 2033.9,
+          "pass": true,
+          "label": "Rs2,034Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.2,
+          "pass": true,
+          "label": "0.20"
+        },
+        "ROE": {
+          "value": 23.6,
+          "pass": true,
+          "label": "23.6%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 17.9,
+          "pass": true,
+          "label": "17.9%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 24.5,
+          "pass": true,
+          "label": "24.5%  hist:[14.0, 16.0, 20.2, 21.5, 31.7]"
+        },
+        "FCF / PAT": {
+          "value": 0.76,
+          "pass": true,
+          "label": "0.76"
+        },
+        "Promoter Holding": {
+          "value": 74.62,
+          "pass": true,
+          "label": "74.6%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.55,
+          "pass": true,
+          "label": "0.55"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "SIYSIL",
+      "name": "Siyaram Silk Mills Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Siyaram Silk Mills Ltd",
+        "about": "",
+        "roe": 16.1,
+        "de_ratio": 0.31,
+        "pe_ratio": 12.7,
+        "peg_ratio": 0.1,
+        "eps_growth_5y": 126.4,
+        "revenue_growth_5y": 17.7,
+        "roce_3y_avg": 19.0,
+        "roce_history": [
+          6.0,
+          28.8,
+          28.3,
+          21.8,
+          17.9,
+          17.4
+        ],
+        "fcf_to_pat": 8.98,
+        "promoter_holding": 67.45,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          1905.0,
+          2233.0,
+          2092.0,
+          2222.0,
+          2455.0
+        ],
+        "_eps": [
+          46.14,
+          53.55,
+          40.72,
+          43.45,
+          45.22
+        ],
+        "_roce": [
+          28.8,
+          28.3,
+          21.8,
+          17.9,
+          17.4
+        ],
+        "_opm": [
+          13.7,
+          12.4,
+          12.5
+        ]
+      },
+      "basic": {
+        "symbol": "SIYSIL",
+        "name": "Siyaram Silk Mills Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Textile Manufacturing",
+        "market_cap_cr": 2612.2,
+        "pe_yf": 12.73
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 2612.2,
+          "pass": true,
+          "label": "Rs2,612Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.31,
+          "pass": true,
+          "label": "0.31"
+        },
+        "ROE": {
+          "value": 16.1,
+          "pass": true,
+          "label": "16.1%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 17.7,
+          "pass": true,
+          "label": "17.7%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 19.0,
+          "pass": true,
+          "label": "19.0%  hist:[28.8, 28.3, 21.8, 17.9, 17.4]"
+        },
+        "FCF / PAT": {
+          "value": 8.98,
+          "pass": true,
+          "label": "8.98"
+        },
+        "Promoter Holding": {
+          "value": 67.45,
+          "pass": true,
+          "label": "67.5%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.1,
+          "pass": true,
+          "label": "0.10"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "SKIPPER",
+      "name": "Skipper Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Skipper Ltd",
+        "about": "",
+        "roe": 16.5,
+        "de_ratio": 0.64,
+        "pe_ratio": 24.7,
+        "peg_ratio": 0.42,
+        "eps_growth_5y": 58.3,
+        "revenue_growth_5y": 28.5,
+        "roce_3y_avg": 22.8,
+        "roce_history": [
+          12.5,
+          12.6,
+          15.3,
+          21.5,
+          23.5,
+          23.5
+        ],
+        "fcf_to_pat": 1.82,
+        "promoter_holding": 66.5,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          1707.0,
+          1980.0,
+          3282.0,
+          4624.0,
+          5553.0
+        ],
+        "_eps": [
+          2.23,
+          3.15,
+          7.23,
+          13.24,
+          18.87
+        ],
+        "_roce": [
+          12.6,
+          15.3,
+          21.5,
+          23.5,
+          23.5
+        ],
+        "_opm": [
+          9.8,
+          9.8,
+          10.3
+        ]
+      },
+      "basic": {
+        "symbol": "SKIPPER",
+        "name": "Skipper Limited",
+        "sector": "Industrials",
+        "industry": "Engineering & Construction",
+        "market_cap_cr": 5463.4,
+        "pe_yf": 25.62
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 5463.4,
+          "pass": true,
+          "label": "Rs5,463Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.64,
+          "pass": true,
+          "label": "0.64"
+        },
+        "ROE": {
+          "value": 16.5,
+          "pass": true,
+          "label": "16.5%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 28.5,
+          "pass": true,
+          "label": "28.5%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 22.8,
+          "pass": true,
+          "label": "22.8%  hist:[12.6, 15.3, 21.5, 23.5, 23.5]"
+        },
+        "FCF / PAT": {
+          "value": 1.82,
+          "pass": true,
+          "label": "1.82"
+        },
+        "Promoter Holding": {
+          "value": 66.5,
+          "pass": true,
+          "label": "66.5%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.42,
+          "pass": true,
+          "label": "0.42"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "STOVEKRAFT",
+      "name": "Stove Kraft Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Stove Kraft Ltd",
+        "about": "",
+        "roe": 67.5,
+        "de_ratio": 0.17,
+        "pe_ratio": 22.4,
+        "peg_ratio": 0.03,
+        "eps_growth_5y": 812.7,
+        "revenue_growth_5y": 11.5,
+        "roce_3y_avg": 18.6,
+        "roce_history": [
+          -8.3,
+          2.4,
+          4.6,
+          11.7,
+          12.2,
+          31.9
+        ],
+        "fcf_to_pat": 0.96,
+        "promoter_holding": 55.79,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          493.0,
+          524.0,
+          641.0,
+          670.0,
+          859.0
+        ],
+        "_eps": [
+          -10.19,
+          -6.75,
+          0.3,
+          1.28,
+          24.99
+        ],
+        "_roce": [
+          2.4,
+          4.6,
+          11.7,
+          12.2,
+          31.9
+        ],
+        "_opm": [
+          4.7,
+          5.1,
+          13.2
+        ]
+      },
+      "basic": {
+        "symbol": "STOVEKRAFT",
+        "name": "Stove Kraft Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Furnishings, Fixtures & Appliances",
+        "market_cap_cr": 1823.2,
+        "pe_yf": 48.61
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 1823.2,
+          "pass": true,
+          "label": "Rs1,823Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.17,
+          "pass": true,
+          "label": "0.17"
+        },
+        "ROE": {
+          "value": 67.5,
+          "pass": true,
+          "label": "67.5%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 11.5,
+          "pass": true,
+          "label": "11.5%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 18.6,
+          "pass": true,
+          "label": "18.6%  hist:[2.4, 4.6, 11.7, 12.2, 31.9]"
+        },
+        "FCF / PAT": {
+          "value": 0.96,
+          "pass": true,
+          "label": "0.96"
+        },
+        "Promoter Holding": {
+          "value": 55.79,
+          "pass": true,
+          "label": "55.8%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.03,
+          "pass": true,
+          "label": "0.03"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "TAJGVK",
+      "name": "TajGVK Hotels & Resorts Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "TajGVK Hotels & Resorts Ltd",
+        "about": "",
+        "roe": 19.5,
+        "de_ratio": 0.12,
+        "pe_ratio": 16.2,
+        "peg_ratio": 0.46,
+        "eps_growth_5y": 34.9,
+        "revenue_growth_5y": 38.3,
+        "roce_3y_avg": 19.3,
+        "roce_history": [
+          -0.3,
+          8.9,
+          19.7,
+          19.8,
+          19.9,
+          18.2
+        ],
+        "fcf_to_pat": 6.05,
+        "promoter_holding": 71.0,
+        "promoter_pledge": null,
+        "promoter_trend": "decreasing",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": true,
+        "_sales_cr": [
+          227.0,
+          384.0,
+          408.0,
+          450.0,
+          475.0
+        ],
+        "_eps": [
+          0.33,
+          14.88,
+          14.79,
+          18.69,
+          19.98
+        ],
+        "_roce": [
+          8.9,
+          19.7,
+          19.8,
+          19.9,
+          18.2
+        ],
+        "_opm": [
+          31.9,
+          30.9,
+          29.7
+        ]
+      },
+      "basic": {
+        "symbol": "TAJGVK",
+        "name": "TAJGVK Hotels & Resorts Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Lodging",
+        "market_cap_cr": 2025.9,
+        "pe_yf": 16.23
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 2025.9,
+          "pass": true,
+          "label": "Rs2,026Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.12,
+          "pass": true,
+          "label": "0.12"
+        },
+        "ROE": {
+          "value": 19.5,
+          "pass": true,
+          "label": "19.5%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 38.3,
+          "pass": true,
+          "label": "38.3%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 19.3,
+          "pass": true,
+          "label": "19.3%  hist:[8.9, 19.7, 19.8, 19.9, 18.2]"
+        },
+        "FCF / PAT": {
+          "value": 6.05,
+          "pass": true,
+          "label": "6.05"
+        },
+        "Promoter Holding": {
+          "value": 71.0,
+          "pass": true,
+          "label": "71.0%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.46,
+          "pass": true,
+          "label": "0.46"
+        }
+      },
+      "soft_flags": [
+        "Promoter holding declining QoQ (71.0%)",
+        "Operating margin contracting [31.9, 30.9, 29.7]"
+      ]
+    },
+    {
+      "sym": "TARIL",
+      "name": "Transformers & Rectifiers India Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Transformers & Rectifiers India Ltd",
+        "about": "",
+        "roe": 19.1,
+        "de_ratio": 0.3,
+        "pe_ratio": 36.6,
+        "peg_ratio": 0.36,
+        "eps_growth_5y": 100.8,
+        "revenue_growth_5y": 27.6,
+        "roce_3y_avg": 19.1,
+        "roce_history": [
+          11.4,
+          10.9,
+          16.7,
+          16.5,
+          21.3,
+          19.4
+        ],
+        "fcf_to_pat": 2.39,
+        "promoter_holding": 64.36,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          1158.0,
+          1396.0,
+          1291.0,
+          2017.0,
+          2509.0
+        ],
+        "_eps": [
+          0.53,
+          1.54,
+          1.56,
+          7.14,
+          8.81
+        ],
+        "_roce": [
+          10.9,
+          16.7,
+          16.5,
+          21.3,
+          19.4
+        ],
+        "_opm": [
+          10.4,
+          16.2,
+          15.3
+        ]
+      },
+      "basic": {
+        "symbol": "TARIL",
+        "name": "TARIL",
+        "sector": "Industrials",
+        "industry": "Electrical Equipment & Parts",
+        "market_cap_cr": 9669.8,
+        "pe_yf": 36.57
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 9669.8,
+          "pass": true,
+          "label": "Rs9,670Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.3,
+          "pass": true,
+          "label": "0.30"
+        },
+        "ROE": {
+          "value": 19.1,
+          "pass": true,
+          "label": "19.1%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 27.6,
+          "pass": true,
+          "label": "27.6%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 19.1,
+          "pass": true,
+          "label": "19.1%  hist:[10.9, 16.7, 16.5, 21.3, 19.4]"
+        },
+        "FCF / PAT": {
+          "value": 2.39,
+          "pass": true,
+          "label": "2.39"
+        },
+        "Promoter Holding": {
+          "value": 64.36,
+          "pass": true,
+          "label": "64.4%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.36,
+          "pass": true,
+          "label": "0.36"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "VADILALIND",
+      "name": "Vadilal Industries Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Vadilal Industries Ltd",
+        "about": "",
+        "roe": 24.0,
+        "de_ratio": 0.26,
+        "pe_ratio": 27.0,
+        "peg_ratio": 0.29,
+        "eps_growth_5y": 92.5,
+        "revenue_growth_5y": 24.0,
+        "roce_3y_avg": 25.1,
+        "roce_history": [
+          8.8,
+          20.5,
+          24.1,
+          28.9,
+          26.2,
+          20.2
+        ],
+        "fcf_to_pat": 4.85,
+        "promoter_holding": 64.72,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": true,
+        "_sales_cr": [
+          698.0,
+          1058.0,
+          1125.0,
+          1238.0,
+          1360.0
+        ],
+        "_eps": [
+          62.19,
+          133.96,
+          203.05,
+          209.15,
+          170.08
+        ],
+        "_roce": [
+          20.5,
+          24.1,
+          28.9,
+          26.2,
+          20.2
+        ],
+        "_opm": [
+          19.6,
+          19.3,
+          14.7
+        ]
+      },
+      "basic": {
+        "symbol": "VADILALIND",
+        "name": "Vadilal Industries Limited",
+        "sector": "Consumer Defensive",
+        "industry": "Packaged Foods",
+        "market_cap_cr": 3304.5,
+        "pe_yf": 27.05
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 3304.5,
+          "pass": true,
+          "label": "Rs3,304Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.26,
+          "pass": true,
+          "label": "0.26"
+        },
+        "ROE": {
+          "value": 24.0,
+          "pass": true,
+          "label": "24.0%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 24.0,
+          "pass": true,
+          "label": "24.0%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 25.1,
+          "pass": true,
+          "label": "25.1%  hist:[20.5, 24.1, 28.9, 26.2, 20.2]"
+        },
+        "FCF / PAT": {
+          "value": 4.85,
+          "pass": true,
+          "label": "4.85"
+        },
+        "Promoter Holding": {
+          "value": 64.72,
+          "pass": true,
+          "label": "64.7%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.29,
+          "pass": true,
+          "label": "0.29"
+        }
+      },
+      "soft_flags": [
+        "Operating margin contracting [19.6, 19.3, 14.7]"
+      ]
+    },
+    {
+      "sym": "WAAREERTL",
+      "name": "Waaree Renewable Technologies Ltd",
+      "date_added": "2026-05-05",
+      "data": {
+        "company_name": "Waaree Renewable Technologies Ltd",
+        "about": "",
+        "roe": 68.9,
+        "de_ratio": 0.16,
+        "pe_ratio": 22.2,
+        "peg_ratio": 0.06,
+        "eps_growth_5y": 370.0,
+        "revenue_growth_5y": 203.2,
+        "roce_3y_avg": 65.3,
+        "roce_history": [
+          4.8,
+          33.3,
+          67.7,
+          72.1,
+          64.4,
+          59.4
+        ],
+        "fcf_to_pat": 1.24,
+        "promoter_holding": 74.32,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": true,
+        "_sales_cr": [
+          162.0,
+          351.0,
+          876.0,
+          1598.0,
+          3331.0
+        ],
+        "_eps": [
+          0.85,
+          5.32,
+          13.95,
+          21.98,
+          45.88
+        ],
+        "_roce": [
+          33.3,
+          67.7,
+          72.1,
+          64.4,
+          59.4
+        ],
+        "_opm": [
+          23.6,
+          19.5,
+          19.2
+        ]
+      },
+      "basic": {
+        "symbol": "WAAREERTL",
+        "name": "Waaree Renewable Technologies Limited",
+        "sector": "Utilities",
+        "industry": "Utilities - Renewable",
+        "market_cap_cr": 10604.7,
+        "pe_yf": 22.15
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 10604.7,
+          "pass": true,
+          "label": "Rs10,605Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.16,
+          "pass": true,
+          "label": "0.16"
+        },
+        "ROE": {
+          "value": 68.9,
+          "pass": true,
+          "label": "68.9%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 203.2,
+          "pass": true,
+          "label": "203.2%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 65.3,
+          "pass": true,
+          "label": "65.3%  hist:[33.3, 67.7, 72.1, 64.4, 59.4]"
+        },
+        "FCF / PAT": {
+          "value": 1.24,
+          "pass": true,
+          "label": "1.24"
+        },
+        "Promoter Holding": {
+          "value": 74.32,
+          "pass": true,
+          "label": "74.3%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0%(nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.06,
+          "pass": true,
+          "label": "0.06"
+        }
+      },
+      "soft_flags": [
+        "Operating margin contracting [23.6, 19.5, 19.2]"
+      ]
+    }
+  ],
+  "assessed": {
+    "20MICRONS": {
+      "date_assessed": "2026-05-05",
+      "score": 7,
+      "verdict": "PASS",
+      "primary_revenue_source": "Manufacturing and supply of micronized industrial minerals (calcite, talc, kaolin, dolomite, barite) used as functional fillers in paints, plastics, rubber, paper, and construction industries.",
+      "moat_category": "LOW_COST_PRODUCER",
+      "moat_explanation": "20 Microns operates captive mines and proprietary processing technology for ultra-fine mineral grinding, enabling cost advantages and product consistency that smaller unorganized competitors cannot easily replicate at scale.",
+      "market_share": "Niche leader in organized micronized minerals segment in India; estimated top-3 position among organized players in functional fillers, though overall market remains highly fragmented with significant unorganized competition.",
+      "management_quality": "GOOD",
+      "capital_allocation_note": "Consistent ROCE above 19% over five years with a FCF/PAT ratio of 1.21 and low leverage (D/E 0.36) suggests disciplined reinvestment and avoidance of value-destructive acquisitions.",
+      "cash_flow_quality": "CLEAN",
+      "cash_flow_note": "FCF/PAT of 1.21 confirms that reported earnings are fully backed by real cash generation, with no signs of working capital manipulation or aggressive accrual accounting.",
+      "forensic_risk": "MINOR_FLAGS",
+      "forensic_note": "Promoter holding at 45.04% is relatively modest for a small-cap, leaving meaningful room for stake dilution risk; additionally, the minerals processing sector in India has historically seen related-party transactions with group entities that warrant scrutiny in annual report disclosures.",
+      "business_stability": "STABLE",
+      "credit_resilience": "ADEQUATE",
+      "demand_outlook_15y": "GROWING",
+      "disruption_risk": "LOW",
+      "bear_case": "A sustained downturn in Indian paints and plastics capex cycles (which together likely represent 50\u201360% of functional filler demand) combined with aggressive pricing by Chinese micronized mineral exporters could simultaneously compress volumes and margins, squeezing the thin spread between mining costs and realizations.",
+      "peer_comparison": "Primary listed peers include Ashapura Minechem (broader minerals, larger scale but more volatile), GMDC (government-owned, mining-heavy), and partly Imerys Talc India (unlisted); 20 Microns likely leads in pure-play organized micronized fillers for industrial end-uses but trails Ashapura on revenue scale and geographic reach.",
+      "key_risks": "Raw material mine lease renewal and regulatory risk in Gujarat/Rajasthan operations, customer concentration in cyclical paints and plastics sectors",
+      "reasoning": "20 Microns presents a compelling small-cap value case: a P/E under 10, PEG of 0.43, and five-year Revenue CAGR of 13.7% with stable ROCE above 19% suggest a business compounding quietly without the market's attention. The FCF/PAT above 1 is the most reassuring signal \u2014 earnings are real and not accounting artifacts, which aligns with the philosophy of prioritizing cash over reported profits. The moat is real but narrow: captive mines and proprietary micronizing technology create switching costs and cost advantages, but the business is ultimately a commodity processor exposed to industrial cycles. The primary bear risk is not existential but cyclical \u2014 a multi-year slowdown in construction, paints, and plastics capex in India would compress both volumes and pricing power simultaneously. At current valuations, the margin of safety appears adequate for a patient investor with a 5\u201310 year horizon, particularly given the low debt and demonstrated capital discipline."
+    }
+  }
+}
