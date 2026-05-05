@@ -813,12 +813,12 @@ def main():
                     send_whatsapp(format_exit_notice(sym,data["company_name"],real_fails,days,entry))
                     prev_wl_set.discard(sym); time.sleep(3)
                 if real_fails and len(real_fails)<=cfg.NEAR_MISS_MAX_FAILS:
-    all_close = all(
-        gap is not None and gap <= 30
-        for _,_,gap in real_fails
-    )
-    if all_close:
-        log_near_miss(sym,data["company_name"],real_fails,today_str)
+                    all_close = all(
+                        gap is not None and gap <= 30
+                        for _,_,gap in real_fails
+                    )
+                    if all_close:
+                        log_near_miss(sym,data["company_name"],real_fails,today_str)
         except Exception as e: log.error(f"  Error {sym}: {e}")
         time.sleep(2.5)
     log.info(f"\n  Pass 2: {len(qualified)} qualified  |  {len(near_miss_today)} near-misses (1-crit)")
