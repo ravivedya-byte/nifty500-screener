@@ -6,7 +6,7 @@ import os
 # ─── Credentials ─────────────────────────────────────────────────────────────
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
 TELEGRAM_CHAT_ID   = os.getenv("TELEGRAM_CHAT_ID",   "YOUR_CHAT_ID_HERE")
-ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY",  "sk-ant-XXXXXXXXXXXXXXXX")
+ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY",  "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")
 
 # ─── Your Details ────────────────────────────────────────────────────────────
 SEBI_RA_NUMBER    = os.getenv("SEBI_RA_NUMBER",   "INH000XXXXXX")
