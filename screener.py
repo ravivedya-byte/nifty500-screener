@@ -659,7 +659,7 @@ def format_exit_notice(sym,name,real_fails,days,entry):
             +(f"\nEntry: {entry}" if entry else "")+
             f"\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 
-def format_daily_summary(run_stats,today_wl,today_wl_scores,ai_results,near_miss_today,wl_log,today_str):
+def format_daily_summary(run_stats,today_wl,today_wl_scores,ai_results,wl_log,today_str):
     ts=datetime.now().strftime("%a, %d %b %Y  |  %I:%M %p IST")
     na=run_stats.get("alerts",0)
     an=f"🔔 {na} new alert(s) sent above ↑" if na>0 else "🔕 No new alerts today"
@@ -689,25 +689,11 @@ def format_daily_summary(run_stats,today_wl,today_wl_scores,ai_results,near_miss
                   f"✅ PASSED FILTER\n{passed_lines}\n\n"
                   f"📋 SUBSTACK QUEUE  _(highest to lowest — your judgment)_\n{queue_lines}")
 
-    # Near-misses — 1 criterion only, with % gap
-    nm_block=""
-    if near_miss_today:
-        nm_lines=[]
-        for nm in near_miss_today:
-            parts=[]
-            for criterion,detail,gap in nm["criteria"]:
-                gap_str=f"  missed by {gap:.0f}%" if gap is not None else ""
-                parts.append(f"{criterion}: {detail}{gap_str}")
-            nm_lines.append(f"  {sym_link(nm['symbol']):<35} {',  '.join(parts)}")
-        nm_block=(f"\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-                  f"⚠️ NEAR-MISSES  ({len(near_miss_today)} — 1 criterion only)\n\n"
-                  +"\n".join(nm_lines))
-
     return (f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📊 Daily screen\n{ts}\n"
             f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
             f"Checked {run_stats.get('total','—')}  |  {run_stats.get('pass1','—')} filter  |  "
             f"{run_stats.get('pass2','—')} quant  |  {run_stats.get('pass3_ok','—')} AI\n\n{an}\n\n"
-            f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n{wl_block}{ai_block}{nm_block}\n\n"
+            f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n{wl_block}{ai_block}\n\n"
             f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nNot investment advice  |  SEBI RA: {cfg.SEBI_RA_NUMBER}")
 
 def format_weekly_report(today,wl_log,perf_results,weekly_nms):
@@ -827,10 +813,12 @@ def main():
                     send_whatsapp(format_exit_notice(sym,data["company_name"],real_fails,days,entry))
                     prev_wl_set.discard(sym); time.sleep(3)
                 if real_fails and len(real_fails)<=cfg.NEAR_MISS_MAX_FAILS:
-                    nm_entry={"symbol":sym,"name":data["company_name"],
-                              "failed_count":len(real_fails),"criteria":real_fails}
-                    if len(real_fails)==1: near_miss_today.append(nm_entry)
-                    log_near_miss(sym,data["company_name"],real_fails,today_str)
+    all_close = all(
+        gap is not None and gap <= 30
+        for _,_,gap in real_fails
+    )
+    if all_close:
+        log_near_miss(sym,data["company_name"],real_fails,today_str)
         except Exception as e: log.error(f"  Error {sym}: {e}")
         time.sleep(2.5)
     log.info(f"\n  Pass 2: {len(qualified)} qualified  |  {len(near_miss_today)} near-misses (1-crit)")
@@ -859,7 +847,7 @@ def main():
     save_json(AI_ASSESSMENTS_PATH,ai_log)
 
     run_stats={"total":len(symbols),"pass1":len(p1),"pass2":len(qualified),"pass3_ok":pass3_ok,"alerts":alerts_sent}
-    send_whatsapp(format_daily_summary(run_stats,today_wl,today_wl_scores,ai_results,near_miss_today,wl_log,today_str))
+    send_whatsapp(format_daily_summary(run_stats,today_wl,today_wl_scores,ai_results,wl_log,today_str))
 
     log.info(f"\n{'='*60}\nDone. {alerts_sent} alert(s). Watchlist: {len(today_wl)}.\n{'='*60}\n")
 
