@@ -1,21 +1,15 @@
 """
-NSE Investment Screener  v2.3
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Philosophy: value investing — cash flow, moat, capital allocation.
+NSE Investment Screener  v2.4
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Philosophy: value investing — cash flow, moat, patience.
 
-Daily flow (Mon-Fri 5:30 PM IST):
-  1. Quant screen — all NSE stocks, 9 hard criteria
-  2. Daily summary sent FIRST (clean, simple)
-  3. One AI deep dive sent AFTER summary (one stock per day from queue)
+Daily flow:
+  1. Quant screen — all NSE, 9 hard criteria
+  2. Daily summary FIRST (clean, structured)
+  3. One AI deep dive AFTER (one per day, queue)
 
-Queue logic:
-  - Every stock that passes quant joins ai_queue.json (if not already there)
-  - One stock assessed per day, from top of queue
-  - Queue position shown in daily summary watchlist
-  - Assessed stocks move to ai_assessments_log.json
-
-Saturday: weekly report only, no screener run.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Saturday: weekly report only.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
 
 import csv, io, json, logging, os, re, sys, time
@@ -130,7 +124,8 @@ def pass1_yfinance(symbols):
             pe = info.get("trailingPE") or info.get("forwardPE")
             if pe and (pe <= 0 or pe > 200): pe = None
             survivors.append({"symbol":sym,"name":info.get("longName",sym),"sector":sector,
-                               "industry":industry,"market_cap_cr":round(mc_cr,1),"pe_yf":round(pe,2) if pe else None})
+                               "industry":industry,"market_cap_cr":round(mc_cr,1),
+                               "pe_yf":round(pe,2) if pe else None})
             if i % 100 == 0: log.info(f"  Pass1: {i}/{len(symbols)} | {len(survivors)} alive")
             time.sleep(0.4)
         except Exception as e: log.debug(f"yf {sym}: {e}")
@@ -158,6 +153,16 @@ def _num(text):
     if "/" in t: t = t.split("/")[0].strip()
     try: return float(t)
     except: return None
+
+def _fmt(val, suffix="", decimals=1, fallback="N/A"):
+    """Safe formatter — never returns NaN or None."""
+    if val is None: return fallback
+    try:
+        f = float(val)
+        import math
+        if math.isnan(f) or math.isinf(f): return fallback
+        return f"{f:.{decimals}f}{suffix}"
+    except: return fallback
 
 def _parse_ratios(soup):
     out = {}
@@ -328,40 +333,39 @@ def quant_filter(data, basic):
     r["Market Cap"] = _check(mc,mc>=cfg.MIN_MARKET_CAP_CR,f"Rs{mc:,.0f}Cr")
     de = data["de_ratio"]
     r["Debt / Equity"] = _check(de,de is not None and 0<=de<=cfg.MAX_DE_RATIO,
-                                 f"{de:.2f}" if de is not None else "N/A")
+                                 _fmt(de,decimals=2) if de is not None else "N/A")
     roe = data["roe"]
     r["ROE"] = _check(roe,roe is not None and roe>=cfg.MIN_ROE,
-                      f"{roe:.1f}%" if roe is not None else "N/A")
+                      _fmt(roe,"%") if roe is not None else "N/A")
     rg = data["revenue_growth_5y"]
     r["Revenue CAGR 5Y"] = _check(rg,rg is not None and rg>=cfg.MIN_REVENUE_GROWTH_5Y,
-                                   f"{rg:.1f}%" if rg is not None else "N/A")
+                                   _fmt(rg,"%") if rg is not None else "N/A")
     ra = data["roce_3y_avg"]
     r["Avg ROCE (3Y)"] = _check(ra,ra is not None and ra>=cfg.MIN_ROCE_3Y_AVG,
-                                 f"{ra:.1f}%  hist:{data['_roce']}" if ra is not None else "N/A")
+                                 f"{_fmt(ra,'%')}  hist:{data['_roce']}" if ra is not None else "N/A")
     fp = data["fcf_to_pat"]
     r["FCF / PAT"] = _check(fp,fp is not None and fp>=cfg.MIN_FCF_TO_PAT,
-                             f"{fp:.2f}" if fp is not None else "N/A")
+                             _fmt(fp,decimals=2) if fp is not None else "N/A")
     ph = data["promoter_holding"]
     r["Promoter Holding"] = _check(ph,ph is not None and ph>=cfg.MIN_PROMOTER_HOLDING,
-                                   f"{ph:.1f}%" if ph is not None else "N/A")
+                                   _fmt(ph,"%") if ph is not None else "N/A")
     pp = data["promoter_pledge"]
     r["Promoter Pledge"] = _check(pp,pp is None or pp<=cfg.MAX_PROMOTER_PLEDGE,
-                                  f"{pp:.1f}%" if pp is not None else "0%(nil)")
+                                  _fmt(pp,"%") if pp is not None else "0% (nil)")
     peg = data["peg_ratio"]
     r["PEG Ratio"] = _check(peg,peg is not None and peg<=cfg.MAX_PEG_RATIO,
-                             f"{peg:.2f}" if peg is not None else "N/A")
+                             _fmt(peg,decimals=2) if peg is not None else "N/A")
     soft_flags = []
     ir = data["inventory_ratio"]
     if ir is not None and ir>cfg.MAX_INVENTORY_RATIO:
-        soft_flags.append(f"Inventory growing {ir:.2f}x revenue")
+        soft_flags.append(f"Inventory growing {_fmt(ir,'x',2)} revenue")
     rr = data["receivables_ratio"]
     if rr is not None and rr>cfg.MAX_RECEIVABLES_RATIO:
-        soft_flags.append(f"Receivables growing {rr:.2f}x revenue")
+        soft_flags.append(f"Receivables growing {_fmt(rr,'x',2)} revenue")
     if data.get("promoter_trend") == "decreasing":
-        soft_flags.append(f"Promoter holding declining QoQ ({data['promoter_holding']:.1f}%)"
-                          if data["promoter_holding"] else "Promoter declining QoQ")
+        soft_flags.append(f"Promoter holding declining QoQ ({_fmt(data['promoter_holding'],'%')})")
     if data.get("margin_contracting"):
-        soft_flags.append(f"Operating margin contracting {data.get('_opm')}")
+        soft_flags.append(f"Operating margin contracting — {data.get('_opm')}")
     return all(v["pass"] for v in r.values()), r, soft_flags
 
 def classify_fails(criteria):
@@ -375,51 +379,46 @@ def classify_fails(criteria):
     return real, data_f
 
 
-# ── AI Queue Management ───────────────────────────────────────────────────────
+# ── AI Queue ──────────────────────────────────────────────────────────────────
 
-def queue_add(sym: str, name: str, data: Dict, basic: Dict,
-              criteria: Dict, soft_flags: List, ai_queue: Dict) -> bool:
-    """
-    Add stock to AI queue if not already present.
-    Stores full data needed for assessment later.
-    Returns True if newly added.
-    """
-    if sym in ai_queue.get("assessed", {}) or sym in [e["sym"] for e in ai_queue.get("pending", [])]:
+def queue_add(sym, name, data, basic, criteria, soft_flags, ai_queue):
+    pending_syms = [e["sym"] for e in ai_queue.get("pending",[])]
+    if sym in ai_queue.get("assessed",{}) or sym in pending_syms:
         return False
-    ai_queue.setdefault("pending", []).append({
-        "sym":         sym,
-        "name":        name,
-        "date_added":  date.today().strftime("%Y-%m-%d"),
-        "data":        data,
-        "basic":       basic,
-        "criteria":    {k: {"value":v["value"],"pass":v["pass"],"label":v["label"]}
-                        for k,v in criteria.items()},
-        "soft_flags":  soft_flags,
+    ai_queue.setdefault("pending",[]).append({
+        "sym":        sym,
+        "name":       name,
+        "date_added": date.today().strftime("%Y-%m-%d"),
+        "data":       data,
+        "basic":      basic,
+        "criteria":   {k:{"value":v["value"],"pass":v["pass"],"label":v["label"]}
+                       for k,v in criteria.items()},
+        "soft_flags": soft_flags,
     })
     return True
 
-
-def queue_pop_next(ai_queue: Dict) -> Optional[Dict]:
-    """Return and remove the next stock to assess from the queue."""
-    pending = ai_queue.get("pending", [])
-    if not pending:
-        return None
+def queue_pop_next(ai_queue):
+    pending = ai_queue.get("pending",[])
+    if not pending: return None
     entry = pending.pop(0)
     ai_queue["pending"] = pending
     return entry
 
+def queue_peek_next(ai_queue):
+    """Return name of next stock without removing it."""
+    pending = ai_queue.get("pending",[])
+    return pending[0]["name"] if pending else None
 
-def queue_mark_assessed(sym: str, ai_result: Dict, ai_queue: Dict) -> None:
-    """Move a stock from pending to assessed."""
-    ai_queue.setdefault("assessed", {})[sym] = {
+def queue_mark_assessed(sym, ai_result, ai_queue):
+    ai_queue.setdefault("assessed",{})[sym] = {
         "date_assessed": date.today().strftime("%Y-%m-%d"),
         **ai_result,
     }
 
 
-# ── Claude AI Assessment ──────────────────────────────────────────────────────
+# ── Claude AI ─────────────────────────────────────────────────────────────────
 
-def ai_assess(sym: str, data: Dict, basic: Dict) -> Dict:
+def ai_assess(sym, data, basic):
     prompt = f"""You are evaluating a stock for a long-term value investing service.
 
 PHILOSOPHY
@@ -435,38 +434,54 @@ SECTOR:  {basic['sector']} | INDUSTRY: {basic['industry']}
 ABOUT:   {data['about'] or 'Not available'}
 
 FINANCIALS (all 9 hard criteria passed):
-  ROE {data['roe']}% | D/E {data['de_ratio']} | P/E {data['pe_ratio']} (reference only)
+  ROE {data['roe']}% | D/E {data['de_ratio']} | P/E {data['pe_ratio']} (reference)
   Rev CAGR 5Y {data['revenue_growth_5y']}% | ROCE 3Y avg {data['roce_3y_avg']}%
   ROCE hist {data['_roce']} | FCF/PAT {data['fcf_to_pat']}
   Promoter {data['promoter_holding']}% | PEG {data['peg_ratio']}
 
 EVALUATE THESE SEVEN THINGS:
 1. MOAT — LOW_COST_PRODUCER, DIFFERENTIATED_PRODUCT, PROPRIETARY_ADVANTAGE, or NONE.
-2. CAPITAL ALLOCATION — rate EXCELLENT/GOOD/AVERAGE/POOR + one sentence.
+   Also rate moat strength: Weak / Moderate / Strong.
+2. CAPITAL ALLOCATION — rate EXCELLENT/GOOD/AVERAGE/POOR + two sentences.
 3. CASH FLOW QUALITY — CLEAN/MINOR_CONCERN/SIGNIFICANT_CONCERN + one sentence.
 4. FORENSIC FLAGS — CLEAN/MINOR_FLAGS/SIGNIFICANT_FLAGS + specific observation.
 5. BUSINESS STABILITY — VERY_STABLE/STABLE/MODERATELY_CHANGING/RAPIDLY_CHANGING.
-6. BEAR CASE — single most specific dangerous risk. Not generic.
-7. PEER COMPARISON — 2-3 named Indian competitors. Best in sector?
+6. BEAR CASE — two specific risks. Not generic. What makes this a bad 10-year investment?
+7. PEER COMPARISON — 2-3 named Indian competitors. Is this best in sector?
+
+Tone: calm, analytical, institutional. Avoid hype. Use phrases like
+"appears attractive relative to", "cash conversion appears healthy",
+"business quality appears stable". Never use "multibagger", "hidden gem",
+"massive upside", "guaranteed".
 
 Return ONLY this JSON:
-{{"score":<1-10>,"verdict":"STRONG PASS|PASS|BORDERLINE|FAIL",
+{{"score":<1-10>,
+"verdict":"STRONG PASS|PASS|BORDERLINE|FAIL",
 "primary_revenue_source":"<one sentence>",
+"business_overview":"<3-4 plain English sentences about the business>",
 "moat_category":"LOW_COST_PRODUCER|DIFFERENTIATED_PRODUCT|PROPRIETARY_ADVANTAGE|NONE",
-"moat_explanation":"<one sentence>","market_share":"<estimated position>",
-"management_quality":"EXCELLENT|GOOD|AVERAGE|POOR","capital_allocation_note":"<one sentence>",
-"cash_flow_quality":"CLEAN|MINOR_CONCERN|SIGNIFICANT_CONCERN","cash_flow_note":"<one sentence>",
-"forensic_risk":"CLEAN|MINOR_FLAGS|SIGNIFICANT_FLAGS","forensic_note":"<specific observation>",
+"moat_strength":"Weak|Moderate|Strong",
+"moat_explanation":"<two sentences>",
+"market_share":"<estimated position>",
+"management_quality":"EXCELLENT|GOOD|AVERAGE|POOR",
+"capital_allocation_note":"<two sentences>",
+"cash_flow_quality":"CLEAN|MINOR_CONCERN|SIGNIFICANT_CONCERN",
+"cash_flow_note":"<one sentence>",
+"forensic_risk":"CLEAN|MINOR_FLAGS|SIGNIFICANT_FLAGS",
+"forensic_note":"<specific observation>",
 "business_stability":"VERY_STABLE|STABLE|MODERATELY_CHANGING|RAPIDLY_CHANGING",
-"credit_resilience":"STRONG|ADEQUATE|WEAK","demand_outlook_15y":"GROWING|STABLE|UNCERTAIN|DECLINING",
-"disruption_risk":"LOW|MEDIUM|HIGH","bear_case":"<most specific risk>",
-"peer_comparison":"<vs 2-3 named competitors>","key_risks":"<2 risks comma-separated>",
-"reasoning":"<4-5 sentences bull and bear balanced>"}}"""
+"demand_outlook_15y":"GROWING|STABLE|UNCERTAIN|DECLINING",
+"disruption_risk":"LOW|MEDIUM|HIGH",
+"risk_one":"<first specific risk>",
+"risk_two":"<second specific risk>",
+"investor_fit":"<two sentences — what type of investor this may suit and may not suit>",
+"peer_comparison":"<vs 2-3 named Indian competitors, one sentence each>",
+"reasoning":"<3-4 sentences overall verdict, balanced bull and bear>"}}"""
 
     text = ""
     try:
         resp = Anthropic(api_key=cfg.ANTHROPIC_API_KEY).messages.create(
-            model="claude-sonnet-4-6", max_tokens=1200,
+            model="claude-sonnet-4-6", max_tokens=1500,
             messages=[{"role":"user","content":prompt}])
         text = resp.content[0].text.strip()
         text = re.sub(r"```json?\s*","",text).replace("```","").strip()
@@ -482,23 +497,35 @@ Return ONLY this JSON:
 # ── Technical Data ─────────────────────────────────────────────────────────────
 
 def get_technical_data(sym):
+    import math
     try:
         t = yf.Ticker(f"{sym}.NS"); h1 = t.history(period="1y")
         if h1.empty: return {}
         cur = h1["Close"].iloc[-1]
+        if math.isnan(cur): return {}
         h14 = t.history(period="14mo")
-        dma = round(h14["Close"].rolling(200).mean().iloc[-1],2) if len(h14)>=200 else None
+        dma = None
+        if len(h14) >= 200:
+            dma_val = h14["Close"].rolling(200).mean().iloc[-1]
+            dma = round(dma_val,2) if not math.isnan(dma_val) else None
         cl = h1["Close"].tail(15); d = cl.diff().dropna()
         g = d.clip(lower=0).mean(); l = (-d.clip(upper=0)).mean()
         rsi = round(100-(100/(1+g/l)),1) if l>0 else 100.0
-        return {"current":round(cur,2),"high_52w":round(h1["Close"].max(),2),
-                "low_52w":round(h1["Close"].min(),2),
-                "pct_above_low":round(((cur-h1["Close"].min())/h1["Close"].min())*100,1),
-                "dma_200":dma,"above_200dma":bool(cur>dma) if dma else None,"rsi":rsi}
+        high = h1["Close"].max(); low = h1["Close"].min()
+        pct = ((cur-low)/low)*100 if low>0 else 0
+        return {
+            "current":       round(cur,2),
+            "high_52w":      round(high,2),
+            "low_52w":       round(low,2),
+            "pct_above_low": round(pct,1),
+            "dma_200":       dma,
+            "above_200dma":  bool(cur>dma) if dma else None,
+            "rsi":           rsi,
+        }
     except Exception as e: log.debug(f"Tech {sym}: {e}"); return {}
 
 
-# ── Links ─────────────────────────────────────────────────────────────────────
+# ── Links & Helpers ───────────────────────────────────────────────────────────
 
 def screener_url(sym): return SCREENER_LINK.format(sym=sym)
 def tg_link(display, url): return f"[{display}]({url})"
@@ -620,12 +647,11 @@ def calculate_monthly_sip(wl_log, perf_log, today):
         ae = cfg.SIP_AMOUNT_INR/len(eligible)
         allocs = [{"symbol":s,"price_entry":p,"shares":round(ae/p,4),"days_on_list":eligible[s]}
                   for s in eligible for p in [_fetch_price(s,today)] if p and p>0]
-        entry = {"month":month_key,"date":today.strftime("%Y-%m-%d"),"type":"stocks","allocations":allocs,
-                 "amount_per_stock":round(ae,2),"total_deployed":cfg.SIP_AMOUNT_INR,
-                 "benchmark_price_entry":bp}
+        entry = {"month":month_key,"date":today.strftime("%Y-%m-%d"),"type":"stocks",
+                 "allocations":allocs,"amount_per_stock":round(ae,2),
+                 "total_deployed":cfg.SIP_AMOUNT_INR,"benchmark_price_entry":bp}
     perf_log.setdefault("sip_entries",[]).append(entry)
-    save_json(PERFORMANCE_LOG_PATH, perf_log)
-    log.info(f"SIP recorded {month_key}")
+    save_json(PERFORMANCE_LOG_PATH, perf_log); log.info(f"SIP recorded {month_key}")
 
 def get_portfolio_performance(perf_log):
     results = []; bc = _fetch_current_price(cfg.BENCHMARK_TICKER)
@@ -665,7 +691,12 @@ def send_whatsapp(text):
     all_sent = True
     for chunk in chunks:
         try:
-            r = requests.post(url,json={"chat_id":cfg.TELEGRAM_CHAT_ID,"text":chunk,"parse_mode":"Markdown"},timeout=15)
+            r = requests.post(url, json={
+                "chat_id":                  cfg.TELEGRAM_CHAT_ID,
+                "text":                     chunk,
+                "parse_mode":               "Markdown",
+                "disable_web_page_preview": True,
+            }, timeout=15)
             if r.status_code == 200: log.info("Telegram sent ✅")
             else: log.error(f"Telegram {r.status_code}: {r.text[:200]}"); all_sent = False
             time.sleep(1)
@@ -675,164 +706,227 @@ def send_whatsapp(text):
 
 # ── Message Formatting ────────────────────────────────────────────────────────
 
-def format_daily_summary(run_stats, today_wl, today_wl_scores,
-                          wl_log, today_str, ai_queue,
-                          new_entries, exits):
+def format_daily_summary(run_stats, today_wl, wl_log, today_str,
+                          ai_queue, new_entries, removed_today):
     """
-    Clean daily summary — fired FIRST before AI deep dive.
-    Shows watchlist with assessment status.
+    Redesigned daily summary:
+      Header → Watchlist (top 10 + overflow) →
+      Longest Active → Removed Today → Footer
     """
-    ts = datetime.now().strftime("%a, %d %b %Y  |  %I:%M %p IST")
-    total   = run_stats.get("total","—")
-    passed  = run_stats.get("pass2",0)
-    alerts  = run_stats.get("alerts",0)
+    ts = datetime.now().strftime("%a, %d %b %Y")
 
-    # Status indicators
     assessed_syms = set(ai_queue.get("assessed",{}).keys())
     pending_syms  = [e["sym"] for e in ai_queue.get("pending",[])]
+    pending_count = len(pending_syms)
+    assessed_count = len(assessed_syms)
 
+    # Days on watchlist for each stock
+    days_map = {sym: get_days_on_watchlist(wl_log, sym, today_str) for sym in today_wl}
+
+    # Header
+    header = (
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"ALPHA WATCH  |  {ts}\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+        f"Scanned:     {run_stats.get('total','—'):,}\n"
+        f"Qualified:   {len(today_wl)}\n"
+        f"New today:   {len(new_entries)}\n"
+        f"Removed:     {len(removed_today)}\n\n"
+        f"AI Queue:    {pending_count} pending  |  {assessed_count} assessed"
+    )
+
+    # Watchlist — top 10 then overflow
     wl_lines = []
-    for sym in today_wl:
-        days = get_days_on_watchlist(wl_log, sym, today_str)
+    for sym in today_wl[:10]:
+        days = days_map.get(sym, 1)
         if sym in assessed_syms:
-            ai_result = ai_queue["assessed"][sym]
-            score     = ai_result.get("score",0)
-            status    = f"✅ assessed  {score}/10"
+            score = ai_queue["assessed"][sym].get("score", 0)
+            status = f"✅ {score}/10"
         elif sym in pending_syms:
-            pos    = pending_syms.index(sym) + 1
+            pos = pending_syms.index(sym) + 1
             status = f"⏳ queue #{pos}"
         else:
             status = "⏳ queue"
-        wl_lines.append(f"  {sym_link(sym):<35} Day {days:<4} {status}")
+        wl_lines.append(f"  {sym_link(sym):<35} Day {days:<3} {status}")
+
+    overflow = len(today_wl) - 10
+    overflow_line = f"\n  +{overflow} more" if overflow > 0 else ""
 
     wl_block = (
-        f"📌 WATCHLIST  ({len(today_wl)} stocks)\n\n" + "\n".join(wl_lines)
-        if today_wl else "📌 WATCHLIST\n  Empty — no stocks currently qualify"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"📋 WATCHLIST  ({len(today_wl)} stocks)\n\n"
+        + "\n".join(wl_lines)
+        + overflow_line
+        if today_wl else
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"📋 WATCHLIST\n  No stocks currently qualify"
     )
 
-    # Queue summary
-    pending_count  = len(ai_queue.get("pending",[]))
-    assessed_count = len(ai_queue.get("assessed",{}))
-    queue_note     = f"⏳ AI queue: {pending_count} pending  |  {assessed_count} assessed"
+    # Longest Active — top 5 by days
+    longest = sorted(today_wl, key=lambda s: days_map.get(s,0), reverse=True)[:5]
+    if longest:
+        la_lines = "\n".join(
+            f"  {sym_link(s):<35} {days_map.get(s,1)} day{'s' if days_map.get(s,1)!=1 else ''}"
+            for s in longest
+        )
+        la_block = (
+            f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            f"📈 LONGEST ACTIVE\n\n{la_lines}"
+        )
+    else:
+        la_block = ""
 
-    # Changes today
-    changes = []
-    if new_entries: changes.append(f"🆕 {len(new_entries)} new: {', '.join(new_entries)}")
-    if exits:       changes.append(f"📤 {len(exits)} exited: {', '.join(exits)}")
-    changes_block = "\n".join(changes) if changes else "No changes today"
+    # Removed Today
+    if removed_today:
+        rm_lines = "\n".join(
+            f"  {sym_link(r['sym'])}\n  → {r['reason']}"
+            for r in removed_today
+        )
+        rm_block = (
+            f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            f"❌ REMOVED TODAY\n\n{rm_lines}"
+        )
+    else:
+        rm_block = ""
 
-    alert_note = (f"🔔 {alerts} alert(s) — see message above ↑" if alerts > 0
-                  else "🔕 No alerts today")
+    # New entries
+    new_block = ""
+    if new_entries:
+        new_block = (
+            f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            f"🆕 NEW ENTRIES\n\n  "
+            + ", ".join(new_entries)
+        )
 
-    return (
-        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"📊 Daily screen\n{ts}\n"
-        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
-        f"Checked {total}  |  {passed} passed quant\n"
-        f"{alert_note}\n\n"
-        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"{wl_block}\n\n"
-        f"{changes_block}\n"
-        f"{queue_note}\n\n"
-        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+    footer = (
+        f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"The system prioritises:\n"
+        f"• Earnings quality  • Free cash flow\n"
+        f"• Capital efficiency  • Reasonable valuation\n"
+        f"• Long-term growth durability\n\n"
         f"Not investment advice  |  SEBI RA: {cfg.SEBI_RA_NUMBER}"
     )
 
+    return f"{header}\n\n{wl_block}{la_block}{rm_block}{new_block}{footer}"
 
-def format_ai_deep_dive(entry: Dict, ai: Dict, tech: Dict,
-                         queue_pos: int, queue_total: int) -> str:
+
+def format_ai_deep_dive(entry, ai, tech, queue_pos, queue_total, next_name):
     """
-    Full AI assessment for one stock — fired AFTER daily summary.
-    Includes PE ratio for reference.
+    Redesigned deep dive — structured research notes, institutional tone.
     """
-    sym     = entry["sym"]
-    name    = entry["name"]
-    data    = entry["data"]
-    basic   = entry["basic"]
+    sym      = entry["sym"]
+    name     = entry["name"]
+    data     = entry["data"]
+    basic    = entry["basic"]
     criteria = entry["criteria"]
     soft_flags = entry["soft_flags"]
-    verdict = ai.get("verdict","N/A")
-    score   = ai.get("score",0)
+    score    = ai.get("score", 0)
+    verdict  = ai.get("verdict", "N/A")
 
     vi = {"STRONG PASS":"🟢","PASS":"✅","BORDERLINE":"🟡","FAIL":"🔴"}.get(verdict,"⚪")
-    mi = {"EXCELLENT":"🟢","GOOD":"✅","AVERAGE":"🟡","POOR":"🔴"}.get(ai.get("management_quality",""),"⚪")
-    ci = {"CLEAN":"✅","MINOR_CONCERN":"⚠️","SIGNIFICANT_CONCERN":"🚨"}.get(ai.get("cash_flow_quality",""),"⚪")
-    fi = {"CLEAN":"✅","MINOR_FLAGS":"⚠️","SIGNIFICANT_FLAGS":"🚨"}.get(ai.get("forensic_risk",""),"⚪")
-    si = {"VERY_STABLE":"🟢","STABLE":"✅","MODERATELY_CHANGING":"🟡","RAPIDLY_CHANGING":"🔴"}.get(ai.get("business_stability",""),"⚪")
-    ml = {"LOW_COST_PRODUCER":"Low cost producer","DIFFERENTIATED_PRODUCT":"Differentiated product",
-          "PROPRIETARY_ADVANTAGE":"Proprietary advantage","NONE":"No durable moat"}.get(ai.get("moat_category",""),"N/A")
+    ml = {
+        "LOW_COST_PRODUCER":      "Cost Advantage",
+        "DIFFERENTIATED_PRODUCT": "Differentiated Product",
+        "PROPRIETARY_ADVANTAGE":  "Proprietary / Regulatory",
+        "NONE":                   "No identifiable moat",
+    }.get(ai.get("moat_category",""),"N/A")
+    ms = ai.get("moat_strength","")
 
-    # Criteria block
-    crit_lines = "\n".join(
-        f"  {k:<20} {CRITERIA_META.get(k,{}).get('label',''):<16} {v['label']}   ✅"
-        for k,v in criteria.items()
-    )
-    soft_block = ("\n\nSOFT FLAGS\n"+"\n".join(f"  ⚠️ {f}" for f in soft_flags)) if soft_flags else ""
-
-    # PE for reference
+    # WHY IT QUALIFIED — bullet points from criteria
+    qual_lines = []
+    for k,v in criteria.items():
+        if k == "Market Cap": continue  # skip obvious one
+        qual_lines.append(f"• {k:<20} {v['label']}")
+    # Add PE for reference
     pe = data.get("pe_ratio")
-    pe_str = f"P/E {pe:.1f}  _(reference only)_" if pe else ""
+    if pe:
+        qual_lines.append(f"• {'P/E':<20} {_fmt(pe,decimals=1)}  _(reference only)_")
+    # Soft flags
+    for sf in soft_flags:
+        qual_lines.append(f"⚠️ {sf}")
 
-    # Technical
+    # Technical block — suppressed if data missing
     tech_block = ""
-    if tech:
+    if tech and tech.get("current"):
         di  = "✅" if tech.get("above_200dma") is True else "❌" if tech.get("above_200dma") is False else "—"
         rsi = tech.get("rsi","—")
-        rl  = "overbought 🔴" if isinstance(rsi,float) and rsi>70 else "oversold 🟢" if isinstance(rsi,float) and rsi<30 else "neutral"
-        dm  = f"Rs{tech['dma_200']:,.0f} ({di})" if tech.get("dma_200") else "N/A"
-        tech_block = (f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-                      f"📈 TECHNICAL  _(reference only)_\n\n"
-                      f"  Price Rs{tech['current']:,.0f}  |  RSI {rsi} {rl}\n"
-                      f"  52W  Rs{tech['low_52w']:,.0f} – Rs{tech['high_52w']:,.0f}\n"
-                      f"  200DMA {dm}  |  {tech['pct_above_low']:.0f}% above 52W low")
+        rl  = "overbought" if isinstance(rsi,float) and rsi>70 else "oversold" if isinstance(rsi,float) and rsi<30 else "neutral"
+        dma_str = f"Rs{tech['dma_200']:,.0f} ({di})" if tech.get("dma_200") else "N/A"
+        tech_block = (
+            f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            f"TECHNICAL  _(reference only)_\n\n"
+            f"  Price    Rs{tech['current']:,.0f}\n"
+            f"  52W      Rs{_fmt(tech['low_52w'],decimals=0)} – Rs{_fmt(tech['high_52w'],decimals=0)}\n"
+            f"  200 DMA  {dma_str}\n"
+            f"  RSI      {rsi} — {rl}"
+        )
+
+    # Tomorrow preview
+    tomorrow_block = ""
+    if next_name:
+        tomorrow_block = (
+            f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            f"Tomorrow's Deep Dive:\n{next_name}"
+        )
 
     return (
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"🔍 AI DEEP DIVE  ({queue_pos} of {queue_total} in queue)\n"
+        f"DEEP DIVE  |  {name.upper()}\n"
+        f"NSE: {sym}  |  {basic.get('sector','')}\n"
+        f"Assessment {queue_pos} of {queue_total}  |  Added: {entry.get('date_added','—')}\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
-        f"{tg_link(f'*{name}*', screener_url(sym))}\n"
-        f"NSE: {sym}  |  {basic['sector']}\n"
-        f"Rs{basic['market_cap_cr']:,.0f}Cr  |  "
-        f"Added to queue: {entry.get('date_added','—')}\n"
-        + (f"{pe_str}\n" if pe_str else "") +
-        f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"QUANTITATIVE SCORECARD\n\n"
-        f"  {'Criterion':<20} {'Threshold':<16} Actual\n"
-        f"  {'─'*54}\n"
-        f"{crit_lines}"
-        f"{soft_block}\n\n"
+        f"WHY IT QUALIFIED\n\n"
+        + "\n".join(qual_lines) +
+        f"\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"BUSINESS\n\n"
+        f"{ai.get('business_overview', ai.get('primary_revenue_source','N/A'))}\n\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"AI ASSESSMENT   {score}/10  {vi} {verdict}\n"
+        f"MOAT ASSESSMENT\n\n"
+        f"Type:     {ml}\n"
+        f"Strength: {ms}\n\n"
+        f"{ai.get('moat_explanation','')}\n\n"
+        f"Market position: {ai.get('market_share','N/A')}\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"CAPITAL ALLOCATION\n\n"
+        f"Rating: {ai.get('management_quality','N/A')}\n\n"
+        f"{ai.get('capital_allocation_note','N/A')}\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"CASH FLOW QUALITY\n\n"
+        f"Rating: {ai.get('cash_flow_quality','N/A')}\n\n"
+        f"{ai.get('cash_flow_note','N/A')}\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"KEY RISKS\n\n"
+        f"• {ai.get('risk_one','N/A')}\n\n"
+        f"• {ai.get('risk_two','N/A')}\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"INVESTOR FIT\n\n"
+        f"{ai.get('investor_fit','N/A')}\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"VS PEERS\n\n"
+        f"{ai.get('peer_comparison','N/A')}"
+        f"{tech_block}"
+        f"\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"OVERALL  {vi} {verdict}  |  {score}/10\n"
         f"[{_score_bar(score)}]\n\n"
-        f"  Revenue    {ai.get('primary_revenue_source','N/A')}\n"
-        f"  Moat       {ml}\n             _{ai.get('moat_explanation','')}_\n"
-        f"  Mkt Share  {ai.get('market_share','N/A')}\n\n"
-        f"  Management {mi} {ai.get('management_quality','N/A')}\n             _{ai.get('capital_allocation_note','')}_\n\n"
-        f"  Cash Flow  {ci} {ai.get('cash_flow_quality','N/A')}\n             _{ai.get('cash_flow_note','')}_\n\n"
-        f"  Forensics  {fi} {ai.get('forensic_risk','N/A')}\n             _{ai.get('forensic_note','')}_\n\n"
-        f"  Stability  {si} {ai.get('business_stability','N/A')}\n"
-        f"  Demand 15Y {ai.get('demand_outlook_15y','N/A')}\n"
-        f"  Disruption {ai.get('disruption_risk','N/A')}\n\n"
-        f"  🐻 Bear case\n  {ai.get('bear_case','N/A')}\n\n"
-        f"  🏆 Vs peers\n  {ai.get('peer_comparison','N/A')}\n\n"
-        f"  🚨 Watch: {ai.get('key_risks','N/A')}\n\n"
-        f"  _{ai.get('reasoning','')}_"
-        f"{tech_block}\n\n"
+        f"{ai.get('reasoning','')}"
+        f"{tomorrow_block}\n\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"{tg_link('📄 Write your Substack post ->', screener_url(sym))}\n\n"
-        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"Not a buy recommendation. SEBI RA: {cfg.SEBI_RA_NUMBER}"
+        f"{tg_link('Write your Substack post →', screener_url(sym))}\n\n"
+        f"Not a buy recommendation.  SEBI RA: {cfg.SEBI_RA_NUMBER}"
     )
 
 
-def format_exit_notice(sym, name, real_fails, days, entry):
-    fl = "\n".join(f"  ❌ {k}: {v}" for k,v,_ in real_fails)
-    return (f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📤 WATCHLIST EXIT\n"
-            f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
-            f"{tg_link(f'*{name}*',screener_url(sym))} left the watchlist.\n\n"
-            f"Failed:\n{fl}\nDays on list: {days}"
-            +(f"\nEntry: {entry}" if entry else "")+
-            f"\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+def format_exit_notice(sym, name, real_fails, days, entry_date):
+    reasons = "; ".join(f"{k} ({v})" for k,v,_ in real_fails)
+    return (
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"❌ WATCHLIST EXIT\n\n"
+        f"{tg_link(f'*{name}*', screener_url(sym))} ({sym})\n\n"
+        f"Reason: {reasons}\n"
+        f"Days on list: {days}"
+        + (f"  |  Entry: {entry_date}" if entry_date else "") +
+        f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    )
 
 
 def format_weekly_report(today, wl_log, perf_results, weekly_nms):
@@ -843,49 +937,61 @@ def format_weekly_report(today, wl_log, perf_results, weekly_nms):
         def nm_line(nm):
             parts = []
             for criterion,detail,gap in nm["criteria"]:
-                gap_str = f" (missed by {gap:.0f}%)" if gap is not None else ""
+                gap_str = f" (missed by {_fmt(gap,'%',0)})" if gap is not None else ""
                 parts.append(f"{criterion}: {detail}{gap_str}")
             return f"  {sym_link(nm['symbol']):<35} {',  '.join(parts)}"
         secs = []
         if ones: secs.append("Missed by 1 criterion:\n"+"\n".join(nm_line(nm) for nm in ones))
         if twos: secs.append("Missed by 2 criteria:\n"+"\n".join(nm_line(nm) for nm in twos))
-        nb = "⚠️ NEAR-MISSES THIS WEEK\n_(sorted closest to qualifying first)_\n\n"+"\n\n".join(secs)
-    else: nb = "⚠️ NEAR-MISSES THIS WEEK\n  None this week."
+        nb = "NEAR-MISSES THIS WEEK\n_(sorted closest to qualifying first)_\n\n"+"\n\n".join(secs)
+    else: nb = "NEAR-MISSES THIS WEEK\n  None this week."
 
-    if not perf_results: pb = "💰 PAPER PORTFOLIO\n  No SIP entries yet."
+    if not perf_results: pb = "PAPER PORTFOLIO\n  No SIP entries yet."
     else:
         batches=[]; td=tc=0.0
         for res in sorted(perf_results,key=lambda x:x["month"],reverse=True):
             al_lines = []
             for a in res.get("allocations",[]):
-                chg   = a.get("pct_change"); chg_s = f"{chg:+.1f}%" if chg is not None else "pending"
-                al_lines.append(f"    {sym_link(a['symbol']):<30} Rs{a.get('price_entry','—')} -> Rs{a.get('price_current','—')}  {chg_s}")
+                chg = a.get("pct_change"); chg_s = f"{chg:+.1f}%" if chg is not None else "pending"
+                al_lines.append(
+                    f"    {sym_link(a['symbol']):<30} "
+                    f"Rs{a.get('price_entry','—')} -> Rs{a.get('price_current','—')}  {chg_s}")
             r=res.get("return_pct"); b=res.get("bench_pct"); al2=res.get("alpha")
             rs=f"{r:+.1f}%" if r is not None else "pending"
-            vs=(f"vs Nifty50: {b:+.1f}%  |  Alpha: {al2:+.1f}%" if b is not None and al2 is not None else "pending")
+            vs=(f"vs Nifty50: {b:+.1f}%  |  Alpha: {al2:+.1f}%"
+                if b is not None and al2 is not None else "pending")
             beat="✅" if al2 is not None and al2>=0 else "❌"
-            btype="🥇 Gold" if res["type"]=="gold_fallback" else "📈 Stocks"
-            batches.append(f"─ {res['month']}  ({btype})\n"+"\n".join(al_lines)+f"\n  Return: *{rs}*  {beat}\n  {vs}")
-            td+=res.get("total_deployed",0); tc+=res.get("total_current") or res.get("total_deployed",0)
+            btype="Gold" if res["type"]=="gold_fallback" else "Stocks"
+            batches.append(f"─ {res['month']}  ({btype})\n"+"\n".join(al_lines)
+                           +f"\n  Return: *{rs}*  {beat}\n  {vs}")
+            td+=res.get("total_deployed",0)
+            tc+=res.get("total_current") or res.get("total_deployed",0)
         ar=(tc-td)/td*100 if td>0 else 0; m=len(perf_results)
         gm=sum(1 for r in perf_results if r["type"]=="gold_fallback")
         at=(f"─ ALL-TIME ({m} month{'s' if m!=1 else ''})\n"
             f"  Deployed: Rs{td:,.0f}  |  Value: Rs{tc:,.0f}\n"
             f"  Return: {ar:+.1f}%  |  Gold months: {gm}/{m}")
-        pb=(f"💰 PAPER PORTFOLIO\nRs{cfg.SIP_AMOUNT_INR/100_000:.0f}L SIP on 1st  |  Benchmark: Nifty 50\n\n"
+        pb=(f"PAPER PORTFOLIO\n"
+            f"Rs{cfg.SIP_AMOUNT_INR/100_000:.0f}L SIP on 1st  |  Benchmark: Nifty 50\n\n"
             +"\n\n".join(batches)+"\n\n"+at)
 
-    return (f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n📋 WEEKLY REPORT — Sat, {ts}\n"
-            f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n{nb}\n\n"
-            f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n{pb}\n\n"
-            f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-            f"Paper portfolio only. Not investment advice.\nSEBI RA: {cfg.SEBI_RA_NUMBER}")
+    return (
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"WEEKLY REPORT  |  Sat, {ts}\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+        f"{nb}\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"{pb}\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"Paper portfolio only. Not investment advice.\n"
+        f"SEBI RA: {cfg.SEBI_RA_NUMBER}"
+    )
 
 
 # ── Saturday Mode ─────────────────────────────────────────────────────────────
 
 def run_weekly_report_only():
-    today = date.today()
+    today    = date.today()
     perf_log = load_json(PERFORMANCE_LOG_PATH,{"sip_entries":[]})
     wl_log   = load_json(WATCHLIST_LOG_PATH,{})
     log.info("Saturday mode — generating weekly report…")
@@ -909,7 +1015,7 @@ def main():
     is_first  = today.day == 1
 
     log.info("="*60)
-    log.info(f"NSE Screener v2.3  |  {today.strftime('%A, %d %b %Y')}")
+    log.info(f"NSE Screener v2.4  |  {today.strftime('%A, %d %b %Y')}")
     log.info("="*60)
 
     alerts_log = load_json(ALERTS_LOG_PATH,{})
@@ -920,13 +1026,11 @@ def main():
     if is_first:
         log.info("\nSIP Day…"); calculate_monthly_sip(wl_log,perf_log,today)
 
-    # Universe
     log.info("\nLoading NSE universe…")
     symbols = fetch_nse_all()
     if not symbols: log.error("No symbols."); sys.exit(1)
     log.info(f"  {len(symbols)} symbols")
 
-    # Pass 1
     log.info(f"\nPass 1 ({len(symbols)} stocks)…")
     p1 = pass1_yfinance(symbols)
     if not p1: log.info("None survived."); return
@@ -936,19 +1040,18 @@ def main():
     prev_wl_set = set(prev_wl)
     p1_set      = {b["symbol"] for b in p1}
 
-    exits = []
+    removed_today = []
     for sym in prev_wl_set - p1_set:
         days  = get_days_on_watchlist(wl_log,sym,today_str)
         entry = get_entry_date(wl_log,sym,today_str)
+        removed_today.append({"sym":sym,"reason":"Below market cap threshold or BFSI"})
         send_whatsapp(format_exit_notice(sym,sym,[("Pass 1","Market cap or BFSI",None)],days,entry))
-        exits.append(sym)
         time.sleep(3)
 
-    # Pass 2
     log.info(f"\nPass 2 ({len(p1)} stocks)…")
-    today_wl = []; today_wl_scores = {}; new_entries = []
+    today_wl = []; new_entries = []
 
-    for idx, basic in enumerate(p1,1):
+    for idx, basic in enumerate(p1, 1):
         sym = basic["symbol"]
         log.info(f"  [{idx:>3}/{len(p1)}] {sym}…")
         try:
@@ -965,20 +1068,21 @@ def main():
             if passed:
                 log.info(f"  ✅  {sym}")
                 today_wl.append(sym)
-                # Add to AI queue if not already there
                 added = queue_add(sym, data["company_name"], data, basic,
                                   criteria, soft_flags, ai_queue)
-                if added:
-                    new_entries.append(sym)
-                    log.info(f"  Added {sym} to AI queue")
+                if added: new_entries.append(sym)
             else:
-                # Watchlist exit
                 if sym in prev_wl_set:
                     days  = get_days_on_watchlist(wl_log,sym,today_str)
                     entry = get_entry_date(wl_log,sym,today_str)
+                    # Build specific reason
+                    reason = "; ".join(
+                        f"{k} ({v})" for k,v,_ in real_fails
+                    ) if real_fails else "criteria no longer met"
+                    removed_today.append({"sym":sym,"reason":reason})
                     send_whatsapp(format_exit_notice(sym,data["company_name"],real_fails,days,entry))
-                    prev_wl_set.discard(sym); exits.append(sym); time.sleep(3)
-                # Near-miss logging (30% cap, goes to Saturday report)
+                    prev_wl_set.discard(sym); time.sleep(3)
+                # Near-miss logging
                 if real_fails and len(real_fails) <= cfg.NEAR_MISS_MAX_FAILS:
                     all_close = all(gap is not None and gap <= cfg.NEAR_MISS_MAX_GAP_PCT
                                     for _,_,gap in real_fails)
@@ -987,23 +1091,22 @@ def main():
         except Exception as e: log.error(f"  Error {sym}: {e}")
         time.sleep(2.5)
 
-    log.info(f"\n  Pass 2: {len(today_wl)} on watchlist  |  {len(new_entries)} new to queue")
+    log.info(f"\n  Pass 2: {len(today_wl)} qualified  |  {len(new_entries)} new")
 
-    # Save watchlist
     wl_log[today_str] = today_wl
     save_json(WATCHLIST_LOG_PATH, wl_log)
 
-    # ── SEND DAILY SUMMARY FIRST ──────────────────────────────────────────────
-    run_stats = {"total":len(symbols),"pass1":len(p1),"pass2":len(today_wl),"alerts":0}
+    # ── DAILY SUMMARY FIRST ───────────────────────────────────────────────────
+    run_stats = {"total":len(symbols),"pass1":len(p1),"pass2":len(today_wl)}
     send_whatsapp(format_daily_summary(
-        run_stats, today_wl, today_wl_scores,
-        wl_log, today_str, ai_queue,
-        new_entries, exits
+        run_stats, today_wl, wl_log, today_str,
+        ai_queue, new_entries, removed_today
     ))
 
-    # ── THEN: ONE AI DEEP DIVE ────────────────────────────────────────────────
-    pending_count = len(ai_queue.get("pending",[]))
-    queue_total   = pending_count + len(ai_queue.get("assessed",{}))
+    # ── ONE AI DEEP DIVE AFTER ────────────────────────────────────────────────
+    pending_count  = len(ai_queue.get("pending",[]))
+    assessed_count = len(ai_queue.get("assessed",{}))
+    queue_total    = pending_count + assessed_count
 
     if pending_count > 0:
         entry = queue_pop_next(ai_queue)
@@ -1012,15 +1115,16 @@ def main():
             data = entry["data"]
             basic= entry["basic"]
             log.info(f"\nAI deep dive: {sym}…")
-            ai   = ai_assess(sym, data, basic)
-            tech = get_technical_data(sym)
+            ai      = ai_assess(sym, data, basic)
+            tech    = get_technical_data(sym)
             queue_mark_assessed(sym, ai, ai_queue)
-            # queue position: now assessed, so it's number (assessed count)
             assessed_so_far = len(ai_queue.get("assessed",{}))
+            next_name = queue_peek_next(ai_queue)
             send_whatsapp(format_ai_deep_dive(
                 entry, ai, tech,
                 queue_pos=assessed_so_far,
                 queue_total=queue_total,
+                next_name=next_name,
             ))
             log.info(f"  -> {sym}: {ai.get('verdict','?')} ({ai.get('score',0)}/10)")
     else:
