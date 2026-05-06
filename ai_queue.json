@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "ABDL",
-      "name": "Allied Blenders & Distillers Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Allied Blenders & Distillers Ltd",
-        "about": "",
-        "roe": 20.0,
-        "de_ratio": 0.68,
-        "pe_ratio": 56.2,
-        "peg_ratio": 0.39,
-        "eps_growth_5y": 144.0,
-        "revenue_growth_5y": 10.3,
-        "roce_3y_avg": 18.9,
-        "roce_history": [
-          14.4,
-          15.5,
-          15.5,
-          19.6,
-          17.6,
-          19.5
-        ],
-        "fcf_to_pat": 84.01,
-        "promoter_holding": 80.91,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          2686.0,
-          3147.0,
-          3328.0,
-          3520.0,
-          3837.0
-        ],
-        "_eps": [
-          0.06,
-          0.07,
-          0.07,
-          6.97,
-          9.51
-        ],
-        "_roce": [
-          15.5,
-          15.5,
-          19.6,
-          17.6,
-          19.5
-        ],
-        "_opm": [
-          7.3,
-          12.2,
-          13.3
-        ]
-      },
-      "basic": {
-        "symbol": "ABDL",
-        "name": "ABDL",
-        "sector": "Consumer Defensive",
-        "industry": "Beverages - Wineries & Distilleries",
-        "market_cap_cr": 15077.8,
-        "pe_yf": 56.39
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 15077.8,
-          "pass": true,
-          "label": "Rs15,078Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.68,
-          "pass": true,
-          "label": "0.68"
-        },
-        "ROE": {
-          "value": 20.0,
-          "pass": true,
-          "label": "20.0%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 10.3,
-          "pass": true,
-          "label": "10.3%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 18.9,
-          "pass": true,
-          "label": "18.9%  hist:[15.5, 15.5, 19.6, 17.6, 19.5]"
-        },
-        "FCF / PAT": {
-          "value": 84.01,
-          "pass": true,
-          "label": "84.01"
-        },
-        "Promoter Holding": {
-          "value": 80.91,
-          "pass": true,
-          "label": "80.9%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.39,
-          "pass": true,
-          "label": "0.39"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "ACCELYA",
       "name": "Accelya Solutions India Ltd",
       "date_added": "2026-05-05",
@@ -3763,6 +3650,31 @@
       "peer_comparison": "Primary listed peers include Ashapura Minechem (broader minerals, larger scale but more volatile), GMDC (government-owned, mining-heavy), and partly Imerys Talc India (unlisted); 20 Microns likely leads in pure-play organized micronized fillers for industrial end-uses but trails Ashapura on revenue scale and geographic reach.",
       "key_risks": "Raw material mine lease renewal and regulatory risk in Gujarat/Rajasthan operations, customer concentration in cyclical paints and plastics sectors",
       "reasoning": "20 Microns presents a compelling small-cap value case: a P/E under 10, PEG of 0.43, and five-year Revenue CAGR of 13.7% with stable ROCE above 19% suggest a business compounding quietly without the market's attention. The FCF/PAT above 1 is the most reassuring signal \u2014 earnings are real and not accounting artifacts, which aligns with the philosophy of prioritizing cash over reported profits. The moat is real but narrow: captive mines and proprietary micronizing technology create switching costs and cost advantages, but the business is ultimately a commodity processor exposed to industrial cycles. The primary bear risk is not existential but cyclical \u2014 a multi-year slowdown in construction, paints, and plastics capex in India would compress both volumes and pricing power simultaneously. At current valuations, the margin of safety appears adequate for a patient investor with a 5\u201310 year horizon, particularly given the low debt and demonstrated capital discipline."
+    },
+    "ABDL": {
+      "date_assessed": "2026-05-06",
+      "score": 6,
+      "verdict": "BORDERLINE",
+      "primary_revenue_source": "Revenue is primarily derived from the manufacture and sale of Indian Made Foreign Liquor (IMFL), with Officer's Choice whisky being the flagship brand contributing a dominant share of volumes.",
+      "business_overview": "Allied Blenders & Distillers is one of India's largest IMFL companies by volume, best known for Officer's Choice, which has historically ranked among the world's best-selling whisky brands by volume. The company operates primarily in the mass-market and semi-premium whisky segment, a category with large addressable demand but intense price competition. ABDL has been expanding its premium portfolio to improve per-unit realisations, though premium brands still represent a modest share of the mix. The business is capital-light relative to branded FMCG peers but faces structural headwinds from state government pricing controls and high excise taxation across Indian states.",
+      "moat_category": "DIFFERENTIATED_PRODUCT",
+      "moat_strength": "Weak",
+      "moat_explanation": "Officer's Choice benefits from strong brand recognition and distribution reach in the mass-market whisky segment, providing a degree of consumer stickiness and trade loyalty. However, the moat is constrained by the commoditised nature of mass-market IMFL, limited pricing power due to state-controlled MRP regimes, and the ease with which larger, better-capitalised peers can compete on shelf space and promotional spend.",
+      "market_share": "Estimated top-3 IMFL player by volume in India; Officer's Choice has historically held a leading position in the popular/semi-premium whisky segment, though precise current market share is difficult to verify without recent data.",
+      "management_quality": "AVERAGE",
+      "capital_allocation_note": "The FCF/PAT ratio of 84% suggests earnings are being converted to cash effectively, and the relatively moderate D/E of 0.68 indicates the balance sheet is not aggressively leveraged. However, ABDL's historical tendency to operate with thin net margins in a low-realization product mix raises questions about whether capital is being deployed toward higher-return premiumisation fast enough to meaningfully shift the earnings trajectory.",
+      "cash_flow_quality": "CLEAN",
+      "cash_flow_note": "Cash conversion appears healthy, with FCF/PAT near 84%, suggesting reported earnings are broadly supported by actual operating cash generation with limited accrual distortion.",
+      "forensic_risk": "MINOR_FLAGS",
+      "forensic_note": "High promoter holding of 80.91% reduces float and can limit institutional price discovery; in the context of an IMFL company with state-level regulatory dependencies and channel financing norms, it warrants monitoring for related-party transactions and working capital management practices, though no specific red flag is observable from the data provided.",
+      "business_stability": "STABLE",
+      "demand_outlook_15y": "GROWING",
+      "disruption_risk": "LOW",
+      "risk_one": "State government pricing and policy risk: IMFL pricing in India is largely controlled by state excise authorities, and any unfavourable revision to MRP caps, quota restrictions, or distribution policy in key states such as Maharashtra, Uttar Pradesh, or Telangana could directly compress margins with no recourse for the company to pass through cost increases.",
+      "risk_two": "Premiumisation execution risk: The long-term investment thesis depends on ABDL successfully migrating its volume mix toward premium and semi-premium SKUs to improve realisations; failure to do so \u2014 particularly as United Spirits and Radico Khaitan aggressively premiumise \u2014 could leave ABDL structurally trapped in a low-margin, volume-driven category with diminishing pricing power.",
+      "investor_fit": "This stock may appeal to patient investors who believe in India's long-term IMFL consumption story and are comfortable accepting regulatory concentration risk in exchange for a modestly valued consumer brand franchise. It is likely unsuitable for investors seeking high-quality compounders with strong pricing power, as the business lacks the margin profile and category optionality of more premium-oriented peers.",
+      "peer_comparison": "United Spirits (Diageo subsidiary): significantly stronger brand portfolio across premium and luxury tiers, better margin profile, and a parentage advantage in premiumisation \u2014 appears superior on quality metrics. Radico Khaitan: more aggressively premiumised with brands like Rampur and Jaisalmer, delivering higher operating margins and stronger earnings growth, making it a more compelling compounding candidate at comparable or only modestly higher valuations. United Breweries: operates in beer rather than spirits, but serves as a benchmark for branded alcohol distribution moats in India \u2014 its Kingfisher franchise demonstrates stronger pricing power than ABDL's mass-market whisky positioning.",
+      "reasoning": "ABDL presents a financially acceptable picture \u2014 decent ROCE, clean cash flows, and a PEG of 0.39 that appears attractive relative to growth \u2014 but the business quality is constrained by a low-realization product mix, regulatory pricing dependency, and a moat that is brand-recognition-based rather than structurally defensible. The P/E of 56x appears elevated for a business with these structural limitations, even if the PEG looks optically cheap; earnings quality and sustainability in a state-regulated excise environment deserve scepticism. The bull case rests on premiumisation success and volume growth from India's expanding middle class, while the bear case centers on margin compression from pricing controls and competitive displacement in the semi-premium segment by better-capitalised peers. On balance, ABDL is a borderline candidate \u2014 investable but not a high-conviction position without greater confidence in premium mix shift execution."
     }
   }
 }
