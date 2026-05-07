@@ -1,17 +1,13 @@
 """
-NSE Investment Screener  v2.6
-Changes from v2.5:
-  Message order fixed: ALPHA WATCH -> WATCHLIST EXIT -> COMPANY SNAPSHOT
-  Full watchlist shown, no truncation
-  Day counts removed from watchlist display
-  Clean terminal-style alignment
-  Snapshot trimmed: only WHY IT QUALIFIED, BUSINESS SNAPSHOT,
-    CAPITAL ALLOCATION, CASH FLOW QUALITY, WATCHLIST STATUS,
-    Tomorrow, CTA, Disclaimer
-  REMOVED TODAY section removed from ALPHA WATCH (exit is standalone)
-  BUSINESS SNAPSHOT compressed to 2 sentences
-  WATCHLIST STATUS simplified
-  Claude prompt updated accordingly
+NSE Investment Screener  v2.7
+Changes from v2.6:
+  Message order confirmed: ALPHA WATCH -> WATCHLIST EXIT -> COMPANY SNAPSHOT
+  Watchlist: full list, no truncation, no day counts, hyperlinked tickers
+  Header: Assessment Queue (not AI Queue), removed New/Removed counts
+  Exit notice: simplified to match sample format exactly
+  Snapshot: QUALIFIED ON + SNAPSHOT only, all other sections removed
+  Claude prompt: returns single synthesized snapshot paragraph block
+  Longest Active: still conditional on >7 days
 """
 
 import csv, io, json, logging, os, re, sys, time
@@ -56,15 +52,15 @@ AI_QUEUE_PATH        = "ai_queue.json"
 AI_ASSESSMENTS_PATH  = "ai_assessments_log.json"
 
 CRITERIA_META = {
-    "Market Cap":       {"threshold": cfg.MIN_MARKET_CAP_CR,    "direction": "above", "label": f">=Rs{cfg.MIN_MARKET_CAP_CR:,}Cr"},
-    "Debt / Equity":    {"threshold": cfg.MAX_DE_RATIO,          "direction": "below", "label": f"<={cfg.MAX_DE_RATIO}"},
-    "ROE":              {"threshold": cfg.MIN_ROE,                "direction": "above", "label": f">={cfg.MIN_ROE}%"},
-    "Revenue CAGR 5Y":  {"threshold": cfg.MIN_REVENUE_GROWTH_5Y, "direction": "above", "label": f">={cfg.MIN_REVENUE_GROWTH_5Y}%"},
-    "Avg ROCE (3Y)":    {"threshold": cfg.MIN_ROCE_3Y_AVG,       "direction": "above", "label": f">={cfg.MIN_ROCE_3Y_AVG}%"},
-    "FCF / PAT":        {"threshold": cfg.MIN_FCF_TO_PAT,        "direction": "above", "label": f">={cfg.MIN_FCF_TO_PAT}"},
-    "Promoter Holding": {"threshold": cfg.MIN_PROMOTER_HOLDING,  "direction": "above", "label": f">={cfg.MIN_PROMOTER_HOLDING}%"},
-    "Promoter Pledge":  {"threshold": cfg.MAX_PROMOTER_PLEDGE,   "direction": "below", "label": f"<={cfg.MAX_PROMOTER_PLEDGE}%"},
-    "PEG Ratio":        {"threshold": cfg.MAX_PEG_RATIO,         "direction": "below", "label": f"<={cfg.MAX_PEG_RATIO}"},
+    "Market Cap":       {"threshold": cfg.MIN_MARKET_CAP_CR,    "direction": "above"},
+    "Debt / Equity":    {"threshold": cfg.MAX_DE_RATIO,          "direction": "below"},
+    "ROE":              {"threshold": cfg.MIN_ROE,                "direction": "above"},
+    "Revenue CAGR 5Y":  {"threshold": cfg.MIN_REVENUE_GROWTH_5Y, "direction": "above"},
+    "Avg ROCE (3Y)":    {"threshold": cfg.MIN_ROCE_3Y_AVG,       "direction": "above"},
+    "FCF / PAT":        {"threshold": cfg.MIN_FCF_TO_PAT,        "direction": "above"},
+    "Promoter Holding": {"threshold": cfg.MIN_PROMOTER_HOLDING,  "direction": "above"},
+    "Promoter Pledge":  {"threshold": cfg.MAX_PROMOTER_PLEDGE,   "direction": "below"},
+    "PEG Ratio":        {"threshold": cfg.MAX_PEG_RATIO,         "direction": "below"},
 }
 
 Criterion = Dict[str, Any]
@@ -343,7 +339,7 @@ def quant_filter(data, basic):
                                    _fmt(rg,"%") if rg is not None else "N/A")
     ra = data["roce_3y_avg"]
     r["Avg ROCE (3Y)"] = _check(ra,ra is not None and ra>=cfg.MIN_ROCE_3Y_AVG,
-                                 f"{_fmt(ra,'%')}  hist:{data['_roce']}" if ra is not None else "N/A")
+                                 _fmt(ra,"%") if ra is not None else "N/A")
     fp = data["fcf_to_pat"]
     r["FCF / PAT"] = _check(fp,fp is not None and fp>=cfg.MIN_FCF_TO_PAT,
                              _fmt(fp,decimals=2) if fp is not None else "N/A")
@@ -426,43 +422,51 @@ SECTOR:  {basic['sector']} | INDUSTRY: {basic['industry']}
 MARKET CAP: Rs{basic['market_cap_cr']:,.0f} Cr
 ABOUT:   {data['about'] or 'Not available'}
 
-FINANCIALS (all 9 hard criteria passed):
-  ROE {data['roe']}% | D/E {data['de_ratio']} | P/E {data['pe_ratio']} (reference)
+FINANCIALS:
+  ROE {data['roe']}% | D/E {data['de_ratio']} | P/E {data['pe_ratio']}
   Revenue CAGR 5Y {data['revenue_growth_5y']}% | ROCE 3Y avg {data['roce_3y_avg']}%
   FCF/PAT {data['fcf_to_pat']} | Promoter {data['promoter_holding']}% | PEG {data['peg_ratio']}
 
-TONE: Calm, restrained, analytical. No hype. Never use multibagger, hidden gem,
-massive upside, guaranteed. Do not use " - " (dash between words) anywhere.
-Write like a thoughtful analyst, not a promoter or finfluencer.
+TONE RULES:
+  Calm, restrained, institutional. No hype.
+  Never use: multibagger, hidden gem, massive upside, guaranteed, no-brainer.
+  Do not use " - " (dash between words) anywhere in your response.
+  Prefer: appears, currently, suggests, may indicate, stands out.
+  Write like a thoughtful analyst, not a promoter.
 
-WRITE THESE FOUR THINGS:
+WRITE A SNAPSHOT:
+  Two paragraphs. No headers. No bullet points.
 
-1. BUSINESS SNAPSHOT: Exactly 2 sentences. First sentence: what the company does
-   and where. Second sentence: market cap and basic positioning.
-   Example: "Accelya Solutions provides revenue accounting and settlement software
-   to airlines and travel companies globally. The business operates in a niche
-   enterprise software segment with a market cap of approximately Rs1,718 crore."
+  Paragraph 1: What the business does, where it operates,
+  its key products or services, and primary customer base.
+  Keep it factual and plain. 3-4 sentences.
 
-2. CAPITAL ALLOCATION:
-   Rating: EXCELLENT / GOOD / AVERAGE / POOR
-   Note: One sentence on what management does with earned cash.
+  Paragraph 2: What stands out financially. Touch on capital
+  efficiency, cash generation, balance sheet quality, or growth
+  trajectory as relevant. End with one observation about the
+  longer-term question or uncertainty worth monitoring.
+  3-4 sentences.
 
-3. CASH FLOW QUALITY:
-   Rating: CLEAN / MINOR CONCERN / SIGNIFICANT CONCERN
-   Note: One sentence on FCF reliability.
+  Target style example:
+  "Action Construction Equipment manufactures cranes, material
+  handling systems, construction equipment, and agri machinery
+  primarily for Indian infrastructure and farm markets. The
+  business operates in industries tied to long-cycle capex and
+  infrastructure spending while also maintaining exposure to
+  rural demand through its agri-equipment portfolio.
 
-4. FORENSIC NOTE: One sentence. Specific observation only. If nothing notable,
-   write "No material concerns identified from available data."
+  What stands out financially is the combination of high capital
+  efficiency and conservative balance sheet management. The
+  company has sustained ROCE near 30% while operating with very
+  low leverage, and current cash generation remains comfortably
+  ahead of reported earnings. The longer-term question is whether
+  growth remains durable once the current infrastructure cycle
+  normalises."
 
 Return ONLY this JSON:
 {{"score": <1-10>,
 "verdict": "STRONG PASS|PASS|BORDERLINE|FAIL",
-"business_snapshot": "<exactly 2 sentences>",
-"capital_allocation_rating": "EXCELLENT|GOOD|AVERAGE|POOR",
-"capital_allocation_note": "<one sentence>",
-"cash_flow_quality": "CLEAN|MINOR CONCERN|SIGNIFICANT CONCERN",
-"cash_flow_note": "<one sentence>",
-"forensic_note": "<one sentence>"}}"""
+"snapshot": "<two paragraphs separated by a blank line>"}}"""
 
     text = ""
     try:
@@ -474,41 +478,10 @@ Return ONLY this JSON:
         return json.loads(text)
     except json.JSONDecodeError as e:
         log.error(f"JSON error {sym}: {e}\n{text[:200]}")
-        return {"score":0,"verdict":"FAIL","business_snapshot":f"Assessment unavailable."}
+        return {"score":0,"verdict":"FAIL","snapshot":"Assessment unavailable."}
     except Exception as e:
         log.error(f"AI failed {sym}: {e}")
-        return {"score":0,"verdict":"FAIL","business_snapshot":str(e)}
-
-
-# ── Technical Data ─────────────────────────────────────────────────────────────
-
-def get_technical_data(sym):
-    import math
-    try:
-        t = yf.Ticker(f"{sym}.NS"); h1 = t.history(period="1y")
-        if h1.empty: return {}
-        cur = h1["Close"].iloc[-1]
-        if math.isnan(cur): return {}
-        h14 = t.history(period="14mo")
-        dma = None
-        if len(h14) >= 200:
-            dma_val = h14["Close"].rolling(200).mean().iloc[-1]
-            dma = round(dma_val,2) if not math.isnan(dma_val) else None
-        cl = h1["Close"].tail(15); d = cl.diff().dropna()
-        g = d.clip(lower=0).mean(); l = (-d.clip(upper=0)).mean()
-        rsi = round(100-(100/(1+g/l)),1) if l>0 else 100.0
-        high = h1["Close"].max(); low = h1["Close"].min()
-        pct = ((cur-low)/low)*100 if low>0 else 0
-        return {
-            "current":       round(cur,2),
-            "high_52w":      round(high,2),
-            "low_52w":       round(low,2),
-            "pct_above_low": round(pct,1),
-            "dma_200":       dma,
-            "above_200dma":  bool(cur>dma) if dma else None,
-            "rsi":           rsi,
-        }
-    except Exception as e: log.debug(f"Tech {sym}: {e}"); return {}
+        return {"score":0,"verdict":"FAIL","snapshot":str(e)}
 
 
 # ── Links and Helpers ─────────────────────────────────────────────────────────
@@ -516,8 +489,6 @@ def get_technical_data(sym):
 def screener_url(sym): return SCREENER_LINK.format(sym=sym)
 def tg_link(display, url): return f"[{display}]({url})"
 def sym_link(sym): return tg_link(sym, screener_url(sym))
-def _score_bar(score, width=10):
-    f = max(0,min(width,round(score))); return "█"*f+"░"*(width-f)
 
 
 # ── Watchlist Helpers ─────────────────────────────────────────────────────────
@@ -692,34 +663,30 @@ def send_whatsapp(text):
 
 # ── Message Formatting ────────────────────────────────────────────────────────
 
-def format_daily_summary(run_stats, today_wl, wl_log, today_str,
-                          ai_queue, new_entries):
+def format_daily_summary(run_stats, today_wl, wl_log, today_str, ai_queue):
     """
     ALPHA WATCH — sent first.
-    Full watchlist, no truncation.
-    No day counts in display.
-    No REMOVED TODAY section (exits sent as standalone messages).
+    Full watchlist, all stocks, hyperlinked, no day counts.
+    Assessment Queue (not AI Queue).
+    No REMOVED TODAY section.
     Longest Active only if a stock has >7 days.
     """
     ts = datetime.now().strftime("%a, %d %b %Y")
 
-    assessed_syms  = set(ai_queue.get("assessed",{}).keys())
-    pending_syms   = [e["sym"] for e in ai_queue.get("pending",[])]
-    pending_count  = len(pending_syms)
+    assessed_syms = set(ai_queue.get("assessed",{}).keys())
+    pending_syms  = [e["sym"] for e in ai_queue.get("pending",[])]
+    pending_count = len(pending_syms)
     assessed_count = len(assessed_syms)
 
-    # Header
     header = (
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         f"ALPHA WATCH  |  {ts}\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
         f"Scanned:     {run_stats.get('total',0):,}\n"
-        f"Qualified:   {len(today_wl)}\n"
-        f"New today:   {len(new_entries)}\n\n"
-        f"AI Queue:    {pending_count} pending  |  {assessed_count} assessed"
+        f"Qualified:   {len(today_wl)}\n\n"
+        f"Assessment Queue:  {pending_count} pending  |  {assessed_count} assessed"
     )
 
-    # Watchlist — all stocks, no day counts, clean alignment
     if today_wl:
         wl_lines = []
         for sym in today_wl:
@@ -730,8 +697,9 @@ def format_daily_summary(run_stats, today_wl, wl_log, today_str,
                 status = f"⏳ Queue #{pos}"
             else:
                 status = "⏳ Queue"
-            # Fixed-width: symbol padded to 14 chars
-            wl_lines.append(f"  {sym:<14} {status}")
+            # sym_link for clickable ticker, padded to 15 chars in display
+            link = sym_link(sym)
+            wl_lines.append(f"  {link:<30} {status}")
 
         wl_block = (
             f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
@@ -751,21 +719,12 @@ def format_daily_summary(run_stats, today_wl, wl_log, today_str,
     if longest and days_map.get(longest[0], 0) > 7:
         top5 = longest[:5]
         la_lines = "\n".join(
-            f"  {sym:<14} {days_map.get(s,1)} days"
-            for sym, s in zip(top5, top5)
+            f"  {sym_link(s):<30} {days_map.get(s,1)} days"
+            for s in top5
         )
         la_block = (
             f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
             f"📈 LONGEST ACTIVE\n\n{la_lines}"
-        )
-
-    # New entries
-    new_block = ""
-    if new_entries:
-        new_block = (
-            f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-            f"🆕 NEW ENTRIES\n\n  "
-            + ", ".join(new_entries)
         )
 
     footer = (
@@ -774,32 +733,44 @@ def format_daily_summary(run_stats, today_wl, wl_log, today_str,
         f"Earnings quality  •  Free cash flow\n"
         f"Capital efficiency  •  Reasonable valuation\n"
         f"Long-term growth durability\n\n"
-        f"Not investment advice  |  SEBI RA: {cfg.SEBI_RA_NUMBER}"
+        f"Not investment advice  |  SEBI RA: {cfg.SEBI_RA_NUMBER}\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     )
 
-    return f"{header}{wl_block}{la_block}{new_block}{footer}"
+    return f"{header}{wl_block}{la_block}{footer}"
 
 
 def format_exit_notice(sym, name, real_fails, days, entry_date):
-    """Standalone WATCHLIST EXIT — sent after ALPHA WATCH."""
-    reasons = "; ".join(f"{k} ({v})" for k,v,_ in real_fails) if real_fails else "criteria no longer met"
+    """
+    WATCHLIST EXIT — sent after ALPHA WATCH, before COMPANY SNAPSHOT.
+    Matches sample format exactly.
+    """
+    if real_fails:
+        # Show the specific criterion and its actual value
+        criterion, actual_val, _ = real_fails[0]
+        reason_line = f"{criterion} threshold ({actual_val})"
+        if len(real_fails) > 1:
+            others = ", ".join(f"{k}" for k,_,__ in real_fails[1:])
+            reason_line += f"\nAlso: {others}"
+    else:
+        reason_line = "criteria no longer met"
+
     return (
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"❌ WATCHLIST EXIT\n\n"
-        f"{tg_link(f'*{name}*', screener_url(sym))} ({sym})\n\n"
-        f"Reason: {reasons}\n"
-        f"Days on list: {days}"
-        + (f"  |  Entry: {entry_date}" if entry_date else "") +
-        f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        f"❌ WATCHLIST EXIT\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+        f"{name} ({sym})\n\n"
+        f"Removed after breaching:\n"
+        f"{reason_line}\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     )
 
 
 def format_company_snapshot(entry, ai, queue_pos, queue_total, next_name):
     """
-    COMPANY SNAPSHOT — sent last, after ALPHA WATCH and WATCHLIST EXIT.
-    Contains only: Header, WHY IT QUALIFIED, BUSINESS SNAPSHOT,
-    CAPITAL ALLOCATION, CASH FLOW QUALITY, WATCHLIST STATUS,
-    Tomorrow's Snapshot, Substack CTA, Disclaimer.
+    COMPANY SNAPSHOT — sent last.
+    Contains: Header, QUALIFIED ON, SNAPSHOT, Tomorrow, CTA, Disclaimer.
+    Company name in header is hyperlinked to screener.in.
     """
     sym      = entry["sym"]
     name     = entry["name"]
@@ -808,65 +779,68 @@ def format_company_snapshot(entry, ai, queue_pos, queue_total, next_name):
     criteria = entry["criteria"]
     soft_flags = entry["soft_flags"]
 
-    # WHY IT QUALIFIED — key numbers, clean bullets, no Market Cap row
-    skip = {"Market Cap", "Avg ROCE (3Y)"}
-    qual_lines = []
-    for k, v in criteria.items():
-        if k in skip: continue
-        qual_lines.append(f"• {k:<20} {v['label']}")
-    ra = data.get("roce_3y_avg")
-    if ra:
-        qual_lines.append(f"• {'ROCE (3Y avg)':<20} {_fmt(ra,'%')}")
-    pe = data.get("pe_ratio")
+    # QUALIFIED ON — all metrics, aligned
+    mc  = basic["market_cap_cr"]
+    de  = data.get("de_ratio")
+    roe = data.get("roe")
+    rg  = data.get("revenue_growth_5y")
+    fp  = data.get("fcf_to_pat")
+    ph  = data.get("promoter_holding")
+    pp  = data.get("promoter_pledge")
+    peg = data.get("peg_ratio")
+    ra  = data.get("roce_3y_avg")
+    pe  = data.get("pe_ratio")
+
+    pp_str = f"{_fmt(pp,'%')}" if pp is not None else "0% (nil)"
+
+    qual_lines = [
+        f"• {'Market Cap':<22} Rs{mc:,.0f} Cr",
+        f"• {'Debt / Equity':<22} {_fmt(de,decimals=2)}",
+        f"• {'ROE':<22} {_fmt(roe,'%')}",
+        f"• {'Revenue CAGR 5Y':<22} {_fmt(rg,'%')}",
+        f"• {'FCF / PAT':<22} {_fmt(fp,decimals=2)}",
+        f"• {'Promoter Holding':<22} {_fmt(ph,'%')}",
+        f"• {'Promoter Pledge':<22} {pp_str}",
+        f"• {'PEG Ratio':<22} {_fmt(peg,decimals=2)}",
+        f"• {'ROCE (3Y avg)':<22} {_fmt(ra,'%')}",
+    ]
     if pe:
-        qual_lines.append(f"• {'P/E':<20} {_fmt(pe,decimals=1)}  _(reference)_")
+        qual_lines.append(f"• {'P/E':<22} {_fmt(pe,decimals=1)}  (reference)")
+
+    # Soft flags appended
     for sf in soft_flags:
         qual_lines.append(f"⚠️  {sf}")
-
-    # Watchlist status — simplified
-    wl_status = "In assessment queue" if queue_pos <= queue_total else "Assessment complete"
 
     # Tomorrow preview
     tomorrow_block = ""
     if next_name:
         tomorrow_block = (
-            f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-            f"Tomorrow's Snapshot:\n{next_name}"
+            f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+            f"Tomorrow's Snapshot:\n{next_name}\n\n"
         )
 
     # Substack CTA
     substack_url = cfg.SUBSTACK_BASE_URL.rstrip("/")
-    cta = (
-        f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"Full research note:\n{substack_url}"
-    )
+
+    # Company name as hyperlink in header
+    name_link = tg_link(name.upper(), screener_url(sym))
 
     return (
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"COMPANY SNAPSHOT  |  {name.upper()}\n"
+        f"COMPANY SNAPSHOT  |  {name_link}\n"
         f"NSE: {sym}  |  {basic.get('sector','')}\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
-        f"WHY IT QUALIFIED\n\n"
+        f"QUALIFIED ON\n\n"
         + "\n".join(qual_lines) +
         f"\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"BUSINESS SNAPSHOT\n\n"
-        f"{ai.get('business_snapshot','Not available')}\n\n"
+        f"SNAPSHOT\n\n"
+        f"{ai.get('snapshot','Not available')}\n\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"CAPITAL ALLOCATION\n\n"
-        f"Rating: {ai.get('capital_allocation_rating','N/A')}\n"
-        f"{ai.get('capital_allocation_note','N/A')}\n\n"
-        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"CASH FLOW QUALITY\n\n"
-        f"Rating: {ai.get('cash_flow_quality','N/A')}\n"
-        f"{ai.get('cash_flow_note','N/A')}\n\n"
-        f"Forensic note: {ai.get('forensic_note','N/A')}\n\n"
-        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"WATCHLIST STATUS\n\n"
-        f"{wl_status}"
         f"{tomorrow_block}"
-        f"{cta}\n\n"
+        f"Full research note:\n{substack_url}\n\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"Not a buy recommendation.  SEBI RA: {cfg.SEBI_RA_NUMBER}"
+        f"Not a buy recommendation  |  SEBI RA: {cfg.SEBI_RA_NUMBER}\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     )
 
 
@@ -880,7 +854,7 @@ def format_weekly_report(today, wl_log, perf_results, weekly_nms):
             for criterion,detail,gap in nm["criteria"]:
                 gap_str = f" (missed by {_fmt(gap,'%',0)})" if gap is not None else ""
                 parts.append(f"{criterion}: {detail}{gap_str}")
-            return f"  {sym_link(nm['symbol']):<35} {',  '.join(parts)}"
+            return f"  {sym_link(nm['symbol']):<30} {',  '.join(parts)}"
         secs = []
         if ones: secs.append("Missed by 1 criterion:\n"+"\n".join(nm_line(nm) for nm in ones))
         if twos: secs.append("Missed by 2 criteria:\n"+"\n".join(nm_line(nm) for nm in twos))
@@ -956,7 +930,7 @@ def main():
     is_first  = today.day == 1
 
     log.info("="*60)
-    log.info(f"NSE Screener v2.6  |  {today.strftime('%A, %d %b %Y')}")
+    log.info(f"NSE Screener v2.7  |  {today.strftime('%A, %d %b %Y')}")
     log.info("="*60)
 
     alerts_log = load_json(ALERTS_LOG_PATH,{})
@@ -981,7 +955,7 @@ def main():
     prev_wl_set = set(prev_wl)
     p1_set      = {b["symbol"] for b in p1}
 
-    # Collect exits — do NOT send yet, send after ALPHA WATCH
+    # Collect all exits — send AFTER ALPHA WATCH
     exits_to_send = []
     for sym in prev_wl_set - p1_set:
         days  = get_days_on_watchlist(wl_log,sym,today_str)
@@ -993,7 +967,7 @@ def main():
         })
 
     log.info(f"\nPass 2 ({len(p1)} stocks)…")
-    today_wl = []; new_entries = []
+    today_wl = []
 
     for idx, basic in enumerate(p1, 1):
         sym = basic["symbol"]
@@ -1012,14 +986,12 @@ def main():
             if passed:
                 log.info(f"  ✅  {sym}")
                 today_wl.append(sym)
-                added = queue_add(sym, data["company_name"], data, basic,
-                                  criteria, soft_flags, ai_queue)
-                if added: new_entries.append(sym)
+                queue_add(sym, data["company_name"], data, basic,
+                          criteria, soft_flags, ai_queue)
             else:
                 if sym in prev_wl_set:
                     days  = get_days_on_watchlist(wl_log,sym,today_str)
                     entry = get_entry_date(wl_log,sym,today_str)
-                    # Defer exit notice — send after ALPHA WATCH
                     exits_to_send.append({
                         "sym":sym,"name":data["company_name"],
                         "real_fails":real_fails,"days":days,"entry":entry
@@ -1033,26 +1005,25 @@ def main():
         except Exception as e: log.error(f"  Error {sym}: {e}")
         time.sleep(2.5)
 
-    log.info(f"\n  Pass 2: {len(today_wl)} qualified  |  {len(new_entries)} new")
+    log.info(f"\n  Pass 2: {len(today_wl)} qualified")
 
     wl_log[today_str] = today_wl
     save_json(WATCHLIST_LOG_PATH, wl_log)
 
-    # ── MESSAGE ORDER: 1. ALPHA WATCH ─────────────────────────────────────────
+    # ── 1. ALPHA WATCH ────────────────────────────────────────────────────────
     run_stats = {"total":len(symbols),"pass1":len(p1),"pass2":len(today_wl)}
     send_whatsapp(format_daily_summary(
-        run_stats, today_wl, wl_log, today_str,
-        ai_queue, new_entries
+        run_stats, today_wl, wl_log, today_str, ai_queue
     ))
 
-    # ── MESSAGE ORDER: 2. WATCHLIST EXITS ─────────────────────────────────────
+    # ── 2. WATCHLIST EXITS ────────────────────────────────────────────────────
     for ex in exits_to_send:
         send_whatsapp(format_exit_notice(
             ex["sym"], ex["name"], ex["real_fails"], ex["days"], ex["entry"]
         ))
         time.sleep(2)
 
-    # ── MESSAGE ORDER: 3. COMPANY SNAPSHOT ────────────────────────────────────
+    # ── 3. COMPANY SNAPSHOT ───────────────────────────────────────────────────
     pending_count  = len(ai_queue.get("pending",[]))
     assessed_count = len(ai_queue.get("assessed",{}))
     queue_total    = pending_count + assessed_count
@@ -1062,9 +1033,8 @@ def main():
         if entry:
             sym   = entry["sym"]
             data  = entry["data"]
-            basic = entry["basic"]
             log.info(f"\nCompany Snapshot: {sym}…")
-            ai      = ai_assess(sym, data, basic)
+            ai      = ai_assess(sym, data, entry["basic"])
             queue_mark_assessed(sym, ai, ai_queue)
             assessed_so_far = len(ai_queue.get("assessed",{}))
             next_name = queue_peek_next(ai_queue)
@@ -1076,7 +1046,7 @@ def main():
             ))
             log.info(f"  {sym}: {ai.get('verdict','?')} ({ai.get('score',0)}/10)")
     else:
-        log.info("\nAI queue empty — no snapshot today")
+        log.info("\nQueue empty — no snapshot today")
 
     save_json(AI_QUEUE_PATH, ai_queue)
     save_json(ALERTS_LOG_PATH, alerts_log)
