@@ -1,121 +1,6 @@
 {
   "pending": [
     {
-      "sym": "CEINSYS",
-      "name": "Ceinsys Tech Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Ceinsys Tech Ltd",
-        "about": "",
-        "roe": 19.5,
-        "de_ratio": 0.16,
-        "pe_ratio": 17.9,
-        "peg_ratio": 0.17,
-        "eps_growth_5y": 106.3,
-        "revenue_growth_5y": 27.9,
-        "roce_3y_avg": 20.0,
-        "roce_history": [
-          10.2,
-          10.7,
-          12.9,
-          18.1,
-          17.4,
-          24.5
-        ],
-        "fcf_to_pat": 1.22,
-        "promoter_holding": 50.88,
-        "promoter_pledge": null,
-        "promoter_trend": "decreasing",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          203.0,
-          220.0,
-          253.0,
-          418.0,
-          632.0
-        ],
-        "_eps": [
-          5.96,
-          20.02,
-          21.42,
-          36.26,
-          66.9
-        ],
-        "_roce": [
-          10.7,
-          12.9,
-          18.1,
-          17.4,
-          24.5
-        ],
-        "_opm": [
-          17.4,
-          19.1,
-          21.0
-        ]
-      },
-      "basic": {
-        "symbol": "CEINSYS",
-        "name": "Ceinsys Tech Limited",
-        "sector": "Industrials",
-        "industry": "Engineering & Construction",
-        "market_cap_cr": 2134.4,
-        "pe_yf": 17.1
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 2134.4,
-          "pass": true,
-          "label": "Rs2,134Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.16,
-          "pass": true,
-          "label": "0.16"
-        },
-        "ROE": {
-          "value": 19.5,
-          "pass": true,
-          "label": "19.5%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 27.9,
-          "pass": true,
-          "label": "27.9%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 20.0,
-          "pass": true,
-          "label": "20.0%  hist:[10.7, 12.9, 18.1, 17.4, 24.5]"
-        },
-        "FCF / PAT": {
-          "value": 1.22,
-          "pass": true,
-          "label": "1.22"
-        },
-        "Promoter Holding": {
-          "value": 50.88,
-          "pass": true,
-          "label": "50.9%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.17,
-          "pass": true,
-          "label": "0.17"
-        }
-      },
-      "soft_flags": [
-        "Promoter holding declining QoQ (50.9%)"
-      ]
-    },
-    {
       "sym": "CEMPRO",
       "name": "Cemindia Projects Ltd",
       "date_added": "2026-05-05",
@@ -3261,6 +3146,12 @@
       "score": 8,
       "verdict": "STRONG PASS",
       "snapshot": "Banco Products (India) Ltd is an auto components manufacturer supplying gaskets, cooling systems, and sealing solutions primarily to original equipment manufacturers in the Indian automotive sector. The company serves passenger vehicle, commercial vehicle, and tractor segments, positioning it across multiple end markets within the broader automotive value chain. Its products are considered critical consumables in engine and thermal management assemblies, giving it a recurring demand profile tied closely to both vehicle production volumes and the aftermarket replacement cycle.\n\nWhat stands out financially is the combination of sustained capital efficiency and disciplined balance sheet management. ROCE has averaged approximately 30% over three years while the debt to equity ratio currently remains modest at 0.45, suggesting the business has not leaned heavily on leverage to drive returns. Free cash flow conversion at 0.75 times reported earnings appears healthy, and the five year revenue CAGR of 19.1% alongside a PEG of 0.55 suggests the market may not yet be fully pricing the growth trajectory. The longer-term question worth monitoring is whether volumes hold as the Indian auto sector navigates an evolving powertrain mix, particularly the gradual shift toward electric vehicles, which could alter demand for certain conventional engine components over time."
+    },
+    "CEINSYS": {
+      "date_assessed": "2026-05-07",
+      "score": 0,
+      "verdict": "FAIL",
+      "snapshot": "Assessment unavailable."
     }
   }
 }
