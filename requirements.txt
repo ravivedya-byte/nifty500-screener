@@ -5,3 +5,4 @@ lxml>=5.0.0
 yfinance>=0.2.40
 anthropic>=0.25.0
 nsepython>=2.0.0
+pdfplumber>=0.10.0

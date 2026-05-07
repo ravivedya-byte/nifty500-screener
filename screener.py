@@ -1,13 +1,15 @@
 """
-NSE Investment Screener  v2.7
-Changes from v2.6:
-  Message order confirmed: ALPHA WATCH -> WATCHLIST EXIT -> COMPANY SNAPSHOT
-  Watchlist: full list, no truncation, no day counts, hyperlinked tickers
-  Header: Assessment Queue (not AI Queue), removed New/Removed counts
-  Exit notice: simplified to match sample format exactly
-  Snapshot: QUALIFIED ON + SNAPSHOT only, all other sections removed
-  Claude prompt: returns single synthesized snapshot paragraph block
-  Longest Active: still conditional on >7 days
+NSE Investment Screener  v2.8
+Changes from v2.7:
+  BSE annual report pipeline added:
+    get_bse_code_from_page()     - extracts BSE code from screener.in
+    fetch_annual_report_url()    - queries BSE public API for PDF URL
+    download_and_extract_pdf()   - downloads and extracts text via pdfplumber
+    extract_ar_sections()        - finds MD&A, auditor, RPT by keyword search
+    get_annual_report_context()  - full pipeline with graceful fallback
+  get_fundamentals() now returns bse_code
+  ai_assess() accepts ar_context and builds richer prompt when available
+  JSON control character fix applied to ai_assess parser
 """
 
 import csv, io, json, logging, os, re, sys, time
@@ -32,6 +34,13 @@ NSE_NIFTY500_URL = "https://nsearchives.nseindia.com/content/indices/ind_nifty50
 SCREENER_CONSOL  = "https://www.screener.in/company/{sym}/consolidated/"
 SCREENER_ALONE   = "https://www.screener.in/company/{sym}/"
 SCREENER_LINK    = "https://www.screener.in/company/{sym}/"
+
+BSE_ANNUAL_API   = "https://api.bseindia.com/BseIndiaAPI/api/AnnualReport/w"
+BSE_HEADERS      = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36",
+    "Referer":    "https://www.bseindia.com/",
+    "Accept":     "application/json, text/plain, */*",
+}
 
 BFSI_KEYWORDS = {"bank","insurance","finance","financial services","nbfc",
     "asset management","capital markets","credit services","mortgage",
@@ -234,6 +243,27 @@ def _cagr(series, n=5):
     if start <= 0: return None
     return ((end/start)**(1/n)-1)*100
 
+def get_bse_code_from_page(soup: BeautifulSoup) -> Optional[str]:
+    """
+    Extract BSE 6-digit code from screener.in page.
+    Looks in anchor tags pointing to bseindia.com.
+    """
+    try:
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+            if "bseindia.com" in href:
+                match = re.search(r"/(\d{6})(?:/|$)", href)
+                if match:
+                    return match.group(1)
+        # Also check for BSE code in page text
+        page_text = soup.get_text()
+        match = re.search(r"BSE[:\s]+(\d{6})", page_text)
+        if match:
+            return match.group(1)
+    except Exception as e:
+        log.debug(f"BSE code extraction: {e}")
+    return None
+
 def get_fundamentals(sym):
     page = _soup_with_retry(sym)
     if not page: return None
@@ -292,9 +322,14 @@ def get_fundamentals(sym):
     peg = round(pe/eps_g5,2) if pe and eps_g5 and eps_g5>0 else None
 
     name_el = page.find("h1"); about_el = page.find(id="about")
+
+    # Extract BSE code from this page
+    bse_code = get_bse_code_from_page(page)
+
     return {
         "company_name":      name_el.text.strip() if name_el else sym,
-        "about":             about_el.get_text(" ",strip=True)[:5000] if about_el else "",
+        "about":             about_el.get_text(" ",strip=True)[:2000] if about_el else "",
+        "bse_code":          bse_code,
         "roe":               _num(ratios.get("return on equity","")),
         "de_ratio":          de, "pe_ratio":pe, "peg_ratio":peg,
         "eps_growth_5y":     round(eps_g5,1) if eps_g5 else None,
@@ -309,6 +344,182 @@ def get_fundamentals(sym):
         "_sales_cr":         [round(v,0) if v else None for v in sales[-5:]],
         "_eps":eps[-5:],"_roce":roce_hist[-5:],"_opm":opm_hist[-3:],
     }
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# BSE ANNUAL REPORT PIPELINE
+# ══════════════════════════════════════════════════════════════════════════════
+
+def fetch_annual_report_url(bse_code: str) -> Optional[str]:
+    """
+    Query BSE public API to get the latest annual report PDF URL.
+    Returns None gracefully if unavailable.
+    """
+    try:
+        resp = requests.get(
+            BSE_ANNUAL_API,
+            params={"scripcode": bse_code, "type": "EQ", "pageno": "1"},
+            headers=BSE_HEADERS,
+            timeout=15,
+        )
+        if resp.status_code != 200:
+            log.debug(f"BSE API {resp.status_code} for {bse_code}")
+            return None
+        data = resp.json()
+        if not data or not isinstance(data, list):
+            return None
+        # Try multiple possible field names for the PDF URL
+        entry = data[0]
+        for field in ["ATTACHMENT", "FILE_PATH", "PDF_PATH", "DOCUMENT_PATH", "Link"]:
+            url = entry.get(field, "")
+            if url and url.lower().endswith(".pdf"):
+                return url
+        # If URL doesn't have .pdf extension, try anyway
+        for field in ["ATTACHMENT", "FILE_PATH", "PDF_PATH", "DOCUMENT_PATH", "Link"]:
+            url = entry.get(field, "")
+            if url and url.startswith("http"):
+                return url
+    except Exception as e:
+        log.debug(f"BSE annual report API failed for {bse_code}: {e}")
+    return None
+
+
+def download_and_extract_pdf(pdf_url: str, max_size_mb: int = 20) -> Optional[str]:
+    """
+    Download annual report PDF and extract text.
+    Caps at max_size_mb to avoid huge files.
+    Extracts first 80 pages to cover all key sections.
+    Returns full extracted text or None on failure.
+    """
+    try:
+        import pdfplumber
+        log.info(f"  Downloading annual report PDF…")
+        resp = requests.get(pdf_url, headers=BSE_HEADERS, timeout=45, stream=True)
+        if resp.status_code != 200:
+            log.debug(f"PDF download failed: {resp.status_code}")
+            return None
+
+        # Size check — stop if too large
+        content_length = int(resp.headers.get("Content-Length", 0))
+        if content_length > max_size_mb * 1024 * 1024:
+            log.warning(f"PDF too large ({content_length/1024/1024:.0f}MB), skipping")
+            return None
+
+        # Download in chunks with size cap
+        chunks = []
+        downloaded = 0
+        limit = max_size_mb * 1024 * 1024
+        for chunk in resp.iter_content(chunk_size=65536):
+            chunks.append(chunk)
+            downloaded += len(chunk)
+            if downloaded > limit:
+                log.warning(f"PDF exceeded size limit, truncating at {max_size_mb}MB")
+                break
+        pdf_bytes = b"".join(chunks)
+
+        # Extract text
+        full_text = ""
+        with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+            pages_to_read = min(len(pdf.pages), 100)
+            for i, page in enumerate(pdf.pages[:pages_to_read]):
+                try:
+                    text = page.extract_text()
+                    if text:
+                        full_text += text + "\n"
+                except Exception:
+                    continue
+
+        log.info(f"  Extracted {len(full_text):,} chars from PDF ({pages_to_read} pages)")
+        return full_text if full_text.strip() else None
+
+    except ImportError:
+        log.warning("pdfplumber not installed — skipping annual report extraction")
+        return None
+    except Exception as e:
+        log.debug(f"PDF extraction error: {e}")
+        return None
+
+
+def extract_ar_sections(full_text: str) -> Dict[str, str]:
+    """
+    Extract key sections from annual report text by keyword search.
+    Returns dict with mda, auditor, rpt keys.
+    Each section is capped to keep prompt size reasonable.
+    """
+    sections: Dict[str, str] = {}
+    lower = full_text.lower()
+
+    # Management Discussion and Analysis — take up to 4000 chars
+    for pattern in [
+        "management discussion and analysis",
+        "management's discussion and analysis",
+        "management discussion & analysis",
+        "management discussion",
+    ]:
+        idx = lower.find(pattern)
+        if idx != -1:
+            sections["mda"] = full_text[idx:idx + 12000].strip()
+            break
+
+    # Independent Auditor's Report — take up to 4000 chars
+    for pattern in [
+        "independent auditor's report",
+        "independent auditors' report",
+        "independent auditors report",
+        "report of the independent auditor",
+    ]:
+        idx = lower.find(pattern)
+        if idx != -1:
+            sections["auditor"] = full_text[idx:idx + 4000].strip()
+            break
+
+    # Related Party Transactions — take up to 3000 chars
+    for pattern in [
+        "related party transactions",
+        "transactions with related parties",
+        "related party disclosures",
+    ]:
+        idx = lower.find(pattern)
+        if idx != -1:
+            sections["rpt"] = full_text[idx:idx + 3000].strip()
+            break
+
+    # Key audit matters — take up to 2000 chars
+    for pattern in ["key audit matter", "critical audit matter"]:
+        idx = lower.find(pattern)
+        if idx != -1:
+            sections["key_audit"] = full_text[idx:idx + 2000].strip()
+            break
+
+    return sections
+
+
+def get_annual_report_context(sym: str, bse_code: Optional[str]) -> Dict[str, str]:
+    """
+    Full BSE annual report pipeline.
+    Returns extracted sections dict, or empty dict if anything fails.
+    Designed to be completely safe — never crashes the main screener.
+    """
+    if not bse_code:
+        log.info(f"  No BSE code for {sym} — skipping annual report")
+        return {}
+
+    log.info(f"  BSE code: {bse_code} — fetching annual report…")
+
+    pdf_url = fetch_annual_report_url(bse_code)
+    if not pdf_url:
+        log.info(f"  Annual report URL not found for {sym}")
+        return {}
+
+    log.info(f"  Annual report URL found")
+    full_text = download_and_extract_pdf(pdf_url)
+    if not full_text:
+        log.info(f"  Could not extract text from PDF for {sym}")
+        return {}
+
+    sections = extract_ar_sections(full_text)
+    log.info(f"  Annual report sections extracted: {list(sections.keys())}")
+    return sections
 
 
 # ── Quant Filter ──────────────────────────────────────────────────────────────
@@ -412,87 +623,113 @@ def queue_mark_assessed(sym, ai_result, ai_queue):
     }
 
 
-# ── Claude AI ─────────────────────────────────────────────────────────────────
+# ── Claude AI Assessment ──────────────────────────────────────────────────────
 
-def ai_assess(sym, data, basic):
+def ai_assess(sym: str, data: Dict, basic: Dict,
+              ar_context: Optional[Dict] = None) -> Dict:
+    """
+    Build prompt with financial data plus annual report sections if available.
+    Returns snapshot JSON.
+    """
+    # Build annual report section for prompt
+    ar_block = ""
+    if ar_context:
+        parts = []
+        if ar_context.get("mda"):
+            parts.append(
+                f"MANAGEMENT DISCUSSION AND ANALYSIS (from latest annual report):\n"
+                f"{ar_context['mda']}"
+            )
+        if ar_context.get("auditor"):
+            parts.append(
+                f"AUDITOR'S REPORT (extract):\n"
+                f"{ar_context['auditor']}"
+            )
+        if ar_context.get("key_audit"):
+            parts.append(
+                f"KEY AUDIT MATTERS:\n"
+                f"{ar_context['key_audit']}"
+            )
+        if ar_context.get("rpt"):
+            parts.append(
+                f"RELATED PARTY TRANSACTIONS (extract):\n"
+                f"{ar_context['rpt']}"
+            )
+        if parts:
+            ar_block = (
+                "\n\nANNUAL REPORT EXTRACTS "
+                "(use these to ground your assessment in what management actually said):\n"
+                + "\n\n".join(parts)
+            )
+            log.info(f"  Annual report context added to prompt ({len(ar_block):,} chars)")
+
     prompt = f"""You are writing a concise institutional research snapshot for a value investing publication.
 
 COMPANY: {data['company_name']} (NSE: {sym})
 SECTOR:  {basic['sector']} | INDUSTRY: {basic['industry']}
 MARKET CAP: Rs{basic['market_cap_cr']:,.0f} Cr
-ABOUT:   {data['about'] or 'Not available'}
+ABOUT:   {(data['about'] or 'Not available')}
 
 FINANCIALS:
   ROE {data['roe']}% | D/E {data['de_ratio']} | P/E {data['pe_ratio']}
   Revenue CAGR 5Y {data['revenue_growth_5y']}% | ROCE 3Y avg {data['roce_3y_avg']}%
-  FCF/PAT {data['fcf_to_pat']} | Promoter {data['promoter_holding']}% | PEG {data['peg_ratio']}
+  FCF/PAT {data['fcf_to_pat']} | Promoter {data['promoter_holding']}% | PEG {data['peg_ratio']}{ar_block}
 
 TONE RULES:
   Calm, restrained, institutional. No hype.
   Never use: multibagger, hidden gem, massive upside, guaranteed, no-brainer.
   Do not use " - " (dash between words) anywhere in your response.
   Prefer: appears, currently, suggests, may indicate, stands out.
-  Write like a thoughtful analyst, not a promoter.
+  Write like a thoughtful analyst reviewing a business, not a promoter.
+  If annual report extracts are provided above, reference specific details
+  from management commentary or auditor observations where relevant.
 
 WRITE A SNAPSHOT:
   Two paragraphs. No headers. No bullet points.
 
   Paragraph 1: What the business does, where it operates,
   its key products or services, and primary customer base.
-  Keep it factual and plain. 3-4 sentences.
+  If annual report is available, use management's own language
+  about their business segments and strategy. 3-4 sentences.
 
   Paragraph 2: What stands out financially. Touch on capital
   efficiency, cash generation, balance sheet quality, or growth
-  trajectory as relevant. End with one observation about the
-  longer-term question or uncertainty worth monitoring.
-  3-4 sentences.
+  trajectory as relevant. If annual report is available, reference
+  specific management commentary on margins, capex plans, or risks.
+  End with one observation about the longer-term question or
+  uncertainty worth monitoring. 3-4 sentences.
 
-  Target style example:
-  "Action Construction Equipment manufactures cranes, material
-  handling systems, construction equipment, and agri machinery
-  primarily for Indian infrastructure and farm markets. The
-  business operates in industries tied to long-cycle capex and
-  infrastructure spending while also maintaining exposure to
-  rural demand through its agri-equipment portfolio.
-
-  What stands out financially is the combination of high capital
-  efficiency and conservative balance sheet management. The
-  company has sustained ROCE near 30% while operating with very
-  low leverage, and current cash generation remains comfortably
-  ahead of reported earnings. The longer-term question is whether
-  growth remains durable once the current infrastructure cycle
-  normalises."
-
-Return ONLY this JSON:
+Return ONLY this JSON with no other text:
 {{"score": <1-10>,
 "verdict": "STRONG PASS|PASS|BORDERLINE|FAIL",
+"ar_used": {bool(ar_context)},
 "snapshot": "<two paragraphs separated by a blank line>"}}"""
 
     text = ""
     try:
         resp = Anthropic(api_key=cfg.ANTHROPIC_API_KEY).messages.create(
-            model="claude-sonnet-4-6", max_tokens=600,
+            model="claude-sonnet-4-6", max_tokens=700,
             messages=[{"role":"user","content":prompt}])
         text = resp.content[0].text.strip()
-        text = re.sub(r"```json?\s*", "", text).replace("```", "").strip()
-        # Fix literal newlines inside JSON string values
-        # Parse manually if json.loads fails
+        text = re.sub(r"```json?\s*","",text).replace("```","").strip()
+        # Remove control characters that break JSON parsing
+        text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', text)
         try:
             return json.loads(text)
         except json.JSONDecodeError:
-            # Replace literal newlines inside the snapshot value
+            # Fix literal newlines embedded inside JSON string values
             text_fixed = re.sub(
-                r'("snapshot"\s*:\s*")(.*?)("(?:\s*[}\,]))',
-                lambda m: m.group(1) + m.group(2).replace('\n', '\\n').replace('\r', '') + m.group(3),
+                r'("snapshot"\s*:\s*")(.*?)("(?:\s*[},]))',
+                lambda m: m.group(1)
+                    + m.group(2).replace('\n', '\\n').replace('\r', '').replace('\t', ' ')
+                    + m.group(3),
                 text, flags=re.DOTALL
             )
             return json.loads(text_fixed)
-    except json.JSONDecodeError as e:
-        log.error(f"JSON error {sym}: {e}\n{text[:200]}")
-        return {"score":0,"verdict":"FAIL","snapshot":"Assessment unavailable."}
     except Exception as e:
-        log.error(f"AI failed {sym}: {e}")
-        return {"score":0,"verdict":"FAIL","snapshot":str(e)}
+        log.error(f"AI failed {sym}: {e}\n{text[:200]}")
+        return {"score":0,"verdict":"FAIL","ar_used":False,
+                "snapshot":"Assessment unavailable."}
 
 
 # ── Links and Helpers ─────────────────────────────────────────────────────────
@@ -675,18 +912,10 @@ def send_whatsapp(text):
 # ── Message Formatting ────────────────────────────────────────────────────────
 
 def format_daily_summary(run_stats, today_wl, wl_log, today_str, ai_queue):
-    """
-    ALPHA WATCH — sent first.
-    Full watchlist, all stocks, hyperlinked, no day counts.
-    Assessment Queue (not AI Queue).
-    No REMOVED TODAY section.
-    Longest Active only if a stock has >7 days.
-    """
     ts = datetime.now().strftime("%a, %d %b %Y")
-
-    assessed_syms = set(ai_queue.get("assessed",{}).keys())
-    pending_syms  = [e["sym"] for e in ai_queue.get("pending",[])]
-    pending_count = len(pending_syms)
+    assessed_syms  = set(ai_queue.get("assessed",{}).keys())
+    pending_syms   = [e["sym"] for e in ai_queue.get("pending",[])]
+    pending_count  = len(pending_syms)
     assessed_count = len(assessed_syms)
 
     header = (
@@ -708,10 +937,7 @@ def format_daily_summary(run_stats, today_wl, wl_log, today_str, ai_queue):
                 status = f"⏳ Queue #{pos}"
             else:
                 status = "⏳ Queue"
-            # sym_link for clickable ticker, padded to 15 chars in display
-            link = sym_link(sym)
-            wl_lines.append(f"  {link:<30} {status}")
-
+            wl_lines.append(f"  {sym_link(sym):<30} {status}")
         wl_block = (
             f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
             f"📋 WATCHLIST  ({len(today_wl)} stocks)\n\n"
@@ -723,15 +949,14 @@ def format_daily_summary(run_stats, today_wl, wl_log, today_str, ai_queue):
             f"📋 WATCHLIST\n  No stocks currently qualify"
         )
 
-    # Longest Active — only if at least one stock has >7 days
+    # Longest Active — only if >7 days
     la_block = ""
     days_map = {sym: get_days_on_watchlist(wl_log, sym, today_str) for sym in today_wl}
     longest = sorted(today_wl, key=lambda s: days_map.get(s,0), reverse=True)
     if longest and days_map.get(longest[0], 0) > 7:
-        top5 = longest[:5]
         la_lines = "\n".join(
             f"  {sym_link(s):<30} {days_map.get(s,1)} days"
-            for s in top5
+            for s in longest[:5]
         )
         la_block = (
             f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
@@ -752,12 +977,7 @@ def format_daily_summary(run_stats, today_wl, wl_log, today_str, ai_queue):
 
 
 def format_exit_notice(sym, name, real_fails, days, entry_date):
-    """
-    WATCHLIST EXIT — sent after ALPHA WATCH, before COMPANY SNAPSHOT.
-    Matches sample format exactly.
-    """
     if real_fails:
-        # Show the specific criterion and its actual value
         criterion, actual_val, _ = real_fails[0]
         reason_line = f"{criterion} threshold ({actual_val})"
         if len(real_fails) > 1:
@@ -777,12 +997,7 @@ def format_exit_notice(sym, name, real_fails, days, entry_date):
     )
 
 
-def format_company_snapshot(entry, ai, queue_pos, queue_total, next_name):
-    """
-    COMPANY SNAPSHOT — sent last.
-    Contains: Header, QUALIFIED ON, SNAPSHOT, Tomorrow, CTA, Disclaimer.
-    Company name in header is hyperlinked to screener.in.
-    """
+def format_company_snapshot(entry, ai, next_name):
     sym      = entry["sym"]
     name     = entry["name"]
     data     = entry["data"]
@@ -790,7 +1005,6 @@ def format_company_snapshot(entry, ai, queue_pos, queue_total, next_name):
     criteria = entry["criteria"]
     soft_flags = entry["soft_flags"]
 
-    # QUALIFIED ON — all metrics, aligned
     mc  = basic["market_cap_cr"]
     de  = data.get("de_ratio")
     roe = data.get("roe")
@@ -802,7 +1016,7 @@ def format_company_snapshot(entry, ai, queue_pos, queue_total, next_name):
     ra  = data.get("roce_3y_avg")
     pe  = data.get("pe_ratio")
 
-    pp_str = f"{_fmt(pp,'%')}" if pp is not None else "0% (nil)"
+    pp_str = _fmt(pp,"%") if pp is not None else "0% (nil)"
 
     qual_lines = [
         f"• {'Market Cap':<22} Rs{mc:,.0f} Cr",
@@ -817,12 +1031,14 @@ def format_company_snapshot(entry, ai, queue_pos, queue_total, next_name):
     ]
     if pe:
         qual_lines.append(f"• {'P/E':<22} {_fmt(pe,decimals=1)}  (reference)")
-
-    # Soft flags appended
     for sf in soft_flags:
         qual_lines.append(f"⚠️  {sf}")
 
-    # Tomorrow preview
+    # Show if annual report was used
+    ar_note = ""
+    if ai.get("ar_used"):
+        ar_note = "\n_(Assessment informed by latest annual report)_"
+
     tomorrow_block = ""
     if next_name:
         tomorrow_block = (
@@ -830,11 +1046,8 @@ def format_company_snapshot(entry, ai, queue_pos, queue_total, next_name):
             f"Tomorrow's Snapshot:\n{next_name}\n\n"
         )
 
-    # Substack CTA
     substack_url = cfg.SUBSTACK_BASE_URL.rstrip("/")
-
-    # Company name as hyperlink in header
-    name_link = tg_link(name.upper(), screener_url(sym))
+    name_link    = tg_link(name.upper(), screener_url(sym))
 
     return (
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
@@ -844,7 +1057,7 @@ def format_company_snapshot(entry, ai, queue_pos, queue_total, next_name):
         f"QUALIFIED ON\n\n"
         + "\n".join(qual_lines) +
         f"\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"SNAPSHOT\n\n"
+        f"SNAPSHOT{ar_note}\n\n"
         f"{ai.get('snapshot','Not available')}\n\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         f"{tomorrow_block}"
@@ -941,7 +1154,7 @@ def main():
     is_first  = today.day == 1
 
     log.info("="*60)
-    log.info(f"NSE Screener v2.7  |  {today.strftime('%A, %d %b %Y')}")
+    log.info(f"NSE Screener v2.8  |  {today.strftime('%A, %d %b %Y')}")
     log.info("="*60)
 
     alerts_log = load_json(ALERTS_LOG_PATH,{})
@@ -966,7 +1179,6 @@ def main():
     prev_wl_set = set(prev_wl)
     p1_set      = {b["symbol"] for b in p1}
 
-    # Collect all exits — send AFTER ALPHA WATCH
     exits_to_send = []
     for sym in prev_wl_set - p1_set:
         days  = get_days_on_watchlist(wl_log,sym,today_str)
@@ -995,7 +1207,7 @@ def main():
             real_fails, data_fails = classify_fails(criteria)
 
             if passed:
-                log.info(f"  ✅  {sym}")
+                log.info(f"  ✅  {sym} (BSE: {data.get('bse_code','unknown')})")
                 today_wl.append(sym)
                 queue_add(sym, data["company_name"], data, basic,
                           criteria, soft_flags, ai_queue)
@@ -1017,7 +1229,6 @@ def main():
         time.sleep(2.5)
 
     log.info(f"\n  Pass 2: {len(today_wl)} qualified")
-
     wl_log[today_str] = today_wl
     save_json(WATCHLIST_LOG_PATH, wl_log)
 
@@ -1034,28 +1245,26 @@ def main():
         ))
         time.sleep(2)
 
-    # ── 3. COMPANY SNAPSHOT ───────────────────────────────────────────────────
-    pending_count  = len(ai_queue.get("pending",[]))
-    assessed_count = len(ai_queue.get("assessed",{}))
-    queue_total    = pending_count + assessed_count
-
-    if pending_count > 0:
+    # ── 3. COMPANY SNAPSHOT with annual report ────────────────────────────────
+    if ai_queue.get("pending"):
         entry = queue_pop_next(ai_queue)
         if entry:
-            sym   = entry["sym"]
-            data  = entry["data"]
+            sym  = entry["sym"]
+            data = entry["data"]
+            basic= entry["basic"]
+
+            # Fetch annual report context using stored BSE code
+            bse_code  = data.get("bse_code")
+            ar_context = get_annual_report_context(sym, bse_code)
+
             log.info(f"\nCompany Snapshot: {sym}…")
-            ai      = ai_assess(sym, data, entry["basic"])
+            ai        = ai_assess(sym, data, basic, ar_context)
             queue_mark_assessed(sym, ai, ai_queue)
-            assessed_so_far = len(ai_queue.get("assessed",{}))
             next_name = queue_peek_next(ai_queue)
-            send_whatsapp(format_company_snapshot(
-                entry, ai,
-                queue_pos=assessed_so_far,
-                queue_total=queue_total,
-                next_name=next_name,
-            ))
-            log.info(f"  {sym}: {ai.get('verdict','?')} ({ai.get('score',0)}/10)")
+
+            send_whatsapp(format_company_snapshot(entry, ai, next_name))
+            log.info(f"  {sym}: {ai.get('verdict','?')} ({ai.get('score',0)}/10) "
+                     f"| annual report: {'yes' if ar_context else 'no'}")
     else:
         log.info("\nQueue empty — no snapshot today")
 
