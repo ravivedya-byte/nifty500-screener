@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "BANCOINDIA",
-      "name": "Banco Products (India) Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Banco Products (India) Ltd",
-        "about": "",
-        "roe": 32.2,
-        "de_ratio": 0.45,
-        "pe_ratio": 18.6,
-        "peg_ratio": 0.55,
-        "eps_growth_5y": 33.8,
-        "revenue_growth_5y": 19.1,
-        "roce_3y_avg": 30.0,
-        "roce_history": [
-          21.1,
-          24.8,
-          25.8,
-          29.0,
-          32.6,
-          28.3
-        ],
-        "fcf_to_pat": 0.75,
-        "promoter_holding": 67.88,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          1958.0,
-          2332.0,
-          2768.0,
-          3213.0,
-          3672.0
-        ],
-        "_eps": [
-          10.66,
-          16.47,
-          18.98,
-          27.39,
-          34.1
-        ],
-        "_roce": [
-          24.8,
-          25.8,
-          29.0,
-          32.6,
-          28.3
-        ],
-        "_opm": [
-          15.5,
-          19.0,
-          18.2
-        ]
-      },
-      "basic": {
-        "symbol": "BANCOINDIA",
-        "name": "Banco Products (India) Limited",
-        "sector": "Consumer Cyclical",
-        "industry": "Auto Parts",
-        "market_cap_cr": 8884.0,
-        "pe_yf": 18.2
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 8884.0,
-          "pass": true,
-          "label": "Rs8,884Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.45,
-          "pass": true,
-          "label": "0.45"
-        },
-        "ROE": {
-          "value": 32.2,
-          "pass": true,
-          "label": "32.2%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 19.1,
-          "pass": true,
-          "label": "19.1%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 30.0,
-          "pass": true,
-          "label": "30.0%  hist:[24.8, 25.8, 29.0, 32.6, 28.3]"
-        },
-        "FCF / PAT": {
-          "value": 0.75,
-          "pass": true,
-          "label": "0.75"
-        },
-        "Promoter Holding": {
-          "value": 67.88,
-          "pass": true,
-          "label": "67.9%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.55,
-          "pass": true,
-          "label": "0.55"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "CEINSYS",
       "name": "Ceinsys Tech Ltd",
       "date_added": "2026-05-05",
@@ -3368,6 +3255,12 @@
       "score": 0,
       "verdict": "FAIL",
       "snapshot": "Assessment unavailable."
+    },
+    "BANCOINDIA": {
+      "date_assessed": "2026-05-07",
+      "score": 8,
+      "verdict": "STRONG PASS",
+      "snapshot": "Banco Products (India) Ltd is an auto components manufacturer supplying gaskets, cooling systems, and sealing solutions primarily to original equipment manufacturers in the Indian automotive sector. The company serves passenger vehicle, commercial vehicle, and tractor segments, positioning it across multiple end markets within the broader automotive value chain. Its products are considered critical consumables in engine and thermal management assemblies, giving it a recurring demand profile tied closely to both vehicle production volumes and the aftermarket replacement cycle.\n\nWhat stands out financially is the combination of sustained capital efficiency and disciplined balance sheet management. ROCE has averaged approximately 30% over three years while the debt to equity ratio currently remains modest at 0.45, suggesting the business has not leaned heavily on leverage to drive returns. Free cash flow conversion at 0.75 times reported earnings appears healthy, and the five year revenue CAGR of 19.1% alongside a PEG of 0.55 suggests the market may not yet be fully pricing the growth trajectory. The longer-term question worth monitoring is whether volumes hold as the Indian auto sector navigates an evolving powertrain mix, particularly the gradual shift toward electric vehicles, which could alter demand for certain conventional engine components over time."
     }
   }
 }
