@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "ACE",
-      "name": "Action Construction Equipment Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Action Construction Equipment Ltd",
-        "about": "",
-        "roe": 28.6,
-        "de_ratio": 0.08,
-        "pe_ratio": 24.9,
-        "peg_ratio": 0.65,
-        "eps_growth_5y": 38.3,
-        "revenue_growth_5y": 21.2,
-        "roce_3y_avg": 29.8,
-        "roce_history": [
-          20.6,
-          19.2,
-          23.9,
-          32.7,
-          31.0,
-          25.7
-        ],
-        "fcf_to_pat": 1.8,
-        "promoter_holding": 65.42,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          1630.0,
-          2160.0,
-          2914.0,
-          3327.0,
-          3212.0
-        ],
-        "_eps": [
-          8.82,
-          14.41,
-          27.56,
-          34.36,
-          35.51
-        ],
-        "_roce": [
-          19.2,
-          23.9,
-          32.7,
-          31.0,
-          25.7
-        ],
-        "_opm": [
-          13.9,
-          15.2,
-          15.4
-        ]
-      },
-      "basic": {
-        "symbol": "ACE",
-        "name": "Action Construction Equipment Limited",
-        "sector": "Industrials",
-        "industry": "Farm & Heavy Construction Machinery",
-        "market_cap_cr": 10498.2,
-        "pe_yf": 24.85
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 10498.2,
-          "pass": true,
-          "label": "Rs10,498Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.08,
-          "pass": true,
-          "label": "0.08"
-        },
-        "ROE": {
-          "value": 28.6,
-          "pass": true,
-          "label": "28.6%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 21.2,
-          "pass": true,
-          "label": "21.2%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 29.8,
-          "pass": true,
-          "label": "29.8%  hist:[19.2, 23.9, 32.7, 31.0, 25.7]"
-        },
-        "FCF / PAT": {
-          "value": 1.8,
-          "pass": true,
-          "label": "1.80"
-        },
-        "Promoter Holding": {
-          "value": 65.42,
-          "pass": true,
-          "label": "65.4%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.65,
-          "pass": true,
-          "label": "0.65"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "ADANIPOWER",
       "name": "Adani Power Ltd",
       "date_added": "2026-05-05",
@@ -3577,6 +3464,17 @@
       "watching_three": "Margin stability at the operating level, which would confirm that pricing discipline is holding even as the business scales modestly",
       "investor_fit": "This business may suit investors with a preference for cash-generative, niche enterprise software franchises who are comfortable with a relatively narrow addressable market and some parent-dependency risk. Investors requiring rapid revenue scale, broad addressable market exposure, or a purely independent competitive profile may find the setup less aligned with their criteria.",
       "peer_comparison": "Compared to broader IT services peers like Mphasis or KPIT Technologies, Accelya operates in a far narrower vertical with less revenue scale but considerably stronger ROCE, suggesting niche depth over breadth. Against travel-tech adjacent players like Intellect Design Arena, Accelya appears more focused and cash-efficient, though Intellect carries a larger addressable opportunity. The vertical specialisation is both the source of its moat and the primary constraint on long-term growth optionality."
+    },
+    "ACE": {
+      "date_assessed": "2026-05-07",
+      "score": 8,
+      "verdict": "STRONG PASS",
+      "business_snapshot": "Action Construction Equipment manufactures cranes, construction equipment, agri machinery, and material handling products primarily for the Indian infrastructure and agricultural markets. The company holds a market cap of approximately Rs10,498 crore and is positioned as one of the few domestic players with meaningful scale across both construction and farm equipment segments.",
+      "capital_allocation_rating": "EXCELLENT",
+      "capital_allocation_note": "Management runs a near debt-free balance sheet with a D/E of 0.08 while sustaining ROCE above 29% over three years, indicating disciplined reinvestment without reliance on leverage.",
+      "cash_flow_quality": "CLEAN",
+      "cash_flow_note": "An FCF to PAT ratio of 1.8 indicates that reported earnings are being substantiated and exceeded by actual cash generation, which is a credible signal of earnings quality.",
+      "forensic_note": "No material concerns identified from available data."
     }
   }
 }
