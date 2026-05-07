@@ -474,10 +474,19 @@ Return ONLY this JSON:
             model="claude-sonnet-4-6", max_tokens=600,
             messages=[{"role":"user","content":prompt}])
         text = resp.content[0].text.strip()
-        text = re.sub(r"```json?\s*","",text).replace("```","").strip()
-        # Remove control characters that break JSON parsing
-        text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', text)
-        return json.loads(text)
+        text = re.sub(r"```json?\s*", "", text).replace("```", "").strip()
+        # Fix literal newlines inside JSON string values
+        # Parse manually if json.loads fails
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            # Replace literal newlines inside the snapshot value
+            text_fixed = re.sub(
+                r'("snapshot"\s*:\s*")(.*?)("(?:\s*[}\,]))',
+                lambda m: m.group(1) + m.group(2).replace('\n', '\\n').replace('\r', '') + m.group(3),
+                text, flags=re.DOTALL
+            )
+            return json.loads(text_fixed)
     except json.JSONDecodeError as e:
         log.error(f"JSON error {sym}: {e}\n{text[:200]}")
         return {"score":0,"verdict":"FAIL","snapshot":"Assessment unavailable."}
