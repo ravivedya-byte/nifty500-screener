@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "ADANIPOWER",
-      "name": "Adani Power Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Adani Power Ltd",
-        "about": "",
-        "roe": 21.2,
-        "de_ratio": 0.84,
-        "pe_ratio": 34.5,
-        "peg_ratio": 0.59,
-        "eps_growth_5y": 58.8,
-        "revenue_growth_5y": 15.6,
-        "roce_3y_avg": 20.8,
-        "roce_history": [
-          13.3,
-          14.6,
-          14.0,
-          23.4,
-          22.3,
-          16.6
-        ],
-        "fcf_to_pat": 1.77,
-        "promoter_holding": 74.96,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          27711.0,
-          38773.0,
-          50351.0,
-          56203.0,
-          54241.0
-        ],
-        "_eps": [
-          2.55,
-          5.56,
-          10.8,
-          6.71,
-          6.66
-        ],
-        "_roce": [
-          14.6,
-          14.0,
-          23.4,
-          22.3,
-          16.6
-        ],
-        "_opm": [
-          36.2,
-          38.1,
-          36.5
-        ]
-      },
-      "basic": {
-        "symbol": "ADANIPOWER",
-        "name": "Adani Power Limited",
-        "sector": "Utilities",
-        "industry": "Utilities - Independent Power Producers",
-        "market_cap_cr": 443470.8,
-        "pe_yf": 34.79
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 443470.8,
-          "pass": true,
-          "label": "Rs443,471Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.84,
-          "pass": true,
-          "label": "0.84"
-        },
-        "ROE": {
-          "value": 21.2,
-          "pass": true,
-          "label": "21.2%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 15.6,
-          "pass": true,
-          "label": "15.6%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 20.8,
-          "pass": true,
-          "label": "20.8%  hist:[14.6, 14.0, 23.4, 22.3, 16.6]"
-        },
-        "FCF / PAT": {
-          "value": 1.77,
-          "pass": true,
-          "label": "1.77"
-        },
-        "Promoter Holding": {
-          "value": 74.96,
-          "pass": true,
-          "label": "75.0%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.59,
-          "pass": true,
-          "label": "0.59"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "BANCOINDIA",
       "name": "Banco Products (India) Ltd",
       "date_added": "2026-05-05",
@@ -3475,6 +3362,12 @@
       "cash_flow_quality": "CLEAN",
       "cash_flow_note": "An FCF to PAT ratio of 1.8 indicates that reported earnings are being substantiated and exceeded by actual cash generation, which is a credible signal of earnings quality.",
       "forensic_note": "No material concerns identified from available data."
+    },
+    "ADANIPOWER": {
+      "date_assessed": "2026-05-07",
+      "score": 0,
+      "verdict": "FAIL",
+      "snapshot": "Assessment unavailable."
     }
   }
 }
