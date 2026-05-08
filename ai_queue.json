@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "CHENNPETRO",
-      "name": "Chennai Petroleum Corporation Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Chennai Petroleum Corporation Ltd",
-        "about": "",
-        "roe": 32.1,
-        "de_ratio": 0.18,
-        "pe_ratio": 5.19,
-        "peg_ratio": 0.08,
-        "eps_growth_5y": 64.5,
-        "revenue_growth_5y": 23.4,
-        "roce_3y_avg": 28.0,
-        "roce_history": [
-          18.7,
-          22.3,
-          53.1,
-          38.6,
-          9.0,
-          36.4
-        ],
-        "fcf_to_pat": 1.0,
-        "promoter_holding": 67.29,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          43068.0,
-          76271.0,
-          66024.0,
-          58983.0,
-          63640.0
-        ],
-        "_eps": [
-          90.79,
-          237.16,
-          184.34,
-          14.38,
-          208.36
-        ],
-        "_roce": [
-          22.3,
-          53.1,
-          38.6,
-          9.0,
-          36.4
-        ],
-        "_opm": [
-          6.8,
-          1.7,
-          7.5
-        ]
-      },
-      "basic": {
-        "symbol": "CHENNPETRO",
-        "name": "Chennai Petroleum Corporation Limited",
-        "sector": "Energy",
-        "industry": "Oil & Gas Refining & Marketing",
-        "market_cap_cr": 16121.1,
-        "pe_yf": 5.2
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 16121.1,
-          "pass": true,
-          "label": "Rs16,121Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.18,
-          "pass": true,
-          "label": "0.18"
-        },
-        "ROE": {
-          "value": 32.1,
-          "pass": true,
-          "label": "32.1%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 23.4,
-          "pass": true,
-          "label": "23.4%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 28.0,
-          "pass": true,
-          "label": "28.0%  hist:[22.3, 53.1, 38.6, 9.0, 36.4]"
-        },
-        "FCF / PAT": {
-          "value": 1.0,
-          "pass": true,
-          "label": "1.00"
-        },
-        "Promoter Holding": {
-          "value": 67.29,
-          "pass": true,
-          "label": "67.3%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.08,
-          "pass": true,
-          "label": "0.08"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "COALINDIA",
       "name": "Coal India Ltd",
       "date_added": "2026-05-05",
@@ -3274,6 +3161,13 @@
       "verdict": "STRONG PASS",
       "ar_used": false,
       "snapshot": "Cemindia Projects Ltd, listed on the NSE under the ticker CEMPRO, appears to operate within the engineering and construction segment of India's industrials sector. While a detailed business description is not available in this review, companies of this profile typically serve infrastructure, industrial, or civil construction clients, often including both public sector undertakings and private developers. The firm's scale, reflected in a market capitalisation of approximately Rs 15,680 crore, suggests a reasonably established operational footprint rather than an early-stage enterprise. Further clarity on its specific service verticals and geographic concentration would strengthen any assessment of its competitive positioning.\n\nThe financial profile stands out for several reasons worth examining carefully. A five-year revenue CAGR of 29.8% alongside a three-year average ROCE of 31.1% suggests the business has been compounding at an above-average rate while maintaining strong returns on the capital it deploys. The FCF to PAT ratio of 2.29 is particularly noteworthy, as it indicates that reported earnings are being comfortably backed by actual cash generation, a quality often absent in capital-intensive construction businesses. The balance sheet appears relatively conservative with a debt-to-equity ratio of 0.38, and promoter holding of 67.46% reflects continued conviction at the ownership level. The key uncertainty worth monitoring over the longer term is whether the company can sustain this growth trajectory and cash conversion quality as the business scales, particularly given that construction businesses can face margin pressure, working capital strain, and execution risk as order books grow in size and complexity."
+    },
+    "CHENNPETRO": {
+      "date_assessed": "2026-05-08",
+      "score": 8,
+      "verdict": "STRONG PASS",
+      "ar_used": false,
+      "snapshot": "Chennai Petroleum Corporation Ltd (CPCL) operates as a mid-sized oil refining company based in Tamil Nadu, functioning as a subsidiary within the Indian Oil Corporation group. The company runs refineries at Manali near Chennai and at Cauvery Basin in Nagapattinam, with a combined crude processing capacity that serves the southern Indian market. Its primary outputs include petrol, diesel, liquefied petroleum gas, kerosene, aviation turbine fuel, and a range of petrochemical feedstocks. The customer base spans fuel retailers, industrial consumers, and group companies within the broader IOC ecosystem.\n\nThe financial profile currently stands out for its combination of high capital efficiency and modest leverage, with a reported ROE of 32.1% and a three-year average ROCE of 28.0% alongside a debt-to-equity ratio of just 0.18. Revenue has compounded at 23.4% over five years, and a FCF-to-PAT ratio of 1.0 suggests earnings are being supported by genuine cash generation rather than accounting adjustments alone. The PEG ratio of 0.08 appears low relative to the growth trajectory, which may indicate the market is pricing in mean reversion in refining margins rather than assigning sustained earnings power. The longer-term question worth monitoring is whether CPCL can maintain throughput economics and margin resilience as India's refining landscape evolves, particularly given its geographic concentration and potential capex requirements tied to fuel quality upgrades or capacity expansion."
     }
   }
 }
