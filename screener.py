@@ -491,6 +491,7 @@ def get_annual_report_context(sym: str,
                 data = resp.json()
                 if isinstance(data, list) and data:
                     entry = data[0]
+                    log.info(f"  BSE response keys: {list(entry.keys())}")
                     for field in ["ATTACHMENT", "FILE_PATH", "PDF_PATH",
                                   "DOCUMENT_PATH", "Link"]:
                         url = entry.get(field, "")
