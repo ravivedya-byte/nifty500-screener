@@ -1,15 +1,10 @@
 """
-NSE Investment Screener  v2.8
-Changes from v2.7:
-  BSE annual report pipeline added:
-    get_bse_code_from_page()     - extracts BSE code from screener.in
-    fetch_annual_report_url()    - queries BSE public API for PDF URL
-    download_and_extract_pdf()   - downloads and extracts text via pdfplumber
-    extract_ar_sections()        - finds MD&A, auditor, RPT by keyword search
-    get_annual_report_context()  - full pipeline with graceful fallback
-  get_fundamentals() now returns bse_code
-  ai_assess() accepts ar_context and builds richer prompt when available
-  JSON control character fix applied to ai_assess parser
+NSE Investment Screener  v2.9
+Changes from v2.8:
+  ISIN_MAP built from NSE equity CSV at startup
+  BSE code lookup uses BSE search API + screener.in fallback
+  Annual report fetched via ISIN (primary) or BSE code (fallback)
+  All other logic unchanged
 """
 
 import csv, io, json, logging, os, re, sys, time
@@ -34,12 +29,13 @@ NSE_NIFTY500_URL = "https://nsearchives.nseindia.com/content/indices/ind_nifty50
 SCREENER_CONSOL  = "https://www.screener.in/company/{sym}/consolidated/"
 SCREENER_ALONE   = "https://www.screener.in/company/{sym}/"
 SCREENER_LINK    = "https://www.screener.in/company/{sym}/"
-
 BSE_ANNUAL_API   = "https://api.bseindia.com/BseIndiaAPI/api/AnnualReport/w"
-BSE_HEADERS      = {
+
+BSE_HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36",
     "Referer":    "https://www.bseindia.com/",
     "Accept":     "application/json, text/plain, */*",
+    "Origin":     "https://www.bseindia.com",
 }
 
 BFSI_KEYWORDS = {"bank","insurance","finance","financial services","nbfc",
@@ -74,6 +70,9 @@ CRITERIA_META = {
 
 Criterion = Dict[str, Any]
 
+# Module-level ISIN map — populated once when NSE list is downloaded
+ISIN_MAP: Dict[str, str] = {}
+
 
 # ── Persistence ───────────────────────────────────────────────────────────────
 
@@ -93,24 +92,41 @@ def save_json(path, data):
 # ── Universe ──────────────────────────────────────────────────────────────────
 
 def fetch_nse_all():
+    global ISIN_MAP
     session = requests.Session()
     for url, label in [(NSE_EQUITY_URL,"NSE full"),(NSE_NIFTY500_URL,"Nifty500")]:
         try:
-            session.get("https://www.nseindia.com",headers={**HTTP_HEADERS,"Accept":"*/*"},timeout=10)
+            session.get("https://www.nseindia.com",
+                        headers={**HTTP_HEADERS,"Accept":"*/*"},timeout=10)
             time.sleep(1)
-            resp = session.get(url,headers={**HTTP_HEADERS,"Referer":"https://www.nseindia.com"},timeout=15)
+            resp = session.get(url,
+                               headers={**HTTP_HEADERS,"Referer":"https://www.nseindia.com"},
+                               timeout=15)
             resp.raise_for_status()
-            df = pd.read_csv(io.StringIO(resp.text))
-            sym_col = next((c for c in df.columns if "symbol" in c.lower()),None)
+            df       = pd.read_csv(io.StringIO(resp.text))
+            sym_col  = next((c for c in df.columns if "symbol" in c.lower()), None)
+            isin_col = next((c for c in df.columns if "isin"   in c.lower()), None)
             if sym_col:
                 syms = df[sym_col].dropna().str.strip().tolist()
-                log.info(f"Loaded {len(syms)} ({label})"); return syms
-        except Exception as e: log.warning(f"{label}: {e}")
+                if isin_col:
+                    ISIN_MAP = dict(zip(
+                        df[sym_col].str.strip(),
+                        df[isin_col].str.strip()
+                    ))
+                    log.info(f"Loaded {len(syms)} symbols + {len(ISIN_MAP)} ISINs ({label})")
+                else:
+                    log.info(f"Loaded {len(syms)} ({label}) — no ISIN column found")
+                return syms
+        except Exception as e:
+            log.warning(f"{label}: {e}")
     try:
         from nsepython import nse_eq_symbols
-        syms = nse_eq_symbols(); log.info(f"nsepython: {len(syms)}"); return syms
+        syms = nse_eq_symbols()
+        log.info(f"nsepython: {len(syms)}")
+        return syms
     except Exception as e:
-        log.error(f"All universe fetches failed: {e}"); return []
+        log.error(f"All universe fetches failed: {e}")
+        return []
 
 
 # ── Pass 1 ────────────────────────────────────────────────────────────────────
@@ -124,18 +140,26 @@ def pass1_yfinance(symbols):
         try:
             info = yf.Ticker(f"{sym}.NS").info
             if not info or not info.get("regularMarketPrice"): continue
-            sector = info.get("sector","") or ""; industry = info.get("industry","") or ""
+            sector   = info.get("sector",   "") or ""
+            industry = info.get("industry", "") or ""
             if _is_bfsi(sector, industry): continue
             mc_cr = (info.get("marketCap") or 0) / 1e7
             if mc_cr < cfg.MIN_MARKET_CAP_CR: continue
             pe = info.get("trailingPE") or info.get("forwardPE")
             if pe and (pe <= 0 or pe > 200): pe = None
-            survivors.append({"symbol":sym,"name":info.get("longName",sym),"sector":sector,
-                               "industry":industry,"market_cap_cr":round(mc_cr,1),
-                               "pe_yf":round(pe,2) if pe else None})
-            if i % 100 == 0: log.info(f"  Pass1: {i}/{len(symbols)} | {len(survivors)} alive")
+            survivors.append({
+                "symbol":        sym,
+                "name":          info.get("longName", sym),
+                "sector":        sector,
+                "industry":      industry,
+                "market_cap_cr": round(mc_cr, 1),
+                "pe_yf":         round(pe, 2) if pe else None,
+            })
+            if i % 100 == 0:
+                log.info(f"  Pass1: {i}/{len(symbols)} | {len(survivors)} alive")
             time.sleep(0.4)
-        except Exception as e: log.debug(f"yf {sym}: {e}")
+        except Exception as e:
+            log.debug(f"yf {sym}: {e}")
     log.info(f"Pass1: {len(survivors)}/{len(symbols)}")
     return survivors
 
@@ -149,14 +173,17 @@ def _soup_with_retry(sym, retries=3, backoff=4.0):
                 r = requests.get(url, headers=HTTP_HEADERS, timeout=15)
                 if r.status_code == 200 and "company" in r.url:
                     return BeautifulSoup(r.text, "html.parser")
-            except Exception as e: log.debug(f"Attempt {attempt+1} {sym}: {e}")
-        if attempt < retries - 1: time.sleep(backoff * (2 ** attempt))
-    log.warning(f"Cannot fetch {sym}"); return None
+            except Exception as e:
+                log.debug(f"Attempt {attempt+1} {sym}: {e}")
+        if attempt < retries - 1:
+            time.sleep(backoff * (2 ** attempt))
+    log.warning(f"Cannot fetch {sym}")
+    return None
 
 def _num(text):
     if not text: return None
-    t = re.sub(r"[₹Rs,%\s]","",str(text)).replace(",","")
-    t = re.sub(r"Cr\.?","",t).strip()
+    t = re.sub(r"[₹Rs,%\s]", "", str(text)).replace(",", "")
+    t = re.sub(r"Cr\.?", "", t).strip()
     if "/" in t: t = t.split("/")[0].strip()
     try: return float(t)
     except: return None
@@ -202,12 +229,14 @@ def _parse_table(soup, section_id):
             if not cells: continue
             row_name = cells[0].text.strip().rstrip("+").strip()
             if row_name:
-                data[row_name] = {years[i]:cells[i+1].text.strip().replace(",","")
-                                  for i in range(min(len(years),len(cells)-1))}
+                data[row_name] = {
+                    years[i]: cells[i+1].text.strip().replace(",", "")
+                    for i in range(min(len(years), len(cells)-1))
+                }
     return data, years
 
 def _parse_shareholding(soup):
-    result = {"promoter_holding":None,"promoter_pledge":None,"promoter_trend":None}
+    result = {"promoter_holding": None, "promoter_pledge": None, "promoter_trend": None}
     sec = soup.find(id="shareholding")
     if not sec: return result
     for tbl in sec.find_all("table"):
@@ -217,14 +246,16 @@ def _parse_shareholding(soup):
             cells = tr.find_all("td")
             if not cells: continue
             label = cells[0].text.strip().lower()
-            vals = [_num(c.text.strip()) for c in cells[1:] if c.text.strip()]
-            vals = [v for v in vals if v is not None]
+            vals  = [_num(c.text.strip()) for c in cells[1:] if c.text.strip()]
+            vals  = [v for v in vals if v is not None]
             if not vals: continue
             if label == "promoters" or (label.startswith("promoter") and "pledge" not in label):
                 result["promoter_holding"] = vals[-1]
                 if len(vals) >= 2:
                     d = vals[-1] - vals[-2]
-                    result["promoter_trend"] = "increasing" if d>0.5 else "decreasing" if d<-0.5 else "stable"
+                    result["promoter_trend"] = (
+                        "increasing" if d > 0.5 else "decreasing" if d < -0.5 else "stable"
+                    )
             elif "pledge" in label or "pledged" in label:
                 result["promoter_pledge"] = vals[-1]
     return result
@@ -233,116 +264,171 @@ def _series(table, years, *row_names):
     row = {}
     for name in row_names:
         if name in table: row = table[name]; break
-    return [_num(row.get(y,"")) for y in years]
+    return [_num(row.get(y, "")) for y in years]
 
 def _cagr(series, n=5):
-    valid = [(i,v) for i,v in enumerate(series) if v is not None and v>0]
+    valid = [(i, v) for i, v in enumerate(series) if v is not None and v > 0]
     if len(valid) < 2: return None
-    n = min(n, len(valid)-1)
+    n = min(n, len(valid) - 1)
     start, end = valid[-(n+1)][1], valid[-1][1]
     if start <= 0: return None
-    return ((end/start)**(1/n)-1)*100
+    return ((end / start) ** (1 / n) - 1) * 100
 
-def get_bse_code_from_page(soup: BeautifulSoup) -> Optional[str]:
+def lookup_bse_code(sym: str, company_name: str,
+                    soup: Optional[BeautifulSoup] = None) -> Optional[str]:
     """
-    Extract BSE 6-digit code from screener.in page.
-    Looks in anchor tags pointing to bseindia.com.
+    Look up BSE 6-digit code for a given NSE symbol.
+    Method 1: BSE search API by NSE symbol, then by company name.
+    Method 2: screener.in page links (fallback).
     """
-    try:
-        for a in soup.find_all("a", href=True):
-            href = a["href"]
-            if "bseindia.com" in href:
-                match = re.search(r"/(\d{6})(?:/|$)", href)
-                if match:
-                    return match.group(1)
-        # Also check for BSE code in page text
-        page_text = soup.get_text()
-        match = re.search(r"BSE[:\s]+(\d{6})", page_text)
-        if match:
-            return match.group(1)
-    except Exception as e:
-        log.debug(f"BSE code extraction: {e}")
+    for query in [sym, company_name[:30]]:
+        try:
+            resp = requests.get(
+                "https://api.bseindia.com/BseIndiaAPI/api/fetchComp/w",
+                params={"strSearch": query, "industry": "0",
+                        "segment": "Equity", "indexFlag": "0", "flag": ""},
+                headers=BSE_HEADERS, timeout=10,
+            )
+            if resp.status_code == 200:
+                data = resp.json()
+                if isinstance(data, list) and data:
+                    for item in data:
+                        code = (item.get("SCRIP_CD") or item.get("scripcode")
+                                or item.get("ScripCode"))
+                        if code and str(code).isdigit() and len(str(code)) == 6:
+                            log.debug(f"BSE code {code} found via API for {sym}")
+                            return str(code)
+                if isinstance(data, dict):
+                    for item in (data.get("Table") or data.get("data") or []):
+                        code = (item.get("SCRIP_CD") or item.get("scripcode"))
+                        if code and str(code).isdigit() and len(str(code)) == 6:
+                            return str(code)
+        except Exception as e:
+            log.debug(f"BSE API search failed for {query}: {e}")
+        time.sleep(0.5)
+
+    if soup:
+        try:
+            for a in soup.find_all("a", href=True):
+                if "bseindia.com" in a["href"]:
+                    match = re.search(r"/(\d{6})(?:/|$)", a["href"])
+                    if match:
+                        return match.group(1)
+            match = re.search(r"BSE[:\s#]+(\d{6})", soup.get_text())
+            if match:
+                return match.group(1)
+        except Exception as e:
+            log.debug(f"screener.in BSE extraction: {e}")
+
     return None
 
 def get_fundamentals(sym):
     page = _soup_with_retry(sym)
     if not page: return None
-    ratios = _parse_ratios(page)
-    pl, pl_yrs = _parse_table(page,"profit-loss")
-    bs, bs_yrs = _parse_table(page,"balance-sheet")
-    cf, cf_yrs = _parse_table(page,"cash-flow")
-    holding = _parse_shareholding(page)
 
-    sales   = _series(pl,pl_yrs,"Sales")
-    net_p   = _series(pl,pl_yrs,"Net Profit")
-    eps     = _series(pl,pl_yrs,"EPS in Rs")
-    op_prof = _series(pl,pl_yrs,"Operating Profit")
-    equity  = _series(bs,bs_yrs,"Equity Capital")
-    reserv  = _series(bs,bs_yrs,"Reserves")
-    borrow  = _series(bs,bs_yrs,"Borrowings")
-    inv     = _series(bs,bs_yrs,"Inventories","Inventory")
-    debtor  = _series(bs,bs_yrs,"Debtors","Trade Receivables","Accounts Receivable")
-    cfo     = _series(cf,cf_yrs,"Cash from Operating Activity","Operating Activity")
-    cfi     = _series(cf,cf_yrs,"Cash from Investing Activity","Investing Activity")
+    ratios     = _parse_ratios(page)
+    pl, pl_yrs = _parse_table(page, "profit-loss")
+    bs, bs_yrs = _parse_table(page, "balance-sheet")
+    cf, cf_yrs = _parse_table(page, "cash-flow")
+    holding    = _parse_shareholding(page)
+
+    sales   = _series(pl, pl_yrs, "Sales")
+    net_p   = _series(pl, pl_yrs, "Net Profit")
+    eps     = _series(pl, pl_yrs, "EPS in Rs")
+    op_prof = _series(pl, pl_yrs, "Operating Profit")
+    equity  = _series(bs, bs_yrs, "Equity Capital")
+    reserv  = _series(bs, bs_yrs, "Reserves")
+    borrow  = _series(bs, bs_yrs, "Borrowings")
+    inv     = _series(bs, bs_yrs, "Inventories", "Inventory")
+    debtor  = _series(bs, bs_yrs, "Debtors", "Trade Receivables", "Accounts Receivable")
+    cfo     = _series(cf, cf_yrs, "Cash from Operating Activity", "Operating Activity")
+    cfi     = _series(cf, cf_yrs, "Cash from Investing Activity", "Investing Activity")
 
     roce_hist = []
-    for o,e,r,b in zip(op_prof,equity,reserv,borrow):
+    for o, e, r, b in zip(op_prof, equity, reserv, borrow):
         if o is not None and e is not None:
-            cap = (e or 0)+(r or 0)+(b or 0)
-            roce_hist.append(round((o/cap)*100,1) if cap>0 else None)
-        else: roce_hist.append(None)
-    roce_valid = [v for v in roce_hist[-3:] if v is not None]
-    roce_3y_avg = round(sum(roce_valid)/len(roce_valid),1) if roce_valid else None
+            cap = (e or 0) + (r or 0) + (b or 0)
+            roce_hist.append(round((o / cap) * 100, 1) if cap > 0 else None)
+        else:
+            roce_hist.append(None)
+    roce_valid  = [v for v in roce_hist[-3:] if v is not None]
+    roce_3y_avg = round(sum(roce_valid) / len(roce_valid), 1) if roce_valid else None
 
     opm_hist = []
-    for o,s in zip(op_prof,sales):
-        if o is not None and s and s>0: opm_hist.append(round((o/s)*100,1))
-        else: opm_hist.append(None)
+    for o, s in zip(op_prof, sales):
+        if o is not None and s and s > 0:
+            opm_hist.append(round((o / s) * 100, 1))
+        else:
+            opm_hist.append(None)
     opm_recent = [v for v in opm_hist[-3:] if v is not None]
-    margin_contracting = (len(opm_recent)>=3 and
-        sum(1 for i in range(1,len(opm_recent)) if opm_recent[i]<opm_recent[i-1])>=2)
+    margin_contracting = (
+        len(opm_recent) >= 3
+        and sum(1 for i in range(1, len(opm_recent)) if opm_recent[i] < opm_recent[i-1]) >= 2
+    )
 
-    de = _num(ratios.get("debt to equity",""))
+    de = _num(ratios.get("debt to equity", ""))
     if de is None:
-        b_lat = next((v for v in reversed(borrow) if v is not None),None)
-        e_lat = next((v for v in reversed(equity) if v is not None),None)
-        r_lat = next((v for v in reversed(reserv) if v is not None),None)
+        b_lat = next((v for v in reversed(borrow) if v is not None), None)
+        e_lat = next((v for v in reversed(equity) if v is not None), None)
+        r_lat = next((v for v in reversed(reserv) if v is not None), None)
         if b_lat is not None and e_lat is not None:
-            eq_total = (e_lat or 0)+(r_lat or 0)
-            de = round(b_lat/eq_total,2) if eq_total>0 else None
+            eq_total = (e_lat or 0) + (r_lat or 0)
+            de = round(b_lat / eq_total, 2) if eq_total > 0 else None
 
-    eps_g5=_cagr(eps,5); rev_g5=_cagr(sales,5); rev_g3=_cagr(sales,3)
-    inv_g3=_cagr(inv,3); rec_g3=_cagr(debtor,3)
-    inv_ratio = round(inv_g3/rev_g3,2) if inv_g3 is not None and rev_g3 and rev_g3>0 else None
-    rec_ratio = round(rec_g3/rev_g3,2) if rec_g3 is not None and rev_g3 and rev_g3>0 else None
-    fcf_list = [(o+fi)/p for o,fi,p in zip(cfo,cfi,net_p)
-                if o is not None and fi is not None and p and p>0]
-    fcf_to_pat = round(sum(fcf_list)/len(fcf_list),2) if fcf_list else None
-    pe  = _num(ratios.get("stock p/e",""))
-    peg = round(pe/eps_g5,2) if pe and eps_g5 and eps_g5>0 else None
+    eps_g5 = _cagr(eps,    5)
+    rev_g5 = _cagr(sales,  5)
+    rev_g3 = _cagr(sales,  3)
+    inv_g3 = _cagr(inv,    3)
+    rec_g3 = _cagr(debtor, 3)
 
-    name_el = page.find("h1"); about_el = page.find(id="about")
+    inv_ratio = (
+        round(inv_g3 / rev_g3, 2)
+        if inv_g3 is not None and rev_g3 and rev_g3 > 0 else None
+    )
+    rec_ratio = (
+        round(rec_g3 / rev_g3, 2)
+        if rec_g3 is not None and rev_g3 and rev_g3 > 0 else None
+    )
+    fcf_list = [
+        (o + fi) / p
+        for o, fi, p in zip(cfo, cfi, net_p)
+        if o is not None and fi is not None and p and p > 0
+    ]
+    fcf_to_pat = round(sum(fcf_list) / len(fcf_list), 2) if fcf_list else None
 
-    # Extract BSE code from this page
-    bse_code = get_bse_code_from_page(page)
+    pe  = _num(ratios.get("stock p/e", ""))
+    peg = round(pe / eps_g5, 2) if pe and eps_g5 and eps_g5 > 0 else None
+
+    name_el  = page.find("h1")
+    about_el = page.find(id="about")
+
+    # Look up BSE code
+    name_el_text = name_el.text.strip() if name_el else sym
+    bse_code = lookup_bse_code(sym, name_el_text, page)
 
     return {
-        "company_name":      name_el.text.strip() if name_el else sym,
-        "about":             about_el.get_text(" ",strip=True)[:2000] if about_el else "",
+        "company_name":      name_el_text,
+        "about":             about_el.get_text(" ", strip=True)[:2000] if about_el else "",
         "bse_code":          bse_code,
-        "roe":               _num(ratios.get("return on equity","")),
-        "de_ratio":          de, "pe_ratio":pe, "peg_ratio":peg,
-        "eps_growth_5y":     round(eps_g5,1) if eps_g5 else None,
-        "revenue_growth_5y": round(rev_g5,1) if rev_g5 else None,
-        "roce_3y_avg":       roce_3y_avg, "roce_history":roce_hist[-6:],
+        "roe":               _num(ratios.get("return on equity", "")),
+        "de_ratio":          de,
+        "pe_ratio":          pe,
+        "peg_ratio":         peg,
+        "eps_growth_5y":     round(eps_g5, 1) if eps_g5 else None,
+        "revenue_growth_5y": round(rev_g5, 1) if rev_g5 else None,
+        "roce_3y_avg":       roce_3y_avg,
+        "roce_history":      roce_hist[-6:],
         "fcf_to_pat":        fcf_to_pat,
         "promoter_holding":  holding["promoter_holding"],
         "promoter_pledge":   holding["promoter_pledge"],
         "promoter_trend":    holding["promoter_trend"],
-        "inventory_ratio":   inv_ratio, "receivables_ratio":rec_ratio,
+        "inventory_ratio":   inv_ratio,
+        "receivables_ratio": rec_ratio,
         "margin_contracting":margin_contracting,
-        "_sales_cr":         [round(v,0) if v else None for v in sales[-5:]],
-        "_eps":eps[-5:],"_roce":roce_hist[-5:],"_opm":opm_hist[-3:],
+        "_sales_cr":         [round(v, 0) if v else None for v in sales[-5:]],
+        "_eps":              eps[-5:],
+        "_roce":             roce_hist[-5:],
+        "_opm":              opm_hist[-3:],
     }
 
 
@@ -351,10 +437,7 @@ def get_fundamentals(sym):
 # ══════════════════════════════════════════════════════════════════════════════
 
 def fetch_annual_report_url(bse_code: str) -> Optional[str]:
-    """
-    Query BSE public API to get the latest annual report PDF URL.
-    Returns None gracefully if unavailable.
-    """
+    """Query BSE API by BSE code to get latest annual report PDF URL."""
     try:
         resp = requests.get(
             BSE_ANNUAL_API,
@@ -363,49 +446,93 @@ def fetch_annual_report_url(bse_code: str) -> Optional[str]:
             timeout=15,
         )
         if resp.status_code != 200:
-            log.debug(f"BSE API {resp.status_code} for {bse_code}")
             return None
         data = resp.json()
-        if not data or not isinstance(data, list):
+        if not isinstance(data, list) or not data:
             return None
-        # Try multiple possible field names for the PDF URL
         entry = data[0]
         for field in ["ATTACHMENT", "FILE_PATH", "PDF_PATH", "DOCUMENT_PATH", "Link"]:
             url = entry.get(field, "")
-            if url and url.lower().endswith(".pdf"):
-                return url
-        # If URL doesn't have .pdf extension, try anyway
-        for field in ["ATTACHMENT", "FILE_PATH", "PDF_PATH", "DOCUMENT_PATH", "Link"]:
-            url = entry.get(field, "")
-            if url and url.startswith("http"):
+            if url and "http" in url:
                 return url
     except Exception as e:
-        log.debug(f"BSE annual report API failed for {bse_code}: {e}")
+        log.debug(f"BSE annual report API (code) failed: {e}")
     return None
 
 
+def get_annual_report_context(sym: str,
+                              bse_code: Optional[str] = None) -> Dict[str, str]:
+    """
+    Full BSE annual report pipeline.
+    Primary:  ISIN from NSE equity list -> BSE annual report API
+    Fallback: BSE code -> BSE annual report API
+    Returns extracted sections dict or empty dict on any failure.
+    """
+    isin = ISIN_MAP.get(sym)
+
+    if not isin and not bse_code:
+        log.info(f"  No ISIN or BSE code for {sym} — skipping annual report")
+        return {}
+
+    log.info(f"  Annual report lookup — ISIN: {isin or 'N/A'}  BSE: {bse_code or 'N/A'}")
+
+    pdf_url = None
+
+    # Primary: ISIN-based lookup
+    if isin:
+        try:
+            resp = requests.get(
+                BSE_ANNUAL_API,
+                params={"isin": isin, "type": "EQ", "pageno": "1"},
+                headers=BSE_HEADERS,
+                timeout=15,
+            )
+            if resp.status_code == 200:
+                data = resp.json()
+                if isinstance(data, list) and data:
+                    entry = data[0]
+                    for field in ["ATTACHMENT", "FILE_PATH", "PDF_PATH",
+                                  "DOCUMENT_PATH", "Link"]:
+                        url = entry.get(field, "")
+                        if url and "http" in url:
+                            pdf_url = url
+                            break
+        except Exception as e:
+            log.debug(f"ISIN BSE API failed for {sym}: {e}")
+
+    # Fallback: BSE code lookup
+    if not pdf_url and bse_code:
+        pdf_url = fetch_annual_report_url(bse_code)
+
+    if not pdf_url:
+        log.info(f"  Annual report URL not found for {sym}")
+        return {}
+
+    log.info(f"  Annual report URL found — downloading PDF…")
+    full_text = download_and_extract_pdf(pdf_url)
+    if not full_text:
+        log.info(f"  Could not extract text from PDF for {sym}")
+        return {}
+
+    sections = extract_ar_sections(full_text)
+    log.info(f"  Sections extracted: {list(sections.keys())}")
+    return sections
+
+
 def download_and_extract_pdf(pdf_url: str, max_size_mb: int = 20) -> Optional[str]:
-    """
-    Download annual report PDF and extract text.
-    Caps at max_size_mb to avoid huge files.
-    Extracts first 80 pages to cover all key sections.
-    Returns full extracted text or None on failure.
-    """
+    """Download PDF and extract text via pdfplumber. Caps at max_size_mb."""
     try:
         import pdfplumber
-        log.info(f"  Downloading annual report PDF…")
         resp = requests.get(pdf_url, headers=BSE_HEADERS, timeout=45, stream=True)
         if resp.status_code != 200:
-            log.debug(f"PDF download failed: {resp.status_code}")
+            log.debug(f"PDF download {resp.status_code}")
             return None
 
-        # Size check — stop if too large
         content_length = int(resp.headers.get("Content-Length", 0))
         if content_length > max_size_mb * 1024 * 1024:
             log.warning(f"PDF too large ({content_length/1024/1024:.0f}MB), skipping")
             return None
 
-        # Download in chunks with size cap
         chunks = []
         downloaded = 0
         limit = max_size_mb * 1024 * 1024
@@ -413,15 +540,14 @@ def download_and_extract_pdf(pdf_url: str, max_size_mb: int = 20) -> Optional[st
             chunks.append(chunk)
             downloaded += len(chunk)
             if downloaded > limit:
-                log.warning(f"PDF exceeded size limit, truncating at {max_size_mb}MB")
+                log.warning(f"PDF size cap reached at {max_size_mb}MB")
                 break
         pdf_bytes = b"".join(chunks)
 
-        # Extract text
         full_text = ""
         with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
             pages_to_read = min(len(pdf.pages), 100)
-            for i, page in enumerate(pdf.pages[:pages_to_read]):
+            for page in pdf.pages[:pages_to_read]:
                 try:
                     text = page.extract_text()
                     if text:
@@ -429,11 +555,11 @@ def download_and_extract_pdf(pdf_url: str, max_size_mb: int = 20) -> Optional[st
                 except Exception:
                     continue
 
-        log.info(f"  Extracted {len(full_text):,} chars from PDF ({pages_to_read} pages)")
+        log.info(f"  Extracted {len(full_text):,} chars from PDF")
         return full_text if full_text.strip() else None
 
     except ImportError:
-        log.warning("pdfplumber not installed — skipping annual report extraction")
+        log.warning("pdfplumber not installed — skipping annual report")
         return None
     except Exception as e:
         log.debug(f"PDF extraction error: {e}")
@@ -441,15 +567,11 @@ def download_and_extract_pdf(pdf_url: str, max_size_mb: int = 20) -> Optional[st
 
 
 def extract_ar_sections(full_text: str) -> Dict[str, str]:
-    """
-    Extract key sections from annual report text by keyword search.
-    Returns dict with mda, auditor, rpt keys.
-    Each section is capped to keep prompt size reasonable.
-    """
+    """Extract key sections from annual report text by keyword search."""
     sections: Dict[str, str] = {}
     lower = full_text.lower()
 
-    # Management Discussion and Analysis — take up to 4000 chars
+    # MD&A — 12,000 chars
     for pattern in [
         "management discussion and analysis",
         "management's discussion and analysis",
@@ -461,7 +583,7 @@ def extract_ar_sections(full_text: str) -> Dict[str, str]:
             sections["mda"] = full_text[idx:idx + 12000].strip()
             break
 
-    # Independent Auditor's Report — take up to 4000 chars
+    # Auditor's Report — 4,000 chars
     for pattern in [
         "independent auditor's report",
         "independent auditors' report",
@@ -473,7 +595,7 @@ def extract_ar_sections(full_text: str) -> Dict[str, str]:
             sections["auditor"] = full_text[idx:idx + 4000].strip()
             break
 
-    # Related Party Transactions — take up to 3000 chars
+    # Related Party Transactions — 3,000 chars
     for pattern in [
         "related party transactions",
         "transactions with related parties",
@@ -484,7 +606,7 @@ def extract_ar_sections(full_text: str) -> Dict[str, str]:
             sections["rpt"] = full_text[idx:idx + 3000].strip()
             break
 
-    # Key audit matters — take up to 2000 chars
+    # Key Audit Matters — 2,000 chars
     for pattern in ["key audit matter", "critical audit matter"]:
         idx = lower.find(pattern)
         if idx != -1:
@@ -494,130 +616,119 @@ def extract_ar_sections(full_text: str) -> Dict[str, str]:
     return sections
 
 
-def get_annual_report_context(sym: str, bse_code: Optional[str]) -> Dict[str, str]:
-    """
-    Full BSE annual report pipeline.
-    Returns extracted sections dict, or empty dict if anything fails.
-    Designed to be completely safe — never crashes the main screener.
-    """
-    if not bse_code:
-        log.info(f"  No BSE code for {sym} — skipping annual report")
-        return {}
-
-    log.info(f"  BSE code: {bse_code} — fetching annual report…")
-
-    pdf_url = fetch_annual_report_url(bse_code)
-    if not pdf_url:
-        log.info(f"  Annual report URL not found for {sym}")
-        return {}
-
-    log.info(f"  Annual report URL found")
-    full_text = download_and_extract_pdf(pdf_url)
-    if not full_text:
-        log.info(f"  Could not extract text from PDF for {sym}")
-        return {}
-
-    sections = extract_ar_sections(full_text)
-    log.info(f"  Annual report sections extracted: {list(sections.keys())}")
-    return sections
-
-
 # ── Quant Filter ──────────────────────────────────────────────────────────────
 
 def _check(value, condition, label):
-    return {"value":value,"pass":condition,"label":label}
+    return {"value": value, "pass": condition, "label": label}
 
 def miss_pct(actual, criterion_key):
     meta = CRITERIA_META.get(criterion_key)
     if not meta or actual is None: return None
     threshold = meta["threshold"]; direction = meta["direction"]
     if threshold == 0: return None
-    if direction == "above": return round(((threshold-actual)/abs(threshold))*100,1)
-    else: return round(((actual-threshold)/abs(threshold))*100,1)
+    if direction == "above":
+        return round(((threshold - actual) / abs(threshold)) * 100, 1)
+    else:
+        return round(((actual - threshold) / abs(threshold)) * 100, 1)
 
 def quant_filter(data, basic):
     r = {}
     mc = basic["market_cap_cr"]
-    r["Market Cap"] = _check(mc,mc>=cfg.MIN_MARKET_CAP_CR,f"Rs{mc:,.0f}Cr")
+    r["Market Cap"] = _check(mc, mc >= cfg.MIN_MARKET_CAP_CR, f"Rs{mc:,.0f}Cr")
     de = data["de_ratio"]
-    r["Debt / Equity"] = _check(de,de is not None and 0<=de<=cfg.MAX_DE_RATIO,
-                                 _fmt(de,decimals=2) if de is not None else "N/A")
+    r["Debt / Equity"] = _check(
+        de, de is not None and 0 <= de <= cfg.MAX_DE_RATIO,
+        _fmt(de, decimals=2) if de is not None else "N/A")
     roe = data["roe"]
-    r["ROE"] = _check(roe,roe is not None and roe>=cfg.MIN_ROE,
-                      _fmt(roe,"%") if roe is not None else "N/A")
+    r["ROE"] = _check(
+        roe, roe is not None and roe >= cfg.MIN_ROE,
+        _fmt(roe, "%") if roe is not None else "N/A")
     rg = data["revenue_growth_5y"]
-    r["Revenue CAGR 5Y"] = _check(rg,rg is not None and rg>=cfg.MIN_REVENUE_GROWTH_5Y,
-                                   _fmt(rg,"%") if rg is not None else "N/A")
+    r["Revenue CAGR 5Y"] = _check(
+        rg, rg is not None and rg >= cfg.MIN_REVENUE_GROWTH_5Y,
+        _fmt(rg, "%") if rg is not None else "N/A")
     ra = data["roce_3y_avg"]
-    r["Avg ROCE (3Y)"] = _check(ra,ra is not None and ra>=cfg.MIN_ROCE_3Y_AVG,
-                                 _fmt(ra,"%") if ra is not None else "N/A")
+    r["Avg ROCE (3Y)"] = _check(
+        ra, ra is not None and ra >= cfg.MIN_ROCE_3Y_AVG,
+        _fmt(ra, "%") if ra is not None else "N/A")
     fp = data["fcf_to_pat"]
-    r["FCF / PAT"] = _check(fp,fp is not None and fp>=cfg.MIN_FCF_TO_PAT,
-                             _fmt(fp,decimals=2) if fp is not None else "N/A")
+    r["FCF / PAT"] = _check(
+        fp, fp is not None and fp >= cfg.MIN_FCF_TO_PAT,
+        _fmt(fp, decimals=2) if fp is not None else "N/A")
     ph = data["promoter_holding"]
-    r["Promoter Holding"] = _check(ph,ph is not None and ph>=cfg.MIN_PROMOTER_HOLDING,
-                                   _fmt(ph,"%") if ph is not None else "N/A")
+    r["Promoter Holding"] = _check(
+        ph, ph is not None and ph >= cfg.MIN_PROMOTER_HOLDING,
+        _fmt(ph, "%") if ph is not None else "N/A")
     pp = data["promoter_pledge"]
-    r["Promoter Pledge"] = _check(pp,pp is None or pp<=cfg.MAX_PROMOTER_PLEDGE,
-                                  _fmt(pp,"%") if pp is not None else "0% (nil)")
+    r["Promoter Pledge"] = _check(
+        pp, pp is None or pp <= cfg.MAX_PROMOTER_PLEDGE,
+        _fmt(pp, "%") if pp is not None else "0% (nil)")
     peg = data["peg_ratio"]
-    r["PEG Ratio"] = _check(peg,peg is not None and peg<=cfg.MAX_PEG_RATIO,
-                             _fmt(peg,decimals=2) if peg is not None else "N/A")
+    r["PEG Ratio"] = _check(
+        peg, peg is not None and peg <= cfg.MAX_PEG_RATIO,
+        _fmt(peg, decimals=2) if peg is not None else "N/A")
+
     soft_flags = []
     ir = data["inventory_ratio"]
-    if ir is not None and ir>cfg.MAX_INVENTORY_RATIO:
-        soft_flags.append(f"Inventory growing {_fmt(ir,'x',2)} revenue")
+    if ir is not None and ir > cfg.MAX_INVENTORY_RATIO:
+        soft_flags.append(f"Inventory growing {_fmt(ir, 'x', 2)} revenue")
     rr = data["receivables_ratio"]
-    if rr is not None and rr>cfg.MAX_RECEIVABLES_RATIO:
-        soft_flags.append(f"Receivables growing {_fmt(rr,'x',2)} revenue")
+    if rr is not None and rr > cfg.MAX_RECEIVABLES_RATIO:
+        soft_flags.append(f"Receivables growing {_fmt(rr, 'x', 2)} revenue")
     if data.get("promoter_trend") == "decreasing":
-        soft_flags.append(f"Promoter holding declining QoQ ({_fmt(data['promoter_holding'],'%')})")
+        soft_flags.append(
+            f"Promoter holding declining QoQ ({_fmt(data['promoter_holding'], '%')})"
+        )
     if data.get("margin_contracting"):
-        soft_flags.append(f"Operating margin contracting over last 3 years")
+        soft_flags.append("Operating margin contracting over last 3 years")
+
     return all(v["pass"] for v in r.values()), r, soft_flags
 
 def classify_fails(criteria):
     real, data_f = [], []
-    for k,v in criteria.items():
+    for k, v in criteria.items():
         if not v["pass"]:
-            if v["label"] == "N/A": data_f.append((k,v["label"],None))
+            if v["label"] == "N/A":
+                data_f.append((k, v["label"], None))
             else:
-                gap = miss_pct(v["value"],k)
-                real.append((k,v["label"],gap))
+                gap = miss_pct(v["value"], k)
+                real.append((k, v["label"], gap))
     return real, data_f
 
 
 # ── AI Queue ──────────────────────────────────────────────────────────────────
 
 def queue_add(sym, name, data, basic, criteria, soft_flags, ai_queue):
-    pending_syms = [e["sym"] for e in ai_queue.get("pending",[])]
-    if sym in ai_queue.get("assessed",{}) or sym in pending_syms:
+    pending_syms = [e["sym"] for e in ai_queue.get("pending", [])]
+    if sym in ai_queue.get("assessed", {}) or sym in pending_syms:
         return False
-    ai_queue.setdefault("pending",[]).append({
+    ai_queue.setdefault("pending", []).append({
         "sym":        sym,
         "name":       name,
         "date_added": date.today().strftime("%Y-%m-%d"),
         "data":       data,
         "basic":      basic,
-        "criteria":   {k:{"value":v["value"],"pass":v["pass"],"label":v["label"]}
-                       for k,v in criteria.items()},
+        "criteria":   {
+            k: {"value": v["value"], "pass": v["pass"], "label": v["label"]}
+            for k, v in criteria.items()
+        },
         "soft_flags": soft_flags,
     })
     return True
 
 def queue_pop_next(ai_queue):
-    pending = ai_queue.get("pending",[])
+    pending = ai_queue.get("pending", [])
     if not pending: return None
     entry = pending.pop(0)
     ai_queue["pending"] = pending
     return entry
 
 def queue_peek_next(ai_queue):
-    pending = ai_queue.get("pending",[])
+    pending = ai_queue.get("pending", [])
     return pending[0]["name"] if pending else None
 
 def queue_mark_assessed(sym, ai_result, ai_queue):
-    ai_queue.setdefault("assessed",{})[sym] = {
+    ai_queue.setdefault("assessed", {})[sym] = {
         "date_assessed": date.today().strftime("%Y-%m-%d"),
         **ai_result,
     }
@@ -627,48 +738,42 @@ def queue_mark_assessed(sym, ai_result, ai_queue):
 
 def ai_assess(sym: str, data: Dict, basic: Dict,
               ar_context: Optional[Dict] = None) -> Dict:
-    """
-    Build prompt with financial data plus annual report sections if available.
-    Returns snapshot JSON.
-    """
-    # Build annual report section for prompt
+    """Build prompt with financials + annual report sections where available."""
+
     ar_block = ""
     if ar_context:
         parts = []
         if ar_context.get("mda"):
             parts.append(
-                f"MANAGEMENT DISCUSSION AND ANALYSIS (from latest annual report):\n"
-                f"{ar_context['mda']}"
+                "MANAGEMENT DISCUSSION AND ANALYSIS "
+                "(from latest annual report):\n" + ar_context["mda"]
             )
         if ar_context.get("auditor"):
             parts.append(
-                f"AUDITOR'S REPORT (extract):\n"
-                f"{ar_context['auditor']}"
+                "AUDITOR'S REPORT (extract):\n" + ar_context["auditor"]
             )
         if ar_context.get("key_audit"):
             parts.append(
-                f"KEY AUDIT MATTERS:\n"
-                f"{ar_context['key_audit']}"
+                "KEY AUDIT MATTERS:\n" + ar_context["key_audit"]
             )
         if ar_context.get("rpt"):
             parts.append(
-                f"RELATED PARTY TRANSACTIONS (extract):\n"
-                f"{ar_context['rpt']}"
+                "RELATED PARTY TRANSACTIONS (extract):\n" + ar_context["rpt"]
             )
         if parts:
             ar_block = (
                 "\n\nANNUAL REPORT EXTRACTS "
-                "(use these to ground your assessment in what management actually said):\n"
+                "(ground your assessment in what management actually said):\n"
                 + "\n\n".join(parts)
             )
-            log.info(f"  Annual report context added to prompt ({len(ar_block):,} chars)")
+            log.info(f"  Annual report context: {len(ar_block):,} chars added to prompt")
 
     prompt = f"""You are writing a concise institutional research snapshot for a value investing publication.
 
 COMPANY: {data['company_name']} (NSE: {sym})
 SECTOR:  {basic['sector']} | INDUSTRY: {basic['industry']}
 MARKET CAP: Rs{basic['market_cap_cr']:,.0f} Cr
-ABOUT:   {(data['about'] or 'Not available')}
+ABOUT:   {data['about'] or 'Not available'}
 
 FINANCIALS:
   ROE {data['roe']}% | D/E {data['de_ratio']} | P/E {data['pe_ratio']}
@@ -680,26 +785,22 @@ TONE RULES:
   Never use: multibagger, hidden gem, massive upside, guaranteed, no-brainer.
   Do not use " - " (dash between words) anywhere in your response.
   Prefer: appears, currently, suggests, may indicate, stands out.
-  Write like a thoughtful analyst reviewing a business, not a promoter.
-  If annual report extracts are provided above, reference specific details
-  from management commentary or auditor observations where relevant.
+  If annual report extracts are provided, reference specific details from
+  management commentary or auditor observations where relevant.
 
-WRITE A SNAPSHOT:
-  Two paragraphs. No headers. No bullet points.
+WRITE A SNAPSHOT — two paragraphs, no headers, no bullet points:
 
-  Paragraph 1: What the business does, where it operates,
-  its key products or services, and primary customer base.
-  If annual report is available, use management's own language
-  about their business segments and strategy. 3-4 sentences.
+  Paragraph 1: What the business does, where it operates, key products or
+  services, primary customer base. If annual report available, use
+  management's own language about business segments. 3-4 sentences.
 
-  Paragraph 2: What stands out financially. Touch on capital
-  efficiency, cash generation, balance sheet quality, or growth
-  trajectory as relevant. If annual report is available, reference
-  specific management commentary on margins, capex plans, or risks.
-  End with one observation about the longer-term question or
-  uncertainty worth monitoring. 3-4 sentences.
+  Paragraph 2: What stands out financially. Capital efficiency, cash
+  generation, balance sheet, growth trajectory. If annual report available,
+  reference specific management commentary on margins, capex, or risks.
+  End with one observation about the longer-term question worth monitoring.
+  3-4 sentences.
 
-Return ONLY this JSON with no other text:
+Return ONLY this JSON:
 {{"score": <1-10>,
 "verdict": "STRONG PASS|PASS|BORDERLINE|FAIL",
 "ar_used": {bool(ar_context)},
@@ -709,27 +810,27 @@ Return ONLY this JSON with no other text:
     try:
         resp = Anthropic(api_key=cfg.ANTHROPIC_API_KEY).messages.create(
             model="claude-sonnet-4-6", max_tokens=700,
-            messages=[{"role":"user","content":prompt}])
+            messages=[{"role": "user", "content": prompt}])
         text = resp.content[0].text.strip()
-        text = re.sub(r"```json?\s*","",text).replace("```","").strip()
-        # Remove control characters that break JSON parsing
+        text = re.sub(r"```json?\s*", "", text).replace("```", "").strip()
         text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', text)
         try:
             return json.loads(text)
         except json.JSONDecodeError:
-            # Fix literal newlines embedded inside JSON string values
             text_fixed = re.sub(
                 r'("snapshot"\s*:\s*")(.*?)("(?:\s*[},]))',
-                lambda m: m.group(1)
+                lambda m: (
+                    m.group(1)
                     + m.group(2).replace('\n', '\\n').replace('\r', '').replace('\t', ' ')
-                    + m.group(3),
-                text, flags=re.DOTALL
+                    + m.group(3)
+                ),
+                text, flags=re.DOTALL,
             )
             return json.loads(text_fixed)
     except Exception as e:
         log.error(f"AI failed {sym}: {e}\n{text[:200]}")
-        return {"score":0,"verdict":"FAIL","ar_used":False,
-                "snapshot":"Assessment unavailable."}
+        return {"score": 0, "verdict": "FAIL", "ar_used": False,
+                "snapshot": "Assessment unavailable."}
 
 
 # ── Links and Helpers ─────────────────────────────────────────────────────────
@@ -742,34 +843,34 @@ def sym_link(sym): return tg_link(sym, screener_url(sym))
 # ── Watchlist Helpers ─────────────────────────────────────────────────────────
 
 def get_previous_watchlist(wl_log, today_str):
-    d = datetime.strptime(today_str,"%Y-%m-%d").date()
-    for i in range(1,8):
-        prev = (d-timedelta(days=i)).strftime("%Y-%m-%d")
+    d = datetime.strptime(today_str, "%Y-%m-%d").date()
+    for i in range(1, 8):
+        prev = (d - timedelta(days=i)).strftime("%Y-%m-%d")
         if prev in wl_log: return wl_log[prev]
     return []
 
 def get_days_on_watchlist(wl_log, sym, today_str):
-    d = datetime.strptime(today_str,"%Y-%m-%d").date(); count = 0
+    d = datetime.strptime(today_str, "%Y-%m-%d").date(); count = 0
     for i in range(365):
-        dd = (d-timedelta(days=i)).strftime("%Y-%m-%d")
-        if sym in wl_log.get(dd,[]): count += 1
+        dd = (d - timedelta(days=i)).strftime("%Y-%m-%d")
+        if sym in wl_log.get(dd, []): count += 1
         elif count > 0: break
     return count
 
 def get_entry_date(wl_log, sym, today_str):
-    d = datetime.strptime(today_str,"%Y-%m-%d").date(); entry = None
+    d = datetime.strptime(today_str, "%Y-%m-%d").date(); entry = None
     for i in range(365):
-        dd = (d-timedelta(days=i)).strftime("%Y-%m-%d")
-        if sym in wl_log.get(dd,[]): entry = dd
+        dd = (d - timedelta(days=i)).strftime("%Y-%m-%d")
+        if sym in wl_log.get(dd, []): entry = dd
         elif entry: break
     return entry
 
 def get_30day_eligible(wl_log, reference_date):
     counts = {}
     for i in range(30):
-        d = (reference_date-timedelta(days=i+1)).strftime("%Y-%m-%d")
-        for sym in wl_log.get(d,[]):
-            counts[sym] = counts.get(sym,0)+1
+        d = (reference_date - timedelta(days=i+1)).strftime("%Y-%m-%d")
+        for sym in wl_log.get(d, []):
+            counts[sym] = counts.get(sym, 0) + 1
     return counts
 
 
@@ -777,31 +878,45 @@ def get_30day_eligible(wl_log, reference_date):
 
 def log_near_miss(sym, name, real_fails, date_str):
     exists = os.path.exists(NEAR_MISS_LOG_PATH)
-    with open(NEAR_MISS_LOG_PATH,"a",newline="",encoding="utf-8") as f:
+    with open(NEAR_MISS_LOG_PATH, "a", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        if not exists: w.writerow(["date","symbol","name","failed_count","criterion","detail","miss_pct"])
-        for criterion,detail,gap in real_fails:
-            w.writerow([date_str,sym,name,len(real_fails),criterion,detail,gap or ""])
+        if not exists:
+            w.writerow(["date","symbol","name","failed_count","criterion","detail","miss_pct"])
+        for criterion, detail, gap in real_fails:
+            w.writerow([date_str, sym, name, len(real_fails), criterion, detail, gap or ""])
 
 def get_weekly_near_misses(today):
     if not os.path.exists(NEAR_MISS_LOG_PATH): return []
-    cutoff = today-timedelta(days=7); results = {}
+    cutoff  = today - timedelta(days=7)
+    results = {}
     try:
-        with open(NEAR_MISS_LOG_PATH,"r",encoding="utf-8") as f:
+        with open(NEAR_MISS_LOG_PATH, "r", encoding="utf-8") as f:
             for row in csv.DictReader(f):
                 try:
-                    rd = datetime.strptime(row["date"],"%Y-%m-%d").date()
+                    rd  = datetime.strptime(row["date"], "%Y-%m-%d").date()
                     if rd < cutoff: continue
                     sym = row["symbol"]
-                    if sym not in results or rd > datetime.strptime(results[sym]["date"],"%Y-%m-%d").date():
-                        results[sym] = {"date":row["date"],"symbol":sym,"name":row["name"],
-                                        "failed_count":int(row["failed_count"]),"criteria":[]}
-                    gap = row.get("miss_pct","")
-                    results[sym]["criteria"].append((row["criterion"],row["detail"],float(gap) if gap else None))
-                except: pass
-    except Exception as e: log.warning(f"NM log: {e}")
+                    if sym not in results or rd > datetime.strptime(
+                        results[sym]["date"], "%Y-%m-%d"
+                    ).date():
+                        results[sym] = {
+                            "date":         row["date"],
+                            "symbol":       sym,
+                            "name":         row["name"],
+                            "failed_count": int(row["failed_count"]),
+                            "criteria":     [],
+                        }
+                    gap = row.get("miss_pct", "")
+                    results[sym]["criteria"].append(
+                        (row["criterion"], row["detail"], float(gap) if gap else None)
+                    )
+                except Exception:
+                    pass
+    except Exception as e:
+        log.warning(f"NM log: {e}")
+
     def sort_key(nm):
-        gaps = [g for _,_,g in nm["criteria"] if g is not None]
+        gaps = [g for _, _, g in nm["criteria"] if g is not None]
         return min(gaps) if gaps else 999
     return sorted(results.values(), key=sort_key)
 
@@ -811,11 +926,13 @@ def get_weekly_near_misses(today):
 def was_recently_alerted(sym, alerts_log):
     if sym not in alerts_log: return False
     try:
-        last = datetime.strptime(alerts_log[sym],"%Y-%m-%d").date()
-        return (date.today()-last).days < cfg.ALERT_COOLDOWN_DAYS
-    except: return False
+        last = datetime.strptime(alerts_log[sym], "%Y-%m-%d").date()
+        return (date.today() - last).days < cfg.ALERT_COOLDOWN_DAYS
+    except Exception:
+        return False
 
-def mark_alerted(sym, alerts_log, today_str): alerts_log[sym] = today_str
+def mark_alerted(sym, alerts_log, today_str):
+    alerts_log[sym] = today_str
 
 
 # ── SIP Tracker ───────────────────────────────────────────────────────────────
@@ -823,62 +940,102 @@ def mark_alerted(sym, alerts_log, today_str): alerts_log[sym] = today_str
 def _fetch_price(sym, target_date):
     try:
         ts = sym if sym.startswith("^") else f"{sym}.NS"
-        h  = yf.Ticker(ts).history(start=target_date.strftime("%Y-%m-%d"),
-                                    end=(target_date+timedelta(days=7)).strftime("%Y-%m-%d"))
-        return round(float(h["Close"].iloc[0]),2) if not h.empty else None
-    except: return None
+        h  = yf.Ticker(ts).history(
+            start=target_date.strftime("%Y-%m-%d"),
+            end=(target_date + timedelta(days=7)).strftime("%Y-%m-%d"),
+        )
+        return round(float(h["Close"].iloc[0]), 2) if not h.empty else None
+    except Exception:
+        return None
 
 def _fetch_current_price(sym):
     try:
         ts = sym if sym.startswith("^") else f"{sym}.NS"
         h  = yf.Ticker(ts).history(period="5d")
-        return round(float(h["Close"].iloc[-1]),2) if not h.empty else None
-    except: return None
+        return round(float(h["Close"].iloc[-1]), 2) if not h.empty else None
+    except Exception:
+        return None
 
 def calculate_monthly_sip(wl_log, perf_log, today):
     month_key = today.strftime("%Y-%m")
-    if month_key in [e["month"] for e in perf_log.get("sip_entries",[])]:
+    if month_key in [e["month"] for e in perf_log.get("sip_entries", [])]:
         log.info(f"SIP done {month_key}"); return
     eligible = get_30day_eligible(wl_log, today)
-    bp = _fetch_price(cfg.BENCHMARK_TICKER, today)
+    bp       = _fetch_price(cfg.BENCHMARK_TICKER, today)
     if not eligible:
-        gp = _fetch_price(cfg.GOLD_ETF_SYMBOL, today)
-        entry = {"month":month_key,"date":today.strftime("%Y-%m-%d"),"type":"gold_fallback",
-                 "allocations":[{"symbol":cfg.GOLD_ETF_SYMBOL,"name":"GOLDBEES","price_entry":gp,
-                                  "shares":round(cfg.SIP_AMOUNT_INR/gp,4) if gp else 0}],
-                 "amount_per_stock":cfg.SIP_AMOUNT_INR,"total_deployed":cfg.SIP_AMOUNT_INR,
-                 "benchmark_price_entry":bp}
+        gp    = _fetch_price(cfg.GOLD_ETF_SYMBOL, today)
+        entry = {
+            "month": month_key, "date": today.strftime("%Y-%m-%d"),
+            "type": "gold_fallback",
+            "allocations": [{
+                "symbol": cfg.GOLD_ETF_SYMBOL, "name": "GOLDBEES",
+                "price_entry": gp,
+                "shares": round(cfg.SIP_AMOUNT_INR / gp, 4) if gp else 0,
+            }],
+            "amount_per_stock":      cfg.SIP_AMOUNT_INR,
+            "total_deployed":        cfg.SIP_AMOUNT_INR,
+            "benchmark_price_entry": bp,
+        }
     else:
-        ae = cfg.SIP_AMOUNT_INR/len(eligible)
-        allocs = [{"symbol":s,"price_entry":p,"shares":round(ae/p,4),"days_on_list":eligible[s]}
-                  for s in eligible for p in [_fetch_price(s,today)] if p and p>0]
-        entry = {"month":month_key,"date":today.strftime("%Y-%m-%d"),"type":"stocks",
-                 "allocations":allocs,"amount_per_stock":round(ae,2),
-                 "total_deployed":cfg.SIP_AMOUNT_INR,"benchmark_price_entry":bp}
-    perf_log.setdefault("sip_entries",[]).append(entry)
-    save_json(PERFORMANCE_LOG_PATH, perf_log); log.info(f"SIP recorded {month_key}")
+        ae    = cfg.SIP_AMOUNT_INR / len(eligible)
+        allocs = [
+            {"symbol": s, "price_entry": p, "shares": round(ae / p, 4),
+             "days_on_list": eligible[s]}
+            for s in eligible
+            for p in [_fetch_price(s, today)]
+            if p and p > 0
+        ]
+        entry = {
+            "month": month_key, "date": today.strftime("%Y-%m-%d"),
+            "type": "stocks", "allocations": allocs,
+            "amount_per_stock":      round(ae, 2),
+            "total_deployed":        cfg.SIP_AMOUNT_INR,
+            "benchmark_price_entry": bp,
+        }
+    perf_log.setdefault("sip_entries", []).append(entry)
+    save_json(PERFORMANCE_LOG_PATH, perf_log)
+    log.info(f"SIP recorded {month_key}")
 
 def get_portfolio_performance(perf_log):
-    results = []; bc = _fetch_current_price(cfg.BENCHMARK_TICKER)
-    for entry in perf_log.get("sip_entries",[]):
-        res = {"month":entry["month"],"date":entry["date"],"type":entry["type"],
-               "total_deployed":entry["total_deployed"],"allocations":[],"total_current":0.0,
-               "return_pct":None,"bench_pct":None,"alpha":None}
+    results = []
+    bc      = _fetch_current_price(cfg.BENCHMARK_TICKER)
+    for entry in perf_log.get("sip_entries", []):
+        res = {
+            "month":          entry["month"],
+            "date":           entry["date"],
+            "type":           entry["type"],
+            "total_deployed": entry["total_deployed"],
+            "allocations":    [],
+            "total_current":  0.0,
+            "return_pct":     None,
+            "bench_pct":      None,
+            "alpha":          None,
+        }
         be = entry.get("benchmark_price_entry")
-        if be and bc: res["bench_pct"] = round(((bc-be)/be)*100,2)
+        if be and bc:
+            res["bench_pct"] = round(((bc - be) / be) * 100, 2)
         tc = 0.0
-        for a in entry.get("allocations",[]):
-            cp = _fetch_current_price(a["symbol"]); ep = a.get("price_entry"); sh = a.get("shares",0)
+        for a in entry.get("allocations", []):
+            cp = _fetch_current_price(a["symbol"])
+            ep = a.get("price_entry")
+            sh = a.get("shares", 0)
             if cp and ep and sh:
-                cv = sh*cp
-                res["allocations"].append({**a,"price_current":cp,"current_value":round(cv,2),
-                                           "pct_change":round(((cp-ep)/ep)*100,2)})
+                cv = sh * cp
+                res["allocations"].append({
+                    **a, "price_current": cp,
+                    "current_value": round(cv, 2),
+                    "pct_change":    round(((cp - ep) / ep) * 100, 2),
+                })
                 tc += cv
-            else: res["allocations"].append({**a,"price_current":None})
+            else:
+                res["allocations"].append({**a, "price_current": None})
         if tc > 0:
-            res["total_current"] = round(tc,2)
-            res["return_pct"] = round(((tc-entry["total_deployed"])/entry["total_deployed"])*100,2)
-            if res["bench_pct"] is not None: res["alpha"] = round(res["return_pct"]-res["bench_pct"],2)
+            res["total_current"] = round(tc, 2)
+            res["return_pct"]    = round(
+                ((tc - entry["total_deployed"]) / entry["total_deployed"]) * 100, 2
+            )
+            if res["bench_pct"] is not None:
+                res["alpha"] = round(res["return_pct"] - res["bench_pct"], 2)
         results.append(res)
     return results
 
@@ -886,12 +1043,13 @@ def get_portfolio_performance(perf_log):
 # ── Telegram ──────────────────────────────────────────────────────────────────
 
 def send_whatsapp(text):
-    url = f"https://api.telegram.org/bot{cfg.TELEGRAM_BOT_TOKEN}/sendMessage"
+    url    = f"https://api.telegram.org/bot{cfg.TELEGRAM_BOT_TOKEN}/sendMessage"
     chunks = []
     while len(text) > 4000:
-        split_at = text.rfind("\n",0,4000)
+        split_at = text.rfind("\n", 0, 4000)
         if split_at == -1: split_at = 4000
-        chunks.append(text[:split_at]); text = text[split_at:].lstrip("\n")
+        chunks.append(text[:split_at])
+        text = text[split_at:].lstrip("\n")
     chunks.append(text)
     all_sent = True
     for chunk in chunks:
@@ -902,19 +1060,24 @@ def send_whatsapp(text):
                 "parse_mode":               "Markdown",
                 "disable_web_page_preview": True,
             }, timeout=15)
-            if r.status_code == 200: log.info("Telegram sent ✅")
-            else: log.error(f"Telegram {r.status_code}: {r.text[:200]}"); all_sent = False
+            if r.status_code == 200:
+                log.info("Telegram sent ✅")
+            else:
+                log.error(f"Telegram {r.status_code}: {r.text[:200]}")
+                all_sent = False
             time.sleep(1)
-        except Exception as e: log.error(f"Telegram failed: {e}"); all_sent = False
+        except Exception as e:
+            log.error(f"Telegram failed: {e}")
+            all_sent = False
     return all_sent
 
 
 # ── Message Formatting ────────────────────────────────────────────────────────
 
 def format_daily_summary(run_stats, today_wl, wl_log, today_str, ai_queue):
-    ts = datetime.now().strftime("%a, %d %b %Y")
-    assessed_syms  = set(ai_queue.get("assessed",{}).keys())
-    pending_syms   = [e["sym"] for e in ai_queue.get("pending",[])]
+    ts             = datetime.now().strftime("%a, %d %b %Y")
+    assessed_syms  = set(ai_queue.get("assessed", {}).keys())
+    pending_syms   = [e["sym"] for e in ai_queue.get("pending", [])]
     pending_count  = len(pending_syms)
     assessed_count = len(assessed_syms)
 
@@ -922,7 +1085,7 @@ def format_daily_summary(run_stats, today_wl, wl_log, today_str, ai_queue):
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         f"ALPHA WATCH  |  {ts}\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
-        f"Scanned:     {run_stats.get('total',0):,}\n"
+        f"Scanned:     {run_stats.get('total', 0):,}\n"
         f"Qualified:   {len(today_wl)}\n\n"
         f"Assessment Queue:  {pending_count} pending  |  {assessed_count} assessed"
     )
@@ -933,7 +1096,7 @@ def format_daily_summary(run_stats, today_wl, wl_log, today_str, ai_queue):
             if sym in assessed_syms:
                 status = "✅ Assessed"
             elif sym in pending_syms:
-                pos = pending_syms.index(sym) + 1
+                pos    = pending_syms.index(sym) + 1
                 status = f"⏳ Queue #{pos}"
             else:
                 status = "⏳ Queue"
@@ -952,10 +1115,10 @@ def format_daily_summary(run_stats, today_wl, wl_log, today_str, ai_queue):
     # Longest Active — only if >7 days
     la_block = ""
     days_map = {sym: get_days_on_watchlist(wl_log, sym, today_str) for sym in today_wl}
-    longest = sorted(today_wl, key=lambda s: days_map.get(s,0), reverse=True)
+    longest  = sorted(today_wl, key=lambda s: days_map.get(s, 0), reverse=True)
     if longest and days_map.get(longest[0], 0) > 7:
         la_lines = "\n".join(
-            f"  {sym_link(s):<30} {days_map.get(s,1)} days"
+            f"  {sym_link(s):<30} {days_map.get(s, 1)} days"
             for s in longest[:5]
         )
         la_block = (
@@ -981,7 +1144,7 @@ def format_exit_notice(sym, name, real_fails, days, entry_date):
         criterion, actual_val, _ = real_fails[0]
         reason_line = f"{criterion} threshold ({actual_val})"
         if len(real_fails) > 1:
-            others = ", ".join(f"{k}" for k,_,__ in real_fails[1:])
+            others = ", ".join(k for k, _, __ in real_fails[1:])
             reason_line += f"\nAlso: {others}"
     else:
         reason_line = "criteria no longer met"
@@ -998,11 +1161,11 @@ def format_exit_notice(sym, name, real_fails, days, entry_date):
 
 
 def format_company_snapshot(entry, ai, next_name):
-    sym      = entry["sym"]
-    name     = entry["name"]
-    data     = entry["data"]
-    basic    = entry["basic"]
-    criteria = entry["criteria"]
+    sym        = entry["sym"]
+    name       = entry["name"]
+    data       = entry["data"]
+    basic      = entry["basic"]
+    criteria   = entry["criteria"]
     soft_flags = entry["soft_flags"]
 
     mc  = basic["market_cap_cr"]
@@ -1016,28 +1179,25 @@ def format_company_snapshot(entry, ai, next_name):
     ra  = data.get("roce_3y_avg")
     pe  = data.get("pe_ratio")
 
-    pp_str = _fmt(pp,"%") if pp is not None else "0% (nil)"
+    pp_str = _fmt(pp, "%") if pp is not None else "0% (nil)"
 
     qual_lines = [
         f"• {'Market Cap':<22} Rs{mc:,.0f} Cr",
-        f"• {'Debt / Equity':<22} {_fmt(de,decimals=2)}",
-        f"• {'ROE':<22} {_fmt(roe,'%')}",
-        f"• {'Revenue CAGR 5Y':<22} {_fmt(rg,'%')}",
-        f"• {'FCF / PAT':<22} {_fmt(fp,decimals=2)}",
-        f"• {'Promoter Holding':<22} {_fmt(ph,'%')}",
+        f"• {'Debt / Equity':<22} {_fmt(de, decimals=2)}",
+        f"• {'ROE':<22} {_fmt(roe, '%')}",
+        f"• {'Revenue CAGR 5Y':<22} {_fmt(rg, '%')}",
+        f"• {'FCF / PAT':<22} {_fmt(fp, decimals=2)}",
+        f"• {'Promoter Holding':<22} {_fmt(ph, '%')}",
         f"• {'Promoter Pledge':<22} {pp_str}",
-        f"• {'PEG Ratio':<22} {_fmt(peg,decimals=2)}",
-        f"• {'ROCE (3Y avg)':<22} {_fmt(ra,'%')}",
+        f"• {'PEG Ratio':<22} {_fmt(peg, decimals=2)}",
+        f"• {'ROCE (3Y avg)':<22} {_fmt(ra, '%')}",
     ]
     if pe:
-        qual_lines.append(f"• {'P/E':<22} {_fmt(pe,decimals=1)}  (reference)")
+        qual_lines.append(f"• {'P/E':<22} {_fmt(pe, decimals=1)}  (reference)")
     for sf in soft_flags:
         qual_lines.append(f"⚠️  {sf}")
 
-    # Show if annual report was used
-    ar_note = ""
-    if ai.get("ar_used"):
-        ar_note = "\n_(Assessment informed by latest annual report)_"
+    ar_note = "\n_(Assessment informed by latest annual report)_" if ai.get("ar_used") else ""
 
     tomorrow_block = ""
     if next_name:
@@ -1052,13 +1212,13 @@ def format_company_snapshot(entry, ai, next_name):
     return (
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         f"COMPANY SNAPSHOT  |  {name_link}\n"
-        f"NSE: {sym}  |  {basic.get('sector','')}\n"
+        f"NSE: {sym}  |  {basic.get('sector', '')}\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
         f"QUALIFIED ON\n\n"
-        + "\n".join(qual_lines) +
-        f"\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        + "\n".join(qual_lines)
+        + f"\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         f"SNAPSHOT{ar_note}\n\n"
-        f"{ai.get('snapshot','Not available')}\n\n"
+        f"{ai.get('snapshot', 'Not available')}\n\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         f"{tomorrow_block}"
         f"Full research note:\n{substack_url}\n\n"
@@ -1070,49 +1230,77 @@ def format_company_snapshot(entry, ai, next_name):
 
 def format_weekly_report(today, wl_log, perf_results, weekly_nms):
     ts = today.strftime("%d %b %Y")
+
     if weekly_nms:
-        ones = [nm for nm in weekly_nms if nm["failed_count"]==1]
-        twos = [nm for nm in weekly_nms if nm["failed_count"]==2]
+        ones = [nm for nm in weekly_nms if nm["failed_count"] == 1]
+        twos = [nm for nm in weekly_nms if nm["failed_count"] == 2]
+
         def nm_line(nm):
             parts = []
-            for criterion,detail,gap in nm["criteria"]:
-                gap_str = f" (missed by {_fmt(gap,'%',0)})" if gap is not None else ""
+            for criterion, detail, gap in nm["criteria"]:
+                gap_str = f" (missed by {_fmt(gap, '%', 0)})" if gap is not None else ""
                 parts.append(f"{criterion}: {detail}{gap_str}")
             return f"  {sym_link(nm['symbol']):<30} {',  '.join(parts)}"
-        secs = []
-        if ones: secs.append("Missed by 1 criterion:\n"+"\n".join(nm_line(nm) for nm in ones))
-        if twos: secs.append("Missed by 2 criteria:\n"+"\n".join(nm_line(nm) for nm in twos))
-        nb = "NEAR-MISSES THIS WEEK\n_(sorted closest to qualifying first)_\n\n"+"\n\n".join(secs)
-    else: nb = "NEAR-MISSES THIS WEEK\n  None this week."
 
-    if not perf_results: pb = "PAPER PORTFOLIO\n  No SIP entries yet."
+        secs = []
+        if ones:
+            secs.append("Missed by 1 criterion:\n" + "\n".join(nm_line(nm) for nm in ones))
+        if twos:
+            secs.append("Missed by 2 criteria:\n" + "\n".join(nm_line(nm) for nm in twos))
+        nb = (
+            "NEAR-MISSES THIS WEEK\n"
+            "_(sorted closest to qualifying first)_\n\n"
+            + "\n\n".join(secs)
+        )
     else:
-        batches=[]; td=tc=0.0
-        for res in sorted(perf_results,key=lambda x:x["month"],reverse=True):
+        nb = "NEAR-MISSES THIS WEEK\n  None this week."
+
+    if not perf_results:
+        pb = "PAPER PORTFOLIO\n  No SIP entries yet."
+    else:
+        batches = []
+        td = tc = 0.0
+        for res in sorted(perf_results, key=lambda x: x["month"], reverse=True):
             al_lines = []
-            for a in res.get("allocations",[]):
-                chg = a.get("pct_change"); chg_s = f"{chg:+.1f}%" if chg is not None else "pending"
+            for a in res.get("allocations", []):
+                chg   = a.get("pct_change")
+                chg_s = f"{chg:+.1f}%" if chg is not None else "pending"
                 al_lines.append(
                     f"    {sym_link(a['symbol']):<30} "
-                    f"Rs{a.get('price_entry','?')} to Rs{a.get('price_current','?')}  {chg_s}")
-            r=res.get("return_pct"); b=res.get("bench_pct"); al2=res.get("alpha")
-            rs=f"{r:+.1f}%" if r is not None else "pending"
-            vs=(f"vs Nifty50: {b:+.1f}%  |  Alpha: {al2:+.1f}%"
-                if b is not None and al2 is not None else "pending")
-            beat="✅" if al2 is not None and al2>=0 else "❌"
-            btype="Gold" if res["type"]=="gold_fallback" else "Stocks"
-            batches.append(f"─ {res['month']}  ({btype})\n"+"\n".join(al_lines)
-                           +f"\n  Return: *{rs}*  {beat}\n  {vs}")
-            td+=res.get("total_deployed",0)
-            tc+=res.get("total_current") or res.get("total_deployed",0)
-        ar=(tc-td)/td*100 if td>0 else 0; m=len(perf_results)
-        gm=sum(1 for r in perf_results if r["type"]=="gold_fallback")
-        at=(f"─ ALL-TIME ({m} month{'s' if m!=1 else ''})\n"
+                    f"Rs{a.get('price_entry', '?')} to Rs{a.get('price_current', '?')}  {chg_s}"
+                )
+            r   = res.get("return_pct")
+            b   = res.get("bench_pct")
+            al2 = res.get("alpha")
+            rs  = f"{r:+.1f}%" if r is not None else "pending"
+            vs  = (
+                f"vs Nifty50: {b:+.1f}%  |  Alpha: {al2:+.1f}%"
+                if b is not None and al2 is not None else "pending"
+            )
+            beat  = "✅" if al2 is not None and al2 >= 0 else "❌"
+            btype = "Gold" if res["type"] == "gold_fallback" else "Stocks"
+            batches.append(
+                f"─ {res['month']}  ({btype})\n"
+                + "\n".join(al_lines)
+                + f"\n  Return: *{rs}*  {beat}\n  {vs}"
+            )
+            td += res.get("total_deployed", 0)
+            tc += res.get("total_current") or res.get("total_deployed", 0)
+
+        ar  = (tc - td) / td * 100 if td > 0 else 0
+        m   = len(perf_results)
+        gm  = sum(1 for r in perf_results if r["type"] == "gold_fallback")
+        at  = (
+            f"─ ALL-TIME ({m} month{'s' if m != 1 else ''})\n"
             f"  Deployed: Rs{td:,.0f}  |  Value: Rs{tc:,.0f}\n"
-            f"  Return: {ar:+.1f}%  |  Gold months: {gm}/{m}")
-        pb=(f"PAPER PORTFOLIO\n"
+            f"  Return: {ar:+.1f}%  |  Gold months: {gm}/{m}"
+        )
+        pb = (
+            f"PAPER PORTFOLIO\n"
             f"Rs{cfg.SIP_AMOUNT_INR/100_000:.0f}L SIP on 1st  |  Benchmark: Nifty 50\n\n"
-            +"\n\n".join(batches)+"\n\n"+at)
+            + "\n\n".join(batches)
+            + "\n\n" + at
+        )
 
     return (
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
@@ -1131,13 +1319,13 @@ def format_weekly_report(today, wl_log, perf_results, weekly_nms):
 
 def run_weekly_report_only():
     today    = date.today()
-    perf_log = load_json(PERFORMANCE_LOG_PATH,{"sip_entries":[]})
-    wl_log   = load_json(WATCHLIST_LOG_PATH,{})
+    perf_log = load_json(PERFORMANCE_LOG_PATH, {"sip_entries": []})
+    wl_log   = load_json(WATCHLIST_LOG_PATH,   {})
     log.info("Saturday mode — weekly report…")
     send_whatsapp(format_weekly_report(
         today, wl_log,
         get_portfolio_performance(perf_log),
-        get_weekly_near_misses(today)
+        get_weekly_near_misses(today),
     ))
     log.info("Weekly report sent ✅")
 
@@ -1145,34 +1333,38 @@ def run_weekly_report_only():
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    mode = os.getenv("SCREENER_MODE","screener").lower()
+    mode = os.getenv("SCREENER_MODE", "screener").lower()
     if mode == "weekly_report":
-        run_weekly_report_only(); return
+        run_weekly_report_only()
+        return
 
     today     = date.today()
     today_str = today.strftime("%Y-%m-%d")
     is_first  = today.day == 1
 
-    log.info("="*60)
-    log.info(f"NSE Screener v2.8  |  {today.strftime('%A, %d %b %Y')}")
-    log.info("="*60)
+    log.info("=" * 60)
+    log.info(f"NSE Screener v2.9  |  {today.strftime('%A, %d %b %Y')}")
+    log.info("=" * 60)
 
-    alerts_log = load_json(ALERTS_LOG_PATH,{})
-    wl_log     = load_json(WATCHLIST_LOG_PATH,{})
-    perf_log   = load_json(PERFORMANCE_LOG_PATH,{"sip_entries":[]})
-    ai_queue   = load_json(AI_QUEUE_PATH,{"pending":[],"assessed":{}})
+    alerts_log = load_json(ALERTS_LOG_PATH,      {})
+    wl_log     = load_json(WATCHLIST_LOG_PATH,   {})
+    perf_log   = load_json(PERFORMANCE_LOG_PATH, {"sip_entries": []})
+    ai_queue   = load_json(AI_QUEUE_PATH,        {"pending": [], "assessed": {}})
 
     if is_first:
-        log.info("\nSIP Day…"); calculate_monthly_sip(wl_log,perf_log,today)
+        log.info("\nSIP Day…")
+        calculate_monthly_sip(wl_log, perf_log, today)
 
     log.info("\nLoading NSE universe…")
     symbols = fetch_nse_all()
-    if not symbols: log.error("No symbols."); sys.exit(1)
-    log.info(f"  {len(symbols)} symbols")
+    if not symbols:
+        log.error("No symbols."); sys.exit(1)
+    log.info(f"  {len(symbols)} symbols  |  {len(ISIN_MAP)} ISINs in map")
 
     log.info(f"\nPass 1 ({len(symbols)} stocks)…")
     p1 = pass1_yfinance(symbols)
-    if not p1: log.info("None survived."); return
+    if not p1:
+        log.info("None survived."); return
     log.info(f"  {len(p1)} survived")
 
     prev_wl     = get_previous_watchlist(wl_log, today_str)
@@ -1181,12 +1373,12 @@ def main():
 
     exits_to_send = []
     for sym in prev_wl_set - p1_set:
-        days  = get_days_on_watchlist(wl_log,sym,today_str)
-        entry = get_entry_date(wl_log,sym,today_str)
+        days  = get_days_on_watchlist(wl_log, sym, today_str)
+        entry = get_entry_date(wl_log, sym, today_str)
         exits_to_send.append({
-            "sym":sym,"name":sym,
-            "real_fails":[("Pass 1","Market cap or BFSI",None)],
-            "days":days,"entry":entry
+            "sym": sym, "name": sym,
+            "real_fails": [("Pass 1", "Market cap or BFSI", None)],
+            "days": days, "entry": entry,
         })
 
     log.info(f"\nPass 2 ({len(p1)} stocks)…")
@@ -1197,35 +1389,42 @@ def main():
         log.info(f"  [{idx:>3}/{len(p1)}] {sym}…")
         try:
             data = get_fundamentals(sym)
-            if not data: time.sleep(2.5); continue
+            if not data:
+                time.sleep(2.5); continue
             if not data["pe_ratio"] and basic.get("pe_yf"):
                 data["pe_ratio"] = basic["pe_yf"]
-                if data.get("eps_growth_5y") and data["eps_growth_5y"]>0:
-                    data["peg_ratio"] = round(data["pe_ratio"]/data["eps_growth_5y"],2)
+                if data.get("eps_growth_5y") and data["eps_growth_5y"] > 0:
+                    data["peg_ratio"] = round(
+                        data["pe_ratio"] / data["eps_growth_5y"], 2
+                    )
 
             passed, criteria, soft_flags = quant_filter(data, basic)
-            real_fails, data_fails = classify_fails(criteria)
+            real_fails, data_fails       = classify_fails(criteria)
 
             if passed:
-                log.info(f"  ✅  {sym} (BSE: {data.get('bse_code','unknown')})")
+                log.info(f"  ✅  {sym} (BSE: {data.get('bse_code') or 'N/A'}, "
+                         f"ISIN: {ISIN_MAP.get(sym) or 'N/A'})")
                 today_wl.append(sym)
                 queue_add(sym, data["company_name"], data, basic,
                           criteria, soft_flags, ai_queue)
             else:
                 if sym in prev_wl_set:
-                    days  = get_days_on_watchlist(wl_log,sym,today_str)
-                    entry = get_entry_date(wl_log,sym,today_str)
+                    days  = get_days_on_watchlist(wl_log, sym, today_str)
+                    entry = get_entry_date(wl_log, sym, today_str)
                     exits_to_send.append({
-                        "sym":sym,"name":data["company_name"],
-                        "real_fails":real_fails,"days":days,"entry":entry
+                        "sym": sym, "name": data["company_name"],
+                        "real_fails": real_fails, "days": days, "entry": entry,
                     })
                     prev_wl_set.discard(sym)
                 if real_fails and len(real_fails) <= cfg.NEAR_MISS_MAX_FAILS:
-                    all_close = all(gap is not None and gap <= cfg.NEAR_MISS_MAX_GAP_PCT
-                                    for _,_,gap in real_fails)
+                    all_close = all(
+                        gap is not None and gap <= cfg.NEAR_MISS_MAX_GAP_PCT
+                        for _, _, gap in real_fails
+                    )
                     if all_close:
-                        log_near_miss(sym,data["company_name"],real_fails,today_str)
-        except Exception as e: log.error(f"  Error {sym}: {e}")
+                        log_near_miss(sym, data["company_name"], real_fails, today_str)
+        except Exception as e:
+            log.error(f"  Error {sym}: {e}")
         time.sleep(2.5)
 
     log.info(f"\n  Pass 2: {len(today_wl)} qualified")
@@ -1233,7 +1432,7 @@ def main():
     save_json(WATCHLIST_LOG_PATH, wl_log)
 
     # ── 1. ALPHA WATCH ────────────────────────────────────────────────────────
-    run_stats = {"total":len(symbols),"pass1":len(p1),"pass2":len(today_wl)}
+    run_stats = {"total": len(symbols), "pass1": len(p1), "pass2": len(today_wl)}
     send_whatsapp(format_daily_summary(
         run_stats, today_wl, wl_log, today_str, ai_queue
     ))
@@ -1249,13 +1448,12 @@ def main():
     if ai_queue.get("pending"):
         entry = queue_pop_next(ai_queue)
         if entry:
-            sym  = entry["sym"]
-            data = entry["data"]
-            basic= entry["basic"]
+            sym   = entry["sym"]
+            data  = entry["data"]
+            basic = entry["basic"]
 
-            # Fetch annual report context using stored BSE code
-            bse_code  = data.get("bse_code")
-            ar_context = get_annual_report_context(sym, bse_code)
+            # Fetch annual report — ISIN primary, BSE code fallback
+            ar_context = get_annual_report_context(sym, data.get("bse_code"))
 
             log.info(f"\nCompany Snapshot: {sym}…")
             ai        = ai_assess(sym, data, basic, ar_context)
@@ -1263,13 +1461,15 @@ def main():
             next_name = queue_peek_next(ai_queue)
 
             send_whatsapp(format_company_snapshot(entry, ai, next_name))
-            log.info(f"  {sym}: {ai.get('verdict','?')} ({ai.get('score',0)}/10) "
-                     f"| annual report: {'yes' if ar_context else 'no'}")
+            log.info(
+                f"  {sym}: {ai.get('verdict', '?')} ({ai.get('score', 0)}/10) "
+                f"| annual report: {'yes' if ar_context else 'no'}"
+            )
     else:
         log.info("\nQueue empty — no snapshot today")
 
-    save_json(AI_QUEUE_PATH, ai_queue)
-    save_json(ALERTS_LOG_PATH, alerts_log)
+    save_json(AI_QUEUE_PATH,    ai_queue)
+    save_json(ALERTS_LOG_PATH,  alerts_log)
 
     log.info(f"\n{'='*60}\nDone. Watchlist: {len(today_wl)} stocks.\n{'='*60}\n")
 
