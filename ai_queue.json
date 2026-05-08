@@ -1,121 +1,6 @@
 {
   "pending": [
     {
-      "sym": "COALINDIA",
-      "name": "Coal India Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Coal India Ltd",
-        "about": "",
-        "roe": 28.5,
-        "de_ratio": 0.12,
-        "pe_ratio": 9.37,
-        "peg_ratio": 0.48,
-        "eps_growth_5y": 19.6,
-        "revenue_growth_5y": 13.3,
-        "roce_3y_avg": 42.7,
-        "roce_history": [
-          43.9,
-          53.0,
-          67.9,
-          53.7,
-          43.5,
-          31.0
-        ],
-        "fcf_to_pat": 0.87,
-        "promoter_holding": 63.13,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": true,
-        "_sales_cr": [
-          109715.0,
-          138252.0,
-          144762.0,
-          143369.0,
-          168400.0
-        ],
-        "_eps": [
-          28.17,
-          51.54,
-          60.69,
-          57.37,
-          50.46
-        ],
-        "_roce": [
-          53.0,
-          67.9,
-          53.7,
-          43.5,
-          31.0
-        ],
-        "_opm": [
-          33.1,
-          32.8,
-          24.5
-        ]
-      },
-      "basic": {
-        "symbol": "COALINDIA",
-        "name": "Coal India Limited",
-        "sector": "Energy",
-        "industry": "Thermal Coal",
-        "market_cap_cr": 291250.6,
-        "pe_yf": 9.37
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 291250.6,
-          "pass": true,
-          "label": "Rs291,251Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.12,
-          "pass": true,
-          "label": "0.12"
-        },
-        "ROE": {
-          "value": 28.5,
-          "pass": true,
-          "label": "28.5%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 13.3,
-          "pass": true,
-          "label": "13.3%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 42.7,
-          "pass": true,
-          "label": "42.7%  hist:[53.0, 67.9, 53.7, 43.5, 31.0]"
-        },
-        "FCF / PAT": {
-          "value": 0.87,
-          "pass": true,
-          "label": "0.87"
-        },
-        "Promoter Holding": {
-          "value": 63.13,
-          "pass": true,
-          "label": "63.1%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.48,
-          "pass": true,
-          "label": "0.48"
-        }
-      },
-      "soft_flags": [
-        "Operating margin contracting [33.1, 32.8, 24.5]"
-      ]
-    },
-    {
       "sym": "ECLERX",
       "name": "eClerx Services Ltd",
       "date_added": "2026-05-05",
@@ -3168,6 +3053,13 @@
       "verdict": "STRONG PASS",
       "ar_used": false,
       "snapshot": "Chennai Petroleum Corporation Ltd (CPCL) operates as a mid-sized oil refining company based in Tamil Nadu, functioning as a subsidiary within the Indian Oil Corporation group. The company runs refineries at Manali near Chennai and at Cauvery Basin in Nagapattinam, with a combined crude processing capacity that serves the southern Indian market. Its primary outputs include petrol, diesel, liquefied petroleum gas, kerosene, aviation turbine fuel, and a range of petrochemical feedstocks. The customer base spans fuel retailers, industrial consumers, and group companies within the broader IOC ecosystem.\n\nThe financial profile currently stands out for its combination of high capital efficiency and modest leverage, with a reported ROE of 32.1% and a three-year average ROCE of 28.0% alongside a debt-to-equity ratio of just 0.18. Revenue has compounded at 23.4% over five years, and a FCF-to-PAT ratio of 1.0 suggests earnings are being supported by genuine cash generation rather than accounting adjustments alone. The PEG ratio of 0.08 appears low relative to the growth trajectory, which may indicate the market is pricing in mean reversion in refining margins rather than assigning sustained earnings power. The longer-term question worth monitoring is whether CPCL can maintain throughput economics and margin resilience as India's refining landscape evolves, particularly given its geographic concentration and potential capex requirements tied to fuel quality upgrades or capacity expansion."
+    },
+    "COALINDIA": {
+      "date_assessed": "2026-05-08",
+      "score": 8,
+      "verdict": "STRONG PASS",
+      "ar_used": false,
+      "snapshot": "Coal India Ltd is a state-owned enterprise and the world's largest coal mining company by production volume, operating across several subsidiaries in major coal-bearing states of India including Jharkhand, Odisha, Chhattisgarh, and West Bengal. The company extracts and supplies thermal and coking coal primarily to power utilities, steel plants, and industrial consumers, with the power sector accounting for the dominant share of offtake. Its operations span both opencast and underground mining, with opencast methods contributing the majority of output. The Government of India, as promoter, holds approximately 63% of the company, which currently appears to provide a degree of policy alignment with India's baseload energy requirements.\n\nFrom a financial standpoint, Coal India stands out for its capital efficiency, with a three-year average ROCE of 42.7% and an ROE of 28.5%, figures that appear unusually strong for a capital-intensive extractive business. The balance sheet currently suggests low financial leverage, with a debt-to-equity ratio of 0.12, while a free cash flow to PAT conversion of 0.87 indicates that reported earnings are translating into tangible cash with reasonable consistency. Revenue has compounded at 13.3% over five years and the PEG ratio of 0.48 suggests the current valuation at 9.37x earnings may not fully reflect the earnings trajectory. The longer-term question worth monitoring is whether the structural shift toward renewables in India's power sector will begin to constrain offtake volumes and pricing power over the next decade, even as near-term coal demand from the grid remains firm."
     }
   }
 }
