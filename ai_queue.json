@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "CEMPRO",
-      "name": "Cemindia Projects Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Cemindia Projects Ltd",
-        "about": "",
-        "roe": 28.2,
-        "de_ratio": 0.38,
-        "pe_ratio": 26.3,
-        "peg_ratio": 0.25,
-        "eps_growth_5y": 106.8,
-        "revenue_growth_5y": 29.8,
-        "roce_3y_avg": 31.1,
-        "roce_history": [
-          14.0,
-          17.3,
-          20.0,
-          31.3,
-          31.1,
-          30.9
-        ],
-        "fcf_to_pat": 2.29,
-        "promoter_holding": 67.46,
-        "promoter_pledge": null,
-        "promoter_trend": "increasing",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          3809.0,
-          5091.0,
-          7718.0,
-          9097.0,
-          10061.0
-        ],
-        "_eps": [
-          4.01,
-          7.23,
-          15.93,
-          21.7,
-          34.79
-        ],
-        "_roce": [
-          17.3,
-          20.0,
-          31.3,
-          31.1,
-          30.9
-        ],
-        "_opm": [
-          9.7,
-          9.5,
-          10.2
-        ]
-      },
-      "basic": {
-        "symbol": "CEMPRO",
-        "name": "Cemindia Projects Limited",
-        "sector": "Industrials",
-        "industry": "Engineering & Construction",
-        "market_cap_cr": 15679.9,
-        "pe_yf": 33.48
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 15679.9,
-          "pass": true,
-          "label": "Rs15,680Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.38,
-          "pass": true,
-          "label": "0.38"
-        },
-        "ROE": {
-          "value": 28.2,
-          "pass": true,
-          "label": "28.2%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 29.8,
-          "pass": true,
-          "label": "29.8%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 31.1,
-          "pass": true,
-          "label": "31.1%  hist:[17.3, 20.0, 31.3, 31.1, 30.9]"
-        },
-        "FCF / PAT": {
-          "value": 2.29,
-          "pass": true,
-          "label": "2.29"
-        },
-        "Promoter Holding": {
-          "value": 67.46,
-          "pass": true,
-          "label": "67.5%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.25,
-          "pass": true,
-          "label": "0.25"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "CHENNPETRO",
       "name": "Chennai Petroleum Corporation Ltd",
       "date_added": "2026-05-05",
@@ -3056,6 +2943,234 @@
       "soft_flags": [
         "Operating margin contracting [23.6, 19.5, 19.2]"
       ]
+    },
+    {
+      "sym": "ALLDIGI",
+      "name": "Alldigi Tech Ltd",
+      "date_added": "2026-05-07",
+      "data": {
+        "company_name": "Alldigi Tech Ltd",
+        "about": "",
+        "bse_code": "532633",
+        "roe": 34.7,
+        "de_ratio": 0.68,
+        "pe_ratio": 14.3,
+        "peg_ratio": 0.77,
+        "eps_growth_5y": 18.5,
+        "revenue_growth_5y": 16.7,
+        "roce_3y_avg": 39.6,
+        "roce_history": [
+          23.0,
+          31.7,
+          32.6,
+          40.0,
+          40.4,
+          38.4
+        ],
+        "fcf_to_pat": 1.11,
+        "promoter_holding": 73.39,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          317.0,
+          390.0,
+          469.0,
+          546.0,
+          599.0
+        ],
+        "_eps": [
+          23.39,
+          32.06,
+          42.0,
+          54.66,
+          53.96
+        ],
+        "_roce": [
+          31.7,
+          32.6,
+          40.0,
+          40.4,
+          38.4
+        ],
+        "_opm": [
+          24.7,
+          23.8,
+          27.0
+        ]
+      },
+      "basic": {
+        "symbol": "ALLDIGI",
+        "name": "Alldigi Tech Limited",
+        "sector": "Industrials",
+        "industry": "Specialty Business Services",
+        "market_cap_cr": 1266.4,
+        "pe_yf": 17.44
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 1266.4,
+          "pass": true,
+          "label": "Rs1,266Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.68,
+          "pass": true,
+          "label": "0.68"
+        },
+        "ROE": {
+          "value": 34.7,
+          "pass": true,
+          "label": "34.7%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 16.7,
+          "pass": true,
+          "label": "16.7%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 39.6,
+          "pass": true,
+          "label": "39.6%"
+        },
+        "FCF / PAT": {
+          "value": 1.11,
+          "pass": true,
+          "label": "1.11"
+        },
+        "Promoter Holding": {
+          "value": 73.39,
+          "pass": true,
+          "label": "73.4%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.77,
+          "pass": true,
+          "label": "0.77"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "NRBBEARING",
+      "name": "NRB Bearings Ltd",
+      "date_added": "2026-05-07",
+      "data": {
+        "company_name": "NRB Bearings Ltd",
+        "about": "",
+        "bse_code": "530367",
+        "roe": 15.7,
+        "de_ratio": 0.16,
+        "pe_ratio": 19.7,
+        "peg_ratio": 0.92,
+        "eps_growth_5y": 21.4,
+        "revenue_growth_5y": 11.9,
+        "roce_3y_avg": 18.6,
+        "roce_history": [
+          13.6,
+          16.5,
+          17.7,
+          17.0,
+          18.0,
+          20.8
+        ],
+        "fcf_to_pat": 0.82,
+        "promoter_holding": 51.2,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          943.0,
+          1057.0,
+          1094.0,
+          1199.0,
+          1335.0
+        ],
+        "_eps": [
+          7.56,
+          9.7,
+          24.71,
+          8.2,
+          14.73
+        ],
+        "_roce": [
+          16.5,
+          17.7,
+          17.0,
+          18.0,
+          20.8
+        ],
+        "_opm": [
+          16.1,
+          16.6,
+          17.4
+        ]
+      },
+      "basic": {
+        "symbol": "NRBBEARING",
+        "name": "NRB Bearings Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Parts",
+        "market_cap_cr": 2909.1,
+        "pe_yf": 29.28
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 2909.1,
+          "pass": true,
+          "label": "Rs2,909Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.16,
+          "pass": true,
+          "label": "0.16"
+        },
+        "ROE": {
+          "value": 15.7,
+          "pass": true,
+          "label": "15.7%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 11.9,
+          "pass": true,
+          "label": "11.9%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 18.6,
+          "pass": true,
+          "label": "18.6%"
+        },
+        "FCF / PAT": {
+          "value": 0.82,
+          "pass": true,
+          "label": "0.82"
+        },
+        "Promoter Holding": {
+          "value": 51.2,
+          "pass": true,
+          "label": "51.2%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.92,
+          "pass": true,
+          "label": "0.92"
+        }
+      },
+      "soft_flags": []
     }
   ],
   "assessed": {
@@ -3152,6 +3267,13 @@
       "score": 0,
       "verdict": "FAIL",
       "snapshot": "Assessment unavailable."
+    },
+    "CEMPRO": {
+      "date_assessed": "2026-05-08",
+      "score": 8,
+      "verdict": "STRONG PASS",
+      "ar_used": false,
+      "snapshot": "Cemindia Projects Ltd, listed on the NSE under the ticker CEMPRO, appears to operate within the engineering and construction segment of India's industrials sector. While a detailed business description is not available in this review, companies of this profile typically serve infrastructure, industrial, or civil construction clients, often including both public sector undertakings and private developers. The firm's scale, reflected in a market capitalisation of approximately Rs 15,680 crore, suggests a reasonably established operational footprint rather than an early-stage enterprise. Further clarity on its specific service verticals and geographic concentration would strengthen any assessment of its competitive positioning.\n\nThe financial profile stands out for several reasons worth examining carefully. A five-year revenue CAGR of 29.8% alongside a three-year average ROCE of 31.1% suggests the business has been compounding at an above-average rate while maintaining strong returns on the capital it deploys. The FCF to PAT ratio of 2.29 is particularly noteworthy, as it indicates that reported earnings are being comfortably backed by actual cash generation, a quality often absent in capital-intensive construction businesses. The balance sheet appears relatively conservative with a debt-to-equity ratio of 0.38, and promoter holding of 67.46% reflects continued conviction at the ownership level. The key uncertainty worth monitoring over the longer term is whether the company can sustain this growth trajectory and cash conversion quality as the business scales, particularly given that construction businesses can face margin pressure, working capital strain, and execution risk as order books grow in size and complexity."
     }
   }
 }
