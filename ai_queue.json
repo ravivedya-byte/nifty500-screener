@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "ECLERX",
-      "name": "eClerx Services Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "eClerx Services Ltd",
-        "about": "",
-        "roe": 22.8,
-        "de_ratio": 0.15,
-        "pe_ratio": 20.4,
-        "peg_ratio": 0.96,
-        "eps_growth_5y": 21.2,
-        "revenue_growth_5y": 20.1,
-        "roce_3y_avg": 31.3,
-        "roce_history": [
-          26.8,
-          38.3,
-          37.9,
-          30.9,
-          30.4,
-          32.7
-        ],
-        "fcf_to_pat": 0.82,
-        "promoter_holding": 54.53,
-        "promoter_pledge": null,
-        "promoter_trend": "increasing",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          2160.0,
-          2648.0,
-          2926.0,
-          3366.0,
-          3908.0
-        ],
-        "_eps": [
-          41.08,
-          49.83,
-          52.14,
-          56.78,
-          70.46
-        ],
-        "_roce": [
-          38.3,
-          37.9,
-          30.9,
-          30.4,
-          32.7
-        ],
-        "_opm": [
-          26.5,
-          24.0,
-          25.2
-        ]
-      },
-      "basic": {
-        "symbol": "ECLERX",
-        "name": "eClerx Services Limited",
-        "sector": "Technology",
-        "industry": "Information Technology Services",
-        "market_cap_cr": 13501.4,
-        "pe_yf": 20.83
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 13501.4,
-          "pass": true,
-          "label": "Rs13,501Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.15,
-          "pass": true,
-          "label": "0.15"
-        },
-        "ROE": {
-          "value": 22.8,
-          "pass": true,
-          "label": "22.8%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 20.1,
-          "pass": true,
-          "label": "20.1%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 31.3,
-          "pass": true,
-          "label": "31.3%  hist:[38.3, 37.9, 30.9, 30.4, 32.7]"
-        },
-        "FCF / PAT": {
-          "value": 0.82,
-          "pass": true,
-          "label": "0.82"
-        },
-        "Promoter Holding": {
-          "value": 54.53,
-          "pass": true,
-          "label": "54.5%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.96,
-          "pass": true,
-          "label": "0.96"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "ELECON",
       "name": "Elecon Engineering Company Ltd",
       "date_added": "2026-05-05",
@@ -2943,6 +2830,918 @@
         }
       },
       "soft_flags": []
+    },
+    {
+      "sym": "HINDPETRO",
+      "name": "Hindustan Petroleum Corporation Ltd",
+      "date_added": "2026-06-02",
+      "data": {
+        "company_name": "Hindustan Petroleum Corporation Ltd",
+        "about": "",
+        "bse_code": "500104",
+        "roe": 30.9,
+        "de_ratio": 0.85,
+        "pe_ratio": 4.52,
+        "peg_ratio": 0.09,
+        "eps_growth_5y": 49.0,
+        "revenue_growth_5y": 13.6,
+        "roce_3y_avg": 20.2,
+        "roce_history": [
+          19.6,
+          11.4,
+          -7.0,
+          21.9,
+          13.5,
+          25.2
+        ],
+        "fcf_to_pat": 0.96,
+        "promoter_holding": 54.9,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          349913.0,
+          440709.0,
+          433857.0,
+          434106.0,
+          441771.0
+        ],
+        "_eps": [
+          34.28,
+          -32.8,
+          75.26,
+          31.66,
+          84.81
+        ],
+        "_roce": [
+          11.4,
+          -7.0,
+          21.9,
+          13.5,
+          25.2
+        ],
+        "_opm": [
+          5.7,
+          3.8,
+          6.9
+        ]
+      },
+      "basic": {
+        "symbol": "HINDPETRO",
+        "name": "Hindustan Petroleum Corporation Limited",
+        "sector": "Energy",
+        "industry": "Oil & Gas Refining & Marketing",
+        "market_cap_cr": 81655.2,
+        "pe_yf": 4.53
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 81655.2,
+          "pass": true,
+          "label": "Rs81,655Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.85,
+          "pass": true,
+          "label": "0.85"
+        },
+        "ROE": {
+          "value": 30.9,
+          "pass": true,
+          "label": "30.9%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 13.6,
+          "pass": true,
+          "label": "13.6%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 20.2,
+          "pass": true,
+          "label": "20.2%"
+        },
+        "FCF / PAT": {
+          "value": 0.96,
+          "pass": true,
+          "label": "0.96"
+        },
+        "Promoter Holding": {
+          "value": 54.9,
+          "pass": true,
+          "label": "54.9%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.09,
+          "pass": true,
+          "label": "0.09"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "IFBIND",
+      "name": "IFB Industries Ltd",
+      "date_added": "2026-06-02",
+      "data": {
+        "company_name": "IFB Industries Ltd",
+        "about": "",
+        "bse_code": "505726",
+        "roe": 16.8,
+        "de_ratio": 0.16,
+        "pe_ratio": 34.4,
+        "peg_ratio": 0.88,
+        "eps_growth_5y": 39.3,
+        "revenue_growth_5y": 14.9,
+        "roce_3y_avg": 25.3,
+        "roce_history": [
+          21.5,
+          4.8,
+          16.1,
+          22.2,
+          26.3,
+          27.5
+        ],
+        "fcf_to_pat": 0.77,
+        "promoter_holding": 74.96,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          3415.0,
+          4195.0,
+          4438.0,
+          5092.0,
+          5619.0
+        ],
+        "_eps": [
+          -11.89,
+          3.69,
+          12.43,
+          29.35,
+          35.43
+        ],
+        "_roce": [
+          4.8,
+          16.1,
+          22.2,
+          26.3,
+          27.5
+        ],
+        "_opm": [
+          4.4,
+          5.6,
+          5.6
+        ]
+      },
+      "basic": {
+        "symbol": "IFBIND",
+        "name": "IFB Industries Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Furnishings, Fixtures & Appliances",
+        "market_cap_cr": 5339.6,
+        "pe_yf": 37.23
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 5339.6,
+          "pass": true,
+          "label": "Rs5,340Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.16,
+          "pass": true,
+          "label": "0.16"
+        },
+        "ROE": {
+          "value": 16.8,
+          "pass": true,
+          "label": "16.8%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 14.9,
+          "pass": true,
+          "label": "14.9%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 25.3,
+          "pass": true,
+          "label": "25.3%"
+        },
+        "FCF / PAT": {
+          "value": 0.77,
+          "pass": true,
+          "label": "0.77"
+        },
+        "Promoter Holding": {
+          "value": 74.96,
+          "pass": true,
+          "label": "75.0%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.88,
+          "pass": true,
+          "label": "0.88"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "IOC",
+      "name": "Indian Oil Corporation Ltd",
+      "date_added": "2026-06-02",
+      "data": {
+        "company_name": "Indian Oil Corporation Ltd",
+        "about": "",
+        "bse_code": "530965",
+        "roe": 20.7,
+        "de_ratio": 0.6,
+        "pe_ratio": 4.66,
+        "peg_ratio": 0.33,
+        "eps_growth_5y": 14.2,
+        "revenue_growth_5y": 16.6,
+        "roce_3y_avg": 18.8,
+        "roce_history": [
+          17.5,
+          18.0,
+          10.6,
+          23.9,
+          10.6,
+          21.9
+        ],
+        "fcf_to_pat": 1.16,
+        "promoter_holding": 51.5,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          589321.0,
+          841756.0,
+          776352.0,
+          758106.0,
+          784415.0
+        ],
+        "_eps": [
+          17.78,
+          6.93,
+          29.55,
+          9.63,
+          29.81
+        ],
+        "_roce": [
+          18.0,
+          10.6,
+          23.9,
+          10.6,
+          21.9
+        ],
+        "_opm": [
+          9.7,
+          4.8,
+          9.8
+        ]
+      },
+      "basic": {
+        "symbol": "IOC",
+        "name": "Indian Oil Corporation Limited",
+        "sector": "Energy",
+        "industry": "Oil & Gas Refining & Marketing",
+        "market_cap_cr": 196045.2,
+        "pe_yf": 4.54
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 196045.2,
+          "pass": true,
+          "label": "Rs196,045Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.6,
+          "pass": true,
+          "label": "0.60"
+        },
+        "ROE": {
+          "value": 20.7,
+          "pass": true,
+          "label": "20.7%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 16.6,
+          "pass": true,
+          "label": "16.6%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 18.8,
+          "pass": true,
+          "label": "18.8%"
+        },
+        "FCF / PAT": {
+          "value": 1.16,
+          "pass": true,
+          "label": "1.16"
+        },
+        "Promoter Holding": {
+          "value": 51.5,
+          "pass": true,
+          "label": "51.5%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.33,
+          "pass": true,
+          "label": "0.33"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "JAYBARMARU",
+      "name": "Jay Bharat Maruti Ltd",
+      "date_added": "2026-06-02",
+      "data": {
+        "company_name": "Jay Bharat Maruti Ltd",
+        "about": "",
+        "bse_code": "520066",
+        "roe": 22.2,
+        "de_ratio": 0.76,
+        "pe_ratio": 9.76,
+        "peg_ratio": 0.25,
+        "eps_growth_5y": 39.8,
+        "revenue_growth_5y": 11.2,
+        "roce_3y_avg": 18.4,
+        "roce_history": [
+          16.6,
+          17.5,
+          20.5,
+          17.1,
+          15.0,
+          23.1
+        ],
+        "fcf_to_pat": 0.85,
+        "promoter_holding": 59.35,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          2078.0,
+          2344.0,
+          2292.0,
+          2290.0,
+          2551.0
+        ],
+        "_eps": [
+          2.6,
+          3.5,
+          2.98,
+          3.04,
+          12.9
+        ],
+        "_roce": [
+          17.5,
+          20.5,
+          17.1,
+          15.0,
+          23.1
+        ],
+        "_opm": [
+          7.3,
+          7.2,
+          11.1
+        ]
+      },
+      "basic": {
+        "symbol": "JAYBARMARU",
+        "name": "Jay Bharat Maruti Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Parts",
+        "market_cap_cr": 1365.5,
+        "pe_yf": 9.78
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 1365.5,
+          "pass": true,
+          "label": "Rs1,366Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.76,
+          "pass": true,
+          "label": "0.76"
+        },
+        "ROE": {
+          "value": 22.2,
+          "pass": true,
+          "label": "22.2%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 11.2,
+          "pass": true,
+          "label": "11.2%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 18.4,
+          "pass": true,
+          "label": "18.4%"
+        },
+        "FCF / PAT": {
+          "value": 0.85,
+          "pass": true,
+          "label": "0.85"
+        },
+        "Promoter Holding": {
+          "value": 59.35,
+          "pass": true,
+          "label": "59.4%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.25,
+          "pass": true,
+          "label": "0.25"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "JKTYRE",
+      "name": "JK Tyre & Industries Ltd",
+      "date_added": "2026-06-02",
+      "data": {
+        "company_name": "JK Tyre & Industries Ltd",
+        "about": "",
+        "bse_code": "530007",
+        "roe": 16.2,
+        "de_ratio": 0.81,
+        "pe_ratio": 12.7,
+        "peg_ratio": 0.81,
+        "eps_growth_5y": 15.7,
+        "revenue_growth_5y": 12.4,
+        "roce_3y_avg": 19.3,
+        "roce_history": [
+          17.5,
+          13.3,
+          15.7,
+          23.0,
+          16.4,
+          18.6
+        ],
+        "fcf_to_pat": 1.94,
+        "promoter_holding": 51.72,
+        "promoter_pledge": null,
+        "promoter_trend": "increasing",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          11983.0,
+          14645.0,
+          15002.0,
+          14693.0,
+          16327.0
+        ],
+        "_eps": [
+          8.53,
+          10.66,
+          30.16,
+          18.07,
+          26.92
+        ],
+        "_roce": [
+          13.3,
+          15.7,
+          23.0,
+          16.4,
+          18.6
+        ],
+        "_opm": [
+          13.9,
+          10.9,
+          12.4
+        ]
+      },
+      "basic": {
+        "symbol": "JKTYRE",
+        "name": "JK Tyre & Industries Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Parts",
+        "market_cap_cr": 11197.2,
+        "pe_yf": 14.26
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 11197.2,
+          "pass": true,
+          "label": "Rs11,197Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.81,
+          "pass": true,
+          "label": "0.81"
+        },
+        "ROE": {
+          "value": 16.2,
+          "pass": true,
+          "label": "16.2%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 12.4,
+          "pass": true,
+          "label": "12.4%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 19.3,
+          "pass": true,
+          "label": "19.3%"
+        },
+        "FCF / PAT": {
+          "value": 1.94,
+          "pass": true,
+          "label": "1.94"
+        },
+        "Promoter Holding": {
+          "value": 51.72,
+          "pass": true,
+          "label": "51.7%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.81,
+          "pass": true,
+          "label": "0.81"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "SEAMECLTD",
+      "name": "SEAMEC Ltd",
+      "date_added": "2026-06-02",
+      "data": {
+        "company_name": "SEAMEC Ltd",
+        "about": "",
+        "bse_code": "526807",
+        "roe": 21.8,
+        "de_ratio": 0.27,
+        "pe_ratio": 16.6,
+        "peg_ratio": 0.81,
+        "eps_growth_5y": 20.6,
+        "revenue_growth_5y": 29.9,
+        "roce_3y_avg": 20.4,
+        "roce_history": [
+          9.0,
+          14.9,
+          13.7,
+          19.6,
+          17.3,
+          24.2
+        ],
+        "fcf_to_pat": 2.26,
+        "promoter_holding": 72.72,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          350.0,
+          437.0,
+          729.0,
+          652.0,
+          952.0
+        ],
+        "_eps": [
+          32.73,
+          12.98,
+          47.08,
+          35.25,
+          98.88
+        ],
+        "_roce": [
+          14.9,
+          13.7,
+          19.6,
+          17.3,
+          24.2
+        ],
+        "_opm": [
+          33.3,
+          32.8,
+          42.0
+        ]
+      },
+      "basic": {
+        "symbol": "SEAMECLTD",
+        "name": "Seamec Limited",
+        "sector": "Industrials",
+        "industry": "Marine Shipping",
+        "market_cap_cr": 4192.7,
+        "pe_yf": 16.61
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 4192.7,
+          "pass": true,
+          "label": "Rs4,193Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.27,
+          "pass": true,
+          "label": "0.27"
+        },
+        "ROE": {
+          "value": 21.8,
+          "pass": true,
+          "label": "21.8%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 29.9,
+          "pass": true,
+          "label": "29.9%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 20.4,
+          "pass": true,
+          "label": "20.4%"
+        },
+        "FCF / PAT": {
+          "value": 2.26,
+          "pass": true,
+          "label": "2.26"
+        },
+        "Promoter Holding": {
+          "value": 72.72,
+          "pass": true,
+          "label": "72.7%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.81,
+          "pass": true,
+          "label": "0.81"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "SKMEGGPROD",
+      "name": "SKM Egg Products Export (India) Ltd",
+      "date_added": "2026-06-02",
+      "data": {
+        "company_name": "SKM Egg Products Export (India) Ltd",
+        "about": "",
+        "bse_code": "532143",
+        "roe": 29.7,
+        "de_ratio": 0.36,
+        "pe_ratio": 11.8,
+        "peg_ratio": 0.26,
+        "eps_growth_5y": 44.8,
+        "revenue_growth_5y": 23.3,
+        "roce_3y_avg": 27.8,
+        "roce_history": [
+          18.8,
+          15.6,
+          51.1,
+          35.7,
+          17.3,
+          30.5
+        ],
+        "fcf_to_pat": 0.82,
+        "promoter_holding": 57.47,
+        "promoter_pledge": null,
+        "promoter_trend": "increasing",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          302.0,
+          662.0,
+          701.0,
+          498.0,
+          768.0
+        ],
+        "_eps": [
+          1.41,
+          14.41,
+          16.21,
+          6.57,
+          19.7
+        ],
+        "_roce": [
+          15.6,
+          51.1,
+          35.7,
+          17.3,
+          30.5
+        ],
+        "_opm": [
+          21.5,
+          15.7,
+          21.4
+        ]
+      },
+      "basic": {
+        "symbol": "SKMEGGPROD",
+        "name": "SKM Egg Products Export (India) Limited",
+        "sector": "Consumer Defensive",
+        "industry": "Packaged Foods",
+        "market_cap_cr": 1227.3,
+        "pe_yf": 11.82
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 1227.3,
+          "pass": true,
+          "label": "Rs1,227Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.36,
+          "pass": true,
+          "label": "0.36"
+        },
+        "ROE": {
+          "value": 29.7,
+          "pass": true,
+          "label": "29.7%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 23.3,
+          "pass": true,
+          "label": "23.3%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 27.8,
+          "pass": true,
+          "label": "27.8%"
+        },
+        "FCF / PAT": {
+          "value": 0.82,
+          "pass": true,
+          "label": "0.82"
+        },
+        "Promoter Holding": {
+          "value": 57.47,
+          "pass": true,
+          "label": "57.5%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.26,
+          "pass": true,
+          "label": "0.26"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "WHEELS",
+      "name": "Wheels India Ltd",
+      "date_added": "2026-06-02",
+      "data": {
+        "company_name": "Wheels India Ltd",
+        "about": "",
+        "bse_code": "590073",
+        "roe": 15.8,
+        "de_ratio": 0.74,
+        "pe_ratio": 24.0,
+        "peg_ratio": 0.17,
+        "eps_growth_5y": 142.3,
+        "revenue_growth_5y": 17.8,
+        "roce_3y_avg": 20.2,
+        "roce_history": [
+          10.5,
+          15.8,
+          14.0,
+          16.5,
+          21.2,
+          22.8
+        ],
+        "fcf_to_pat": 1.03,
+        "promoter_holding": 58.31,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          3966.0,
+          4640.0,
+          4977.0,
+          4744.0,
+          5465.0
+        ],
+        "_eps": [
+          31.78,
+          23.0,
+          25.69,
+          45.39,
+          63.44
+        ],
+        "_roce": [
+          15.8,
+          14.0,
+          16.5,
+          21.2,
+          22.8
+        ],
+        "_opm": [
+          5.3,
+          7.4,
+          7.6
+        ]
+      },
+      "basic": {
+        "symbol": "WHEELS",
+        "name": "Wheels India Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Parts",
+        "market_cap_cr": 3708.7,
+        "pe_yf": 23.9
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 3708.7,
+          "pass": true,
+          "label": "Rs3,709Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.74,
+          "pass": true,
+          "label": "0.74"
+        },
+        "ROE": {
+          "value": 15.8,
+          "pass": true,
+          "label": "15.8%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 17.8,
+          "pass": true,
+          "label": "17.8%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 20.2,
+          "pass": true,
+          "label": "20.2%"
+        },
+        "FCF / PAT": {
+          "value": 1.03,
+          "pass": true,
+          "label": "1.03"
+        },
+        "Promoter Holding": {
+          "value": 58.31,
+          "pass": true,
+          "label": "58.3%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.17,
+          "pass": true,
+          "label": "0.17"
+        }
+      },
+      "soft_flags": []
     }
   ],
   "assessed": {
@@ -3060,6 +3859,13 @@
       "verdict": "STRONG PASS",
       "ar_used": false,
       "snapshot": "Coal India Ltd is a state-owned enterprise and the world's largest coal mining company by production volume, operating across several subsidiaries in major coal-bearing states of India including Jharkhand, Odisha, Chhattisgarh, and West Bengal. The company extracts and supplies thermal and coking coal primarily to power utilities, steel plants, and industrial consumers, with the power sector accounting for the dominant share of offtake. Its operations span both opencast and underground mining, with opencast methods contributing the majority of output. The Government of India, as promoter, holds approximately 63% of the company, which currently appears to provide a degree of policy alignment with India's baseload energy requirements.\n\nFrom a financial standpoint, Coal India stands out for its capital efficiency, with a three-year average ROCE of 42.7% and an ROE of 28.5%, figures that appear unusually strong for a capital-intensive extractive business. The balance sheet currently suggests low financial leverage, with a debt-to-equity ratio of 0.12, while a free cash flow to PAT conversion of 0.87 indicates that reported earnings are translating into tangible cash with reasonable consistency. Revenue has compounded at 13.3% over five years and the PEG ratio of 0.48 suggests the current valuation at 9.37x earnings may not fully reflect the earnings trajectory. The longer-term question worth monitoring is whether the structural shift toward renewables in India's power sector will begin to constrain offtake volumes and pricing power over the next decade, even as near-term coal demand from the grid remains firm."
+    },
+    "ECLERX": {
+      "date_assessed": "2026-06-02",
+      "score": 7,
+      "verdict": "PASS",
+      "ar_used": false,
+      "snapshot": "eClerx Services Ltd is an Indian knowledge process outsourcing firm that provides data analytics, automation, and process management services to global clients, with a primary focus on financial services, cable and telecom, and retail and e-commerce verticals. The company operates across delivery centres in India and maintains a client-facing presence in North America, Europe, and Asia Pacific, serving a predominantly offshore-dependent global enterprise customer base. Its service offerings span operations support, digital services, and analytics, positioning it within the higher-value segment of the broader IT services landscape.\n\nFinancially, eClerx appears to be a capital-efficient business, with a three-year average ROCE of 31.3% and an ROE of 22.8%, both suggesting disciplined deployment of shareholder funds. The balance sheet currently stands conservatively leveraged at a debt-to-equity ratio of 0.15, and a free cash flow to PAT conversion of 0.82 indicates that earnings are translating into cash at a healthy rate. Revenue has compounded at 20.1% over five years, and a PEG ratio of 0.96 suggests the market may not be materially overpricing the growth trajectory at current levels. The longer-term question worth monitoring is whether eClerx can sustain this revenue growth rate and pricing power as automation and artificial intelligence increasingly affect the demand dynamics for the very process-driven services it delivers."
     }
   }
 }
