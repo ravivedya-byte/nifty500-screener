@@ -1,121 +1,6 @@
 {
   "pending": [
     {
-      "sym": "ELECON",
-      "name": "Elecon Engineering Company Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Elecon Engineering Company Ltd",
-        "about": "",
-        "roe": 16.6,
-        "de_ratio": 0.12,
-        "pe_ratio": 33.3,
-        "peg_ratio": 0.78,
-        "eps_growth_5y": 42.7,
-        "revenue_growth_5y": 17.8,
-        "roce_3y_avg": 24.5,
-        "roce_history": [
-          14.8,
-          21.0,
-          25.6,
-          28.4,
-          24.9,
-          20.3
-        ],
-        "fcf_to_pat": 3.43,
-        "promoter_holding": 59.28,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": true,
-        "_sales_cr": [
-          1212.0,
-          1530.0,
-          1937.0,
-          2227.0,
-          2366.0
-        ],
-        "_eps": [
-          6.26,
-          10.58,
-          15.85,
-          18.5,
-          15.2
-        ],
-        "_roce": [
-          21.0,
-          25.6,
-          28.4,
-          24.9,
-          20.3
-        ],
-        "_opm": [
-          24.5,
-          24.4,
-          22.1
-        ]
-      },
-      "basic": {
-        "symbol": "ELECON",
-        "name": "Elecon Engineering Company Limited",
-        "sector": "Industrials",
-        "industry": "Specialty Industrial Machinery",
-        "market_cap_cr": 11875.2,
-        "pe_yf": 34.84
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 11875.2,
-          "pass": true,
-          "label": "Rs11,875Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.12,
-          "pass": true,
-          "label": "0.12"
-        },
-        "ROE": {
-          "value": 16.6,
-          "pass": true,
-          "label": "16.6%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 17.8,
-          "pass": true,
-          "label": "17.8%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 24.5,
-          "pass": true,
-          "label": "24.5%  hist:[21.0, 25.6, 28.4, 24.9, 20.3]"
-        },
-        "FCF / PAT": {
-          "value": 3.43,
-          "pass": true,
-          "label": "3.43"
-        },
-        "Promoter Holding": {
-          "value": 59.28,
-          "pass": true,
-          "label": "59.3%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.78,
-          "pass": true,
-          "label": "0.78"
-        }
-      },
-      "soft_flags": [
-        "Operating margin contracting [24.5, 24.4, 22.1]"
-      ]
-    },
-    {
       "sym": "GANESHHOU",
       "name": "Ganesh Housing Ltd",
       "date_added": "2026-05-05",
@@ -3742,6 +3627,234 @@
         }
       },
       "soft_flags": []
+    },
+    {
+      "sym": "EXPLEOSOL",
+      "name": "Expleo Solutions Ltd",
+      "date_added": "2026-06-05",
+      "data": {
+        "company_name": "Expleo Solutions Ltd",
+        "about": "",
+        "bse_code": "533121",
+        "roe": 19.2,
+        "de_ratio": 0.01,
+        "pe_ratio": 9.83,
+        "peg_ratio": 0.97,
+        "eps_growth_5y": 10.2,
+        "revenue_growth_5y": 29.8,
+        "roce_3y_avg": 23.3,
+        "roce_history": [
+          33.5,
+          30.2,
+          35.9,
+          23.4,
+          24.9,
+          21.7
+        ],
+        "fcf_to_pat": 0.85,
+        "promoter_holding": 71.05,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          743.0,
+          903.0,
+          965.0,
+          1025.0,
+          1108.0
+        ],
+        "_eps": [
+          66.01,
+          130.59,
+          58.27,
+          66.52,
+          79.89
+        ],
+        "_roce": [
+          30.2,
+          35.9,
+          23.4,
+          24.9,
+          21.7
+        ],
+        "_opm": [
+          15.4,
+          16.2,
+          15.3
+        ]
+      },
+      "basic": {
+        "symbol": "EXPLEOSOL",
+        "name": "Expleo Solutions Limited",
+        "sector": "Technology",
+        "industry": "Information Technology Services",
+        "market_cap_cr": 1330.2,
+        "pe_yf": 10.73
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 1330.2,
+          "pass": true,
+          "label": "Rs1,330Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.01,
+          "pass": true,
+          "label": "0.01"
+        },
+        "ROE": {
+          "value": 19.2,
+          "pass": true,
+          "label": "19.2%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 29.8,
+          "pass": true,
+          "label": "29.8%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 23.3,
+          "pass": true,
+          "label": "23.3%"
+        },
+        "FCF / PAT": {
+          "value": 0.85,
+          "pass": true,
+          "label": "0.85"
+        },
+        "Promoter Holding": {
+          "value": 71.05,
+          "pass": true,
+          "label": "71.0%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.97,
+          "pass": true,
+          "label": "0.97"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "HINDCOPPER",
+      "name": "Hindustan Copper Ltd",
+      "date_added": "2026-06-05",
+      "data": {
+        "company_name": "Hindustan Copper Ltd",
+        "about": "",
+        "bse_code": "513599",
+        "roe": 32.9,
+        "de_ratio": 0.03,
+        "pe_ratio": 51.5,
+        "peg_ratio": 1.0,
+        "eps_growth_5y": 51.5,
+        "revenue_growth_5y": 11.5,
+        "roce_3y_avg": 30.1,
+        "roce_history": [
+          18.5,
+          22.1,
+          22.0,
+          21.8,
+          26.1,
+          42.3
+        ],
+        "fcf_to_pat": 0.8,
+        "promoter_holding": 66.14,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          1822.0,
+          1677.0,
+          1717.0,
+          2071.0,
+          3078.0
+        ],
+        "_eps": [
+          3.87,
+          3.06,
+          3.05,
+          4.81,
+          9.5
+        ],
+        "_roce": [
+          22.1,
+          22.0,
+          21.8,
+          26.1,
+          42.3
+        ],
+        "_opm": [
+          31.9,
+          35.6,
+          47.5
+        ]
+      },
+      "basic": {
+        "symbol": "HINDCOPPER",
+        "name": "Hindustan Copper Limited",
+        "sector": "Basic Materials",
+        "industry": "Copper",
+        "market_cap_cr": 50899.3,
+        "pe_yf": 55.58
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 50899.3,
+          "pass": true,
+          "label": "Rs50,899Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.03,
+          "pass": true,
+          "label": "0.03"
+        },
+        "ROE": {
+          "value": 32.9,
+          "pass": true,
+          "label": "32.9%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 11.5,
+          "pass": true,
+          "label": "11.5%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 30.1,
+          "pass": true,
+          "label": "30.1%"
+        },
+        "FCF / PAT": {
+          "value": 0.8,
+          "pass": true,
+          "label": "0.80"
+        },
+        "Promoter Holding": {
+          "value": 66.14,
+          "pass": true,
+          "label": "66.1%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 1.0,
+          "pass": true,
+          "label": "1.00"
+        }
+      },
+      "soft_flags": []
     }
   ],
   "assessed": {
@@ -3866,6 +3979,13 @@
       "verdict": "PASS",
       "ar_used": false,
       "snapshot": "eClerx Services Ltd is an Indian knowledge process outsourcing firm that provides data analytics, automation, and process management services to global clients, with a primary focus on financial services, cable and telecom, and retail and e-commerce verticals. The company operates across delivery centres in India and maintains a client-facing presence in North America, Europe, and Asia Pacific, serving a predominantly offshore-dependent global enterprise customer base. Its service offerings span operations support, digital services, and analytics, positioning it within the higher-value segment of the broader IT services landscape.\n\nFinancially, eClerx appears to be a capital-efficient business, with a three-year average ROCE of 31.3% and an ROE of 22.8%, both suggesting disciplined deployment of shareholder funds. The balance sheet currently stands conservatively leveraged at a debt-to-equity ratio of 0.15, and a free cash flow to PAT conversion of 0.82 indicates that earnings are translating into cash at a healthy rate. Revenue has compounded at 20.1% over five years, and a PEG ratio of 0.96 suggests the market may not be materially overpricing the growth trajectory at current levels. The longer-term question worth monitoring is whether eClerx can sustain this revenue growth rate and pricing power as automation and artificial intelligence increasingly affect the demand dynamics for the very process-driven services it delivers."
+    },
+    "ELECON": {
+      "date_assessed": "2026-06-05",
+      "score": 7,
+      "verdict": "PASS",
+      "ar_used": false,
+      "snapshot": "Elecon Engineering Company Ltd appears to be one of India's established players in specialty industrial machinery, with its core business spanning the design and manufacture of material handling equipment and industrial gearboxes. The company likely serves a broad cross-section of capital-intensive industries including cement, steel, power, and mining, where reliable power transmission and bulk material movement are operationally critical. Its product portfolio suggests a degree of engineering complexity that may provide some competitive insulation from commoditised alternatives. Elecon operates primarily within India while also maintaining an export presence across select international markets.\n\nWhat stands out financially is the combination of capital efficiency and unusually strong cash conversion. A three-year average ROCE of 24.5% alongside a FCF to PAT ratio of 3.43 suggests the business is generating meaningfully more cash than its reported earnings alone would indicate, which is a relatively uncommon quality in the industrials space. The balance sheet appears conservative with a debt to equity ratio of 0.12, and the five-year revenue CAGR of 17.8% points to a sustained growth trajectory rather than a cyclical spike. A PEG ratio of 0.78 at current earnings multiples may indicate the market has not yet fully priced in the growth runway, though the longer-term question worth monitoring is whether order inflows and capacity utilisation can remain robust through a potential slowdown in domestic infrastructure and capital expenditure cycles."
     }
   }
 }
