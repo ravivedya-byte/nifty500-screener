@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "GANESHHOU",
-      "name": "Ganesh Housing Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Ganesh Housing Ltd",
-        "about": "",
-        "roe": 37.8,
-        "de_ratio": 0.03,
-        "pe_ratio": 13.0,
-        "peg_ratio": 0.23,
-        "eps_growth_5y": 56.3,
-        "revenue_growth_5y": 31.8,
-        "roce_3y_avg": 33.9,
-        "roce_history": [
-          -5.3,
-          14.4,
-          22.3,
-          39.6,
-          37.4,
-          24.8
-        ],
-        "fcf_to_pat": 1.25,
-        "promoter_holding": 73.06,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          383.0,
-          616.0,
-          891.0,
-          959.0,
-          668.0
-        ],
-        "_eps": [
-          8.47,
-          12.25,
-          55.25,
-          71.72,
-          50.34
-        ],
-        "_roce": [
-          14.4,
-          22.3,
-          39.6,
-          37.4,
-          24.8
-        ],
-        "_opm": [
-          70.0,
-          81.2,
-          85.0
-        ]
-      },
-      "basic": {
-        "symbol": "GANESHHOU",
-        "name": "Ganesh Housing Limited",
-        "sector": "Real Estate",
-        "industry": "Real Estate - Development",
-        "market_cap_cr": 5473.9,
-        "pe_yf": 13.03
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 5473.9,
-          "pass": true,
-          "label": "Rs5,474Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.03,
-          "pass": true,
-          "label": "0.03"
-        },
-        "ROE": {
-          "value": 37.8,
-          "pass": true,
-          "label": "37.8%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 31.8,
-          "pass": true,
-          "label": "31.8%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 33.9,
-          "pass": true,
-          "label": "33.9%  hist:[14.4, 22.3, 39.6, 37.4, 24.8]"
-        },
-        "FCF / PAT": {
-          "value": 1.25,
-          "pass": true,
-          "label": "1.25"
-        },
-        "Promoter Holding": {
-          "value": 73.06,
-          "pass": true,
-          "label": "73.1%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.23,
-          "pass": true,
-          "label": "0.23"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "GOKULAGRO",
       "name": "Gokul Agro Resources Ltd",
       "date_added": "2026-05-05",
@@ -3986,6 +3873,13 @@
       "verdict": "PASS",
       "ar_used": false,
       "snapshot": "Elecon Engineering Company Ltd appears to be one of India's established players in specialty industrial machinery, with its core business spanning the design and manufacture of material handling equipment and industrial gearboxes. The company likely serves a broad cross-section of capital-intensive industries including cement, steel, power, and mining, where reliable power transmission and bulk material movement are operationally critical. Its product portfolio suggests a degree of engineering complexity that may provide some competitive insulation from commoditised alternatives. Elecon operates primarily within India while also maintaining an export presence across select international markets.\n\nWhat stands out financially is the combination of capital efficiency and unusually strong cash conversion. A three-year average ROCE of 24.5% alongside a FCF to PAT ratio of 3.43 suggests the business is generating meaningfully more cash than its reported earnings alone would indicate, which is a relatively uncommon quality in the industrials space. The balance sheet appears conservative with a debt to equity ratio of 0.12, and the five-year revenue CAGR of 17.8% points to a sustained growth trajectory rather than a cyclical spike. A PEG ratio of 0.78 at current earnings multiples may indicate the market has not yet fully priced in the growth runway, though the longer-term question worth monitoring is whether order inflows and capacity utilisation can remain robust through a potential slowdown in domestic infrastructure and capital expenditure cycles."
+    },
+    "GANESHHOU": {
+      "date_assessed": "2026-06-08",
+      "score": 8,
+      "verdict": "STRONG PASS",
+      "ar_used": false,
+      "snapshot": "Ganesh Housing Ltd is a real estate developer based in Gujarat, India, primarily engaged in the development of residential and commercial properties. The company appears to focus on mid-segment housing projects, plotted developments, and mixed-use real estate, serving retail homebuyers and commercial occupants predominantly within the Gujarat market. Its operations suggest a regionally concentrated model with a relatively tight geographic footprint, which may underpin both its operational efficiency and its exposure to local demand cycles.\n\nWhat stands out financially is the combination of strong capital efficiency and an unusually conservative balance sheet for the sector, with a debt-to-equity ratio of 0.03 suggesting the company funds growth largely through internal accruals. Return on equity of 37.8% and a three-year average ROCE of 33.9% appear well above sector norms, while a free cash flow to PAT ratio of 1.25 suggests earnings are being supported by, rather than running ahead of, actual cash generation. Revenue growing at a five-year CAGR of 31.8% alongside a PEG of 0.23 currently implies the market may not be fully pricing in the growth trajectory, though the longer-term question worth monitoring is whether this level of capital efficiency and cash conversion can be sustained as the company potentially scales beyond its core Gujarat base into more competitive or capital-intensive geographies."
     }
   }
 }
