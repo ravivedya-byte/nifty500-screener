@@ -1,0 +1,51 @@
+{
+  "20MICRONS": {
+    "date_assessed": "2026-05-06",
+    "score": 7,
+    "verdict": "PASS",
+    "snapshot": "20 Microns is one of India's largest manufacturers of micronised minerals, processing industrial minerals like calcium carbonate, talc, and mica into fine powders used across paints, plastics, rubber, and paper industries. The company operates captive mines in Gujarat and Rajasthan, giving it a structural cost advantage over competitors who source raw material externally.\n\nWhat stands out is the FCF/PAT ratio above 1.0 — the business generates more cash than it reports in profit, which is unusual for a capital-intensive minerals processor. At a P/E under 10 and PEG of 0.43, the market is pricing this as a commodity business, while the captive mine ownership and proprietary micronising technology suggest something closer to a niche industrial. The central question is whether the business can sustain growth as construction and paints capex remains healthy.",
+    "substack_url": ""
+  },
+  "ABDL": {
+    "date_assessed": "2026-05-07",
+    "score": 7,
+    "verdict": "PASS",
+    "snapshot": "Agarwal Bulk Duraline manufactures HDPE and DWC pipes primarily for water infrastructure and telecom duct applications across India. Revenue is driven by government infrastructure schemes — Jal Jeevan Mission being the most significant current tailwind — along with private sector industrial piping demand.\n\nThe balance sheet is conservative with minimal debt, and cash conversion appears healthy for a mid-size industrial. The business has grown steadily without aggressive capex cycles, which explains the clean FCF profile. The risk to monitor is scheme dependency — a meaningful portion of order flow traces back to centrally-funded rural water programmes, which are subject to budget allocation cycles.",
+    "substack_url": ""
+  },
+  "ACCELYA": {
+    "date_assessed": "2026-05-08",
+    "score": 8,
+    "verdict": "PASS",
+    "snapshot": "Accelya Solutions provides mission-critical revenue accounting and financial settlement software to airlines and the broader travel industry globally. The company's software is embedded in airline back-office workflows — handling the complex settlement of interline revenues between airlines — making it a sticky, switching-cost-driven business with recurring subscription revenue. Parent company is Vista Equity Partners.\n\nThe financials here are exceptional for an Indian-listed technology company: ROCE above 55%, FCF/PAT at 1.0, and almost no debt. The promoter holding of 74.7% reflects the PE parent's controlling stake. The primary structural risk is that a PE firm controls the listed entity — delisting, restructuring, or value extraction through inter-company transactions are all theoretically possible and need to be monitored. For an investor comfortable with that overhang, the underlying business quality appears strong.",
+    "substack_url": ""
+  },
+  "ACE": {
+    "date_assessed": "2026-05-09",
+    "score": 9,
+    "verdict": "STRONG PASS",
+    "snapshot": "Action Construction Equipment manufactures mobile cranes, tower cranes, construction equipment, and agri-machinery primarily for the Indian market. The company is the largest domestic manufacturer of mobile cranes by volume, selling through 600+ dealers and exporting to roughly 30 countries. The product mix spans infrastructure-linked equipment and agri-machinery, providing some insulation from pure construction cycle swings.\n\nThe combination of 29.8% ROCE, near-zero debt, and FCF/PAT of 1.80 makes this unusual in the capital goods space. The cash conversion is particularly notable — the business collects from customers promptly, manages inventory tightly, and has funded its entire expansion from internal cash flows without diluting equity. The central question is how durable the current growth rate proves once the infrastructure capex cycle normalises.",
+    "substack_url": ""
+  },
+  "ADANIPOWER": {
+    "date_assessed": "2026-05-10",
+    "score": 8,
+    "verdict": "STRONG PASS",
+    "snapshot": "Adani Power is one of India's largest private thermal power producers, operating coal-based power plants across multiple states with a combined capacity of over 15,000 MW. Revenue comes primarily from long-term Power Purchase Agreements with state distribution companies and central government entities, providing a degree of cash flow visibility unusual in the broader infrastructure sector.\n\nThe FCF/PAT of 1.77 reflects genuine cash generation from operating assets, and the ROCE of 20.8% is respectable for a capital-intensive utility. The D/E of 0.84 is elevated but characteristic of the sector. What distinguishes Adani Power is scale — at Rs4.4 lakh crore market cap, it is priced as a durable compounder, which requires sustained tariff realisation and fuel cost management to justify. The concentration of revenue in long-term PPAs is simultaneously the business's strength and its primary negotiating constraint.",
+    "substack_url": ""
+  },
+  "CEMPRO": {
+    "date_assessed": "2026-05-11",
+    "score": 8,
+    "verdict": "STRONG PASS",
+    "snapshot": "Cemindia Projects provides construction and project management services across infrastructure segments including industrial buildings, warehousing, and civil works. The business operates as a mid-size EPC contractor with a focus on industrial and commercial construction rather than roads or bridges, which differentiates it from the more cyclical government-contract-dependent peers.\n\nCapital allocation appears disciplined — low debt, consistent cash generation, and no visible pattern of aggressive expansion funded by leverage. At current valuation levels, the market is pricing in modest growth assumptions, leaving room for re-rating if execution on the current order book is clean. The key variable to watch is order book quality and the share of fixed-price contracts, which carry margin risk in an inflationary raw material environment.",
+    "substack_url": ""
+  },
+  "COALINDIA": {
+    "date_assessed": "2026-05-12",
+    "score": 8,
+    "verdict": "STRONG PASS",
+    "snapshot": "Coal India is the world's largest coal mining company by output, accounting for over 80% of India's domestic coal production. It is a government-owned enterprise with captive mines across multiple states, selling primarily to power utilities, steel plants, and cement manufacturers under fuel supply agreements. The business model is essentially a regulated near-monopoly with captive customer relationships.\n\nROCE of 48.6% and FCF/PAT of 1.31 are a function of the structural position — Coal India has minimal capex requirements relative to its cash generation because the mining assets are largely depreciated. The risk is not operational but political: coal pricing is constrained by government policy, and the long-term demand outlook for thermal coal depends heavily on India's energy transition timeline, which remains genuinely uncertain.",
+    "substack_url": ""
+  }
+}

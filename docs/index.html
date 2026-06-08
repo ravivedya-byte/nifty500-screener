@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpha Watch — Indian Equity Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #0A1628;
+    --navy2:  #1A3A5C;
+    --gold:   #B8962E;
+    --gold2:  #D4AF4A;
+    --cream:  #F8F5EE;
+    --white:  #FFFFFF;
+    --text:   #1A1A1A;
+    --muted:  #6B7280;
+    --border: #E2D9C8;
+    --green:  #2D6A4F;
+    --red:    #9B2226;
+    --pass:   #1B4332;
+    --passb:  #D8F3DC;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 56px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 500;
+    color: var(--white); letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+  .nav-brand span { color: var(--gold2); }
+  .nav-links { display: flex; gap: 4px; }
+  .nav-links button {
+    background: none; border: none; cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); padding: 6px 14px; border-radius: 3px;
+    transition: all 0.2s;
+  }
+  .nav-links button:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+  .nav-links button.active { color: var(--gold2); background: rgba(184,150,46,0.15); }
+  .nav-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: rgba(255,255,255,0.35);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── PAGES ── */
+  .page { display: none; min-height: calc(100vh - 56px); }
+  .page.active { display: block; }
+
+  /* ── HOME PAGE ── */
+  .hero {
+    background: var(--navy);
+    padding: 64px 40px 56px;
+    border-bottom: 1px solid rgba(184,150,46,0.3);
+  }
+  .hero-inner { max-width: 860px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold2); margin-bottom: 20px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px); font-weight: 500;
+    color: var(--white); line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  .hero-title em { color: var(--gold2); font-style: italic; }
+  .hero-text {
+    font-size: 15px; line-height: 1.75;
+    color: rgba(255,255,255,0.65);
+    max-width: 640px; margin-bottom: 32px;
+  }
+  .hero-stats {
+    display: flex; gap: 40px; flex-wrap: wrap;
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 28px; font-weight: 500;
+    color: var(--white); line-height: 1;
+  }
+  .stat-label {
+    font-size: 11px; color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ── CRITERIA STRIP ── */
+  .criteria-strip {
+    background: var(--navy2);
+    padding: 0 40px;
+    border-bottom: 1px solid rgba(184,150,46,0.2);
+    overflow-x: auto;
+  }
+  .criteria-inner {
+    display: flex; align-items: center; gap: 0;
+    white-space: nowrap; height: 44px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .criterion {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: rgba(255,255,255,0.55);
+    padding: 0 16px; border-right: 1px solid rgba(255,255,255,0.1);
+    white-space: nowrap;
+  }
+  .criterion:last-child { border-right: none; }
+  .criterion strong { color: var(--gold2); font-weight: 500; }
+
+  /* ── SECTION ── */
+  .section { padding: 48px 40px; max-width: 1200px; margin: 0 auto; }
+  .section-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 32px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 500; color: var(--navy);
+  }
+  .section-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--muted);
+  }
+
+  /* ── STOCK GRID ── */
+  .stock-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .stock-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px; padding: 20px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .stock-card:hover {
+    border-color: var(--navy2);
+    box-shadow: 0 4px 16px rgba(10,22,40,0.08);
+  }
+  .stock-card:hover .card-symbol { color: var(--navy2); }
+  .card-symbol {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px; font-weight: 500;
+    color: var(--navy); margin-bottom: 4px;
+    transition: color 0.2s;
+  }
+  .card-name {
+    font-size: 12px; color: var(--muted);
+    margin-bottom: 12px; line-height: 1.4;
+  }
+  .card-sector {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .card-mcap {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px; color: var(--text);
+  }
+  .card-badge {
+    position: absolute; top: 16px; right: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 2px;
+  }
+  .badge-assessed {
+    background: var(--passb); color: var(--pass);
+  }
+  .badge-queue {
+    background: #FEF9C3; color: #713F12;
+  }
+
+  /* ── WATCHLIST PAGE ── */
+  .watchlist-container { padding: 48px 40px; max-width: 1000px; margin: 0 auto; }
+  .wl-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px; margin-bottom: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .wl-item:hover { border-color: var(--navy2); }
+  .wl-header {
+    display: flex; align-items: center;
+    padding: 16px 24px; cursor: pointer; gap: 16px;
+  }
+  .wl-symbol {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 15px; font-weight: 500;
+    color: var(--navy); min-width: 120px;
+  }
+  .wl-name { font-size: 13px; color: var(--muted); flex: 1; }
+  .wl-sector {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    min-width: 120px; text-align: right;
+  }
+  .wl-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; padding: 3px 8px; border-radius: 2px;
+    min-width: 90px; text-align: center;
+  }
+  .wl-chevron {
+    color: var(--muted); font-size: 12px;
+    transition: transform 0.2s; min-width: 16px;
+  }
+  .wl-item.open .wl-chevron { transform: rotate(180deg); }
+  .wl-body {
+    display: none; padding: 0 24px 24px;
+    border-top: 1px solid var(--border);
+  }
+  .wl-item.open .wl-body { display: block; }
+  .wl-metrics {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    padding: 16px 0 20px;
+  }
+  .metric-chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; padding: 5px 10px;
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 3px; color: var(--text);
+  }
+  .metric-chip span { color: var(--muted); margin-right: 4px; }
+  .wl-snapshot {
+    font-size: 14px; line-height: 1.75;
+    color: #333; margin: 16px 0;
+    padding: 20px; background: var(--cream);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+  }
+  .wl-snapshot p { margin-bottom: 12px; }
+  .wl-snapshot p:last-child { margin-bottom: 0; }
+  .wl-links { display: flex; gap: 12px; margin-top: 16px; }
+  .wl-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 0.06em;
+    text-decoration: none; padding: 7px 16px;
+    border-radius: 3px; transition: all 0.2s;
+  }
+  .wl-link-primary {
+    background: var(--navy); color: var(--white);
+  }
+  .wl-link-primary:hover { background: var(--navy2); }
+  .wl-link-secondary {
+    border: 1px solid var(--border); color: var(--muted);
+  }
+  .wl-link-secondary:hover { border-color: var(--navy); color: var(--navy); }
+  .not-assessed-note {
+    font-size: 13px; color: var(--muted);
+    padding: 16px 0; font-style: italic;
+  }
+
+  /* ── PORTFOLIO PAGE ── */
+  .portfolio-container { padding: 48px 40px; max-width: 1000px; margin: 0 auto; }
+  .port-summary {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px; margin-bottom: 40px;
+  }
+  .port-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 4px; padding: 20px;
+  }
+  .port-card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .port-card-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 24px; font-weight: 500; color: var(--navy);
+  }
+  .port-card-value.positive { color: var(--green); }
+  .port-card-value.negative { color: var(--red); }
+  .port-table { width: 100%; border-collapse: collapse; }
+  .port-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); padding: 10px 16px; text-align: left;
+    border-bottom: 2px solid var(--border);
+    background: var(--cream);
+  }
+  .port-table td {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+  .port-table tr:hover td { background: #fafaf7; }
+  .port-table td.positive { color: var(--green); }
+  .port-table td.negative { color: var(--red); }
+  .port-table td.pending { color: var(--muted); font-style: italic; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.35);
+    text-align: center; padding: 32px 40px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; line-height: 1.8;
+    border-top: 1px solid rgba(184,150,46,0.2);
+  }
+  footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+  /* ── LOADING ── */
+  .loading {
+    text-align: center; padding: 80px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-meta { display: none; }
+    .hero { padding: 40px 20px; }
+    .criteria-strip { padding: 0 20px; }
+    .section { padding: 32px 20px; }
+    .watchlist-container { padding: 32px 20px; }
+    .portfolio-container { padding: 32px 20px; }
+    .wl-sector { display: none; }
+    .hero-stats { gap: 24px; }
+    .stat-num { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#"><span>Alpha</span> Watch</a>
+  <div class="nav-links">
+    <button onclick="showPage('home')" class="active" id="nav-home">Overview</button>
+    <button onclick="showPage('watchlist')" id="nav-watchlist">Watchlist</button>
+    <button onclick="showPage('portfolio')" id="nav-portfolio">Portfolio</button>
+  </div>
+  <div class="nav-meta" id="last-updated">—</div>
+</nav>
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Alpha Watch · NSE Equity Research</div>
+      <h1 class="hero-title">Tracking <em>business quality,</em><br>one week at a time.</h1>
+      <p class="hero-text">
+        Every week, 2,300+ NSE-listed companies are evaluated against a strict
+        set of criteria drawn from the value investing tradition of Buffett,
+        Munger, and Sanjoy Bhattacharyya. Only businesses that demonstrate
+        consistent capital efficiency, real cash generation, and conservative
+        balance sheets make the list. The philosophy is simple: pay a reasonable
+        price for a business that compounds reliably, and let time do the work.
+      </p>
+      <div class="hero-stats" id="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num" id="stat-scanned">—</div>
+          <div class="stat-label">Companies scanned</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" id="stat-qualified">—</div>
+          <div class="stat-label">Currently qualify</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" id="stat-assessed">—</div>
+          <div class="stat-label">Assessed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="criteria-strip">
+    <div class="criteria-inner">
+      <div class="criterion">Mkt Cap <strong>≥ ₹500 Cr</strong></div>
+      <div class="criterion">D/E <strong>≤ 1.0</strong></div>
+      <div class="criterion">ROE <strong>≥ 15%</strong></div>
+      <div class="criterion">Rev CAGR 5Y <strong>≥ 10%</strong></div>
+      <div class="criterion">ROCE 3Y <strong>≥ 18%</strong></div>
+      <div class="criterion">FCF / PAT <strong>≥ 0.75</strong></div>
+      <div class="criterion">Promoter <strong>≥ 45%</strong></div>
+      <div class="criterion">Pledge <strong>≤ 5%</strong></div>
+      <div class="criterion">PEG <strong>≤ 1.0</strong></div>
+      <div class="criterion" style="color:rgba(255,255,255,0.3); font-size:10px;">BFSI excluded</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Qualifying Stocks</div>
+      <div class="section-meta" id="grid-meta">Loading…</div>
+    </div>
+    <div class="stock-grid" id="stock-grid">
+      <div class="loading">Loading watchlist…</div>
+    </div>
+  </div>
+
+  <footer>
+    <div>Not investment advice &nbsp;·&nbsp; SEBI RA: <span id="footer-ra">—</span></div>
+    <div style="margin-top:6px">All data sourced from public disclosures. Do your own due diligence before making any investment decision.</div>
+  </footer>
+</div>
+
+<!-- WATCHLIST PAGE -->
+<div class="page" id="page-watchlist">
+  <div class="watchlist-container">
+    <div class="section-header">
+      <div class="section-title">Full Watchlist</div>
+      <div class="section-meta" id="wl-meta">Loading…</div>
+    </div>
+    <div id="watchlist-items">
+      <div class="loading">Loading…</div>
+    </div>
+  </div>
+
+  <footer>
+    <div>Not investment advice &nbsp;·&nbsp; SEBI RA: <span id="footer-ra-2">—</span></div>
+    <div style="margin-top:6px">Click any stock to expand. Assessed stocks show AI research snapshot. All others link directly to Screener.in.</div>
+  </footer>
+</div>
+
+<!-- PORTFOLIO PAGE -->
+<div class="page" id="page-portfolio">
+  <div class="portfolio-container">
+    <div class="section-header">
+      <div class="section-title">Paper Portfolio</div>
+      <div class="section-meta">₹1L SIP on 1st of each month · Benchmark: Nifty 50</div>
+    </div>
+
+    <div class="port-summary" id="port-summary">
+      <div class="loading">Loading…</div>
+    </div>
+
+    <div class="section-header" style="margin-top:32px;">
+      <div class="section-title" style="font-size:20px;">Monthly Entries</div>
+    </div>
+    <table class="port-table" id="port-table">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Symbol</th>
+          <th>Entry Price</th>
+          <th>Current</th>
+          <th>Return</th>
+          <th>vs Nifty 50</th>
+        </tr>
+      </thead>
+      <tbody id="port-tbody">
+        <tr><td colspan="6" class="pending" style="text-align:center;padding:32px;">Loading portfolio data…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    <div>Paper portfolio only. Not investment advice. Past performance does not indicate future results.</div>
+    <div style="margin-top:6px">SEBI RA: <span id="footer-ra-3">—</span></div>
+  </footer>
+</div>
+
+<script>
+// ── Data paths ──────────────────────────────────────────────────────────────
+const BASE = (() => {
+  const p = window.location.pathname;
+  const parts = p.split('/').filter(Boolean);
+  if (parts.length > 0 && !p.endsWith('.html')) {
+    return '/' + parts[0];
+  }
+  return '';
+})();
+
+const SEBI_RA = "";  // add your RA number here
+
+// ── State ───────────────────────────────────────────────────────────────────
+let wlData = null, assessData = null, portData = null;
+
+// ── Navigation ───────────────────────────────────────────────────────────────
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.getElementById('nav-' + id).classList.add('active');
+  if (id === 'watchlist' && wlData) renderWatchlist();
+  if (id === 'portfolio' && portData) renderPortfolio();
+}
+
+// ── Fetch data ───────────────────────────────────────────────────────────────
+async function loadData() {
+  try {
+    const [wl, assess, port] = await Promise.all([
+      fetch(BASE + '/data/watchlist.json').then(r => r.json()),
+      fetch(BASE + '/data/assessments.json').then(r => r.json()),
+      fetch(BASE + '/data/portfolio.json').then(r => r.json()),
+    ]);
+    wlData = wl; assessData = assess; portData = port;
+    renderHome();
+  } catch(e) {
+    document.getElementById('stock-grid').innerHTML =
+      '<div class="loading">Data unavailable. Run the screener to generate data files.</div>';
+  }
+}
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+function fmtCr(n) {
+  if (!n) return '—';
+  if (n >= 100000) return '₹' + (n/100000).toFixed(1) + 'L Cr';
+  if (n >= 1000)   return '₹' + (n/1000).toFixed(1) + 'k Cr';
+  return '₹' + n.toFixed(0) + ' Cr';
+}
+function fmtPct(n) { return n != null ? n.toFixed(1) + '%' : '—'; }
+function fmtNum(n, d=2) { return n != null ? n.toFixed(d) : '—'; }
+function screenerUrl(sym) { return 'https://www.screener.in/company/' + sym + '/'; }
+
+// ── Render Home ───────────────────────────────────────────────────────────────
+function renderHome() {
+  const stocks = wlData.stocks || [];
+  const assessedCount = Object.keys(assessData || {}).length;
+
+  document.getElementById('stat-scanned').textContent   = (wlData.total_scanned || '—').toLocaleString();
+  document.getElementById('stat-qualified').textContent = stocks.length;
+  document.getElementById('stat-assessed').textContent  = assessedCount;
+  document.getElementById('last-updated').textContent   = 'Updated ' + (wlData.last_updated || '—');
+  document.getElementById('grid-meta').textContent      = stocks.length + ' stocks · ' + assessedCount + ' assessed';
+  document.querySelectorAll('[id^="footer-ra"]').forEach(el => el.textContent = SEBI_RA || 'RA/2021/0000');
+
+  const grid = document.getElementById('stock-grid');
+  grid.innerHTML = '';
+  stocks.forEach(s => {
+    const isAssessed = assessData && assessData[s.symbol];
+    const card = document.createElement('div');
+    card.className = 'stock-card';
+    card.onclick = () => { showPage('watchlist'); setTimeout(() => expandWlItem(s.symbol), 80); };
+    card.innerHTML = `
+      <div class="card-badge ${isAssessed ? 'badge-assessed' : 'badge-queue'}">
+        ${isAssessed ? '✓ assessed' : '⏳ queue'}
+      </div>
+      <div class="card-symbol">${s.symbol}</div>
+      <div class="card-name">${s.name}</div>
+      <div class="card-sector">${s.sector}</div>
+      <div class="card-mcap">${fmtCr(s.market_cap_cr)}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+// ── Render Watchlist ──────────────────────────────────────────────────────────
+function renderWatchlist() {
+  const stocks = wlData.stocks || [];
+  const container = document.getElementById('watchlist-items');
+  document.getElementById('wl-meta').textContent = stocks.length + ' stocks';
+  container.innerHTML = '';
+
+  stocks.forEach(s => {
+    const isAssessed = assessData && assessData[s.symbol];
+    const m = s.metrics || {};
+    const item = document.createElement('div');
+    item.className = 'wl-item';
+    item.id = 'wl-' + s.symbol;
+
+    const snapParagraphs = isAssessed
+      ? (assessData[s.symbol].snapshot || '').split('\n\n').filter(p => p.trim())
+      : [];
+
+    const bodyContent = isAssessed ? `
+      <div class="wl-metrics">
+        <div class="metric-chip"><span>D/E</span>${fmtNum(m.de_ratio)}</div>
+        <div class="metric-chip"><span>ROE</span>${fmtPct(m.roe)}</div>
+        <div class="metric-chip"><span>Rev CAGR 5Y</span>${fmtPct(m.revenue_cagr_5y)}</div>
+        <div class="metric-chip"><span>ROCE 3Y</span>${fmtPct(m.roce_3y_avg)}</div>
+        <div class="metric-chip"><span>FCF/PAT</span>${fmtNum(m.fcf_to_pat)}</div>
+        <div class="metric-chip"><span>Promoter</span>${fmtPct(m.promoter_holding)}</div>
+        <div class="metric-chip"><span>Pledge</span>${m.promoter_pledge === 0 ? '0% (nil)' : fmtPct(m.promoter_pledge)}</div>
+        <div class="metric-chip"><span>PEG</span>${fmtNum(m.peg_ratio)}</div>
+        <div class="metric-chip"><span>Mkt Cap</span>${fmtCr(s.market_cap_cr)}</div>
+        ${m.pe_ratio ? `<div class="metric-chip"><span>P/E</span>${fmtNum(m.pe_ratio, 1)} <span style="font-size:9px">(ref)</span></div>` : ''}
+      </div>
+      <div class="wl-snapshot">
+        ${snapParagraphs.map(p => `<p>${p}</p>`).join('')}
+      </div>
+      <div class="wl-links">
+        ${assessData[s.symbol].substack_url
+          ? `<a class="wl-link wl-link-primary" href="${assessData[s.symbol].substack_url}" target="_blank">Full Research Note →</a>`
+          : `<span class="wl-link wl-link-secondary" style="cursor:default;opacity:0.5">Research note coming soon</span>`
+        }
+        <a class="wl-link wl-link-secondary" href="${screenerUrl(s.symbol)}" target="_blank">View on Screener →</a>
+      </div>
+    ` : `
+      <div class="wl-metrics">
+        <div class="metric-chip"><span>D/E</span>${fmtNum(m.de_ratio)}</div>
+        <div class="metric-chip"><span>ROE</span>${fmtPct(m.roe)}</div>
+        <div class="metric-chip"><span>Rev CAGR 5Y</span>${fmtPct(m.revenue_cagr_5y)}</div>
+        <div class="metric-chip"><span>ROCE 3Y</span>${fmtPct(m.roce_3y_avg)}</div>
+        <div class="metric-chip"><span>FCF/PAT</span>${fmtNum(m.fcf_to_pat)}</div>
+        <div class="metric-chip"><span>Promoter</span>${fmtPct(m.promoter_holding)}</div>
+        <div class="metric-chip"><span>PEG</span>${fmtNum(m.peg_ratio)}</div>
+        <div class="metric-chip"><span>Mkt Cap</span>${fmtCr(s.market_cap_cr)}</div>
+      </div>
+      <div class="not-assessed-note">Research assessment pending — check back soon.</div>
+      <div class="wl-links">
+        <a class="wl-link wl-link-primary" href="${screenerUrl(s.symbol)}" target="_blank">View on Screener →</a>
+      </div>
+    `;
+
+    item.innerHTML = `
+      <div class="wl-header" onclick="toggleWlItem('${s.symbol}')">
+        <div class="wl-symbol">${s.symbol}</div>
+        <div class="wl-name">${s.name}</div>
+        <div class="wl-sector">${s.sector}</div>
+        <div class="wl-status ${isAssessed ? 'badge-assessed' : 'badge-queue'}">
+          ${isAssessed ? '✓ assessed' : '⏳ queue'}
+        </div>
+        <div class="wl-chevron">▾</div>
+      </div>
+      <div class="wl-body">${bodyContent}</div>
+    `;
+    container.appendChild(item);
+  });
+}
+
+function toggleWlItem(sym) {
+  if (!wlData) return;
+  if (!document.querySelector('#wl-' + sym + ' .wl-body').innerHTML.trim()) renderWatchlist();
+  const item = document.getElementById('wl-' + sym);
+  if (item) item.classList.toggle('open');
+}
+
+function expandWlItem(sym) {
+  if (!wlData) { renderWatchlist(); }
+  if (!document.getElementById('watchlist-items').children.length ||
+      document.getElementById('watchlist-items').querySelector('.loading')) {
+    renderWatchlist();
+  }
+  setTimeout(() => {
+    const item = document.getElementById('wl-' + sym);
+    if (item) {
+      item.classList.add('open');
+      item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 100);
+}
+
+// ── Render Portfolio ──────────────────────────────────────────────────────────
+function renderPortfolio() {
+  const entries = portData.sip_entries || [];
+  const summary = document.getElementById('port-summary');
+  const tbody = document.getElementById('port-tbody');
+
+  // Summary cards
+  const totalDeployed = entries.reduce((a, e) => a + (e.total_deployed || 0), 0);
+  const totalCurrent  = entries.reduce((a, e) => a + (e.total_current || e.total_deployed || 0), 0);
+  const overallReturn = totalDeployed > 0 ? ((totalCurrent - totalDeployed) / totalDeployed * 100) : null;
+
+  summary.innerHTML = `
+    <div class="port-card">
+      <div class="port-card-label">Total Deployed</div>
+      <div class="port-card-value">₹${(totalDeployed/100000).toFixed(1)}L</div>
+    </div>
+    <div class="port-card">
+      <div class="port-card-label">Current Value</div>
+      <div class="port-card-value">₹${(totalCurrent/100000).toFixed(1)}L</div>
+    </div>
+    <div class="port-card">
+      <div class="port-card-label">Overall Return</div>
+      <div class="port-card-value ${overallReturn == null ? '' : overallReturn >= 0 ? 'positive' : 'negative'}">
+        ${overallReturn != null ? (overallReturn >= 0 ? '+' : '') + overallReturn.toFixed(1) + '%' : 'Pending'}
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="port-card-label">SIP Months</div>
+      <div class="port-card-value">${entries.length}</div>
+    </div>
+  `;
+
+  // Table rows
+  tbody.innerHTML = '';
+  if (entries.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="6" class="pending" style="text-align:center;padding:32px;">No SIP entries yet.</td></tr>';
+    return;
+  }
+
+  entries.forEach(entry => {
+    const allocs = entry.allocations || [];
+    allocs.forEach((a, i) => {
+      const tr = document.createElement('tr');
+      const retVal = a.pct_change;
+      const retClass = retVal == null ? 'pending' : retVal >= 0 ? 'positive' : 'negative';
+      const retStr   = retVal == null ? 'Pending' : (retVal >= 0 ? '+' : '') + retVal.toFixed(1) + '%';
+      tr.innerHTML = `
+        <td>${i === 0 ? entry.month : ''}</td>
+        <td>${a.symbol}</td>
+        <td>${a.price_entry ? '₹' + a.price_entry.toLocaleString() : '—'}</td>
+        <td>${a.price_current ? '₹' + a.price_current.toLocaleString() : '—'}</td>
+        <td class="${retClass}">${retStr}</td>
+        <td class="${entry.bench_pct == null ? 'pending' : ''}">${entry.bench_pct != null ? (entry.bench_pct >= 0 ? '+' : '') + entry.bench_pct.toFixed(1) + '% (Nifty)' : '—'}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+    // Subtotal row
+    if (allocs.length > 0 && entry.return_pct != null) {
+      const tr = document.createElement('tr');
+      tr.style.background = '#f8f5ee';
+      tr.innerHTML = `
+        <td></td><td style="color:var(--muted);font-size:10px">Batch total</td>
+        <td>₹${(entry.total_deployed/100000).toFixed(1)}L</td>
+        <td>₹${((entry.total_current||entry.total_deployed)/100000).toFixed(1)}L</td>
+        <td class="${entry.return_pct >= 0 ? 'positive' : 'negative'}">${entry.return_pct >= 0 ? '+' : ''}${entry.return_pct.toFixed(1)}%</td>
+        <td class="${entry.alpha == null ? 'pending' : entry.alpha >= 0 ? 'positive' : 'negative'}">${entry.alpha != null ? 'Alpha ' + (entry.alpha >= 0 ? '+' : '') + entry.alpha.toFixed(1) + '%' : '—'}</td>
+      `;
+      tbody.appendChild(tr);
+    }
+  });
+}
+
+// ── Boot ──────────────────────────────────────────────────────────────────────
+loadData();
+</script>
+</body>
+</html>

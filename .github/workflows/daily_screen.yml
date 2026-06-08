@@ -1,0 +1,72 @@
+name: NSE Investment Screener
+
+on:
+  schedule:
+    # Monday 5:30 PM IST = 12:00 PM UTC
+    - cron: '0 12 * * 1'
+    # Tuesday–Friday 5:30 PM IST = 12:00 PM UTC
+    - cron: '0 12 * * 2-5'
+    # Saturday 10:00 AM IST = 04:30 AM UTC
+    - cron: '30 4 * * 6'
+
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Run mode (screener or weekly_report)'
+        required: false
+        default: 'screener'
+
+permissions:
+  contents: write
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5.6.0
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Set run mode
+        id: mode
+        run: |
+          DAY=$(date +%u)  # 1=Mon ... 7=Sun
+          INPUT_MODE="${{ github.event.inputs.mode }}"
+          if [ "$INPUT_MODE" = "weekly_report" ]; then
+            echo "SCREENER_MODE=weekly_report" >> $GITHUB_ENV
+          elif [ "$DAY" = "6" ]; then
+            echo "SCREENER_MODE=weekly_report" >> $GITHUB_ENV
+          else
+            echo "SCREENER_MODE=screener" >> $GITHUB_ENV
+          fi
+
+      - name: Run screener
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          SEBI_RA_NUMBER:     ${{ secrets.SEBI_RA_NUMBER }}
+          SUBSTACK_BASE_URL:  ${{ secrets.SUBSTACK_BASE_URL }}
+        run: python screener.py
+
+      - name: Commit updated data files
+        run: |
+          git config --global user.name  "Alpha Watch Bot"
+          git config --global user.email "actions@github.com"
+          git add data/ || true
+          git diff --staged --quiet || git commit -m "chore: update watchlist data [skip ci]"
+          git push || true
+

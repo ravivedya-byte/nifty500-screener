@@ -491,7 +491,6 @@ def get_annual_report_context(sym: str,
                 data = resp.json()
                 if isinstance(data, list) and data:
                     entry = data[0]
-                    log.info(f"  BSE response keys: {list(entry.keys())}")
                     for field in ["ATTACHMENT", "FILE_PATH", "PDF_PATH",
                                   "DOCUMENT_PATH", "Link"]:
                         url = entry.get(field, "")
@@ -1316,6 +1315,97 @@ def format_weekly_report(today, wl_log, perf_results, weekly_nms):
     )
 
 
+# ── Website Data Export ───────────────────────────────────────────────────────
+
+def write_data_files(today_wl: List[str], wl_log: Dict,
+                     ai_queue: Dict, perf_log: Dict,
+                     today_str: str, total_scanned: int) -> None:
+    """
+    Write JSON data files for the GitHub Pages website.
+    Called at the end of every run. Files committed by GitHub Actions.
+    """
+    os.makedirs("data", exist_ok=True)
+    os.makedirs("docs", exist_ok=True)
+
+    assessed   = ai_queue.get("assessed", {})
+    pending    = ai_queue.get("pending",  [])
+    pending_syms = [e["sym"] for e in pending]
+
+    # ── watchlist.json ────────────────────────────────────────────────────────
+    stocks = []
+    for entry in pending:
+        sym  = entry["sym"]
+        data = entry.get("data", {})
+        basic= entry.get("basic", {})
+        m    = data if data else {}
+        stocks.append({
+            "symbol":         sym,
+            "name":           entry.get("name", sym),
+            "sector":         basic.get("sector", ""),
+            "market_cap_cr":  basic.get("market_cap_cr"),
+            "date_added":     entry.get("date_added", today_str),
+            "metrics": {
+                "de_ratio":         m.get("de_ratio"),
+                "roe":              m.get("roe"),
+                "revenue_cagr_5y":  m.get("revenue_growth_5y"),
+                "fcf_to_pat":       m.get("fcf_to_pat"),
+                "promoter_holding": m.get("promoter_holding"),
+                "promoter_pledge":  m.get("promoter_pledge") or 0,
+                "peg_ratio":        m.get("peg_ratio"),
+                "roce_3y_avg":      m.get("roce_3y_avg"),
+                "pe_ratio":         m.get("pe_ratio"),
+            }
+        })
+
+    # Also include assessed stocks that are still on watchlist
+    for sym, ainfo in assessed.items():
+        if sym in today_wl and sym not in pending_syms:
+            # find data from ai_queue or use minimal info
+            stocks.insert(0, {
+                "symbol":        sym,
+                "name":          ainfo.get("name", sym),
+                "sector":        ainfo.get("sector", ""),
+                "market_cap_cr": ainfo.get("market_cap_cr"),
+                "date_added":    ainfo.get("date_assessed", today_str),
+                "metrics":       ainfo.get("metrics", {}),
+            })
+
+    # Sort: assessed first, then by queue order
+    def sort_key(s):
+        sym = s["symbol"]
+        if sym in assessed: return (0, sym)
+        if sym in pending_syms: return (1, pending_syms.index(sym))
+        return (2, sym)
+    stocks.sort(key=sort_key)
+
+    wl_out = {
+        "last_updated":    today_str,
+        "total_scanned":   total_scanned,
+        "total_qualified": len(today_wl),
+        "stocks":          stocks,
+    }
+    save_json("data/watchlist.json", wl_out)
+
+    # ── assessments.json ──────────────────────────────────────────────────────
+    assess_out = {}
+    for sym, ainfo in assessed.items():
+        assess_out[sym] = {
+            "date_assessed": ainfo.get("date_assessed", ""),
+            "score":         ainfo.get("score", 0),
+            "verdict":       ainfo.get("verdict", ""),
+            "snapshot":      ainfo.get("snapshot", ""),
+            "ar_used":       ainfo.get("ar_used", False),
+            "substack_url":  ainfo.get("substack_url", ""),
+        }
+    save_json("data/assessments.json", assess_out)
+
+    # ── portfolio.json ────────────────────────────────────────────────────────
+    save_json("data/portfolio.json", perf_log)
+
+    log.info(f"Website data files written — {len(stocks)} stocks, "
+             f"{len(assess_out)} assessments")
+
+
 # ── Saturday Mode ─────────────────────────────────────────────────────────────
 
 def run_weekly_report_only():
@@ -1471,6 +1561,9 @@ def main():
 
     save_json(AI_QUEUE_PATH,    ai_queue)
     save_json(ALERTS_LOG_PATH,  alerts_log)
+
+    # Write website data files
+    write_data_files(today_wl, wl_log, ai_queue, perf_log, today_str, len(symbols))
 
     log.info(f"\n{'='*60}\nDone. Watchlist: {len(today_wl)} stocks.\n{'='*60}\n")
 
