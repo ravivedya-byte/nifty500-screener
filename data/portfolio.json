@@ -1,22 +1,21 @@
 {
-  "benchmark_ticker": "^NSEI",
-  "sip_amount": 100000,
   "sip_entries": [
     {
-      "month": "2026-06",
-      "date": "2026-06-01",
-      "type": "stocks",
-      "total_deployed": 100000,
-      "total_current": null,
-      "return_pct": null,
-      "bench_pct": null,
-      "alpha": null,
+      "month": "2026-05",
+      "date": "2026-05-01",
+      "type": "gold_fallback",
+      "reason": "No stocks qualified in the prior 30 days",
       "allocations": [
-        {"symbol": "20MICRONS", "price_entry": 148, "price_current": null, "pct_change": null},
-        {"symbol": "ACE", "price_entry": 1242, "price_current": null, "pct_change": null},
-        {"symbol": "COALINDIA", "price_entry": 382, "price_current": null, "pct_change": null},
-        {"symbol": "ACCELYA", "price_entry": 1156, "price_current": null, "pct_change": null}
-      ]
+        {
+          "symbol": "GOLDBEES",
+          "name": "Nippon India Gold ETF (GOLDBEES)",
+          "price_entry": 123.43,
+          "shares": 810.1758
+        }
+      ],
+      "amount_per_stock": 100000,
+      "total_deployed": 100000,
+      "benchmark_price_entry": 23997.55
     }
   ]
 }

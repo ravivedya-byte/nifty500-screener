@@ -1,51 +1,114 @@
 {
   "20MICRONS": {
-    "date_assessed": "2026-05-06",
+    "date_assessed": "2026-05-05",
     "score": 7,
     "verdict": "PASS",
-    "snapshot": "20 Microns is one of India's largest manufacturers of micronised minerals, processing industrial minerals like calcium carbonate, talc, and mica into fine powders used across paints, plastics, rubber, and paper industries. The company operates captive mines in Gujarat and Rajasthan, giving it a structural cost advantage over competitors who source raw material externally.\n\nWhat stands out is the FCF/PAT ratio above 1.0 — the business generates more cash than it reports in profit, which is unusual for a capital-intensive minerals processor. At a P/E under 10 and PEG of 0.43, the market is pricing this as a commodity business, while the captive mine ownership and proprietary micronising technology suggest something closer to a niche industrial. The central question is whether the business can sustain growth as construction and paints capex remains healthy.",
+    "snapshot": "",
+    "ar_used": false,
     "substack_url": ""
   },
   "ABDL": {
-    "date_assessed": "2026-05-07",
-    "score": 7,
-    "verdict": "PASS",
-    "snapshot": "Agarwal Bulk Duraline manufactures HDPE and DWC pipes primarily for water infrastructure and telecom duct applications across India. Revenue is driven by government infrastructure schemes — Jal Jeevan Mission being the most significant current tailwind — along with private sector industrial piping demand.\n\nThe balance sheet is conservative with minimal debt, and cash conversion appears healthy for a mid-size industrial. The business has grown steadily without aggressive capex cycles, which explains the clean FCF profile. The risk to monitor is scheme dependency — a meaningful portion of order flow traces back to centrally-funded rural water programmes, which are subject to budget allocation cycles.",
+    "date_assessed": "2026-05-06",
+    "score": 6,
+    "verdict": "BORDERLINE",
+    "snapshot": "",
+    "ar_used": false,
     "substack_url": ""
   },
   "ACCELYA": {
-    "date_assessed": "2026-05-08",
+    "date_assessed": "2026-05-06",
     "score": 8,
-    "verdict": "PASS",
-    "snapshot": "Accelya Solutions provides mission-critical revenue accounting and financial settlement software to airlines and the broader travel industry globally. The company's software is embedded in airline back-office workflows — handling the complex settlement of interline revenues between airlines — making it a sticky, switching-cost-driven business with recurring subscription revenue. Parent company is Vista Equity Partners.\n\nThe financials here are exceptional for an Indian-listed technology company: ROCE above 55%, FCF/PAT at 1.0, and almost no debt. The promoter holding of 74.7% reflects the PE parent's controlling stake. The primary structural risk is that a PE firm controls the listed entity — delisting, restructuring, or value extraction through inter-company transactions are all theoretically possible and need to be monitored. For an investor comfortable with that overhang, the underlying business quality appears strong.",
+    "verdict": "STRONG PASS",
+    "snapshot": "",
+    "ar_used": false,
     "substack_url": ""
   },
   "ACE": {
-    "date_assessed": "2026-05-09",
-    "score": 9,
+    "date_assessed": "2026-05-07",
+    "score": 8,
     "verdict": "STRONG PASS",
-    "snapshot": "Action Construction Equipment manufactures mobile cranes, tower cranes, construction equipment, and agri-machinery primarily for the Indian market. The company is the largest domestic manufacturer of mobile cranes by volume, selling through 600+ dealers and exporting to roughly 30 countries. The product mix spans infrastructure-linked equipment and agri-machinery, providing some insulation from pure construction cycle swings.\n\nThe combination of 29.8% ROCE, near-zero debt, and FCF/PAT of 1.80 makes this unusual in the capital goods space. The cash conversion is particularly notable — the business collects from customers promptly, manages inventory tightly, and has funded its entire expansion from internal cash flows without diluting equity. The central question is how durable the current growth rate proves once the infrastructure capex cycle normalises.",
+    "snapshot": "",
+    "ar_used": false,
     "substack_url": ""
   },
   "ADANIPOWER": {
-    "date_assessed": "2026-05-10",
+    "date_assessed": "2026-05-07",
+    "score": 0,
+    "verdict": "FAIL",
+    "snapshot": "Assessment unavailable.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "BANCOINDIA": {
+    "date_assessed": "2026-05-07",
     "score": 8,
     "verdict": "STRONG PASS",
-    "snapshot": "Adani Power is one of India's largest private thermal power producers, operating coal-based power plants across multiple states with a combined capacity of over 15,000 MW. Revenue comes primarily from long-term Power Purchase Agreements with state distribution companies and central government entities, providing a degree of cash flow visibility unusual in the broader infrastructure sector.\n\nThe FCF/PAT of 1.77 reflects genuine cash generation from operating assets, and the ROCE of 20.8% is respectable for a capital-intensive utility. The D/E of 0.84 is elevated but characteristic of the sector. What distinguishes Adani Power is scale — at Rs4.4 lakh crore market cap, it is priced as a durable compounder, which requires sustained tariff realisation and fuel cost management to justify. The concentration of revenue in long-term PPAs is simultaneously the business's strength and its primary negotiating constraint.",
+    "snapshot": "Banco Products (India) Ltd is an auto components manufacturer supplying gaskets, cooling systems, and sealing solutions primarily to original equipment manufacturers in the Indian automotive sector. The company serves passenger vehicle, commercial vehicle, and tractor segments, positioning it across multiple end markets within the broader automotive value chain. Its products are considered critical consumables in engine and thermal management assemblies, giving it a recurring demand profile tied closely to both vehicle production volumes and the aftermarket replacement cycle.\n\nWhat stands out financially is the combination of sustained capital efficiency and disciplined balance sheet management. ROCE has averaged approximately 30% over three years while the debt to equity ratio currently remains modest at 0.45, suggesting the business has not leaned heavily on leverage to drive returns. Free cash flow conversion at 0.75 times reported earnings appears healthy, and the five year revenue CAGR of 19.1% alongside a PEG of 0.55 suggests the market may not yet be fully pricing the growth trajectory. The longer-term question worth monitoring is whether volumes hold as the Indian auto sector navigates an evolving powertrain mix, particularly the gradual shift toward electric vehicles, which could alter demand for certain conventional engine components over time.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "CEINSYS": {
+    "date_assessed": "2026-05-07",
+    "score": 0,
+    "verdict": "FAIL",
+    "snapshot": "Assessment unavailable.",
+    "ar_used": false,
     "substack_url": ""
   },
   "CEMPRO": {
-    "date_assessed": "2026-05-11",
+    "date_assessed": "2026-05-08",
     "score": 8,
     "verdict": "STRONG PASS",
-    "snapshot": "Cemindia Projects provides construction and project management services across infrastructure segments including industrial buildings, warehousing, and civil works. The business operates as a mid-size EPC contractor with a focus on industrial and commercial construction rather than roads or bridges, which differentiates it from the more cyclical government-contract-dependent peers.\n\nCapital allocation appears disciplined — low debt, consistent cash generation, and no visible pattern of aggressive expansion funded by leverage. At current valuation levels, the market is pricing in modest growth assumptions, leaving room for re-rating if execution on the current order book is clean. The key variable to watch is order book quality and the share of fixed-price contracts, which carry margin risk in an inflationary raw material environment.",
+    "snapshot": "Cemindia Projects Ltd, listed on the NSE under the ticker CEMPRO, appears to operate within the engineering and construction segment of India's industrials sector. While a detailed business description is not available in this review, companies of this profile typically serve infrastructure, industrial, or civil construction clients, often including both public sector undertakings and private developers. The firm's scale, reflected in a market capitalisation of approximately Rs 15,680 crore, suggests a reasonably established operational footprint rather than an early-stage enterprise. Further clarity on its specific service verticals and geographic concentration would strengthen any assessment of its competitive positioning.\n\nThe financial profile stands out for several reasons worth examining carefully. A five-year revenue CAGR of 29.8% alongside a three-year average ROCE of 31.1% suggests the business has been compounding at an above-average rate while maintaining strong returns on the capital it deploys. The FCF to PAT ratio of 2.29 is particularly noteworthy, as it indicates that reported earnings are being comfortably backed by actual cash generation, a quality often absent in capital-intensive construction businesses. The balance sheet appears relatively conservative with a debt-to-equity ratio of 0.38, and promoter holding of 67.46% reflects continued conviction at the ownership level. The key uncertainty worth monitoring over the longer term is whether the company can sustain this growth trajectory and cash conversion quality as the business scales, particularly given that construction businesses can face margin pressure, working capital strain, and execution risk as order books grow in size and complexity.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "CHENNPETRO": {
+    "date_assessed": "2026-05-08",
+    "score": 8,
+    "verdict": "STRONG PASS",
+    "snapshot": "Chennai Petroleum Corporation Ltd (CPCL) operates as a mid-sized oil refining company based in Tamil Nadu, functioning as a subsidiary within the Indian Oil Corporation group. The company runs refineries at Manali near Chennai and at Cauvery Basin in Nagapattinam, with a combined crude processing capacity that serves the southern Indian market. Its primary outputs include petrol, diesel, liquefied petroleum gas, kerosene, aviation turbine fuel, and a range of petrochemical feedstocks. The customer base spans fuel retailers, industrial consumers, and group companies within the broader IOC ecosystem.\n\nThe financial profile currently stands out for its combination of high capital efficiency and modest leverage, with a reported ROE of 32.1% and a three-year average ROCE of 28.0% alongside a debt-to-equity ratio of just 0.18. Revenue has compounded at 23.4% over five years, and a FCF-to-PAT ratio of 1.0 suggests earnings are being supported by genuine cash generation rather than accounting adjustments alone. The PEG ratio of 0.08 appears low relative to the growth trajectory, which may indicate the market is pricing in mean reversion in refining margins rather than assigning sustained earnings power. The longer-term question worth monitoring is whether CPCL can maintain throughput economics and margin resilience as India's refining landscape evolves, particularly given its geographic concentration and potential capex requirements tied to fuel quality upgrades or capacity expansion.",
+    "ar_used": false,
     "substack_url": ""
   },
   "COALINDIA": {
-    "date_assessed": "2026-05-12",
+    "date_assessed": "2026-05-08",
     "score": 8,
     "verdict": "STRONG PASS",
-    "snapshot": "Coal India is the world's largest coal mining company by output, accounting for over 80% of India's domestic coal production. It is a government-owned enterprise with captive mines across multiple states, selling primarily to power utilities, steel plants, and cement manufacturers under fuel supply agreements. The business model is essentially a regulated near-monopoly with captive customer relationships.\n\nROCE of 48.6% and FCF/PAT of 1.31 are a function of the structural position — Coal India has minimal capex requirements relative to its cash generation because the mining assets are largely depreciated. The risk is not operational but political: coal pricing is constrained by government policy, and the long-term demand outlook for thermal coal depends heavily on India's energy transition timeline, which remains genuinely uncertain.",
+    "snapshot": "Coal India Ltd is a state-owned enterprise and the world's largest coal mining company by production volume, operating across several subsidiaries in major coal-bearing states of India including Jharkhand, Odisha, Chhattisgarh, and West Bengal. The company extracts and supplies thermal and coking coal primarily to power utilities, steel plants, and industrial consumers, with the power sector accounting for the dominant share of offtake. Its operations span both opencast and underground mining, with opencast methods contributing the majority of output. The Government of India, as promoter, holds approximately 63% of the company, which currently appears to provide a degree of policy alignment with India's baseload energy requirements.\n\nFrom a financial standpoint, Coal India stands out for its capital efficiency, with a three-year average ROCE of 42.7% and an ROE of 28.5%, figures that appear unusually strong for a capital-intensive extractive business. The balance sheet currently suggests low financial leverage, with a debt-to-equity ratio of 0.12, while a free cash flow to PAT conversion of 0.87 indicates that reported earnings are translating into tangible cash with reasonable consistency. Revenue has compounded at 13.3% over five years and the PEG ratio of 0.48 suggests the current valuation at 9.37x earnings may not fully reflect the earnings trajectory. The longer-term question worth monitoring is whether the structural shift toward renewables in India's power sector will begin to constrain offtake volumes and pricing power over the next decade, even as near-term coal demand from the grid remains firm.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "ECLERX": {
+    "date_assessed": "2026-06-02",
+    "score": 7,
+    "verdict": "PASS",
+    "snapshot": "eClerx Services Ltd is an Indian knowledge process outsourcing firm that provides data analytics, automation, and process management services to global clients, with a primary focus on financial services, cable and telecom, and retail and e-commerce verticals. The company operates across delivery centres in India and maintains a client-facing presence in North America, Europe, and Asia Pacific, serving a predominantly offshore-dependent global enterprise customer base. Its service offerings span operations support, digital services, and analytics, positioning it within the higher-value segment of the broader IT services landscape.\n\nFinancially, eClerx appears to be a capital-efficient business, with a three-year average ROCE of 31.3% and an ROE of 22.8%, both suggesting disciplined deployment of shareholder funds. The balance sheet currently stands conservatively leveraged at a debt-to-equity ratio of 0.15, and a free cash flow to PAT conversion of 0.82 indicates that earnings are translating into cash at a healthy rate. Revenue has compounded at 20.1% over five years, and a PEG ratio of 0.96 suggests the market may not be materially overpricing the growth trajectory at current levels. The longer-term question worth monitoring is whether eClerx can sustain this revenue growth rate and pricing power as automation and artificial intelligence increasingly affect the demand dynamics for the very process-driven services it delivers.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "ELECON": {
+    "date_assessed": "2026-06-05",
+    "score": 7,
+    "verdict": "PASS",
+    "snapshot": "Elecon Engineering Company Ltd appears to be one of India's established players in specialty industrial machinery, with its core business spanning the design and manufacture of material handling equipment and industrial gearboxes. The company likely serves a broad cross-section of capital-intensive industries including cement, steel, power, and mining, where reliable power transmission and bulk material movement are operationally critical. Its product portfolio suggests a degree of engineering complexity that may provide some competitive insulation from commoditised alternatives. Elecon operates primarily within India while also maintaining an export presence across select international markets.\n\nWhat stands out financially is the combination of capital efficiency and unusually strong cash conversion. A three-year average ROCE of 24.5% alongside a FCF to PAT ratio of 3.43 suggests the business is generating meaningfully more cash than its reported earnings alone would indicate, which is a relatively uncommon quality in the industrials space. The balance sheet appears conservative with a debt to equity ratio of 0.12, and the five-year revenue CAGR of 17.8% points to a sustained growth trajectory rather than a cyclical spike. A PEG ratio of 0.78 at current earnings multiples may indicate the market has not yet fully priced in the growth runway, though the longer-term question worth monitoring is whether order inflows and capacity utilisation can remain robust through a potential slowdown in domestic infrastructure and capital expenditure cycles.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "GANESHHOU": {
+    "date_assessed": "2026-06-08",
+    "score": 8,
+    "verdict": "STRONG PASS",
+    "snapshot": "Ganesh Housing Ltd is a real estate developer based in Gujarat, India, primarily engaged in the development of residential and commercial properties. The company appears to focus on mid-segment housing projects, plotted developments, and mixed-use real estate, serving retail homebuyers and commercial occupants predominantly within the Gujarat market. Its operations suggest a regionally concentrated model with a relatively tight geographic footprint, which may underpin both its operational efficiency and its exposure to local demand cycles.\n\nWhat stands out financially is the combination of strong capital efficiency and an unusually conservative balance sheet for the sector, with a debt-to-equity ratio of 0.03 suggesting the company funds growth largely through internal accruals. Return on equity of 37.8% and a three-year average ROCE of 33.9% appear well above sector norms, while a free cash flow to PAT ratio of 1.25 suggests earnings are being supported by, rather than running ahead of, actual cash generation. Revenue growing at a five-year CAGR of 31.8% alongside a PEG of 0.23 currently implies the market may not be fully pricing in the growth trajectory, though the longer-term question worth monitoring is whether this level of capital efficiency and cash conversion can be sustained as the company potentially scales beyond its core Gujarat base into more competitive or capital-intensive geographies.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "GOKULAGRO": {
+    "date_assessed": "2026-06-10",
+    "score": 0,
+    "verdict": "FAIL",
+    "snapshot": "Assessment unavailable.",
+    "ar_used": false,
     "substack_url": ""
   }
 }

@@ -1,41 +1,671 @@
 {
-  "last_updated": "2026-06-08",
-  "total_scanned": 2365,
-  "total_qualified": 34,
+  "last_updated": "2026-06-10",
+  "total_scanned": 2368,
+  "total_qualified": 40,
   "stocks": [
-    {"symbol":"20MICRONS","name":"20 Microns Ltd","sector":"Materials","market_cap_cr":634,"date_added":"2026-05-06","metrics":{"de_ratio":0.18,"roe":17.2,"revenue_cagr_5y":13.7,"fcf_to_pat":1.02,"promoter_holding":55.4,"promoter_pledge":0,"peg_ratio":0.43,"roce_3y_avg":19.8,"pe_ratio":9.8}},
-    {"symbol":"ABDL","name":"Agarwal Bulk Duraline Ltd","sector":"Industrials","market_cap_cr":520,"date_added":"2026-05-06","metrics":{"de_ratio":0.22,"roe":18.4,"revenue_cagr_5y":11.2,"fcf_to_pat":0.88,"promoter_holding":62.1,"promoter_pledge":0,"peg_ratio":0.81,"roce_3y_avg":21.3,"pe_ratio":14.2}},
-    {"symbol":"ACCELYA","name":"Accelya Solutions India Ltd","sector":"Technology","market_cap_cr":1718,"date_added":"2026-05-06","metrics":{"de_ratio":0.33,"roe":45.5,"revenue_cagr_5y":13.1,"fcf_to_pat":1.01,"promoter_holding":74.7,"promoter_pledge":0,"peg_ratio":0.89,"roce_3y_avg":56.4,"pe_ratio":24.3}},
-    {"symbol":"ACE","name":"Action Construction Equipment Ltd","sector":"Industrials","market_cap_cr":10498,"date_added":"2026-05-06","metrics":{"de_ratio":0.08,"roe":28.6,"revenue_cagr_5y":21.2,"fcf_to_pat":1.80,"promoter_holding":65.4,"promoter_pledge":0,"peg_ratio":0.65,"roce_3y_avg":29.8,"pe_ratio":24.9}},
-    {"symbol":"ADANIPOWER","name":"Adani Power Ltd","sector":"Utilities","market_cap_cr":443471,"date_added":"2026-05-06","metrics":{"de_ratio":0.84,"roe":21.2,"revenue_cagr_5y":15.6,"fcf_to_pat":1.77,"promoter_holding":75.0,"promoter_pledge":0,"peg_ratio":0.59,"roce_3y_avg":20.8,"pe_ratio":34.5}},
-    {"symbol":"BANCOINDIA","name":"Banco Products (India) Ltd","sector":"Industrials","market_cap_cr":2840,"date_added":"2026-05-06","metrics":{"de_ratio":0.05,"roe":22.8,"revenue_cagr_5y":14.3,"fcf_to_pat":0.92,"promoter_holding":56.2,"promoter_pledge":0,"peg_ratio":0.72,"roce_3y_avg":26.1,"pe_ratio":18.4}},
-    {"symbol":"CEINSYS","name":"Ceinsys Tech Ltd","sector":"Technology","market_cap_cr":890,"date_added":"2026-05-06","metrics":{"de_ratio":0.12,"roe":31.4,"revenue_cagr_5y":18.9,"fcf_to_pat":0.96,"promoter_holding":58.7,"promoter_pledge":0,"peg_ratio":0.78,"roce_3y_avg":33.2,"pe_ratio":22.1}},
-    {"symbol":"CEMPRO","name":"Cemindia Projects Ltd","sector":"Industrials","market_cap_cr":612,"date_added":"2026-05-06","metrics":{"de_ratio":0.31,"roe":19.6,"revenue_cagr_5y":12.4,"fcf_to_pat":0.84,"promoter_holding":61.3,"promoter_pledge":0,"peg_ratio":0.67,"roce_3y_avg":22.4,"pe_ratio":16.8}},
-    {"symbol":"CHENNPETRO","name":"Chennai Petroleum Corporation Ltd","sector":"Energy","market_cap_cr":8234,"date_added":"2026-05-06","metrics":{"de_ratio":0.44,"roe":18.9,"revenue_cagr_5y":10.8,"fcf_to_pat":1.12,"promoter_holding":67.1,"promoter_pledge":0,"peg_ratio":0.88,"roce_3y_avg":19.4,"pe_ratio":7.2}},
-    {"symbol":"COALINDIA","name":"Coal India Ltd","sector":"Energy","market_cap_cr":228400,"date_added":"2026-05-06","metrics":{"de_ratio":0.02,"roe":52.4,"revenue_cagr_5y":10.2,"fcf_to_pat":1.31,"promoter_holding":63.1,"promoter_pledge":0,"peg_ratio":0.61,"roce_3y_avg":48.6,"pe_ratio":6.4}},
-    {"symbol":"ECLERX","name":"eClerx Services Ltd","sector":"Technology","market_cap_cr":7820,"date_added":"2026-05-06","metrics":{"de_ratio":0.04,"roe":34.2,"revenue_cagr_5y":14.8,"fcf_to_pat":1.08,"promoter_holding":53.2,"promoter_pledge":0,"peg_ratio":0.94,"roce_3y_avg":38.7,"pe_ratio":22.6}},
-    {"symbol":"ELECON","name":"Elecon Engineering Co Ltd","sector":"Industrials","market_cap_cr":9870,"date_added":"2026-05-06","metrics":{"de_ratio":0.09,"roe":26.8,"revenue_cagr_5y":19.4,"fcf_to_pat":0.91,"promoter_holding":57.8,"promoter_pledge":0,"peg_ratio":0.68,"roce_3y_avg":28.4,"pe_ratio":22.8}},
-    {"symbol":"GANESHHOU","name":"Ganesh Housing Corporation Ltd","sector":"Real Estate","market_cap_cr":3240,"date_added":"2026-05-06","metrics":{"de_ratio":0.18,"roe":24.1,"revenue_cagr_5y":16.2,"fcf_to_pat":0.88,"promoter_holding":71.4,"promoter_pledge":0,"peg_ratio":0.74,"roce_3y_avg":25.8,"pe_ratio":18.2}},
-    {"symbol":"GOKULAGRO","name":"Gokul Agro Resources Ltd","sector":"Consumer Staples","market_cap_cr":542,"date_added":"2026-05-06","metrics":{"de_ratio":0.41,"roe":17.8,"revenue_cagr_5y":11.6,"fcf_to_pat":0.82,"promoter_holding":66.8,"promoter_pledge":0,"peg_ratio":0.79,"roce_3y_avg":18.9,"pe_ratio":12.4}},
-    {"symbol":"GPTINFRA","name":"GPT Infraprojects Ltd","sector":"Industrials","market_cap_cr":1124,"date_added":"2026-05-06","metrics":{"de_ratio":0.36,"roe":20.4,"revenue_cagr_5y":13.8,"fcf_to_pat":0.86,"promoter_holding":60.2,"promoter_pledge":0,"peg_ratio":0.72,"roce_3y_avg":22.1,"pe_ratio":14.8}},
-    {"symbol":"GULFOILLUB","name":"Gulf Oil Lubricants India Ltd","sector":"Energy","market_cap_cr":2890,"date_added":"2026-05-06","metrics":{"de_ratio":0.07,"roe":29.4,"revenue_cagr_5y":10.9,"fcf_to_pat":1.14,"promoter_holding":53.6,"promoter_pledge":0,"peg_ratio":0.88,"roce_3y_avg":31.2,"pe_ratio":22.4}},
-    {"symbol":"HBLENGINE","name":"HBL Engineering Ltd","sector":"Industrials","market_cap_cr":3450,"date_added":"2026-05-06","metrics":{"de_ratio":0.03,"roe":23.6,"revenue_cagr_5y":21.8,"fcf_to_pat":0.94,"promoter_holding":64.1,"promoter_pledge":0,"peg_ratio":0.22,"roce_3y_avg":24.8,"pe_ratio":28.4}},
-    {"symbol":"JAIBALAJI","name":"Jai Balaji Industries Ltd","sector":"Materials","market_cap_cr":6240,"date_added":"2026-05-06","metrics":{"de_ratio":0.62,"roe":34.8,"revenue_cagr_5y":24.6,"fcf_to_pat":0.79,"promoter_holding":53.4,"promoter_pledge":2.1,"peg_ratio":0.88,"roce_3y_avg":28.4,"pe_ratio":14.2}},
-    {"symbol":"JSL","name":"Jindal Stainless Ltd","sector":"Materials","market_cap_cr":32400,"date_added":"2026-05-06","metrics":{"de_ratio":0.44,"roe":21.8,"revenue_cagr_5y":17.4,"fcf_to_pat":0.84,"promoter_holding":58.2,"promoter_pledge":0,"peg_ratio":0.76,"roce_3y_avg":22.6,"pe_ratio":18.4}},
-    {"symbol":"JUBLCPL","name":"Jubilant CPL Ltd","sector":"Chemicals","market_cap_cr":1890,"date_added":"2026-05-06","metrics":{"de_ratio":0.28,"roe":22.4,"revenue_cagr_5y":14.8,"fcf_to_pat":0.89,"promoter_holding":69.3,"promoter_pledge":0,"peg_ratio":0.84,"roce_3y_avg":24.2,"pe_ratio":18.6}},
-    {"symbol":"KKCL","name":"Kewal Kiran Clothing Ltd","sector":"Consumer Discretionary","market_cap_cr":2340,"date_added":"2026-05-06","metrics":{"de_ratio":0.01,"roe":25.6,"revenue_cagr_5y":12.4,"fcf_to_pat":1.22,"promoter_holding":71.8,"promoter_pledge":0,"peg_ratio":0.92,"roce_3y_avg":28.4,"pe_ratio":24.8}},
-    {"symbol":"MBEL","name":"MB Electronics Ltd","sector":"Industrials","market_cap_cr":678,"date_added":"2026-05-06","metrics":{"de_ratio":0.14,"roe":19.8,"revenue_cagr_5y":16.2,"fcf_to_pat":0.88,"promoter_holding":64.2,"promoter_pledge":0,"peg_ratio":0.68,"roce_3y_avg":21.4,"pe_ratio":14.2}},
-    {"symbol":"NATIONALUM","name":"National Aluminium Co Ltd","sector":"Materials","market_cap_cr":24800,"date_added":"2026-05-06","metrics":{"de_ratio":0.04,"roe":18.4,"revenue_cagr_5y":10.4,"fcf_to_pat":1.18,"promoter_holding":51.3,"promoter_pledge":0,"peg_ratio":0.89,"roce_3y_avg":19.8,"pe_ratio":14.6}},
-    {"symbol":"PICCADIL","name":"Piccadily Agro Industries Ltd","sector":"Consumer Staples","market_cap_cr":2140,"date_added":"2026-05-06","metrics":{"de_ratio":0.38,"roe":31.2,"revenue_cagr_5y":28.4,"fcf_to_pat":0.82,"promoter_holding":62.4,"promoter_pledge":0,"peg_ratio":0.66,"roce_3y_avg":28.6,"pe_ratio":18.4}},
-    {"symbol":"POWERICA","name":"Powerica Ltd","sector":"Industrials","market_cap_cr":1240,"date_added":"2026-05-06","metrics":{"de_ratio":0.22,"roe":24.8,"revenue_cagr_5y":18.6,"fcf_to_pat":0.91,"promoter_holding":58.4,"promoter_pledge":0,"peg_ratio":0.74,"roce_3y_avg":26.2,"pe_ratio":16.8}},
-    {"symbol":"SHAKTIPUMP","name":"Shakti Pumps (India) Ltd","sector":"Industrials","market_cap_cr":4320,"date_added":"2026-05-06","metrics":{"de_ratio":0.16,"roe":34.6,"revenue_cagr_5y":32.4,"fcf_to_pat":0.84,"promoter_holding":56.8,"promoter_pledge":0,"peg_ratio":0.88,"roce_3y_avg":32.8,"pe_ratio":21.4}},
-    {"symbol":"SILVERTUC","name":"Silver Touch Technologies Ltd","sector":"Technology","market_cap_cr":542,"date_added":"2026-05-06","metrics":{"de_ratio":0.06,"roe":22.4,"revenue_cagr_5y":14.8,"fcf_to_pat":0.96,"promoter_holding":67.4,"promoter_pledge":0,"peg_ratio":0.82,"roce_3y_avg":24.6,"pe_ratio":18.2}},
-    {"symbol":"SIYSIL","name":"Siyaram Silk Mills Ltd","sector":"Consumer Discretionary","market_cap_cr":1820,"date_added":"2026-05-06","metrics":{"de_ratio":0.24,"roe":18.8,"revenue_cagr_5y":10.6,"fcf_to_pat":0.92,"promoter_holding":68.2,"promoter_pledge":0,"peg_ratio":0.88,"roce_3y_avg":21.4,"pe_ratio":18.6}},
-    {"symbol":"SKIPPER","name":"Skipper Ltd","sector":"Industrials","market_cap_cr":2840,"date_added":"2026-05-06","metrics":{"de_ratio":0.42,"roe":21.6,"revenue_cagr_5y":16.8,"fcf_to_pat":0.84,"promoter_holding":60.4,"promoter_pledge":0,"peg_ratio":0.78,"roce_3y_avg":22.8,"pe_ratio":18.4}},
-    {"symbol":"STOVEKRAFT","name":"Stove Kraft Ltd","sector":"Consumer Discretionary","market_cap_cr":1240,"date_added":"2026-05-06","metrics":{"de_ratio":0.18,"roe":20.4,"revenue_cagr_5y":12.8,"fcf_to_pat":0.88,"promoter_holding":54.6,"promoter_pledge":0,"peg_ratio":0.84,"roce_3y_avg":22.4,"pe_ratio":18.2}},
-    {"symbol":"TAJGVK","name":"Taj GVK Hotels and Resorts Ltd","sector":"Consumer Discretionary","market_cap_cr":2140,"date_added":"2026-05-06","metrics":{"de_ratio":0.12,"roe":18.6,"revenue_cagr_5y":14.2,"fcf_to_pat":1.08,"promoter_holding":62.8,"promoter_pledge":0,"peg_ratio":0.92,"roce_3y_avg":20.4,"pe_ratio":22.8}},
-    {"symbol":"TARIL","name":"Transformers and Rectifiers India Ltd","sector":"Industrials","market_cap_cr":3240,"date_added":"2026-05-06","metrics":{"de_ratio":0.28,"roe":28.4,"revenue_cagr_5y":34.6,"fcf_to_pat":0.78,"promoter_holding":52.4,"promoter_pledge":0,"peg_ratio":0.82,"roce_3y_avg":26.8,"pe_ratio":18.4}},
-    {"symbol":"VADILALIND","name":"Vadilal Industries Ltd","sector":"Consumer Staples","market_cap_cr":1840,"date_added":"2026-05-06","metrics":{"de_ratio":0.22,"roe":21.8,"revenue_cagr_5y":11.4,"fcf_to_pat":0.94,"promoter_holding":66.2,"promoter_pledge":0,"peg_ratio":0.86,"roce_3y_avg":23.6,"pe_ratio":18.8}},
-    {"symbol":"WAAREERTL","name":"Waaree Energies Ltd","sector":"Technology","market_cap_cr":48200,"date_added":"2026-05-06","metrics":{"de_ratio":0.34,"roe":32.8,"revenue_cagr_5y":48.2,"fcf_to_pat":0.76,"promoter_holding":71.2,"promoter_pledge":0,"peg_ratio":0.42,"roce_3y_avg":28.4,"pe_ratio":28.6}}
+    {
+      "symbol": "ACCELYA",
+      "name": "ACCELYA",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-05-06",
+      "metrics": {}
+    },
+    {
+      "symbol": "ACE",
+      "name": "ACE",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-05-07",
+      "metrics": {}
+    },
+    {
+      "symbol": "ADANIPOWER",
+      "name": "ADANIPOWER",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-05-07",
+      "metrics": {}
+    },
+    {
+      "symbol": "CEINSYS",
+      "name": "CEINSYS",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-05-07",
+      "metrics": {}
+    },
+    {
+      "symbol": "CEMPRO",
+      "name": "CEMPRO",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-05-08",
+      "metrics": {}
+    },
+    {
+      "symbol": "CHENNPETRO",
+      "name": "CHENNPETRO",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-05-08",
+      "metrics": {}
+    },
+    {
+      "symbol": "COALINDIA",
+      "name": "COALINDIA",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-05-08",
+      "metrics": {}
+    },
+    {
+      "symbol": "ECLERX",
+      "name": "ECLERX",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-06-02",
+      "metrics": {}
+    },
+    {
+      "symbol": "ELECON",
+      "name": "ELECON",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-06-05",
+      "metrics": {}
+    },
+    {
+      "symbol": "GANESHHOU",
+      "name": "GANESHHOU",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-06-08",
+      "metrics": {}
+    },
+    {
+      "symbol": "GOKULAGRO",
+      "name": "GOKULAGRO",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-06-10",
+      "metrics": {}
+    },
+    {
+      "symbol": "GPTINFRA",
+      "name": "GPT Infraprojects Ltd",
+      "sector": "Industrials",
+      "market_cap_cr": 1531.7,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.33,
+        "roe": 19.6,
+        "revenue_cagr_5y": 15.6,
+        "fcf_to_pat": 3.11,
+        "promoter_holding": 69.37,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.52,
+        "roce_3y_avg": 22.1,
+        "pe_ratio": 17.0
+      }
+    },
+    {
+      "symbol": "GULFOILLUB",
+      "name": "Gulf Oil Lubricants India Ltd",
+      "sector": "Basic Materials",
+      "market_cap_cr": 4747.1,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.31,
+        "roe": 25.3,
+        "revenue_cagr_5y": 15.9,
+        "fcf_to_pat": 0.84,
+        "promoter_holding": 67.01,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.92,
+        "roce_3y_avg": 24.5,
+        "pe_ratio": 13.0
+      }
+    },
+    {
+      "symbol": "HBLENGINE",
+      "name": "HBL Engineering Ltd",
+      "sector": "Industrials",
+      "market_cap_cr": 22186.7,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.04,
+        "roe": 20.6,
+        "revenue_cagr_5y": 28.3,
+        "fcf_to_pat": 3.7,
+        "promoter_holding": 59.11,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.22,
+        "roce_3y_avg": 37.3,
+        "pe_ratio": 27.1
+      }
+    },
+    {
+      "symbol": "JAIBALAJI",
+      "name": "Jai Balaji Industries Ltd",
+      "sector": "Basic Materials",
+      "market_cap_cr": 7496.9,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.21,
+        "roe": 30.7,
+        "revenue_cagr_5y": 15.7,
+        "fcf_to_pat": 2.74,
+        "promoter_holding": 64.84,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.66,
+        "roce_3y_avg": 32.9,
+        "pe_ratio": 25.6
+      }
+    },
+    {
+      "symbol": "JSL",
+      "name": "Jindal Stainless Ltd",
+      "sector": "Basic Materials",
+      "market_cap_cr": 64218.7,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.38,
+        "roe": 17.8,
+        "revenue_cagr_5y": 28.7,
+        "fcf_to_pat": 8.48,
+        "promoter_holding": 62.04,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.56,
+        "roce_3y_avg": 20.6,
+        "pe_ratio": 19.8
+      }
+    },
+    {
+      "symbol": "JUBLCPL",
+      "name": "Jubilant Agri & Consumer Products Ltd",
+      "sector": "Basic Materials",
+      "market_cap_cr": 2562.4,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.1,
+        "roe": 31.5,
+        "revenue_cagr_5y": 20.4,
+        "fcf_to_pat": 1.48,
+        "promoter_holding": 74.36,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.49,
+        "roce_3y_avg": 35.5,
+        "pe_ratio": 20.2
+      }
+    },
+    {
+      "symbol": "KKCL",
+      "name": "Kewal Kiran Clothing Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 2881.6,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.2,
+        "roe": 15.5,
+        "revenue_cagr_5y": 31.2,
+        "fcf_to_pat": 1.02,
+        "promoter_holding": 74.29,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.44,
+        "roce_3y_avg": 22.1,
+        "pe_ratio": 20.8
+      }
+    },
+    {
+      "symbol": "MBEL",
+      "name": "M & B Engineering Ltd",
+      "sector": "Industrials",
+      "market_cap_cr": 1901.9,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.19,
+        "roe": 28.5,
+        "revenue_cagr_5y": 23.9,
+        "fcf_to_pat": 0.81,
+        "promoter_holding": 70.54,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.47,
+        "roce_3y_avg": 21.4,
+        "pe_ratio": 20.1
+      }
+    },
+    {
+      "symbol": "NATIONALUM",
+      "name": "National Aluminium Company Ltd",
+      "sector": "Basic Materials",
+      "market_cap_cr": 75963.1,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.0,
+        "roe": 29.4,
+        "revenue_cagr_5y": 14.8,
+        "fcf_to_pat": 1.26,
+        "promoter_holding": 51.28,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.38,
+        "roce_3y_avg": 32.5,
+        "pe_ratio": 13.1
+      }
+    },
+    {
+      "symbol": "PICCADIL",
+      "name": "Piccadily Agro Industries Ltd",
+      "sector": "Consumer Defensive",
+      "market_cap_cr": 5987.6,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.59,
+        "roe": 17.4,
+        "revenue_cagr_5y": 16.3,
+        "fcf_to_pat": 1.15,
+        "promoter_holding": 68.56,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.89,
+        "roce_3y_avg": 21.4,
+        "pe_ratio": 43.6
+      }
+    },
+    {
+      "symbol": "POWERICA",
+      "name": "Powerica Ltd",
+      "sector": "Industrials",
+      "market_cap_cr": 6173.2,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.48,
+        "roe": 15.7,
+        "revenue_cagr_5y": 31.4,
+        "fcf_to_pat": 2.24,
+        "promoter_holding": 77.18,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.23,
+        "roce_3y_avg": 29.4,
+        "pe_ratio": 27.5
+      }
+    },
+    {
+      "symbol": "SHAKTIPUMP",
+      "name": "Shakti Pumps (India) Ltd",
+      "sector": "Industrials",
+      "market_cap_cr": 6761.0,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.38,
+        "roe": 42.6,
+        "revenue_cagr_5y": 21.9,
+        "fcf_to_pat": 1.52,
+        "promoter_holding": 50.36,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.65,
+        "roce_3y_avg": 31.5,
+        "pe_ratio": 20.5
+      }
+    },
+    {
+      "symbol": "SILVERTUC",
+      "name": "Silver Touch Technologies Ltd",
+      "sector": "Technology",
+      "market_cap_cr": 2033.9,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.2,
+        "roe": 23.6,
+        "revenue_cagr_5y": 17.9,
+        "fcf_to_pat": 0.76,
+        "promoter_holding": 74.62,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.55,
+        "roce_3y_avg": 24.5,
+        "pe_ratio": 56.9
+      }
+    },
+    {
+      "symbol": "SIYSIL",
+      "name": "Siyaram Silk Mills Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 2612.2,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.31,
+        "roe": 16.1,
+        "revenue_cagr_5y": 17.7,
+        "fcf_to_pat": 8.98,
+        "promoter_holding": 67.45,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.1,
+        "roce_3y_avg": 19.0,
+        "pe_ratio": 12.7
+      }
+    },
+    {
+      "symbol": "SKIPPER",
+      "name": "Skipper Ltd",
+      "sector": "Industrials",
+      "market_cap_cr": 5463.4,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.64,
+        "roe": 16.5,
+        "revenue_cagr_5y": 28.5,
+        "fcf_to_pat": 1.82,
+        "promoter_holding": 66.5,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.42,
+        "roce_3y_avg": 22.8,
+        "pe_ratio": 24.7
+      }
+    },
+    {
+      "symbol": "STOVEKRAFT",
+      "name": "Stove Kraft Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 1823.2,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.17,
+        "roe": 67.5,
+        "revenue_cagr_5y": 11.5,
+        "fcf_to_pat": 0.96,
+        "promoter_holding": 55.79,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.03,
+        "roce_3y_avg": 18.6,
+        "pe_ratio": 22.4
+      }
+    },
+    {
+      "symbol": "TAJGVK",
+      "name": "TajGVK Hotels & Resorts Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 2025.9,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.12,
+        "roe": 19.5,
+        "revenue_cagr_5y": 38.3,
+        "fcf_to_pat": 6.05,
+        "promoter_holding": 71.0,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.46,
+        "roce_3y_avg": 19.3,
+        "pe_ratio": 16.2
+      }
+    },
+    {
+      "symbol": "TARIL",
+      "name": "Transformers & Rectifiers India Ltd",
+      "sector": "Industrials",
+      "market_cap_cr": 9669.8,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.3,
+        "roe": 19.1,
+        "revenue_cagr_5y": 27.6,
+        "fcf_to_pat": 2.39,
+        "promoter_holding": 64.36,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.36,
+        "roce_3y_avg": 19.1,
+        "pe_ratio": 36.6
+      }
+    },
+    {
+      "symbol": "VADILALIND",
+      "name": "Vadilal Industries Ltd",
+      "sector": "Consumer Defensive",
+      "market_cap_cr": 3304.5,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.26,
+        "roe": 24.0,
+        "revenue_cagr_5y": 24.0,
+        "fcf_to_pat": 4.85,
+        "promoter_holding": 64.72,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.29,
+        "roce_3y_avg": 25.1,
+        "pe_ratio": 27.0
+      }
+    },
+    {
+      "symbol": "WAAREERTL",
+      "name": "Waaree Renewable Technologies Ltd",
+      "sector": "Utilities",
+      "market_cap_cr": 10604.7,
+      "date_added": "2026-05-05",
+      "metrics": {
+        "de_ratio": 0.16,
+        "roe": 68.9,
+        "revenue_cagr_5y": 203.2,
+        "fcf_to_pat": 1.24,
+        "promoter_holding": 74.32,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.06,
+        "roce_3y_avg": 65.3,
+        "pe_ratio": 22.2
+      }
+    },
+    {
+      "symbol": "ALLDIGI",
+      "name": "Alldigi Tech Ltd",
+      "sector": "Industrials",
+      "market_cap_cr": 1266.4,
+      "date_added": "2026-05-07",
+      "metrics": {
+        "de_ratio": 0.68,
+        "roe": 34.7,
+        "revenue_cagr_5y": 16.7,
+        "fcf_to_pat": 1.11,
+        "promoter_holding": 73.39,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.77,
+        "roce_3y_avg": 39.6,
+        "pe_ratio": 14.3
+      }
+    },
+    {
+      "symbol": "NRBBEARING",
+      "name": "NRB Bearings Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 2909.1,
+      "date_added": "2026-05-07",
+      "metrics": {
+        "de_ratio": 0.16,
+        "roe": 15.7,
+        "revenue_cagr_5y": 11.9,
+        "fcf_to_pat": 0.82,
+        "promoter_holding": 51.2,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.92,
+        "roce_3y_avg": 18.6,
+        "pe_ratio": 19.7
+      }
+    },
+    {
+      "symbol": "HINDPETRO",
+      "name": "Hindustan Petroleum Corporation Ltd",
+      "sector": "Energy",
+      "market_cap_cr": 81655.2,
+      "date_added": "2026-06-02",
+      "metrics": {
+        "de_ratio": 0.85,
+        "roe": 30.9,
+        "revenue_cagr_5y": 13.6,
+        "fcf_to_pat": 0.96,
+        "promoter_holding": 54.9,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.09,
+        "roce_3y_avg": 20.2,
+        "pe_ratio": 4.52
+      }
+    },
+    {
+      "symbol": "IFBIND",
+      "name": "IFB Industries Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 5339.6,
+      "date_added": "2026-06-02",
+      "metrics": {
+        "de_ratio": 0.16,
+        "roe": 16.8,
+        "revenue_cagr_5y": 14.9,
+        "fcf_to_pat": 0.77,
+        "promoter_holding": 74.96,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.88,
+        "roce_3y_avg": 25.3,
+        "pe_ratio": 34.4
+      }
+    },
+    {
+      "symbol": "IOC",
+      "name": "Indian Oil Corporation Ltd",
+      "sector": "Energy",
+      "market_cap_cr": 196045.2,
+      "date_added": "2026-06-02",
+      "metrics": {
+        "de_ratio": 0.6,
+        "roe": 20.7,
+        "revenue_cagr_5y": 16.6,
+        "fcf_to_pat": 1.16,
+        "promoter_holding": 51.5,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.33,
+        "roce_3y_avg": 18.8,
+        "pe_ratio": 4.66
+      }
+    },
+    {
+      "symbol": "JAYBARMARU",
+      "name": "Jay Bharat Maruti Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 1365.5,
+      "date_added": "2026-06-02",
+      "metrics": {
+        "de_ratio": 0.76,
+        "roe": 22.2,
+        "revenue_cagr_5y": 11.2,
+        "fcf_to_pat": 0.85,
+        "promoter_holding": 59.35,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.25,
+        "roce_3y_avg": 18.4,
+        "pe_ratio": 9.76
+      }
+    },
+    {
+      "symbol": "JKTYRE",
+      "name": "JK Tyre & Industries Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 11197.2,
+      "date_added": "2026-06-02",
+      "metrics": {
+        "de_ratio": 0.81,
+        "roe": 16.2,
+        "revenue_cagr_5y": 12.4,
+        "fcf_to_pat": 1.94,
+        "promoter_holding": 51.72,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.81,
+        "roce_3y_avg": 19.3,
+        "pe_ratio": 12.7
+      }
+    },
+    {
+      "symbol": "SEAMECLTD",
+      "name": "SEAMEC Ltd",
+      "sector": "Industrials",
+      "market_cap_cr": 4192.7,
+      "date_added": "2026-06-02",
+      "metrics": {
+        "de_ratio": 0.27,
+        "roe": 21.8,
+        "revenue_cagr_5y": 29.9,
+        "fcf_to_pat": 2.26,
+        "promoter_holding": 72.72,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.81,
+        "roce_3y_avg": 20.4,
+        "pe_ratio": 16.6
+      }
+    },
+    {
+      "symbol": "SKMEGGPROD",
+      "name": "SKM Egg Products Export (India) Ltd",
+      "sector": "Consumer Defensive",
+      "market_cap_cr": 1227.3,
+      "date_added": "2026-06-02",
+      "metrics": {
+        "de_ratio": 0.36,
+        "roe": 29.7,
+        "revenue_cagr_5y": 23.3,
+        "fcf_to_pat": 0.82,
+        "promoter_holding": 57.47,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.26,
+        "roce_3y_avg": 27.8,
+        "pe_ratio": 11.8
+      }
+    },
+    {
+      "symbol": "WHEELS",
+      "name": "Wheels India Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 3708.7,
+      "date_added": "2026-06-02",
+      "metrics": {
+        "de_ratio": 0.74,
+        "roe": 15.8,
+        "revenue_cagr_5y": 17.8,
+        "fcf_to_pat": 1.03,
+        "promoter_holding": 58.31,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.17,
+        "roce_3y_avg": 20.2,
+        "pe_ratio": 24.0
+      }
+    },
+    {
+      "symbol": "EXPLEOSOL",
+      "name": "Expleo Solutions Ltd",
+      "sector": "Technology",
+      "market_cap_cr": 1330.2,
+      "date_added": "2026-06-05",
+      "metrics": {
+        "de_ratio": 0.01,
+        "roe": 19.2,
+        "revenue_cagr_5y": 29.8,
+        "fcf_to_pat": 0.85,
+        "promoter_holding": 71.05,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.97,
+        "roce_3y_avg": 23.3,
+        "pe_ratio": 9.83
+      }
+    },
+    {
+      "symbol": "HINDCOPPER",
+      "name": "Hindustan Copper Ltd",
+      "sector": "Basic Materials",
+      "market_cap_cr": 50899.3,
+      "date_added": "2026-06-05",
+      "metrics": {
+        "de_ratio": 0.03,
+        "roe": 32.9,
+        "revenue_cagr_5y": 11.5,
+        "fcf_to_pat": 0.8,
+        "promoter_holding": 66.14,
+        "promoter_pledge": 0,
+        "peg_ratio": 1.0,
+        "roce_3y_avg": 30.1,
+        "pe_ratio": 51.5
+      }
+    }
   ]
 }
