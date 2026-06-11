@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "GOKULAGRO",
-      "name": "Gokul Agro Resources Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Gokul Agro Resources Ltd",
-        "about": "",
-        "roe": 27.0,
-        "de_ratio": 0.48,
-        "pe_ratio": 23.0,
-        "peg_ratio": 0.52,
-        "eps_growth_5y": 44.0,
-        "revenue_growth_5y": 22.8,
-        "roce_3y_avg": 29.4,
-        "roce_history": [
-          25.8,
-          29.0,
-          23.3,
-          21.2,
-          33.4,
-          33.5
-        ],
-        "fcf_to_pat": 2.16,
-        "promoter_holding": 74.24,
-        "promoter_pledge": null,
-        "promoter_trend": "increasing",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          10384.0,
-          10740.0,
-          13854.0,
-          19551.0,
-          23339.0
-        ],
-        "_eps": [
-          4.17,
-          4.49,
-          4.6,
-          8.32,
-          10.14
-        ],
-        "_roce": [
-          29.0,
-          23.3,
-          21.2,
-          33.4,
-          33.5
-        ],
-        "_opm": [
-          2.1,
-          2.7,
-          2.6
-        ]
-      },
-      "basic": {
-        "symbol": "GOKULAGRO",
-        "name": "Gokul Agro Resources Limited",
-        "sector": "Consumer Defensive",
-        "industry": "Packaged Foods",
-        "market_cap_cr": 6898.8,
-        "pe_yf": 23.03
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 6898.8,
-          "pass": true,
-          "label": "Rs6,899Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.48,
-          "pass": true,
-          "label": "0.48"
-        },
-        "ROE": {
-          "value": 27.0,
-          "pass": true,
-          "label": "27.0%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 22.8,
-          "pass": true,
-          "label": "22.8%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 29.4,
-          "pass": true,
-          "label": "29.4%  hist:[29.0, 23.3, 21.2, 33.4, 33.5]"
-        },
-        "FCF / PAT": {
-          "value": 2.16,
-          "pass": true,
-          "label": "2.16"
-        },
-        "Promoter Holding": {
-          "value": 74.24,
-          "pass": true,
-          "label": "74.2%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.52,
-          "pass": true,
-          "label": "0.52"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "GPTINFRA",
       "name": "GPT Infraprojects Ltd",
       "date_added": "2026-05-05",
@@ -3880,6 +3767,13 @@
       "verdict": "STRONG PASS",
       "ar_used": false,
       "snapshot": "Ganesh Housing Ltd is a real estate developer based in Gujarat, India, primarily engaged in the development of residential and commercial properties. The company appears to focus on mid-segment housing projects, plotted developments, and mixed-use real estate, serving retail homebuyers and commercial occupants predominantly within the Gujarat market. Its operations suggest a regionally concentrated model with a relatively tight geographic footprint, which may underpin both its operational efficiency and its exposure to local demand cycles.\n\nWhat stands out financially is the combination of strong capital efficiency and an unusually conservative balance sheet for the sector, with a debt-to-equity ratio of 0.03 suggesting the company funds growth largely through internal accruals. Return on equity of 37.8% and a three-year average ROCE of 33.9% appear well above sector norms, while a free cash flow to PAT ratio of 1.25 suggests earnings are being supported by, rather than running ahead of, actual cash generation. Revenue growing at a five-year CAGR of 31.8% alongside a PEG of 0.23 currently implies the market may not be fully pricing in the growth trajectory, though the longer-term question worth monitoring is whether this level of capital efficiency and cash conversion can be sustained as the company potentially scales beyond its core Gujarat base into more competitive or capital-intensive geographies."
+    },
+    "GOKULAGRO": {
+      "date_assessed": "2026-06-11",
+      "score": 0,
+      "verdict": "FAIL",
+      "ar_used": false,
+      "snapshot": "Assessment unavailable."
     }
   }
 }
