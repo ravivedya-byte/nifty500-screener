@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "GPTINFRA",
-      "name": "GPT Infraprojects Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "GPT Infraprojects Ltd",
-        "about": "",
-        "roe": 19.6,
-        "de_ratio": 0.33,
-        "pe_ratio": 17.0,
-        "peg_ratio": 0.52,
-        "eps_growth_5y": 32.5,
-        "revenue_growth_5y": 15.6,
-        "roce_3y_avg": 22.1,
-        "roce_history": [
-          16.9,
-          16.2,
-          16.4,
-          24.2,
-          20.9,
-          21.2
-        ],
-        "fcf_to_pat": 3.11,
-        "promoter_holding": 69.37,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          675.0,
-          809.0,
-          1018.0,
-          1188.0,
-          1256.0
-        ],
-        "_eps": [
-          2.09,
-          2.7,
-          4.97,
-          6.34,
-          7.1
-        ],
-        "_roce": [
-          16.2,
-          16.4,
-          24.2,
-          20.9,
-          21.2
-        ],
-        "_opm": [
-          11.8,
-          11.4,
-          12.3
-        ]
-      },
-      "basic": {
-        "symbol": "GPTINFRA",
-        "name": "GPT Infraprojects Limited",
-        "sector": "Industrials",
-        "industry": "Engineering & Construction",
-        "market_cap_cr": 1531.7,
-        "pe_yf": 17.05
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 1531.7,
-          "pass": true,
-          "label": "Rs1,532Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.33,
-          "pass": true,
-          "label": "0.33"
-        },
-        "ROE": {
-          "value": 19.6,
-          "pass": true,
-          "label": "19.6%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 15.6,
-          "pass": true,
-          "label": "15.6%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 22.1,
-          "pass": true,
-          "label": "22.1%  hist:[16.2, 16.4, 24.2, 20.9, 21.2]"
-        },
-        "FCF / PAT": {
-          "value": 3.11,
-          "pass": true,
-          "label": "3.11"
-        },
-        "Promoter Holding": {
-          "value": 69.37,
-          "pass": true,
-          "label": "69.4%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.52,
-          "pass": true,
-          "label": "0.52"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "GULFOILLUB",
       "name": "Gulf Oil Lubricants India Ltd",
       "date_added": "2026-05-05",
@@ -3770,6 +3657,13 @@
     },
     "GOKULAGRO": {
       "date_assessed": "2026-06-11",
+      "score": 0,
+      "verdict": "FAIL",
+      "ar_used": false,
+      "snapshot": "Assessment unavailable."
+    },
+    "GPTINFRA": {
+      "date_assessed": "2026-06-15",
       "score": 0,
       "verdict": "FAIL",
       "ar_used": false,
