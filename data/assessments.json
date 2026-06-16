@@ -104,7 +104,23 @@
     "substack_url": ""
   },
   "GOKULAGRO": {
-    "date_assessed": "2026-06-10",
+    "date_assessed": "2026-06-11",
+    "score": 0,
+    "verdict": "FAIL",
+    "snapshot": "Assessment unavailable.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "GPTINFRA": {
+    "date_assessed": "2026-06-15",
+    "score": 0,
+    "verdict": "FAIL",
+    "snapshot": "Assessment unavailable.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "GULFOILLUB": {
+    "date_assessed": "2026-06-16",
     "score": 0,
     "verdict": "FAIL",
     "snapshot": "Assessment unavailable.",

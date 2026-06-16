@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-06-10",
-  "total_scanned": 2368,
-  "total_qualified": 40,
+  "last_updated": "2026-06-16",
+  "total_scanned": 2373,
+  "total_qualified": 39,
   "stocks": [
     {
       "symbol": "ACCELYA",
@@ -88,44 +88,24 @@
       "name": "GOKULAGRO",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-06-10",
+      "date_added": "2026-06-11",
       "metrics": {}
     },
     {
       "symbol": "GPTINFRA",
-      "name": "GPT Infraprojects Ltd",
-      "sector": "Industrials",
-      "market_cap_cr": 1531.7,
-      "date_added": "2026-05-05",
-      "metrics": {
-        "de_ratio": 0.33,
-        "roe": 19.6,
-        "revenue_cagr_5y": 15.6,
-        "fcf_to_pat": 3.11,
-        "promoter_holding": 69.37,
-        "promoter_pledge": 0,
-        "peg_ratio": 0.52,
-        "roce_3y_avg": 22.1,
-        "pe_ratio": 17.0
-      }
+      "name": "GPTINFRA",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-06-15",
+      "metrics": {}
     },
     {
       "symbol": "GULFOILLUB",
-      "name": "Gulf Oil Lubricants India Ltd",
-      "sector": "Basic Materials",
-      "market_cap_cr": 4747.1,
-      "date_added": "2026-05-05",
-      "metrics": {
-        "de_ratio": 0.31,
-        "roe": 25.3,
-        "revenue_cagr_5y": 15.9,
-        "fcf_to_pat": 0.84,
-        "promoter_holding": 67.01,
-        "promoter_pledge": 0,
-        "peg_ratio": 0.92,
-        "roce_3y_avg": 24.5,
-        "pe_ratio": 13.0
-      }
+      "name": "GULFOILLUB",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-06-16",
+      "metrics": {}
     },
     {
       "symbol": "HBLENGINE",
