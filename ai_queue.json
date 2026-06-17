@@ -1,118 +1,6 @@
 {
   "pending": [
     {
-      "sym": "GULFOILLUB",
-      "name": "Gulf Oil Lubricants India Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Gulf Oil Lubricants India Ltd",
-        "about": "",
-        "roe": 25.3,
-        "de_ratio": 0.31,
-        "pe_ratio": 13.0,
-        "peg_ratio": 0.92,
-        "eps_growth_5y": 14.1,
-        "revenue_growth_5y": 15.9,
-        "roce_3y_avg": 24.5,
-        "roce_history": [
-          19.9,
-          22.1,
-          25.4,
-          24.5,
-          23.5
-        ],
-        "fcf_to_pat": 0.84,
-        "promoter_holding": 67.01,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          2192.0,
-          2999.0,
-          3301.0,
-          3631.0,
-          3954.0
-        ],
-        "_eps": [
-          41.85,
-          47.39,
-          62.63,
-          72.99,
-          71.0
-        ],
-        "_roce": [
-          19.9,
-          22.1,
-          25.4,
-          24.5,
-          23.5
-        ],
-        "_opm": [
-          12.8,
-          13.0,
-          12.8
-        ]
-      },
-      "basic": {
-        "symbol": "GULFOILLUB",
-        "name": "Gulf Oil Lubricants India Limited",
-        "sector": "Basic Materials",
-        "industry": "Specialty Chemicals",
-        "market_cap_cr": 4747.1,
-        "pe_yf": 13.65
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 4747.1,
-          "pass": true,
-          "label": "Rs4,747Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.31,
-          "pass": true,
-          "label": "0.31"
-        },
-        "ROE": {
-          "value": 25.3,
-          "pass": true,
-          "label": "25.3%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 15.9,
-          "pass": true,
-          "label": "15.9%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 24.5,
-          "pass": true,
-          "label": "24.5%  hist:[19.9, 22.1, 25.4, 24.5, 23.5]"
-        },
-        "FCF / PAT": {
-          "value": 0.84,
-          "pass": true,
-          "label": "0.84"
-        },
-        "Promoter Holding": {
-          "value": 67.01,
-          "pass": true,
-          "label": "67.0%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.92,
-          "pass": true,
-          "label": "0.92"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "HBLENGINE",
       "name": "HBL Engineering Ltd",
       "date_added": "2026-05-05",
@@ -3664,6 +3552,13 @@
     },
     "GPTINFRA": {
       "date_assessed": "2026-06-15",
+      "score": 0,
+      "verdict": "FAIL",
+      "ar_used": false,
+      "snapshot": "Assessment unavailable."
+    },
+    "GULFOILLUB": {
+      "date_assessed": "2026-06-17",
       "score": 0,
       "verdict": "FAIL",
       "ar_used": false,
