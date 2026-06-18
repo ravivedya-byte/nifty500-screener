@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-06-16",
-  "total_scanned": 2373,
-  "total_qualified": 39,
+  "last_updated": "2026-06-18",
+  "total_scanned": 2374,
+  "total_qualified": 38,
   "stocks": [
     {
       "symbol": "ACCELYA",
@@ -100,30 +100,12 @@
       "metrics": {}
     },
     {
-      "symbol": "GULFOILLUB",
-      "name": "GULFOILLUB",
+      "symbol": "HBLENGINE",
+      "name": "HBLENGINE",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-06-16",
+      "date_added": "2026-06-18",
       "metrics": {}
-    },
-    {
-      "symbol": "HBLENGINE",
-      "name": "HBL Engineering Ltd",
-      "sector": "Industrials",
-      "market_cap_cr": 22186.7,
-      "date_added": "2026-05-05",
-      "metrics": {
-        "de_ratio": 0.04,
-        "roe": 20.6,
-        "revenue_cagr_5y": 28.3,
-        "fcf_to_pat": 3.7,
-        "promoter_holding": 59.11,
-        "promoter_pledge": 0,
-        "peg_ratio": 0.22,
-        "roce_3y_avg": 37.3,
-        "pe_ratio": 27.1
-      }
     },
     {
       "symbol": "JAIBALAJI",

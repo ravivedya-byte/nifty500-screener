@@ -120,7 +120,15 @@
     "substack_url": ""
   },
   "GULFOILLUB": {
-    "date_assessed": "2026-06-16",
+    "date_assessed": "2026-06-17",
+    "score": 0,
+    "verdict": "FAIL",
+    "snapshot": "Assessment unavailable.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "HBLENGINE": {
+    "date_assessed": "2026-06-18",
     "score": 0,
     "verdict": "FAIL",
     "snapshot": "Assessment unavailable.",
