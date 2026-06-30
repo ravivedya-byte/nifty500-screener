@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-06-29",
-  "total_scanned": 2394,
+  "last_updated": "2026-06-30",
+  "total_scanned": 2374,
   "total_qualified": 38,
   "stocks": [
     {
@@ -104,7 +104,7 @@
       "name": "HBLENGINE",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-06-29",
+      "date_added": "2026-06-30",
       "metrics": {}
     },
     {
