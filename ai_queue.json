@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "HBLENGINE",
-      "name": "HBL Engineering Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "HBL Engineering Ltd",
-        "about": "",
-        "roe": 20.6,
-        "de_ratio": 0.04,
-        "pe_ratio": 27.1,
-        "peg_ratio": 0.22,
-        "eps_growth_5y": 124.8,
-        "revenue_growth_5y": 28.3,
-        "roce_3y_avg": 37.3,
-        "roce_history": [
-          7.9,
-          15.0,
-          14.5,
-          32.8,
-          25.2,
-          54.0
-        ],
-        "fcf_to_pat": 3.7,
-        "promoter_holding": 59.11,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          1236.0,
-          1369.0,
-          2233.0,
-          1967.0,
-          3174.0
-        ],
-        "_eps": [
-          3.39,
-          3.56,
-          10.13,
-          9.99,
-          28.72
-        ],
-        "_roce": [
-          15.0,
-          14.5,
-          32.8,
-          25.2,
-          54.0
-        ],
-        "_opm": [
-          18.9,
-          20.0,
-          35.2
-        ]
-      },
-      "basic": {
-        "symbol": "HBLENGINE",
-        "name": "HBLENGINE",
-        "sector": "Industrials",
-        "industry": "Electrical Equipment & Parts",
-        "market_cap_cr": 22186.7,
-        "pe_yf": 27.84
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 22186.7,
-          "pass": true,
-          "label": "Rs22,187Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.04,
-          "pass": true,
-          "label": "0.04"
-        },
-        "ROE": {
-          "value": 20.6,
-          "pass": true,
-          "label": "20.6%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 28.3,
-          "pass": true,
-          "label": "28.3%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 37.3,
-          "pass": true,
-          "label": "37.3%  hist:[15.0, 14.5, 32.8, 25.2, 54.0]"
-        },
-        "FCF / PAT": {
-          "value": 3.7,
-          "pass": true,
-          "label": "3.70"
-        },
-        "Promoter Holding": {
-          "value": 59.11,
-          "pass": true,
-          "label": "59.1%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.22,
-          "pass": true,
-          "label": "0.22"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "JAIBALAJI",
       "name": "Jai Balaji Industries Ltd",
       "date_added": "2026-05-05",
@@ -3559,6 +3446,13 @@
     },
     "GULFOILLUB": {
       "date_assessed": "2026-06-17",
+      "score": 0,
+      "verdict": "FAIL",
+      "ar_used": false,
+      "snapshot": "Assessment unavailable."
+    },
+    "HBLENGINE": {
+      "date_assessed": "2026-07-06",
       "score": 0,
       "verdict": "FAIL",
       "ar_used": false,
