@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-02",
-  "total_scanned": 2380,
+  "last_updated": "2026-07-07",
+  "total_scanned": 2382,
   "total_qualified": 38,
   "stocks": [
     {
@@ -104,26 +104,16 @@
       "name": "HBLENGINE",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-07-02",
+      "date_added": "2026-07-06",
       "metrics": {}
     },
     {
       "symbol": "JAIBALAJI",
-      "name": "Jai Balaji Industries Ltd",
-      "sector": "Basic Materials",
-      "market_cap_cr": 7496.9,
-      "date_added": "2026-05-05",
-      "metrics": {
-        "de_ratio": 0.21,
-        "roe": 30.7,
-        "revenue_cagr_5y": 15.7,
-        "fcf_to_pat": 2.74,
-        "promoter_holding": 64.84,
-        "promoter_pledge": 0,
-        "peg_ratio": 0.66,
-        "roce_3y_avg": 32.9,
-        "pe_ratio": 25.6
-      }
+      "name": "JAIBALAJI",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-07-07",
+      "metrics": {}
     },
     {
       "symbol": "JSL",
