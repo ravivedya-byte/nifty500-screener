@@ -1,121 +1,6 @@
 {
   "pending": [
     {
-      "sym": "JAIBALAJI",
-      "name": "Jai Balaji Industries Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Jai Balaji Industries Ltd",
-        "about": "",
-        "roe": 30.7,
-        "de_ratio": 0.21,
-        "pe_ratio": 25.6,
-        "peg_ratio": 0.66,
-        "eps_growth_5y": 38.6,
-        "revenue_growth_5y": 15.7,
-        "roce_3y_avg": 32.9,
-        "roce_history": [
-          5.6,
-          13.9,
-          23.3,
-          47.0,
-          32.3,
-          19.5
-        ],
-        "fcf_to_pat": 2.74,
-        "promoter_holding": 64.84,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": true,
-        "_sales_cr": [
-          4644.0,
-          6125.0,
-          6414.0,
-          6351.0,
-          5786.0
-        ],
-        "_eps": [
-          0.87,
-          0.79,
-          10.75,
-          6.12,
-          3.21
-        ],
-        "_roce": [
-          13.9,
-          23.3,
-          47.0,
-          32.3,
-          19.5
-        ],
-        "_opm": [
-          14.5,
-          13.7,
-          9.0
-        ]
-      },
-      "basic": {
-        "symbol": "JAIBALAJI",
-        "name": "Jai Balaji Industries Limited",
-        "sector": "Basic Materials",
-        "industry": "Steel",
-        "market_cap_cr": 7496.9,
-        "pe_yf": 40.68
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 7496.9,
-          "pass": true,
-          "label": "Rs7,497Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.21,
-          "pass": true,
-          "label": "0.21"
-        },
-        "ROE": {
-          "value": 30.7,
-          "pass": true,
-          "label": "30.7%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 15.7,
-          "pass": true,
-          "label": "15.7%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 32.9,
-          "pass": true,
-          "label": "32.9%  hist:[13.9, 23.3, 47.0, 32.3, 19.5]"
-        },
-        "FCF / PAT": {
-          "value": 2.74,
-          "pass": true,
-          "label": "2.74"
-        },
-        "Promoter Holding": {
-          "value": 64.84,
-          "pass": true,
-          "label": "64.8%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.66,
-          "pass": true,
-          "label": "0.66"
-        }
-      },
-      "soft_flags": [
-        "Operating margin contracting [14.5, 13.7, 9.0]"
-      ]
-    },
-    {
       "sym": "JSL",
       "name": "Jindal Stainless Ltd",
       "date_added": "2026-05-05",
@@ -3453,6 +3338,13 @@
     },
     "HBLENGINE": {
       "date_assessed": "2026-07-06",
+      "score": 0,
+      "verdict": "FAIL",
+      "ar_used": false,
+      "snapshot": "Assessment unavailable."
+    },
+    "JAIBALAJI": {
+      "date_assessed": "2026-07-08",
       "score": 0,
       "verdict": "FAIL",
       "ar_used": false,
