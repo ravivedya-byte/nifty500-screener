@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-07-07",
-  "total_scanned": 2382,
-  "total_qualified": 38,
+  "last_updated": "2026-07-10",
+  "total_scanned": 2384,
+  "total_qualified": 37,
   "stocks": [
     {
       "symbol": "ACCELYA",
@@ -68,14 +68,6 @@
       "metrics": {}
     },
     {
-      "symbol": "ELECON",
-      "name": "ELECON",
-      "sector": "",
-      "market_cap_cr": null,
-      "date_added": "2026-06-05",
-      "metrics": {}
-    },
-    {
       "symbol": "GANESHHOU",
       "name": "GANESHHOU",
       "sector": "",
@@ -112,26 +104,16 @@
       "name": "JAIBALAJI",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-07-07",
+      "date_added": "2026-07-08",
       "metrics": {}
     },
     {
       "symbol": "JSL",
-      "name": "Jindal Stainless Ltd",
-      "sector": "Basic Materials",
-      "market_cap_cr": 64218.7,
-      "date_added": "2026-05-05",
-      "metrics": {
-        "de_ratio": 0.38,
-        "roe": 17.8,
-        "revenue_cagr_5y": 28.7,
-        "fcf_to_pat": 8.48,
-        "promoter_holding": 62.04,
-        "promoter_pledge": 0,
-        "peg_ratio": 0.56,
-        "roce_3y_avg": 20.6,
-        "pe_ratio": 19.8
-      }
+      "name": "JSL",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-07-10",
+      "metrics": {}
     },
     {
       "symbol": "JUBLCPL",
