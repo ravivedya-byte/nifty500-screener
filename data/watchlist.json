@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-07-10",
-  "total_scanned": 2384,
-  "total_qualified": 37,
+  "last_updated": "2026-07-13",
+  "total_scanned": 2402,
+  "total_qualified": 34,
   "stocks": [
     {
       "symbol": "ACCELYA",
@@ -112,7 +112,7 @@
       "name": "JSL",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-07-10",
+      "date_added": "2026-07-13",
       "metrics": {}
     },
     {
