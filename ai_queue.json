@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "JSL",
-      "name": "Jindal Stainless Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Jindal Stainless Ltd",
-        "about": "",
-        "roe": 17.8,
-        "de_ratio": 0.38,
-        "pe_ratio": 19.8,
-        "peg_ratio": 0.56,
-        "eps_growth_5y": 35.1,
-        "revenue_growth_5y": 28.7,
-        "roce_3y_avg": 20.6,
-        "roce_history": [
-          22.1,
-          36.8,
-          22.6,
-          22.1,
-          19.4,
-          20.4
-        ],
-        "fcf_to_pat": 8.48,
-        "promoter_holding": 62.04,
-        "promoter_pledge": null,
-        "promoter_trend": "increasing",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          32733.0,
-          35697.0,
-          38562.0,
-          39312.0,
-          42955.0
-        ],
-        "_eps": [
-          58.59,
-          25.68,
-          32.95,
-          30.41,
-          38.74
-        ],
-        "_roce": [
-          36.8,
-          22.6,
-          22.1,
-          19.4,
-          20.4
-        ],
-        "_opm": [
-          11.7,
-          11.4,
-          12.9
-        ]
-      },
-      "basic": {
-        "symbol": "JSL",
-        "name": "Jindal Stainless Limited",
-        "sector": "Basic Materials",
-        "industry": "Steel",
-        "market_cap_cr": 64218.7,
-        "pe_yf": 20.14
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 64218.7,
-          "pass": true,
-          "label": "Rs64,219Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.38,
-          "pass": true,
-          "label": "0.38"
-        },
-        "ROE": {
-          "value": 17.8,
-          "pass": true,
-          "label": "17.8%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 28.7,
-          "pass": true,
-          "label": "28.7%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 20.6,
-          "pass": true,
-          "label": "20.6%  hist:[36.8, 22.6, 22.1, 19.4, 20.4]"
-        },
-        "FCF / PAT": {
-          "value": 8.48,
-          "pass": true,
-          "label": "8.48"
-        },
-        "Promoter Holding": {
-          "value": 62.04,
-          "pass": true,
-          "label": "62.0%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.56,
-          "pass": true,
-          "label": "0.56"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "JUBLCPL",
       "name": "Jubilant Agri & Consumer Products Ltd",
       "date_added": "2026-05-05",
@@ -3345,6 +3232,13 @@
     },
     "JAIBALAJI": {
       "date_assessed": "2026-07-08",
+      "score": 0,
+      "verdict": "FAIL",
+      "ar_used": false,
+      "snapshot": "Assessment unavailable."
+    },
+    "JSL": {
+      "date_assessed": "2026-07-14",
       "score": 0,
       "verdict": "FAIL",
       "ar_used": false,
