@@ -1,110 +1,6 @@
 {
   "pending": [
     {
-      "sym": "JUBLCPL",
-      "name": "Jubilant Agri & Consumer Products Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Jubilant Agri & Consumer Products Ltd",
-        "about": "",
-        "roe": 31.5,
-        "de_ratio": 0.1,
-        "pe_ratio": 20.2,
-        "peg_ratio": 0.49,
-        "eps_growth_5y": 41.1,
-        "revenue_growth_5y": 20.4,
-        "roce_3y_avg": 35.5,
-        "roce_history": [
-          27.4,
-          36.7,
-          42.5
-        ],
-        "fcf_to_pat": 1.48,
-        "promoter_holding": 74.36,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          1244.0,
-          1541.0,
-          1804.0
-        ],
-        "_eps": [
-          null,
-          58.25,
-          82.19
-        ],
-        "_roce": [
-          27.4,
-          36.7,
-          42.5
-        ],
-        "_opm": [
-          8.8,
-          9.6,
-          10.8
-        ]
-      },
-      "basic": {
-        "symbol": "JUBLCPL",
-        "name": "Jubilant Agri and Consumer Products Limited",
-        "sector": "Basic Materials",
-        "industry": "Specialty Chemicals",
-        "market_cap_cr": 2562.4,
-        "pe_yf": 21.14
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 2562.4,
-          "pass": true,
-          "label": "Rs2,562Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.1,
-          "pass": true,
-          "label": "0.10"
-        },
-        "ROE": {
-          "value": 31.5,
-          "pass": true,
-          "label": "31.5%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 20.4,
-          "pass": true,
-          "label": "20.4%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 35.5,
-          "pass": true,
-          "label": "35.5%  hist:[27.4, 36.7, 42.5]"
-        },
-        "FCF / PAT": {
-          "value": 1.48,
-          "pass": true,
-          "label": "1.48"
-        },
-        "Promoter Holding": {
-          "value": 74.36,
-          "pass": true,
-          "label": "74.4%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.49,
-          "pass": true,
-          "label": "0.49"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "KKCL",
       "name": "Kewal Kiran Clothing Ltd",
       "date_added": "2026-05-05",
@@ -3239,6 +3135,13 @@
     },
     "JSL": {
       "date_assessed": "2026-07-14",
+      "score": 0,
+      "verdict": "FAIL",
+      "ar_used": false,
+      "snapshot": "Assessment unavailable."
+    },
+    "JUBLCPL": {
+      "date_assessed": "2026-07-16",
       "score": 0,
       "verdict": "FAIL",
       "ar_used": false,
