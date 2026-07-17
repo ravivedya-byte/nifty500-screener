@@ -144,7 +144,23 @@
     "substack_url": ""
   },
   "JSL": {
-    "date_assessed": "2026-07-13",
+    "date_assessed": "2026-07-14",
+    "score": 0,
+    "verdict": "FAIL",
+    "snapshot": "Assessment unavailable.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "JUBLCPL": {
+    "date_assessed": "2026-07-16",
+    "score": 0,
+    "verdict": "FAIL",
+    "snapshot": "Assessment unavailable.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "KKCL": {
+    "date_assessed": "2026-07-17",
     "score": 0,
     "verdict": "FAIL",
     "snapshot": "Assessment unavailable.",
