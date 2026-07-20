@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-17",
-  "total_scanned": 2384,
+  "last_updated": "2026-07-20",
+  "total_scanned": 2402,
   "total_qualified": 35,
   "stocks": [
     {
@@ -128,7 +128,7 @@
       "name": "KKCL",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-07-17",
+      "date_added": "2026-07-20",
       "metrics": {}
     },
     {
