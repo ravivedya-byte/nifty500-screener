@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "KKCL",
-      "name": "Kewal Kiran Clothing Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Kewal Kiran Clothing Ltd",
-        "about": "",
-        "roe": 15.5,
-        "de_ratio": 0.2,
-        "pe_ratio": 20.8,
-        "peg_ratio": 0.44,
-        "eps_growth_5y": 47.8,
-        "revenue_growth_5y": 31.2,
-        "roce_3y_avg": 22.1,
-        "roce_history": [
-          3.9,
-          17.9,
-          24.8,
-          25.4,
-          19.4,
-          21.5
-        ],
-        "fcf_to_pat": 1.02,
-        "promoter_holding": 74.29,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          608.0,
-          779.0,
-          860.0,
-          1003.0,
-          1177.0
-        ],
-        "_eps": [
-          13.25,
-          19.31,
-          25.0,
-          23.44,
-          22.63
-        ],
-        "_roce": [
-          17.9,
-          24.8,
-          25.4,
-          19.4,
-          21.5
-        ],
-        "_opm": [
-          20.6,
-          19.0,
-          19.4
-        ]
-      },
-      "basic": {
-        "symbol": "KKCL",
-        "name": "Kewal Kiran Clothing Limited",
-        "sector": "Consumer Cyclical",
-        "industry": "Apparel Manufacturing",
-        "market_cap_cr": 2881.6,
-        "pe_yf": 20.68
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 2881.6,
-          "pass": true,
-          "label": "Rs2,882Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.2,
-          "pass": true,
-          "label": "0.20"
-        },
-        "ROE": {
-          "value": 15.5,
-          "pass": true,
-          "label": "15.5%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 31.2,
-          "pass": true,
-          "label": "31.2%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 22.1,
-          "pass": true,
-          "label": "22.1%  hist:[17.9, 24.8, 25.4, 19.4, 21.5]"
-        },
-        "FCF / PAT": {
-          "value": 1.02,
-          "pass": true,
-          "label": "1.02"
-        },
-        "Promoter Holding": {
-          "value": 74.29,
-          "pass": true,
-          "label": "74.3%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.44,
-          "pass": true,
-          "label": "0.44"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "MBEL",
       "name": "M & B Engineering Ltd",
       "date_added": "2026-05-05",
@@ -3142,6 +3029,13 @@
     },
     "JUBLCPL": {
       "date_assessed": "2026-07-16",
+      "score": 0,
+      "verdict": "FAIL",
+      "ar_used": false,
+      "snapshot": "Assessment unavailable."
+    },
+    "KKCL": {
+      "date_assessed": "2026-07-21",
       "score": 0,
       "verdict": "FAIL",
       "ar_used": false,
