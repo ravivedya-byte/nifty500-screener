@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-07-20",
-  "total_scanned": 2402,
-  "total_qualified": 35,
+  "last_updated": "2026-07-22",
+  "total_scanned": 2387,
+  "total_qualified": 33,
   "stocks": [
     {
       "symbol": "ACCELYA",
@@ -14,14 +14,6 @@
     {
       "symbol": "ACE",
       "name": "ACE",
-      "sector": "",
-      "market_cap_cr": null,
-      "date_added": "2026-05-07",
-      "metrics": {}
-    },
-    {
-      "symbol": "ADANIPOWER",
-      "name": "ADANIPOWER",
       "sector": "",
       "market_cap_cr": null,
       "date_added": "2026-05-07",
@@ -128,26 +120,8 @@
       "name": "KKCL",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-07-20",
+      "date_added": "2026-07-21",
       "metrics": {}
-    },
-    {
-      "symbol": "MBEL",
-      "name": "M & B Engineering Ltd",
-      "sector": "Industrials",
-      "market_cap_cr": 1901.9,
-      "date_added": "2026-05-05",
-      "metrics": {
-        "de_ratio": 0.19,
-        "roe": 28.5,
-        "revenue_cagr_5y": 23.9,
-        "fcf_to_pat": 0.81,
-        "promoter_holding": 70.54,
-        "promoter_pledge": 0,
-        "peg_ratio": 0.47,
-        "roce_3y_avg": 21.4,
-        "pe_ratio": 20.1
-      }
     },
     {
       "symbol": "NATIONALUM",

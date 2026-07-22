@@ -160,7 +160,15 @@
     "substack_url": ""
   },
   "KKCL": {
-    "date_assessed": "2026-07-20",
+    "date_assessed": "2026-07-21",
+    "score": 0,
+    "verdict": "FAIL",
+    "snapshot": "Assessment unavailable.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "MBEL": {
+    "date_assessed": "2026-07-22",
     "score": 0,
     "verdict": "FAIL",
     "snapshot": "Assessment unavailable.",
