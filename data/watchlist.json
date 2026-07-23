@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-07-22",
-  "total_scanned": 2387,
-  "total_qualified": 33,
+  "last_updated": "2026-07-23",
+  "total_scanned": 2386,
+  "total_qualified": 32,
   "stocks": [
     {
       "symbol": "ACCELYA",
@@ -73,14 +73,6 @@
       "sector": "",
       "market_cap_cr": null,
       "date_added": "2026-06-15",
-      "metrics": {}
-    },
-    {
-      "symbol": "GULFOILLUB",
-      "name": "GULFOILLUB",
-      "sector": "",
-      "market_cap_cr": null,
-      "date_added": "2026-06-17",
       "metrics": {}
     },
     {
