@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "MBEL",
-      "name": "M & B Engineering Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "M & B Engineering Ltd",
-        "about": "",
-        "roe": 28.5,
-        "de_ratio": 0.19,
-        "pe_ratio": 20.1,
-        "peg_ratio": 0.47,
-        "eps_growth_5y": 43.0,
-        "revenue_growth_5y": 23.9,
-        "roce_3y_avg": 21.4,
-        "roce_history": [
-          11.3,
-          18.4,
-          20.3,
-          18.3,
-          25.5,
-          20.5
-        ],
-        "fcf_to_pat": 0.81,
-        "promoter_holding": 70.54,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          688.0,
-          880.0,
-          795.0,
-          989.0,
-          1210.0
-        ],
-        "_eps": [
-          9.69,
-          16.48,
-          9.17,
-          15.41,
-          17.63
-        ],
-        "_roce": [
-          18.4,
-          20.3,
-          18.3,
-          25.5,
-          20.5
-        ],
-        "_opm": [
-          10.1,
-          12.8,
-          12.0
-        ]
-      },
-      "basic": {
-        "symbol": "MBEL",
-        "name": "MBEL",
-        "sector": "Industrials",
-        "industry": "Engineering & Construction",
-        "market_cap_cr": 1901.9,
-        "pe_yf": 20.18
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 1901.9,
-          "pass": true,
-          "label": "Rs1,902Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.19,
-          "pass": true,
-          "label": "0.19"
-        },
-        "ROE": {
-          "value": 28.5,
-          "pass": true,
-          "label": "28.5%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 23.9,
-          "pass": true,
-          "label": "23.9%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 21.4,
-          "pass": true,
-          "label": "21.4%  hist:[18.4, 20.3, 18.3, 25.5, 20.5]"
-        },
-        "FCF / PAT": {
-          "value": 0.81,
-          "pass": true,
-          "label": "0.81"
-        },
-        "Promoter Holding": {
-          "value": 70.54,
-          "pass": true,
-          "label": "70.5%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.47,
-          "pass": true,
-          "label": "0.47"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "NATIONALUM",
       "name": "National Aluminium Company Ltd",
       "date_added": "2026-05-05",
@@ -2846,6 +2733,120 @@
         }
       },
       "soft_flags": []
+    },
+    {
+      "sym": "WELCORP",
+      "name": "Welspun Corp Ltd",
+      "date_added": "2026-07-24",
+      "data": {
+        "company_name": "Welspun Corp Ltd",
+        "about": "",
+        "bse_code": "532144",
+        "roe": 19.4,
+        "de_ratio": 0.26,
+        "pe_ratio": 18.3,
+        "peg_ratio": 0.47,
+        "eps_growth_5y": 39.1,
+        "revenue_growth_5y": 21.6,
+        "roce_3y_avg": 19.9,
+        "roce_history": [
+          15.6,
+          7.3,
+          6.1,
+          20.6,
+          19.7,
+          19.4
+        ],
+        "fcf_to_pat": 10.54,
+        "promoter_holding": 49.73,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          9758.0,
+          17340.0,
+          13978.0,
+          16770.0,
+          17300.0
+        ],
+        "_eps": [
+          7.9,
+          42.44,
+          72.73,
+          61.15,
+          87.55
+        ],
+        "_roce": [
+          7.3,
+          6.1,
+          20.6,
+          19.7,
+          19.4
+        ],
+        "_opm": [
+          12.0,
+          13.3,
+          13.9
+        ]
+      },
+      "basic": {
+        "symbol": "WELCORP",
+        "name": "Welspun Corp Limited",
+        "sector": "Basic Materials",
+        "industry": "Steel",
+        "market_cap_cr": 42110.9,
+        "pe_yf": 26.12
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 42110.9,
+          "pass": true,
+          "label": "Rs42,111Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.26,
+          "pass": true,
+          "label": "0.26"
+        },
+        "ROE": {
+          "value": 19.4,
+          "pass": true,
+          "label": "19.4%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 21.6,
+          "pass": true,
+          "label": "21.6%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 19.9,
+          "pass": true,
+          "label": "19.9%"
+        },
+        "FCF / PAT": {
+          "value": 10.54,
+          "pass": true,
+          "label": "10.54"
+        },
+        "Promoter Holding": {
+          "value": 49.73,
+          "pass": true,
+          "label": "49.7%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.47,
+          "pass": true,
+          "label": "0.47"
+        }
+      },
+      "soft_flags": []
     }
   ],
   "assessed": {
@@ -3036,6 +3037,13 @@
     },
     "KKCL": {
       "date_assessed": "2026-07-21",
+      "score": 0,
+      "verdict": "FAIL",
+      "ar_used": false,
+      "snapshot": "Assessment unavailable."
+    },
+    "MBEL": {
+      "date_assessed": "2026-07-24",
       "score": 0,
       "verdict": "FAIL",
       "ar_used": false,
