@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-07-23",
-  "total_scanned": 2386,
-  "total_qualified": 32,
+  "last_updated": "2026-07-28",
+  "total_scanned": 2387,
+  "total_qualified": 31,
   "stocks": [
     {
       "symbol": "ACCELYA",
@@ -38,14 +38,6 @@
     {
       "symbol": "CHENNPETRO",
       "name": "CHENNPETRO",
-      "sector": "",
-      "market_cap_cr": null,
-      "date_added": "2026-05-08",
-      "metrics": {}
-    },
-    {
-      "symbol": "COALINDIA",
-      "name": "COALINDIA",
       "sector": "",
       "market_cap_cr": null,
       "date_added": "2026-05-08",
@@ -117,21 +109,11 @@
     },
     {
       "symbol": "NATIONALUM",
-      "name": "National Aluminium Company Ltd",
-      "sector": "Basic Materials",
-      "market_cap_cr": 75963.1,
-      "date_added": "2026-05-05",
-      "metrics": {
-        "de_ratio": 0.0,
-        "roe": 29.4,
-        "revenue_cagr_5y": 14.8,
-        "fcf_to_pat": 1.26,
-        "promoter_holding": 51.28,
-        "promoter_pledge": 0,
-        "peg_ratio": 0.38,
-        "roce_3y_avg": 32.5,
-        "pe_ratio": 13.1
-      }
+      "name": "NATIONALUM",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-07-28",
+      "metrics": {}
     },
     {
       "symbol": "PICCADIL",
@@ -545,6 +527,24 @@
         "peg_ratio": 1.0,
         "roce_3y_avg": 30.1,
         "pe_ratio": 51.5
+      }
+    },
+    {
+      "symbol": "WELCORP",
+      "name": "Welspun Corp Ltd",
+      "sector": "Basic Materials",
+      "market_cap_cr": 42110.9,
+      "date_added": "2026-07-24",
+      "metrics": {
+        "de_ratio": 0.26,
+        "roe": 19.4,
+        "revenue_cagr_5y": 21.6,
+        "fcf_to_pat": 10.54,
+        "promoter_holding": 49.73,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.47,
+        "roce_3y_avg": 19.9,
+        "pe_ratio": 18.3
       }
     }
   ]
