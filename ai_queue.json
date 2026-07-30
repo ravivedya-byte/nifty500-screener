@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "NATIONALUM",
-      "name": "National Aluminium Company Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "National Aluminium Company Ltd",
-        "about": "",
-        "roe": 29.4,
-        "de_ratio": 0.0,
-        "pe_ratio": 13.1,
-        "peg_ratio": 0.38,
-        "eps_growth_5y": 34.9,
-        "revenue_growth_5y": 14.8,
-        "roce_3y_avg": 32.5,
-        "roce_history": [
-          16.5,
-          35.8,
-          17.7,
-          19.3,
-          41.7,
-          36.6
-        ],
-        "fcf_to_pat": 1.26,
-        "promoter_holding": 51.28,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          14181.0,
-          14257.0,
-          13149.0,
-          16788.0,
-          17843.0
-        ],
-        "_eps": [
-          16.07,
-          7.81,
-          10.83,
-          28.68,
-          31.56
-        ],
-        "_roce": [
-          35.8,
-          17.7,
-          19.3,
-          41.7,
-          36.6
-        ],
-        "_opm": [
-          21.3,
-          44.7,
-          44.4
-        ]
-      },
-      "basic": {
-        "symbol": "NATIONALUM",
-        "name": "National Aluminium Company Limited",
-        "sector": "Basic Materials",
-        "industry": "Aluminum",
-        "market_cap_cr": 75963.1,
-        "pe_yf": 12.37
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 75963.1,
-          "pass": true,
-          "label": "Rs75,963Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.0,
-          "pass": true,
-          "label": "0.00"
-        },
-        "ROE": {
-          "value": 29.4,
-          "pass": true,
-          "label": "29.4%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 14.8,
-          "pass": true,
-          "label": "14.8%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 32.5,
-          "pass": true,
-          "label": "32.5%  hist:[35.8, 17.7, 19.3, 41.7, 36.6]"
-        },
-        "FCF / PAT": {
-          "value": 1.26,
-          "pass": true,
-          "label": "1.26"
-        },
-        "Promoter Holding": {
-          "value": 51.28,
-          "pass": true,
-          "label": "51.3%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.38,
-          "pass": true,
-          "label": "0.38"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "PICCADIL",
       "name": "Piccadily Agro Industries Ltd",
       "date_added": "2026-05-05",
@@ -3044,6 +2931,13 @@
     },
     "MBEL": {
       "date_assessed": "2026-07-24",
+      "score": 0,
+      "verdict": "FAIL",
+      "ar_used": false,
+      "snapshot": "Assessment unavailable."
+    },
+    "NATIONALUM": {
+      "date_assessed": "2026-07-30",
       "score": 0,
       "verdict": "FAIL",
       "ar_used": false,
