@@ -176,7 +176,15 @@
     "substack_url": ""
   },
   "NATIONALUM": {
-    "date_assessed": "2026-07-28",
+    "date_assessed": "2026-07-30",
+    "score": 0,
+    "verdict": "FAIL",
+    "snapshot": "Assessment unavailable.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "PICCADIL": {
+    "date_assessed": "2026-08-03",
     "score": 0,
     "verdict": "FAIL",
     "snapshot": "Assessment unavailable.",

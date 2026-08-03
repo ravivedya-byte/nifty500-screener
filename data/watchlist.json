@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-07-28",
-  "total_scanned": 2387,
-  "total_qualified": 31,
+  "last_updated": "2026-08-03",
+  "total_scanned": 2409,
+  "total_qualified": 27,
   "stocks": [
     {
       "symbol": "ACCELYA",
@@ -84,14 +84,6 @@
       "metrics": {}
     },
     {
-      "symbol": "JSL",
-      "name": "JSL",
-      "sector": "",
-      "market_cap_cr": null,
-      "date_added": "2026-07-14",
-      "metrics": {}
-    },
-    {
       "symbol": "JUBLCPL",
       "name": "JUBLCPL",
       "sector": "",
@@ -106,32 +98,6 @@
       "market_cap_cr": null,
       "date_added": "2026-07-21",
       "metrics": {}
-    },
-    {
-      "symbol": "NATIONALUM",
-      "name": "NATIONALUM",
-      "sector": "",
-      "market_cap_cr": null,
-      "date_added": "2026-07-28",
-      "metrics": {}
-    },
-    {
-      "symbol": "PICCADIL",
-      "name": "Piccadily Agro Industries Ltd",
-      "sector": "Consumer Defensive",
-      "market_cap_cr": 5987.6,
-      "date_added": "2026-05-05",
-      "metrics": {
-        "de_ratio": 0.59,
-        "roe": 17.4,
-        "revenue_cagr_5y": 16.3,
-        "fcf_to_pat": 1.15,
-        "promoter_holding": 68.56,
-        "promoter_pledge": 0,
-        "peg_ratio": 0.89,
-        "roce_3y_avg": 21.4,
-        "pe_ratio": 43.6
-      }
     },
     {
       "symbol": "POWERICA",
