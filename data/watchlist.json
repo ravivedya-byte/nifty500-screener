@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-08-03",
-  "total_scanned": 2409,
-  "total_qualified": 27,
+  "last_updated": "2026-08-19",
+  "total_scanned": 2553,
+  "total_qualified": 21,
   "stocks": [
     {
       "symbol": "ACCELYA",
@@ -84,38 +84,12 @@
       "metrics": {}
     },
     {
-      "symbol": "JUBLCPL",
-      "name": "JUBLCPL",
-      "sector": "",
-      "market_cap_cr": null,
-      "date_added": "2026-07-16",
-      "metrics": {}
-    },
-    {
-      "symbol": "KKCL",
-      "name": "KKCL",
-      "sector": "",
-      "market_cap_cr": null,
-      "date_added": "2026-07-21",
-      "metrics": {}
-    },
-    {
       "symbol": "POWERICA",
-      "name": "Powerica Ltd",
-      "sector": "Industrials",
-      "market_cap_cr": 6173.2,
-      "date_added": "2026-05-05",
-      "metrics": {
-        "de_ratio": 0.48,
-        "roe": 15.7,
-        "revenue_cagr_5y": 31.4,
-        "fcf_to_pat": 2.24,
-        "promoter_holding": 77.18,
-        "promoter_pledge": 0,
-        "peg_ratio": 0.23,
-        "roce_3y_avg": 29.4,
-        "pe_ratio": 27.5
-      }
+      "name": "POWERICA",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-08-19",
+      "metrics": {}
     },
     {
       "symbol": "SHAKTIPUMP",
@@ -511,6 +485,24 @@
         "peg_ratio": 0.47,
         "roce_3y_avg": 19.9,
         "pe_ratio": 18.3
+      }
+    },
+    {
+      "symbol": "ITDC",
+      "name": "India Tourism Development Corporation Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 5943.4,
+      "date_added": "2026-08-18",
+      "metrics": {
+        "de_ratio": 0.0,
+        "roe": 21.0,
+        "revenue_cagr_5y": 12.7,
+        "fcf_to_pat": 0.81,
+        "promoter_holding": 87.03,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.89,
+        "roce_3y_avg": 25.1,
+        "pe_ratio": 72.0
       }
     }
   ]

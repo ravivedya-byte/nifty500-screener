@@ -184,7 +184,15 @@
     "substack_url": ""
   },
   "PICCADIL": {
-    "date_assessed": "2026-08-03",
+    "date_assessed": "2026-08-18",
+    "score": 0,
+    "verdict": "FAIL",
+    "snapshot": "Assessment unavailable.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "POWERICA": {
+    "date_assessed": "2026-08-19",
     "score": 0,
     "verdict": "FAIL",
     "snapshot": "Assessment unavailable.",
