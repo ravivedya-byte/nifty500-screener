@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-01",
+  "last_updated": "2026-10-02",
   "total_scanned": 2593,
   "total_qualified": 22,
   "stocks": [
@@ -88,7 +88,7 @@
       "name": "POWERICA",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-10-01",
+      "date_added": "2026-10-02",
       "metrics": {}
     },
     {
@@ -509,8 +509,8 @@
       "symbol": "LCL",
       "name": "Lohia Corp Ltd",
       "sector": "Industrials",
-      "market_cap_cr": 5848.8,
-      "date_added": "2026-10-01",
+      "market_cap_cr": 5874.1,
+      "date_added": "2026-10-02",
       "metrics": {
         "de_ratio": 0.34,
         "roe": 44.6,

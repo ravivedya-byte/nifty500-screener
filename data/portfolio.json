@@ -16,22 +16,6 @@
       "amount_per_stock": 100000,
       "total_deployed": 100000,
       "benchmark_price_entry": 23997.55
-    },
-    {
-      "month": "2026-10",
-      "date": "2026-10-01",
-      "type": "gold_fallback",
-      "allocations": [
-        {
-          "symbol": "GOLDBEES",
-          "name": "GOLDBEES",
-          "price_entry": 121.43,
-          "shares": 823.5197
-        }
-      ],
-      "amount_per_stock": 100000,
-      "total_deployed": 100000,
-      "benchmark_price_entry": 22421.95
     }
   ]
 }
