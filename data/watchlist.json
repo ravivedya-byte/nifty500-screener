@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-10-09",
-  "total_scanned": 2603,
-  "total_qualified": 22,
+  "last_updated": "2026-10-12",
+  "total_scanned": 2620,
+  "total_qualified": 23,
   "stocks": [
     {
       "symbol": "ACCELYA",
@@ -84,11 +84,19 @@
       "metrics": {}
     },
     {
+      "symbol": "JUBLCPL",
+      "name": "JUBLCPL",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-07-16",
+      "metrics": {}
+    },
+    {
       "symbol": "POWERICA",
       "name": "POWERICA",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-10-09",
+      "date_added": "2026-10-12",
       "metrics": {}
     },
     {
@@ -509,8 +517,8 @@
       "symbol": "LCL",
       "name": "Lohia Corp Ltd",
       "sector": "Industrials",
-      "market_cap_cr": 6664.9,
-      "date_added": "2026-10-09",
+      "market_cap_cr": 6704.5,
+      "date_added": "2026-10-12",
       "metrics": {
         "de_ratio": 0.34,
         "roe": 44.6,
@@ -520,7 +528,7 @@
         "promoter_pledge": 0,
         "peg_ratio": 0.41,
         "roce_3y_avg": 41.3,
-        "pe_ratio": 26.9
+        "pe_ratio": 27.0
       }
     }
   ]
