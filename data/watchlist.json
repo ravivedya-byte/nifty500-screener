@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-10-13",
-  "total_scanned": 2606,
-  "total_qualified": 22,
+  "last_updated": "2026-10-14",
+  "total_scanned": 2605,
+  "total_qualified": 26,
   "stocks": [
     {
       "symbol": "ACCELYA",
@@ -88,7 +88,7 @@
       "name": "POWERICA",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-10-13",
+      "date_added": "2026-10-14",
       "metrics": {}
     },
     {
@@ -506,11 +506,65 @@
       }
     },
     {
+      "symbol": "ECOSMOBLTY",
+      "name": "Ecos (India) Mobility & Hospitality Ltd",
+      "sector": "Industrials",
+      "market_cap_cr": 646.9,
+      "date_added": "2026-10-14",
+      "metrics": {
+        "de_ratio": 0.03,
+        "roe": 20.5,
+        "revenue_cagr_5y": 42.0,
+        "fcf_to_pat": 2.84,
+        "promoter_holding": 67.79,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.26,
+        "roce_3y_avg": 39.1,
+        "pe_ratio": 11.0
+      }
+    },
+    {
+      "symbol": "GLASSWALL",
+      "name": "Glass Wall Systems (India) Ltd",
+      "sector": "Industrials",
+      "market_cap_cr": 2196.2,
+      "date_added": "2026-10-14",
+      "metrics": {
+        "de_ratio": 0.03,
+        "roe": 37.7,
+        "revenue_cagr_5y": 22.6,
+        "fcf_to_pat": 1.12,
+        "promoter_holding": 53.22,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.23,
+        "roce_3y_avg": 39.1,
+        "pe_ratio": 27.3
+      }
+    },
+    {
+      "symbol": "JYOTICNC",
+      "name": "Jyoti CNC Automation Ltd",
+      "sector": "Industrials",
+      "market_cap_cr": 23067.5,
+      "date_added": "2026-10-14",
+      "metrics": {
+        "de_ratio": 0.43,
+        "roe": 18.2,
+        "revenue_cagr_5y": 24.0,
+        "fcf_to_pat": 1.86,
+        "promoter_holding": 62.55,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.86,
+        "roce_3y_avg": 19.7,
+        "pe_ratio": 71.7
+      }
+    },
+    {
       "symbol": "LCL",
       "name": "Lohia Corp Ltd",
       "sector": "Industrials",
-      "market_cap_cr": 6686.1,
-      "date_added": "2026-10-13",
+      "market_cap_cr": 6589.4,
+      "date_added": "2026-10-14",
       "metrics": {
         "de_ratio": 0.34,
         "roe": 44.6,
@@ -520,7 +574,25 @@
         "promoter_pledge": 0,
         "peg_ratio": 0.41,
         "roce_3y_avg": 41.3,
-        "pe_ratio": 27.0
+        "pe_ratio": 26.5
+      }
+    },
+    {
+      "symbol": "VIKRAMSOLR",
+      "name": "Vikram Solar Ltd",
+      "sector": "Technology",
+      "market_cap_cr": 5317.6,
+      "date_added": "2026-10-14",
+      "metrics": {
+        "de_ratio": 0.19,
+        "roe": 21.4,
+        "revenue_cagr_5y": 24.8,
+        "fcf_to_pat": 2.26,
+        "promoter_holding": 63.01,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.32,
+        "roce_3y_avg": 29.0,
+        "pe_ratio": 14.7
       }
     }
   ]
