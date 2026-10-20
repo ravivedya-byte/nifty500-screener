@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-19",
+  "last_updated": "2026-10-20",
   "total_scanned": 2619,
   "total_qualified": 27,
   "stocks": [
@@ -96,7 +96,7 @@
       "name": "POWERICA",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-10-19",
+      "date_added": "2026-10-20",
       "metrics": {}
     },
     {
@@ -518,7 +518,7 @@
       "name": "Ecos (India) Mobility & Hospitality Ltd",
       "sector": "Industrials",
       "market_cap_cr": 630.6,
-      "date_added": "2026-10-19",
+      "date_added": "2026-10-20",
       "metrics": {
         "de_ratio": 0.03,
         "roe": 20.5,
@@ -528,7 +528,7 @@
         "promoter_pledge": 0,
         "peg_ratio": 0.25,
         "roce_3y_avg": 39.1,
-        "pe_ratio": 10.8
+        "pe_ratio": 10.7
       }
     },
     {
@@ -536,7 +536,7 @@
       "name": "Glass Wall Systems (India) Ltd",
       "sector": "Industrials",
       "market_cap_cr": 2110.0,
-      "date_added": "2026-10-19",
+      "date_added": "2026-10-20",
       "metrics": {
         "de_ratio": 0.03,
         "roe": 37.7,
@@ -546,7 +546,7 @@
         "promoter_pledge": 0,
         "peg_ratio": 0.22,
         "roce_3y_avg": 39.1,
-        "pe_ratio": 26.2
+        "pe_ratio": 26.3
       }
     },
     {
@@ -554,7 +554,7 @@
       "name": "Hindustan Zinc Ltd",
       "sector": "Basic Materials",
       "market_cap_cr": 227491.2,
-      "date_added": "2026-10-19",
+      "date_added": "2026-10-20",
       "metrics": {
         "de_ratio": 0.22,
         "roe": 76.6,
@@ -572,7 +572,7 @@
       "name": "Jyoti CNC Automation Ltd",
       "sector": "Industrials",
       "market_cap_cr": 22191.9,
-      "date_added": "2026-10-19",
+      "date_added": "2026-10-20",
       "metrics": {
         "de_ratio": 0.43,
         "roe": 18.2,
@@ -590,7 +590,7 @@
       "name": "Lohia Corp Ltd",
       "sector": "Industrials",
       "market_cap_cr": 6280.4,
-      "date_added": "2026-10-19",
+      "date_added": "2026-10-20",
       "metrics": {
         "de_ratio": 0.34,
         "roe": 44.6,
@@ -608,7 +608,7 @@
       "name": "Vikram Solar Ltd",
       "sector": "Technology",
       "market_cap_cr": 5103.0,
-      "date_added": "2026-10-19",
+      "date_added": "2026-10-20",
       "metrics": {
         "de_ratio": 0.19,
         "roe": 21.4,
