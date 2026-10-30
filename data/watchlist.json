@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-10-29",
+  "last_updated": "2026-10-30",
   "total_scanned": 2620,
-  "total_qualified": 28,
+  "total_qualified": 27,
   "stocks": [
     {
       "symbol": "ACE",
@@ -41,14 +41,6 @@
       "sector": "",
       "market_cap_cr": null,
       "date_added": "2026-05-08",
-      "metrics": {}
-    },
-    {
-      "symbol": "GANESHHOU",
-      "name": "GANESHHOU",
-      "sector": "",
-      "market_cap_cr": null,
-      "date_added": "2026-06-08",
       "metrics": {}
     },
     {
@@ -96,7 +88,7 @@
       "name": "POWERICA",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-10-29",
+      "date_added": "2026-10-30",
       "metrics": {}
     },
     {
@@ -517,8 +509,8 @@
       "symbol": "ECOSMOBLTY",
       "name": "Ecos (India) Mobility & Hospitality Ltd",
       "sector": "Industrials",
-      "market_cap_cr": 596.9,
-      "date_added": "2026-10-29",
+      "market_cap_cr": 601.9,
+      "date_added": "2026-10-30",
       "metrics": {
         "de_ratio": 0.03,
         "roe": 20.5,
@@ -526,17 +518,17 @@
         "fcf_to_pat": 2.84,
         "promoter_holding": 67.79,
         "promoter_pledge": 0,
-        "peg_ratio": 0.23,
+        "peg_ratio": 0.24,
         "roce_3y_avg": 39.1,
-        "pe_ratio": 10.1
+        "pe_ratio": 10.2
       }
     },
     {
       "symbol": "GLASSWALL",
       "name": "Glass Wall Systems (India) Ltd",
       "sector": "Industrials",
-      "market_cap_cr": 1908.6,
-      "date_added": "2026-10-29",
+      "market_cap_cr": 1862.9,
+      "date_added": "2026-10-30",
       "metrics": {
         "de_ratio": 0.03,
         "roe": 37.7,
@@ -546,15 +538,15 @@
         "promoter_pledge": 0,
         "peg_ratio": 0.2,
         "roce_3y_avg": 39.1,
-        "pe_ratio": 23.7
+        "pe_ratio": 23.2
       }
     },
     {
       "symbol": "HINDZINC",
       "name": "Hindustan Zinc Ltd",
       "sector": "Basic Materials",
-      "market_cap_cr": 218237.7,
-      "date_added": "2026-10-29",
+      "market_cap_cr": 213716.6,
+      "date_added": "2026-10-30",
       "metrics": {
         "de_ratio": 0.22,
         "roe": 76.6,
@@ -562,17 +554,17 @@
         "fcf_to_pat": 1.24,
         "promoter_holding": 60.71,
         "promoter_pledge": 0,
-        "peg_ratio": 0.63,
+        "peg_ratio": 0.62,
         "roce_3y_avg": 75.7,
-        "pe_ratio": 10.5
+        "pe_ratio": 10.3
       }
     },
     {
       "symbol": "JYOTICNC",
       "name": "Jyoti CNC Automation Ltd",
       "sector": "Industrials",
-      "market_cap_cr": 21757.6,
-      "date_added": "2026-10-29",
+      "market_cap_cr": 20595.4,
+      "date_added": "2026-10-30",
       "metrics": {
         "de_ratio": 0.43,
         "roe": 18.2,
@@ -580,17 +572,17 @@
         "fcf_to_pat": 1.86,
         "promoter_holding": 62.55,
         "promoter_pledge": 0,
-        "peg_ratio": 0.81,
+        "peg_ratio": 0.77,
         "roce_3y_avg": 19.7,
-        "pe_ratio": 67.7
+        "pe_ratio": 64.0
       }
     },
     {
       "symbol": "LCL",
       "name": "Lohia Corp Ltd",
       "sector": "Industrials",
-      "market_cap_cr": 5621.6,
-      "date_added": "2026-10-29",
+      "market_cap_cr": 5418.8,
+      "date_added": "2026-10-30",
       "metrics": {
         "de_ratio": 0.34,
         "roe": 44.6,
@@ -598,9 +590,9 @@
         "fcf_to_pat": 0.76,
         "promoter_holding": 68.66,
         "promoter_pledge": 0,
-        "peg_ratio": 0.35,
+        "peg_ratio": 0.33,
         "roce_3y_avg": 41.3,
-        "pe_ratio": 22.6
+        "pe_ratio": 21.8
       }
     },
     {
@@ -608,7 +600,7 @@
       "name": "Panache Digilife Ltd",
       "sector": "Technology",
       "market_cap_cr": 1035.8,
-      "date_added": "2026-10-29",
+      "date_added": "2026-10-30",
       "metrics": {
         "de_ratio": 0.32,
         "roe": 21.8,
@@ -625,8 +617,8 @@
       "symbol": "VIKRAMSOLR",
       "name": "Vikram Solar Ltd",
       "sector": "Technology",
-      "market_cap_cr": 4638.1,
-      "date_added": "2026-10-29",
+      "market_cap_cr": 4539.9,
+      "date_added": "2026-10-30",
       "metrics": {
         "de_ratio": 0.19,
         "roe": 21.4,
@@ -634,9 +626,9 @@
         "fcf_to_pat": 2.26,
         "promoter_holding": 63.01,
         "promoter_pledge": 0,
-        "peg_ratio": 0.28,
+        "peg_ratio": 0.27,
         "roce_3y_avg": 29.0,
-        "pe_ratio": 12.8
+        "pe_ratio": 12.6
       }
     }
   ]
