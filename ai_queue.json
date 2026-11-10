@@ -1,121 +1,6 @@
 {
   "pending": [
     {
-      "sym": "SHAKTIPUMP",
-      "name": "Shakti Pumps (India) Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Shakti Pumps (India) Ltd",
-        "about": "",
-        "roe": 42.6,
-        "de_ratio": 0.38,
-        "pe_ratio": 20.5,
-        "peg_ratio": 0.65,
-        "eps_growth_5y": 31.7,
-        "revenue_growth_5y": 21.9,
-        "roce_3y_avg": 31.5,
-        "roce_history": [
-          33.9,
-          22.0,
-          13.6,
-          26.8,
-          45.3,
-          22.4
-        ],
-        "fcf_to_pat": 1.52,
-        "promoter_holding": 50.36,
-        "promoter_pledge": null,
-        "promoter_trend": "decreasing",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          1179.0,
-          968.0,
-          1371.0,
-          2516.0,
-          2505.0
-        ],
-        "_eps": [
-          5.88,
-          2.19,
-          11.79,
-          33.97,
-          27.15
-        ],
-        "_roce": [
-          22.0,
-          13.6,
-          26.8,
-          45.3,
-          22.4
-        ],
-        "_opm": [
-          16.4,
-          24.0,
-          20.0
-        ]
-      },
-      "basic": {
-        "symbol": "SHAKTIPUMP",
-        "name": "Shakti Pumps (India) Limited",
-        "sector": "Industrials",
-        "industry": "Specialty Industrial Machinery",
-        "market_cap_cr": 6761.0,
-        "pe_yf": 20.21
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 6761.0,
-          "pass": true,
-          "label": "Rs6,761Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.38,
-          "pass": true,
-          "label": "0.38"
-        },
-        "ROE": {
-          "value": 42.6,
-          "pass": true,
-          "label": "42.6%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 21.9,
-          "pass": true,
-          "label": "21.9%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 31.5,
-          "pass": true,
-          "label": "31.5%  hist:[22.0, 13.6, 26.8, 45.3, 22.4]"
-        },
-        "FCF / PAT": {
-          "value": 1.52,
-          "pass": true,
-          "label": "1.52"
-        },
-        "Promoter Holding": {
-          "value": 50.36,
-          "pass": true,
-          "label": "50.4%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.65,
-          "pass": true,
-          "label": "0.65"
-        }
-      },
-      "soft_flags": [
-        "Promoter holding declining QoQ (50.4%)"
-      ]
-    },
-    {
       "sym": "SILVERTUC",
       "name": "Silver Touch Technologies Ltd",
       "date_added": "2026-05-05",
@@ -3845,6 +3730,13 @@
     },
     "POWERICA": {
       "date_assessed": "2026-11-06",
+      "score": 0,
+      "verdict": "FAIL",
+      "ar_used": false,
+      "snapshot": "Assessment unavailable."
+    },
+    "SHAKTIPUMP": {
+      "date_assessed": "2026-11-10",
       "score": 0,
       "verdict": "FAIL",
       "ar_used": false,

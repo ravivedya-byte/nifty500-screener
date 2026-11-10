@@ -5840,3 +5840,108 @@ date,symbol,name,failed_count,criterion,detail
 2026-11-06,WALCHANNAG,Walchandnagar Industries Ltd,1,Promoter Holding,31.6%,29.9
 2026-11-06,WELENT,Welspun Enterprises Ltd,2,ROE,13.6%,9.3
 2026-11-06,WELENT,Welspun Enterprises Ltd,2,Avg ROCE (3Y),15.8%,12.2
+2026-11-10,20MICRONS,20 Microns Ltd,2,ROE,14.5%,3.3
+2026-11-10,20MICRONS,20 Microns Ltd,2,Revenue CAGR 5Y,9.4%,6.0
+2026-11-10,ABDL,Allied Blenders & Distillers Ltd,2,ROE,14.3%,4.7
+2026-11-10,ABDL,Allied Blenders & Distillers Ltd,2,Revenue CAGR 5Y,9.0%,10.0
+2026-11-10,AEROPLANE,Amir Chand Jagdish Kumar (Exports) Ltd,1,Avg ROCE (3Y),14.3%,20.6
+2026-11-10,ALKYLAMINE,Alkyl Amines Chemicals Ltd,2,FCF / PAT,0.61,18.7
+2026-11-10,ALKYLAMINE,Alkyl Amines Chemicals Ltd,2,PEG Ratio,1.25,25.0
+2026-11-10,AMRUTANJAN,Amrutanjan Health Care Ltd,1,FCF / PAT,0.64,14.7
+2026-11-10,APARINDS,Apar Industries Ltd,1,PEG Ratio,1.11,11.0
+2026-11-10,ARIES,Aries Agro Ltd,1,ROE,12.7%,15.3
+2026-11-10,BANCOINDIA,Banco Products (India) Ltd,1,FCF / PAT,0.71,5.3
+2026-11-10,BASF,BASF India Ltd,1,ROE,10.9%,27.3
+2026-11-10,BBL,Bharat Bijlee Ltd,1,Promoter Holding,33.6%,25.2
+2026-11-10,BHARTIARTL,Bharti Airtel Ltd,1,Debt / Equity,1.26,26.0
+2026-11-10,BLUEDART,Blue Dart Express Ltd,1,Revenue CAGR 5Y,8.3%,17.0
+2026-11-10,BUILDPRO,Shankara Buildpro Ltd,2,FCF / PAT,0.56,25.3
+2026-11-10,BUILDPRO,Shankara Buildpro Ltd,2,Promoter Holding,40.2%,10.7
+2026-11-10,CARRARO,Carraro India Ltd,1,FCF / PAT,0.71,5.3
+2026-11-10,CIEINDIA,CIE Automotive India Ltd,2,ROE,11.8%,21.3
+2026-11-10,CIEINDIA,CIE Automotive India Ltd,2,Revenue CAGR 5Y,8.7%,13.0
+2026-11-10,COALINDIA,Coal India Ltd,1,Revenue CAGR 5Y,9.4%,6.0
+2026-11-10,DATAPATTNS,Data Patterns (India) Ltd,1,Promoter Holding,42.4%,5.8
+2026-11-10,DEEPINDS,Deep Industries Ltd,1,Avg ROCE (3Y),15.0%,16.7
+2026-11-10,DWARKESH,Dwarikesh Sugar Industries Ltd,1,Promoter Holding,42.1%,6.3
+2026-11-10,ESDS,ESDS Software Solution Ltd,1,Promoter Holding,39.5%,12.3
+2026-11-10,FMGOETZE,Federal-Mogul Goetze (India) Ltd,2,ROE,13.5%,10.0
+2026-11-10,FMGOETZE,Federal-Mogul Goetze (India) Ltd,2,Revenue CAGR 5Y,8.3%,17.0
+2026-11-10,FORCEMOT,Force Motors Ltd,1,FCF / PAT,0.68,9.3
+2026-11-10,GANDHAR,Gandhar Oil Refinery (India) Ltd,1,ROE,10.5%,30.0
+2026-11-10,GANESHHOU,Ganesh Housing Ltd,1,Revenue CAGR 5Y,9.0%,10.0
+2026-11-10,GMRAIRPORT,GMR Airports Ltd,1,Avg ROCE (3Y),12.7%,29.4
+2026-11-10,GPPL,Gujarat Pipavav Port Ltd,1,Promoter Holding,44.0%,2.2
+2026-11-10,GREENPANEL,Greenpanel Industries Ltd,1,ROE,11.4%,24.0
+2026-11-10,HEROMOTOCO,Hero MotoCorp Ltd,2,FCF / PAT,0.69,8.0
+2026-11-10,HEROMOTOCO,Hero MotoCorp Ltd,2,Promoter Holding,34.7%,22.8
+2026-11-10,HSCL,Himadri Speciality Chemical Ltd,1,FCF / PAT,0.71,5.3
+2026-11-10,HYUNDAI,Hyundai Motor India Ltd,1,Revenue CAGR 5Y,9.3%,7.0
+2026-11-10,JSL,Jindal Stainless Ltd,1,Revenue CAGR 5Y,7.0%,30.0
+2026-11-10,JYOTHYLAB,Jyothy Labs Ltd,1,PEG Ratio,1.21,21.0
+2026-11-10,KALYANKJIL,Kalyan Jewellers India Ltd,1,Avg ROCE (3Y),17.4%,3.3
+2026-11-10,KIRLOSBROS,Kirloskar Brothers Ltd,1,Revenue CAGR 5Y,9.9%,1.0
+2026-11-10,KIRLPNU,Kirloskar Pneumatic Company Ltd,2,FCF / PAT,0.56,25.3
+2026-11-10,KIRLPNU,Kirloskar Pneumatic Company Ltd,2,Promoter Holding,38.8%,13.8
+2026-11-10,KSOLVES,Ksolves India Ltd,1,FCF / PAT,0.66,12.0
+2026-11-10,LODHA,Lodha Developers Ltd,1,Avg ROCE (3Y),15.6%,13.3
+2026-11-10,LTM,LTM Ltd,1,FCF / PAT,0.53,29.3
+2026-11-10,LUPIN,Lupin Ltd,1,FCF / PAT,0.73,2.7
+2026-11-10,MANGLMCEM,Mangalam Cement Ltd,1,Promoter Holding,40.0%,11.1
+2026-11-10,MAZDOCK,Mazagon Dock Shipbuilders Ltd,1,FCF / PAT,0.71,5.3
+2026-11-10,MBEL,M & B Engineering Ltd,1,FCF / PAT,0.59,21.3
+2026-11-10,MOTHERSON,Samvardhana Motherson International Ltd,2,ROE,11.2%,25.3
+2026-11-10,MOTHERSON,Samvardhana Motherson International Ltd,2,FCF / PAT,0.73,2.7
+2026-11-10,MPSLTD,MPS Ltd,2,FCF / PAT,0.68,9.3
+2026-11-10,MPSLTD,MPS Ltd,2,PEG Ratio,1.24,24.0
+2026-11-10,MRPL,Mangalore Refinery And Petrochemicals Ltd,1,ROE,14.5%,3.3
+2026-11-10,NATIONALUM,National Aluminium Company Ltd,1,Revenue CAGR 5Y,7.6%,24.0
+2026-11-10,NBCC,NBCC (India) Ltd,1,PEG Ratio,1.02,2.0
+2026-11-10,NUCLEUS,Nucleus Software Exports Ltd,2,ROE,13.1%,12.7
+2026-11-10,NUCLEUS,Nucleus Software Exports Ltd,2,Avg ROCE (3Y),14.8%,17.8
+2026-11-10,ONWARDTEC,Onward Technologies Ltd,2,Promoter Holding,40.2%,10.7
+2026-11-10,ONWARDTEC,Onward Technologies Ltd,2,PEG Ratio,1.18,18.0
+2026-11-10,ORIENTELEC,Orient Electric Ltd,1,Promoter Holding,38.3%,14.9
+2026-11-10,PAGEIND,Page Industries Ltd,1,Promoter Holding,42.9%,4.7
+2026-11-10,PICCADIL,Piccadily Agro Industries Ltd,1,PEG Ratio,1.16,16.0
+2026-11-10,PIXTRANS,Pix Transmission Ltd,2,Revenue CAGR 5Y,7.1%,29.0
+2026-11-10,PIXTRANS,Pix Transmission Ltd,2,PEG Ratio,1.08,8.0
+2026-11-10,PPL,Prakash Pipes Ltd,1,Promoter Holding,44.5%,1.1
+2026-11-10,RAJOOENG,Rajoo Engineers Ltd,2,FCF / PAT,0.66,12.0
+2026-11-10,RAJOOENG,Rajoo Engineers Ltd,2,PEG Ratio,1.11,11.0
+2026-11-10,RPGLIFE,RPG Life Sciences Ltd,2,Revenue CAGR 5Y,8.2%,18.0
+2026-11-10,RPGLIFE,RPG Life Sciences Ltd,2,FCF / PAT,0.72,4.0
+2026-11-10,SAGILITY,Sagility Ltd,2,ROE,10.6%,29.3
+2026-11-10,SAGILITY,Sagility Ltd,2,Avg ROCE (3Y),15.8%,12.2
+2026-11-10,SCI,Shipping Corporation of India Ltd,1,Revenue CAGR 5Y,7.8%,22.0
+2026-11-10,SIS,SIS Ltd,2,ROE,13.9%,7.3
+2026-11-10,SIS,SIS Ltd,2,Avg ROCE (3Y),13.8%,23.3
+2026-11-10,SPLPETRO,Supreme Petrochem Ltd,1,ROE,13.7%,8.7
+2026-11-10,SUBROS,Subros Ltd,2,ROE,14.5%,3.3
+2026-11-10,SUBROS,Subros Ltd,2,Promoter Holding,36.8%,18.2
+2026-11-10,SUDARCOLOR,Sudarshan Colorants India Ltd,1,Revenue CAGR 5Y,7.4%,26.0
+2026-11-10,TAJGVK,TajGVK Hotels & Resorts Ltd,2,ROE,12.0%,20.0
+2026-11-10,TAJGVK,TajGVK Hotels & Resorts Ltd,2,Avg ROCE (3Y),17.7%,1.7
+2026-11-10,TATATECH,Tata Technologies Ltd,1,FCF / PAT,0.74,1.3
+2026-11-10,TBOTEK,TBO Tek Ltd,2,Promoter Holding,44.4%,1.3
+2026-11-10,TBOTEK,TBO Tek Ltd,2,PEG Ratio,1.17,17.0
+2026-11-10,TBZ,Tribhovandas Bhimji Zaveri Ltd,2,Debt / Equity,1.13,13.0
+2026-11-10,TBZ,Tribhovandas Bhimji Zaveri Ltd,2,Avg ROCE (3Y),17.8%,1.1
+2026-11-10,TECHNOCRAF,Technocraft Ventures Ltd,1,FCF / PAT,0.58,22.7
+2026-11-10,THYROCARE,Thyrocare Technologies Ltd,1,Revenue CAGR 5Y,9.6%,4.0
+2026-11-10,TIMETECHNO,Time Technoplast Ltd,2,ROE,13.1%,12.7
+2026-11-10,TIMETECHNO,Time Technoplast Ltd,2,FCF / PAT,0.64,14.7
+2026-11-10,TMCV,Tata Motors Ltd,1,Promoter Holding,42.5%,5.5
+2026-11-10,TNPL,Tamil Nadu Newsprint & Papers Ltd,1,Promoter Holding,35.3%,21.5
+2026-11-10,TPLPLASTEH,TPL Plastech Ltd,1,FCF / PAT,0.61,18.7
+2026-11-10,TVSELECT,TVS Electronics Ltd,1,ROE,11.6%,22.7
+2026-11-10,VEEDOL,Veedol Corporation Ltd,1,Revenue CAGR 5Y,9.4%,6.0
+2026-11-10,VENUSPIPES,Venus Pipes & Tubes Ltd,1,Promoter Holding,43.7%,2.9
+2026-11-10,VENUSREM,Venus Remedies Ltd,2,Revenue CAGR 5Y,7.0%,30.0
+2026-11-10,VENUSREM,Venus Remedies Ltd,2,Promoter Holding,41.8%,7.2
+2026-11-10,VISL,Vedanta Iron & Steel Ltd,1,Avg ROCE (3Y),13.2%,26.7
+2026-11-10,VMART,V-Mart Retail Ltd,1,Promoter Holding,44.1%,1.9
+2026-11-10,WAKEFIT,Wakefit Innovations Ltd,1,Promoter Holding,37.1%,17.6
+2026-11-10,WALCHANNAG,Walchandnagar Industries Ltd,1,Promoter Holding,31.6%,29.9
+2026-11-10,WELENT,Welspun Enterprises Ltd,2,ROE,13.6%,9.3
+2026-11-10,WELENT,Welspun Enterprises Ltd,2,Avg ROCE (3Y),15.8%,12.2
