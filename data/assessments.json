@@ -192,7 +192,15 @@
     "substack_url": ""
   },
   "POWERICA": {
-    "date_assessed": "2026-11-05",
+    "date_assessed": "2026-11-06",
+    "score": 0,
+    "verdict": "FAIL",
+    "snapshot": "Assessment unavailable.",
+    "ar_used": false,
+    "substack_url": ""
+  },
+  "SHAKTIPUMP": {
+    "date_assessed": "2026-11-10",
     "score": 0,
     "verdict": "FAIL",
     "snapshot": "Assessment unavailable.",
