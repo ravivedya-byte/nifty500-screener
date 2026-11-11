@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-11-09",
-  "total_scanned": 2645,
-  "total_qualified": 27,
+  "last_updated": "2026-11-11",
+  "total_scanned": 2633,
+  "total_qualified": 28,
   "stocks": [
     {
       "symbol": "ACE",
@@ -93,21 +93,11 @@
     },
     {
       "symbol": "SILVERTUC",
-      "name": "Silver Touch Technologies Ltd",
-      "sector": "Technology",
-      "market_cap_cr": 2033.9,
-      "date_added": "2026-05-05",
-      "metrics": {
-        "de_ratio": 0.2,
-        "roe": 23.6,
-        "revenue_cagr_5y": 17.9,
-        "fcf_to_pat": 0.76,
-        "promoter_holding": 74.62,
-        "promoter_pledge": 0,
-        "peg_ratio": 0.55,
-        "roce_3y_avg": 24.5,
-        "pe_ratio": 56.9
-      }
+      "name": "SILVERTUC",
+      "sector": "",
+      "market_cap_cr": null,
+      "date_added": "2026-11-11",
+      "metrics": {}
     },
     {
       "symbol": "SIYSIL",
@@ -647,6 +637,24 @@
         "peg_ratio": 0.31,
         "roce_3y_avg": 29.0,
         "pe_ratio": 14.3
+      }
+    },
+    {
+      "symbol": "KALYANKJIL",
+      "name": "Kalyan Jewellers India Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 68548.8,
+      "date_added": "2026-11-11",
+      "metrics": {
+        "de_ratio": 0.92,
+        "roe": 24.8,
+        "revenue_cagr_5y": 30.9,
+        "fcf_to_pat": 1.61,
+        "promoter_holding": 62.85,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.91,
+        "roce_3y_avg": 19.5,
+        "pe_ratio": 43.6
       }
     }
   ]
