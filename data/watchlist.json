@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-12",
+  "last_updated": "2026-11-13",
   "total_scanned": 2635,
   "total_qualified": 29,
   "stocks": [
@@ -96,7 +96,7 @@
       "name": "SILVERTUC",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-11-12",
+      "date_added": "2026-11-13",
       "metrics": {}
     },
     {
@@ -643,8 +643,8 @@
       "symbol": "KALYANKJIL",
       "name": "Kalyan Jewellers India Ltd",
       "sector": "Consumer Cyclical",
-      "market_cap_cr": 73418.3,
-      "date_added": "2026-11-12",
+      "market_cap_cr": 71982.7,
+      "date_added": "2026-11-13",
       "metrics": {
         "de_ratio": 0.92,
         "roe": 24.8,
@@ -652,9 +652,9 @@
         "fcf_to_pat": 1.61,
         "promoter_holding": 62.85,
         "promoter_pledge": 0,
-        "peg_ratio": 0.97,
+        "peg_ratio": 0.95,
         "roce_3y_avg": 19.5,
-        "pe_ratio": 46.7
+        "pe_ratio": 45.8
       }
     }
   ]
