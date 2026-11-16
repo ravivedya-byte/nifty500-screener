@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-11-13",
-  "total_scanned": 2635,
-  "total_qualified": 29,
+  "last_updated": "2026-11-16",
+  "total_scanned": 2646,
+  "total_qualified": 30,
   "stocks": [
     {
       "symbol": "ACE",
@@ -96,7 +96,7 @@
       "name": "SILVERTUC",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-11-13",
+      "date_added": "2026-11-16",
       "metrics": {}
     },
     {
@@ -640,11 +640,29 @@
       }
     },
     {
+      "symbol": "CARRARO",
+      "name": "Carraro India Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 2740.8,
+      "date_added": "2026-11-16",
+      "metrics": {
+        "de_ratio": 0.33,
+        "roe": 26.7,
+        "revenue_cagr_5y": 10.0,
+        "fcf_to_pat": 1.95,
+        "promoter_holding": 68.77,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.44,
+        "roce_3y_avg": 28.1,
+        "pe_ratio": 19.2
+      }
+    },
+    {
       "symbol": "KALYANKJIL",
       "name": "Kalyan Jewellers India Ltd",
       "sector": "Consumer Cyclical",
-      "market_cap_cr": 71982.7,
-      "date_added": "2026-11-13",
+      "market_cap_cr": 73134.3,
+      "date_added": "2026-11-16",
       "metrics": {
         "de_ratio": 0.92,
         "roe": 24.8,
@@ -652,9 +670,45 @@
         "fcf_to_pat": 1.61,
         "promoter_holding": 62.85,
         "promoter_pledge": 0,
-        "peg_ratio": 0.95,
+        "peg_ratio": 0.97,
         "roce_3y_avg": 19.5,
-        "pe_ratio": 45.8
+        "pe_ratio": 46.5
+      }
+    },
+    {
+      "symbol": "TENNIND",
+      "name": "Tenneco Clean Air India Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 17457.9,
+      "date_added": "2026-11-16",
+      "metrics": {
+        "de_ratio": 0.03,
+        "roe": 44.4,
+        "revenue_cagr_5y": 31.2,
+        "fcf_to_pat": 3.33,
+        "promoter_holding": 59.79,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.6,
+        "roce_3y_avg": 62.2,
+        "pe_ratio": 27.2
+      }
+    },
+    {
+      "symbol": "TPLPLASTEH",
+      "name": "TPL Plastech Ltd",
+      "sector": "Consumer Cyclical",
+      "market_cap_cr": 562.6,
+      "date_added": "2026-11-16",
+      "metrics": {
+        "de_ratio": 0.21,
+        "roe": 18.3,
+        "revenue_cagr_5y": 24.0,
+        "fcf_to_pat": 0.84,
+        "promoter_holding": 74.86,
+        "promoter_pledge": 0,
+        "peg_ratio": 0.57,
+        "roce_3y_avg": 23.7,
+        "pe_ratio": 17.8
       }
     }
   ]
