@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-11-23",
-  "total_scanned": 2643,
+  "last_updated": "2026-11-24",
+  "total_scanned": 2632,
   "total_qualified": 30,
   "stocks": [
     {
@@ -96,7 +96,7 @@
       "name": "SILVERTUC",
       "sector": "",
       "market_cap_cr": null,
-      "date_added": "2026-11-24",
+      "date_added": "2026-11-25",
       "metrics": {}
     },
     {
@@ -680,7 +680,7 @@
       "name": "Tenneco Clean Air India Ltd",
       "sector": "Consumer Cyclical",
       "market_cap_cr": 17776.8,
-      "date_added": "2026-11-24",
+      "date_added": "2026-11-25",
       "metrics": {
         "de_ratio": 0.03,
         "roe": 44.4,
@@ -698,7 +698,7 @@
       "name": "TPL Plastech Ltd",
       "sector": "Consumer Cyclical",
       "market_cap_cr": 553.2,
-      "date_added": "2026-11-24",
+      "date_added": "2026-11-25",
       "metrics": {
         "de_ratio": 0.21,
         "roe": 18.3,
