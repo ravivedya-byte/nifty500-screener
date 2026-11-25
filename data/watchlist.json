@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-24",
+  "last_updated": "2026-11-25",
   "total_scanned": 2632,
   "total_qualified": 30,
   "stocks": [
@@ -643,8 +643,8 @@
       "symbol": "CARRARO",
       "name": "Carraro India Ltd",
       "sector": "Consumer Cyclical",
-      "market_cap_cr": 2675.4,
-      "date_added": "2026-11-24",
+      "market_cap_cr": 2762.7,
+      "date_added": "2026-11-25",
       "metrics": {
         "de_ratio": 0.33,
         "roe": 26.7,
@@ -652,17 +652,17 @@
         "fcf_to_pat": 1.95,
         "promoter_holding": 68.77,
         "promoter_pledge": 0,
-        "peg_ratio": 0.43,
+        "peg_ratio": 0.44,
         "roce_3y_avg": 28.1,
-        "pe_ratio": 18.7
+        "pe_ratio": 19.3
       }
     },
     {
       "symbol": "KALYANKJIL",
       "name": "Kalyan Jewellers India Ltd",
       "sector": "Consumer Cyclical",
-      "market_cap_cr": 67428.3,
-      "date_added": "2026-11-24",
+      "market_cap_cr": 65719.1,
+      "date_added": "2026-11-25",
       "metrics": {
         "de_ratio": 0.92,
         "roe": 24.8,
@@ -670,16 +670,16 @@
         "fcf_to_pat": 1.61,
         "promoter_holding": 62.85,
         "promoter_pledge": 0,
-        "peg_ratio": 0.89,
+        "peg_ratio": 0.87,
         "roce_3y_avg": 19.5,
-        "pe_ratio": 42.8
+        "pe_ratio": 41.8
       }
     },
     {
       "symbol": "TENNIND",
       "name": "Tenneco Clean Air India Ltd",
       "sector": "Consumer Cyclical",
-      "market_cap_cr": 17776.8,
+      "market_cap_cr": 17996.7,
       "date_added": "2026-11-25",
       "metrics": {
         "de_ratio": 0.03,
@@ -688,16 +688,16 @@
         "fcf_to_pat": 3.33,
         "promoter_holding": 59.79,
         "promoter_pledge": 0,
-        "peg_ratio": 0.61,
+        "peg_ratio": 0.62,
         "roce_3y_avg": 62.2,
-        "pe_ratio": 27.7
+        "pe_ratio": 28.0
       }
     },
     {
       "symbol": "TPLPLASTEH",
       "name": "TPL Plastech Ltd",
       "sector": "Consumer Cyclical",
-      "market_cap_cr": 553.2,
+      "market_cap_cr": 564.2,
       "date_added": "2026-11-25",
       "metrics": {
         "de_ratio": 0.21,
@@ -706,9 +706,9 @@
         "fcf_to_pat": 0.84,
         "promoter_holding": 74.86,
         "promoter_pledge": 0,
-        "peg_ratio": 0.56,
+        "peg_ratio": 0.57,
         "roce_3y_avg": 23.7,
-        "pe_ratio": 17.5
+        "pe_ratio": 17.8
       }
     }
   ]
