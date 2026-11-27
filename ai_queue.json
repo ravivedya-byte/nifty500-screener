@@ -1,119 +1,6 @@
 {
   "pending": [
     {
-      "sym": "SILVERTUC",
-      "name": "Silver Touch Technologies Ltd",
-      "date_added": "2026-05-05",
-      "data": {
-        "company_name": "Silver Touch Technologies Ltd",
-        "about": "",
-        "roe": 23.6,
-        "de_ratio": 0.2,
-        "pe_ratio": 56.9,
-        "peg_ratio": 0.55,
-        "eps_growth_5y": 103.9,
-        "revenue_growth_5y": 17.9,
-        "roce_3y_avg": 24.5,
-        "roce_history": [
-          4.8,
-          14.0,
-          16.0,
-          20.2,
-          21.5,
-          31.7
-        ],
-        "fcf_to_pat": 0.76,
-        "promoter_holding": 74.62,
-        "promoter_pledge": null,
-        "promoter_trend": "stable",
-        "inventory_ratio": null,
-        "receivables_ratio": null,
-        "margin_contracting": false,
-        "_sales_cr": [
-          140.0,
-          164.0,
-          224.0,
-          288.0,
-          346.0
-        ],
-        "_eps": [
-          0.51,
-          0.76,
-          1.26,
-          1.75,
-          2.82
-        ],
-        "_roce": [
-          14.0,
-          16.0,
-          20.2,
-          21.5,
-          31.7
-        ],
-        "_opm": [
-          11.2,
-          13.2,
-          18.5
-        ]
-      },
-      "basic": {
-        "symbol": "SILVERTUC",
-        "name": "Silver Touch Technologies Limited",
-        "sector": "Technology",
-        "industry": "Information Technology Services",
-        "market_cap_cr": 2033.9,
-        "pe_yf": 63.9
-      },
-      "criteria": {
-        "Market Cap": {
-          "value": 2033.9,
-          "pass": true,
-          "label": "Rs2,034Cr"
-        },
-        "Debt / Equity": {
-          "value": 0.2,
-          "pass": true,
-          "label": "0.20"
-        },
-        "ROE": {
-          "value": 23.6,
-          "pass": true,
-          "label": "23.6%"
-        },
-        "Revenue CAGR 5Y": {
-          "value": 17.9,
-          "pass": true,
-          "label": "17.9%"
-        },
-        "Avg ROCE (3Y)": {
-          "value": 24.5,
-          "pass": true,
-          "label": "24.5%  hist:[14.0, 16.0, 20.2, 21.5, 31.7]"
-        },
-        "FCF / PAT": {
-          "value": 0.76,
-          "pass": true,
-          "label": "0.76"
-        },
-        "Promoter Holding": {
-          "value": 74.62,
-          "pass": true,
-          "label": "74.6%"
-        },
-        "Promoter Pledge": {
-          "value": null,
-          "pass": true,
-          "label": "0%(nil)"
-        },
-        "PEG Ratio": {
-          "value": 0.55,
-          "pass": true,
-          "label": "0.55"
-        }
-      },
-      "soft_flags": []
-    },
-    {
       "sym": "SIYSIL",
       "name": "Siyaram Silk Mills Ltd",
       "date_added": "2026-05-05",
@@ -3512,6 +3399,466 @@
         }
       },
       "soft_flags": []
+    },
+    {
+      "sym": "CARRARO",
+      "name": "Carraro India Ltd",
+      "date_added": "2026-11-27",
+      "data": {
+        "company_name": "Carraro India Ltd",
+        "about": "",
+        "bse_code": "544320",
+        "roe": 26.7,
+        "de_ratio": 0.33,
+        "pe_ratio": 19.6,
+        "peg_ratio": 0.45,
+        "eps_growth_5y": 43.5,
+        "revenue_growth_5y": 10.0,
+        "roce_3y_avg": 28.1,
+        "roce_history": [
+          12.6,
+          19.8,
+          22.5,
+          26.3,
+          30.4,
+          27.7
+        ],
+        "fcf_to_pat": 1.95,
+        "promoter_holding": 68.77,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          1713.0,
+          1789.0,
+          1808.0,
+          2255.0,
+          2417.0
+        ],
+        "_eps": [
+          8.52,
+          11.0,
+          15.5,
+          22.97,
+          23.96
+        ],
+        "_roce": [
+          19.8,
+          22.5,
+          26.3,
+          30.4,
+          27.7
+        ],
+        "_opm": [
+          9.5,
+          9.7,
+          9.1
+        ]
+      },
+      "basic": {
+        "symbol": "CARRARO",
+        "name": "Carraro India Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Parts",
+        "market_cap_cr": 2801.1,
+        "pe_yf": 20.56
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 2801.1,
+          "pass": true,
+          "label": "Rs2,801Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.33,
+          "pass": true,
+          "label": "0.33"
+        },
+        "ROE": {
+          "value": 26.7,
+          "pass": true,
+          "label": "26.7%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 10.0,
+          "pass": true,
+          "label": "10.0%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 28.1,
+          "pass": true,
+          "label": "28.1%"
+        },
+        "FCF / PAT": {
+          "value": 1.95,
+          "pass": true,
+          "label": "1.95"
+        },
+        "Promoter Holding": {
+          "value": 68.77,
+          "pass": true,
+          "label": "68.8%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.45,
+          "pass": true,
+          "label": "0.45"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "KALYANKJIL",
+      "name": "Kalyan Jewellers India Ltd",
+      "date_added": "2026-11-27",
+      "data": {
+        "company_name": "Kalyan Jewellers India Ltd",
+        "about": "",
+        "bse_code": "543278",
+        "roe": 24.8,
+        "de_ratio": 0.92,
+        "pe_ratio": 43.3,
+        "peg_ratio": 0.9,
+        "eps_growth_5y": 48.1,
+        "revenue_growth_5y": 30.9,
+        "roce_3y_avg": 19.5,
+        "roce_history": [
+          11.9,
+          14.7,
+          15.4,
+          16.2,
+          20.6,
+          21.6
+        ],
+        "fcf_to_pat": 1.61,
+        "promoter_holding": 62.85,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          14071.0,
+          18516.0,
+          25045.0,
+          35743.0,
+          41530.0
+        ],
+        "_eps": [
+          4.2,
+          5.8,
+          6.93,
+          13.08,
+          15.52
+        ],
+        "_roce": [
+          14.7,
+          15.4,
+          16.2,
+          20.6,
+          21.6
+        ],
+        "_opm": [
+          6.3,
+          7.2,
+          6.7
+        ]
+      },
+      "basic": {
+        "symbol": "KALYANKJIL",
+        "name": "Kalyan Jewellers India Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Luxury Goods",
+        "market_cap_cr": 68109.9,
+        "pe_yf": 42.58
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 68109.9,
+          "pass": true,
+          "label": "Rs68,110Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.92,
+          "pass": true,
+          "label": "0.92"
+        },
+        "ROE": {
+          "value": 24.8,
+          "pass": true,
+          "label": "24.8%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 30.9,
+          "pass": true,
+          "label": "30.9%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 19.5,
+          "pass": true,
+          "label": "19.5%"
+        },
+        "FCF / PAT": {
+          "value": 1.61,
+          "pass": true,
+          "label": "1.61"
+        },
+        "Promoter Holding": {
+          "value": 62.85,
+          "pass": true,
+          "label": "62.9%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.9,
+          "pass": true,
+          "label": "0.90"
+        }
+      },
+      "soft_flags": []
+    },
+    {
+      "sym": "TENNIND",
+      "name": "Tenneco Clean Air India Ltd",
+      "date_added": "2026-11-27",
+      "data": {
+        "company_name": "Tenneco Clean Air India Ltd",
+        "about": "",
+        "bse_code": "544612",
+        "roe": 44.4,
+        "de_ratio": 0.03,
+        "pe_ratio": 28.2,
+        "peg_ratio": 0.62,
+        "eps_growth_5y": 45.2,
+        "revenue_growth_5y": 31.2,
+        "roce_3y_avg": 62.2,
+        "roce_history": [
+          40.8,
+          46.1,
+          61.6,
+          50.0,
+          74.0,
+          62.7
+        ],
+        "fcf_to_pat": 3.33,
+        "promoter_holding": 59.79,
+        "promoter_pledge": null,
+        "promoter_trend": "decreasing",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": false,
+        "_sales_cr": [
+          4827.0,
+          5468.0,
+          4890.0,
+          5404.0,
+          6101.0
+        ],
+        "_eps": [
+          9.44,
+          10.32,
+          13.68,
+          14.95,
+          15.45
+        ],
+        "_roce": [
+          46.1,
+          61.6,
+          50.0,
+          74.0,
+          62.7
+        ],
+        "_opm": [
+          16.7,
+          17.1,
+          16.2
+        ]
+      },
+      "basic": {
+        "symbol": "TENNIND",
+        "name": "Tenneco Clean Air India Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Parts",
+        "market_cap_cr": 18150.1,
+        "pe_yf": 29.11
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 18150.1,
+          "pass": true,
+          "label": "Rs18,150Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.03,
+          "pass": true,
+          "label": "0.03"
+        },
+        "ROE": {
+          "value": 44.4,
+          "pass": true,
+          "label": "44.4%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 31.2,
+          "pass": true,
+          "label": "31.2%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 62.2,
+          "pass": true,
+          "label": "62.2%"
+        },
+        "FCF / PAT": {
+          "value": 3.33,
+          "pass": true,
+          "label": "3.33"
+        },
+        "Promoter Holding": {
+          "value": 59.79,
+          "pass": true,
+          "label": "59.8%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.62,
+          "pass": true,
+          "label": "0.62"
+        }
+      },
+      "soft_flags": [
+        "Promoter holding declining QoQ (59.8%)"
+      ]
+    },
+    {
+      "sym": "TPLPLASTEH",
+      "name": "TPL Plastech Ltd",
+      "date_added": "2026-11-27",
+      "data": {
+        "company_name": "TPL Plastech Ltd",
+        "about": "",
+        "bse_code": "526582",
+        "roe": 18.3,
+        "de_ratio": 0.21,
+        "pe_ratio": 18.1,
+        "peg_ratio": 0.57,
+        "eps_growth_5y": 31.5,
+        "revenue_growth_5y": 24.0,
+        "roce_3y_avg": 23.7,
+        "roce_history": [
+          16.5,
+          18.8,
+          22.2,
+          21.1,
+          25.5,
+          24.6
+        ],
+        "fcf_to_pat": 0.84,
+        "promoter_holding": 74.86,
+        "promoter_pledge": null,
+        "promoter_trend": "stable",
+        "inventory_ratio": null,
+        "receivables_ratio": null,
+        "margin_contracting": true,
+        "_sales_cr": [
+          271.0,
+          313.0,
+          349.0,
+          423.0,
+          499.0
+        ],
+        "_eps": [
+          2.06,
+          2.54,
+          3.02,
+          3.73,
+          4.05
+        ],
+        "_roce": [
+          18.8,
+          22.2,
+          21.1,
+          25.5,
+          24.6
+        ],
+        "_opm": [
+          11.7,
+          11.3,
+          10.4
+        ]
+      },
+      "basic": {
+        "symbol": "TPLPLASTEH",
+        "name": "TPL Plastech Limited",
+        "sector": "Consumer Cyclical",
+        "industry": "Packaging & Containers",
+        "market_cap_cr": 573.6,
+        "pe_yf": 18.16
+      },
+      "criteria": {
+        "Market Cap": {
+          "value": 573.6,
+          "pass": true,
+          "label": "Rs574Cr"
+        },
+        "Debt / Equity": {
+          "value": 0.21,
+          "pass": true,
+          "label": "0.21"
+        },
+        "ROE": {
+          "value": 18.3,
+          "pass": true,
+          "label": "18.3%"
+        },
+        "Revenue CAGR 5Y": {
+          "value": 24.0,
+          "pass": true,
+          "label": "24.0%"
+        },
+        "Avg ROCE (3Y)": {
+          "value": 23.7,
+          "pass": true,
+          "label": "23.7%"
+        },
+        "FCF / PAT": {
+          "value": 0.84,
+          "pass": true,
+          "label": "0.84"
+        },
+        "Promoter Holding": {
+          "value": 74.86,
+          "pass": true,
+          "label": "74.9%"
+        },
+        "Promoter Pledge": {
+          "value": null,
+          "pass": true,
+          "label": "0% (nil)"
+        },
+        "PEG Ratio": {
+          "value": 0.57,
+          "pass": true,
+          "label": "0.57"
+        }
+      },
+      "soft_flags": [
+        "Operating margin contracting over last 3 years"
+      ]
     }
   ],
   "assessed": {
@@ -3737,6 +4084,13 @@
     },
     "SHAKTIPUMP": {
       "date_assessed": "2026-11-10",
+      "score": 0,
+      "verdict": "FAIL",
+      "ar_used": false,
+      "snapshot": "Assessment unavailable."
+    },
+    "SILVERTUC": {
+      "date_assessed": "2026-11-27",
       "score": 0,
       "verdict": "FAIL",
       "ar_used": false,
